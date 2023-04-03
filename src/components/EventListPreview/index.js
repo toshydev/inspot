@@ -1,6 +1,11 @@
 import StyledListItem from "../StyledListItem";
-import StyledDivider from "../StyledDivider";
 import shortenText from "../../utils/shortenText";
+import styled from "styled-components";
+
+const StyledEventPreviewDate = styled.time`
+  width: 35%;
+  text-align: center;
+`;
 
 export default function EventListPreview({ event }) {
   const date = new Date(event.startDate);
@@ -8,12 +13,11 @@ export default function EventListPreview({ event }) {
   return (
     <>
       <StyledListItem>
-        <time dateTime={event.startDate} aria-label="date">
+        <StyledEventPreviewDate dateTime={event.startDate} aria-label="date">
           {formattedDate}
-        </time>
+        </StyledEventPreviewDate>
         <h4 aria-label={event.title}>{shortenText(event.title)}</h4>
       </StyledListItem>
-      <StyledDivider />
     </>
   );
 }
