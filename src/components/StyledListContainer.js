@@ -8,7 +8,6 @@ const StyledListContainer = styled.ul`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 1rem;
 `;
 
 export default StyledListContainer;
