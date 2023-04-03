@@ -4,6 +4,7 @@ import { events } from "~/lib/data";
 import { uniqueCities } from "~/utils/getCities";
 
 export default function App({ Component, pageProps }) {
+  console.log(eventsWithId);
   return (
     <>
       <GlobalStyle />
