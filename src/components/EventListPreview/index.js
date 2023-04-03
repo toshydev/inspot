@@ -1,5 +1,6 @@
 import StyledListItem from "../StyledListItem";
 import StyledDivider from "../StyledDivider";
+import shortenText from "../../utils/shortenText";
 
 export default function EventListPreview({ event }) {
   return (
@@ -12,7 +13,7 @@ export default function EventListPreview({ event }) {
           5,
           7
         )}.${event.startDate.slice(0, 4)}`}</time>
-        <h4 aria-label="title">{event.title}</h4>
+        <h4 aria-label="title">{shortenText(event.title)}</h4>
       </StyledListItem>
       <StyledDivider />
     </>

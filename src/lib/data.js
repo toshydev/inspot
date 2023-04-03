@@ -256,7 +256,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [53.5439, 9.9884],
-      address: "Kehrwieder 2-4/Block D 20457 Hamburg Germany",
+      address: "Kehrwieder 2-4/Block D, 20457 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4910",
   },
@@ -289,7 +289,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [53.5497, 9.9773],
-      address: "Englische Planke 1 20459 Hamburg Germany",
+      address: "Englische Planke 1, 20459 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4912",
   },
@@ -459,7 +459,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.941278, 6.958281],
-      address: "Domkloster 3, 50667 Köln, Germany",
+      address: "Domkloster 3, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
   },
@@ -477,7 +477,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.940321, 6.960449],
-      address: "Bischofsgartenstraße 1, 50667 Köln, Germany",
+      address: "Bischofsgartenstraße 1, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
   },
@@ -495,7 +495,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.938944, 6.968676],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
   },
@@ -511,7 +511,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9412787, 6.9582811],
-      address: "Domkloster 4, 50667 Köln, Germany",
+      address: "Domkloster 4, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
   },
@@ -527,7 +527,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9402695, 6.9659261],
-      address: "Heinrich-Böll-Platz, 50667 Köln, Germany",
+      address: "Heinrich-Böll-Platz, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
   },
@@ -543,7 +543,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9333978, 6.9667548],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
   },
@@ -559,7 +559,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9363544, 6.9603091],
-      address: "Obenmarspforten, 50667 Köln, Germany",
+      address: "Obenmarspforten, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4922",
   },
@@ -577,7 +577,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.960279, 50.941278],
-      address: "Domkloster 4, 50667 Köln, Germany",
+      address: "Domkloster 4, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
   },
@@ -594,7 +594,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.960424, 50.941185],
-      address: "Heinrich-Böll-Platz, 50667 Köln, Germany",
+      address: "Heinrich-Böll-Platz, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
   },
@@ -612,7 +612,7 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.971858, 50.936527],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
   },
