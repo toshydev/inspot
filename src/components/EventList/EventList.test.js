@@ -78,6 +78,6 @@ const testEvents = [
 
 test("renders all events in the EventList", () => {
   render(<EventList events={testEvents} />);
-  const events = screen.getAllByRole("heading", { name: "title" });
+  const events = screen.getAllByRole("heading");
   expect(events).toHaveLength(testEvents.length);
 });

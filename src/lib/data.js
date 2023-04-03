@@ -16,6 +16,7 @@ export const events = [
     organizer: "614429dbdc0450d0ce264f07",
     created_at: "2023-04-01T00:00:00.000Z",
     updated_at: "2023-04-01T00:00:00.000Z",
+    id: "116b4e87150",
   },
   {
     title: "Discover Munich Walking Tour",
@@ -34,6 +35,7 @@ export const events = [
       address: "Marienplatz, 80331 Munich, Germany",
     },
     organizer: "614429dbdc0450d0ce264f07",
+    id: "16b4e871502",
   },
   {
     title: "Beethoven's 9th Symphony",
@@ -53,6 +55,7 @@ export const events = [
         "Philharmonie im Gasteig, Rosenheimer Str. 5, 81667 Munich, Germany",
     },
     organizer: "61442d6adc0450d0ce264f09",
+    id: "6b4e8715024",
   },
   {
     title: "Munich Spring Festival",
@@ -69,6 +72,7 @@ export const events = [
       address: "Theresienwiese, Bavariaring, 80336 Munich, Germany",
     },
     organizer: "61442d16dc0450d0ce264f08",
+    id: "b4e8715024b",
   },
   {
     title: "Munich Film Festival",
@@ -83,6 +87,7 @@ export const events = [
       address: "Gasteig, Rosenheimer Str. 5, 81667 Munich, Germany",
     },
     organizer: "61442d6adc0450d0ce264f09",
+    id: "4e8715024b8",
   },
   {
     title: "Bavarian Beer Tasting",
@@ -102,6 +107,7 @@ export const events = [
         "Bier- und Oktoberfestmuseum, Sterneckerstraße 2, 80331 Munich, Germany",
     },
     organizer: "614429dbdc0450d0ce264f07",
+    id: "e8715024b8c",
   },
   {
     title: "Classical Music in Nymphenburg Palace",
@@ -118,6 +124,7 @@ export const events = [
       address: "Schloss Nymphenburg, Eingang 19, 80638 Munich, Germany",
     },
     organizer: "61442d6adc0450d0ce264f09",
+    id: "8715024b8c0",
   },
   {
     title: "BMW Driving Experience",
@@ -135,6 +142,7 @@ export const events = [
       address: "BMW Welt, Am Olympiapark 1, 80809 Munich, Germany",
     },
     organizer: "61442db5dc0450d0ce264f0a",
+    id: "715024b8c08",
   },
   {
     title: "Brandenburg Gate Night Tour",
@@ -153,6 +161,7 @@ export const events = [
       address: "Pariser Platz 1, 10117 Berlin, Germany",
     },
     organizer: "62427e1dbfbaa6d9b6fb58a1",
+    id: "15024b8c085",
   },
   {
     title: "Berlin Wall Memorial Walking Tour",
@@ -171,6 +180,7 @@ export const events = [
       address: "Bernauer Str. 119, 13355 Berlin, Germany",
     },
     organizer: "62427e79bfbaa6d9b6fb58a2",
+    id: "5024b8c0851",
   },
   {
     title: "Beethoven's Symphony No. 9",
@@ -189,6 +199,7 @@ export const events = [
       address: "Herbert-von-Karajan-Straße 1, 10785 Berlin, Germany",
     },
     organizer: "62427ed0bfbaa6d9b6fb58a3",
+    id: "024b8c08515",
   },
   {
     title: "Berlin Street Art Tour",
@@ -207,6 +218,7 @@ export const events = [
       address: "Kreuzberg, 10997 Berlin, Germany",
     },
     organizer: "62427e1dbfbaa6d9b6fb58a1",
+    id: "24b8c085158",
   },
   {
     title: "Berlin Beer Festival",
@@ -225,6 +237,7 @@ export const events = [
       address: "Karl-Marx-Allee 93, 10243 Berlin, Germany",
     },
     organizer: "62427e79bfbaa6d9b6fb58a2",
+    id: "4b8c085158e",
   },
   {
     title: "Berlin International Film Festival",
@@ -243,6 +256,7 @@ export const events = [
       address: "Potsdamer Platz 10, 10785 Berlin, Germany",
     },
     organizer: "62427ed0bfbaa6d9b6fb58a3",
+    id: "b8c085158e3",
   },
   {
     title: "Miniature Train Show",
@@ -256,9 +270,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [53.5439, 9.9884],
-      address: "Kehrwieder 2-4/Block D 20457 Hamburg Germany",
+      address: "Kehrwieder 2-4/Block D, 20457 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4910",
+    id: "8c085158e36",
   },
   {
     title: "Classical Music Concert",
@@ -275,6 +290,7 @@ export const events = [
       address: "Platz der Deutschen Einheit 1, 20457 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4911",
+    id: "c085158e365",
   },
   {
     title: "Concert at St. Michaelis Church",
@@ -289,9 +305,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [53.5497, 9.9773],
-      address: "Englische Planke 1 20459 Hamburg Germany",
+      address: "Englische Planke 1, 20459 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4912",
+    id: "085158e3650",
   },
   {
     title: "City Hall Tour",
@@ -309,6 +326,7 @@ export const events = [
       address: "Rathausmarkt 1, 20095 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4913",
+    id: "85158e36508",
   },
   {
     title: "Christmas Wonderland",
@@ -326,6 +344,7 @@ export const events = [
       address: "Kehrwieder 2-4/Block D, 20457 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4910",
+    id: "5158e365085",
   },
   {
     title: "Classical Music Concert",
@@ -344,6 +363,7 @@ export const events = [
       address: "Platz der Deutschen Einheit 1, 20457 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4911",
+    id: "158e365085d",
   },
   {
     title: "Church Service",
@@ -362,6 +382,7 @@ export const events = [
       address: "Englische Planke 1, 20459 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4912",
+    id: "58e365085d6",
   },
   {
     title: "City Hall Tour",
@@ -379,6 +400,7 @@ export const events = [
       address: "Rathausmarkt 1, 20095 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4913",
+    id: "8e365085d6c",
   },
   {
     title: "Hamburg Marathon",
@@ -395,6 +417,7 @@ export const events = [
       address: "Jungfernstieg, 20354 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4910",
+    id: "e365085d6c6",
   },
   {
     title: "Open Air Movie Night",
@@ -411,6 +434,7 @@ export const events = [
       address: "Sternschanze, 20357 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4911",
+    id: "365085d6c6f",
   },
   {
     title: "Hamburg Fish Market",
@@ -428,6 +452,7 @@ export const events = [
       address: "Große Elbstraße 9, 22767 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4912",
+    id: "65085d6c6f8",
   },
   {
     title: "City Bike Tour",
@@ -444,6 +469,7 @@ export const events = [
       address: "Rathausmarkt, 20095 Hamburg, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4913",
+    id: "5085d6c6f86",
   },
   {
     title: "Cathedral Tour",
@@ -459,9 +485,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.941278, 6.958281],
-      address: "Domkloster 3, 50667 Köln, Germany",
+      address: "Domkloster 3, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
+    id: "085d6c6f86e",
   },
   {
     title: "Museum Exhibit Opening",
@@ -477,9 +504,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.940321, 6.960449],
-      address: "Bischofsgartenstraße 1, 50667 Köln, Germany",
+      address: "Bischofsgartenstraße 1, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
+    id: "85d6c6f86e3",
   },
   {
     title: "Chocolate Tasting",
@@ -495,9 +523,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.938944, 6.968676],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
+    id: "5d6c6f86e3c",
   },
   {
     title: "Easter Mass",
@@ -511,9 +540,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9412787, 6.9582811],
-      address: "Domkloster 4, 50667 Köln, Germany",
+      address: "Domkloster 4, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
+    id: "d6c6f86e3cb",
   },
   {
     title: "Andy Warhol Exhibition",
@@ -527,9 +557,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9402695, 6.9659261],
-      address: "Heinrich-Böll-Platz, 50667 Köln, Germany",
+      address: "Heinrich-Böll-Platz, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
+    id: "6c6f86e3cbc",
   },
   {
     title: "Chocolate Tasting",
@@ -543,9 +574,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9333978, 6.9667548],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
+    id: "c6f86e3cbcd",
   },
   {
     title: "Picasso Exhibition",
@@ -559,9 +591,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [50.9363544, 6.9603091],
-      address: "Obenmarspforten, 50667 Köln, Germany",
+      address: "Obenmarspforten, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4922",
+    id: "6f86e3cbcd9",
   },
   {
     title: "Night Tour of Cologne Cathedral",
@@ -577,9 +610,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.960279, 50.941278],
-      address: "Domkloster 4, 50667 Köln, Germany",
+      address: "Domkloster 4, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4919",
+    id: "f86e3cbcd99",
   },
   {
     title: "Modern Art Exhibition",
@@ -594,9 +628,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.960424, 50.941185],
-      address: "Heinrich-Böll-Platz, 50667 Köln, Germany",
+      address: "Heinrich-Böll-Platz, 50667 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4920",
+    id: "86e3cbcd99b",
   },
   {
     title: "Chocolate Tasting Workshop",
@@ -612,9 +647,10 @@ export const events = [
     location: {
       type: "Point",
       coordinates: [6.971858, 50.936527],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      address: "Am Schokoladenmuseum 1a, 50678 Cologne, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4921",
+    id: "6e3cbcd99b6",
   },
   {
     title: "Goethe's 271st Birthday Celebration",
@@ -633,6 +669,7 @@ export const events = [
       address: "Großer Hirschgraben 23-25, 60311 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4930",
+    id: "e3cbcd99b6e",
   },
   {
     title: "Guided Tour of the Städel Museum's Collection",
@@ -651,6 +688,7 @@ export const events = [
       address: "Schaumainkai 63, 60596 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4931",
+    id: "3cbcd99b6e0",
   },
   {
     title: "Organ Recital in Frankfurt Cathedral",
@@ -669,6 +707,7 @@ export const events = [
       address: "Domplatz 1, 60311 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4932",
+    id: "cbcd99b6e06",
   },
   {
     title: "Goethe's 272nd Birthday Celebration",
@@ -686,6 +725,7 @@ export const events = [
       address: "Großer Hirschgraben 23-25, 60311 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4930",
+    id: "bcd99b6e06e",
   },
   {
     title: "Picasso Exhibition",
@@ -704,6 +744,7 @@ export const events = [
       address: "Schaumainkai 63, 60596 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4931",
+    id: "cd99b6e06ec",
   },
   {
     title: "Cathedral Organ Concert",
@@ -722,5 +763,6 @@ export const events = [
       address: "Domplatz 1, 60311 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4932",
+    id: "d99b6e06ec1",
   },
 ];
