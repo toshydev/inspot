@@ -61,9 +61,9 @@ const StyledDescription = styled.section`
 `;
 
 export default function EventDetail({ event }) {
-  const startDate = new Date(event.startDate);
+  const date = new Date(event.startDate);
   const endDate = new Date(event.endDate);
-  const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(startDate);
+  const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
   const formattedEndDate = new Intl.DateTimeFormat("de-DE").format(endDate);
   return (
     <>
@@ -74,27 +74,27 @@ export default function EventDetail({ event }) {
         <StyledTypeHeadline>#{event.type}</StyledTypeHeadline>
         <StyledDateSection>
           Date:
-          <time aria-label="start date" dateTime={event.startDate}>
+          <time aria-label="start date" datetime={formattedStartDate}>
             <strong>{formattedStartDate}</strong>
           </time>
           -
-          <time aria-label="end date" dateTime={event.endDate}>
+          <time aria-label="end date" datetime={formattedEndDate}>
             <strong>{formattedEndDate}</strong>
           </time>
         </StyledDateSection>
         <StyledTimeSection>
           <p>Start:</p>
-          <time aria-label="start time" dateTime={event.startTime}>
+          <time aria-label="start time" datetime={event.startTime}>
             {event.startTime}
           </time>
           <p>End:</p>
-          <time aria-label="end time" dateTime={event.endTime}>
+          <time aria-label="end time" datetime={event.endTime}>
             {event.endTime}
           </time>
         </StyledTimeSection>
         <StyledAddressSection>
           <p>Address:</p>
-          <address>{event.location.address}</address>
+          <address aria-label="address">{event.location.address}</address>
         </StyledAddressSection>
       </StyledSection>
       <StyledDescription>
