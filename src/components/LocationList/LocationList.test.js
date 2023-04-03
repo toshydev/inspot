@@ -5,6 +5,6 @@ const testCities = ["Cologne", "Berlin", "Hamburg", "Munich"];
 
 test("renders all cities from testCities with city name", () => {
   render(<LocationList cities={testCities} />);
-  const cities = screen.getAllByRole("heading", { name: /city/i });
+  const cities = screen.getAllByRole("heading");
   expect(cities).toHaveLength(testCities.length);
 });

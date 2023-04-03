@@ -1,4 +1,3 @@
-import { uid } from "uid";
 import StyledListContainer from "../StyledListContainer";
 import StyledDivider from "../StyledDivider";
 
@@ -17,8 +16,8 @@ export default function LocationList({ cities }) {
       {sortedCities.map((city) => {
         return (
           <>
-            <li key={uid()}>
-              <h4 aria-label="city" style={{ textAlign: "center" }}>
+            <li key={city}>
+              <h4 aria-label={city} style={{ textAlign: "center" }}>
                 {city}
               </h4>
             </li>
