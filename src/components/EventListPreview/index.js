@@ -1,6 +1,7 @@
 import StyledListItem from "../StyledListItem";
 import StyledDivider from "../StyledDivider";
 import shortenText from "../../utils/shortenText";
+import Link from "next/link";
 
 export default function EventListPreview({ event }) {
   return (
