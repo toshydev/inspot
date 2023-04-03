@@ -1,0 +1,670 @@
+[
+  {
+    "title": "Munich Oktoberfest",
+    "type": "festival",
+    "description": "The world-famous Munich Oktoberfest takes place every year in September/October.",
+    "startDate": "2023-09-16T00:00:00.000Z",
+    "endDate": "2023-10-03T00:00:00.000Z",
+    "startTime": "10:00",
+    "endTime": "23:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [11.5503, 48.1351],
+      "address": "Theresienwiese, 80336 Munich, Germany"
+    },
+    "organizer": "614429dbdc0450d0ce264f07",
+    "created_at": "2023-04-01T00:00:00.000Z",
+    "updated_at": "2023-04-01T00:00:00.000Z"
+  },
+  {
+    "title": "Discover Munich Walking Tour",
+    "type": "sightseeing",
+    "description": "Join us on a walking tour to discover the beauty and history of Munich.",
+    "information": "This tour will take approximately 2 hours and cover the key sights of Munich. Wear comfortable shoes and dress for the weather.",
+    "startDate": "2023-06-01",
+    "endDate": "2023-06-01",
+    "startTime": "10:00 AM",
+    "endTime": "12:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.13641, 11.57756],
+      "address": "Marienplatz, 80331 Munich, Germany"
+    },
+    "organizer": "614429dbdc0450d0ce264f07"
+  },
+  {
+    "title": "Beethoven's 9th Symphony",
+    "type": "concert",
+    "description": "Experience the power and beauty of Beethoven's final symphony.",
+    "information": "Performed by the Munich Philharmonic Orchestra and Choir, this concert is not to be missed.",
+    "startDate": "2023-07-15",
+    "endDate": "2023-07-15",
+    "startTime": "8:00 PM",
+    "endTime": "10:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.13719, 11.57821],
+      "address": "Philharmonie im Gasteig, Rosenheimer Str. 5, 81667 Munich, Germany"
+    },
+    "organizer": "61442d6adc0450d0ce264f09"
+  },
+  {
+    "title": "Munich Spring Festival",
+    "type": "festival",
+    "description": "Join us for the annual Munich Spring Festival, a smaller version of the Oktoberfest.",
+    "startDate": "2023-04-20",
+    "endDate": "2023-05-06",
+    "startTime": "12:00 PM",
+    "endTime": "11:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.12422, 11.55292],
+      "address": "Theresienwiese, Bavariaring, 80336 Munich, Germany"
+    },
+    "organizer": "61442d16dc0450d0ce264f08"
+  },
+  {
+    "title": "Munich Film Festival",
+    "type": "festival",
+    "description": "Experience the best of international and German cinema at the annual Munich Film Festival.",
+    "startDate": "2023-06-22",
+    "endDate": "2023-07-01",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.14301, 11.56952],
+      "address": "Gasteig, Rosenheimer Str. 5, 81667 Munich, Germany"
+    },
+    "organizer": "61442d6adc0450d0ce264f09"
+  },
+  {
+    "title": "Bavarian Beer Tasting",
+    "type": "culinary",
+    "description": "Sample a variety of Bavarian beers and learn about their history and brewing process.",
+    "information": "This event is limited to 20 participants, so book early to secure your spot.",
+    "startDate": "2023-08-10",
+    "endDate": "2023-08-10",
+    "startTime": "7:00 PM",
+    "endTime": "9:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.12864, 11.57274],
+      "address": "Bier- und Oktoberfestmuseum, Sterneckerstraße 2, 80331 Munich, Germany"
+    },
+    "organizer": "614429dbdc0450d0ce264f07"
+  },
+  {
+    "title": "Classical Music in Nymphenburg Palace",
+    "type": "concert",
+    "description": "Enjoy an evening of classical music in the stunning setting of Nymphenburg Palace.",
+    "startDate": "2023-09-01",
+    "endDate": "2023-09-01",
+    "startTime": "8:00 PM",
+    "endTime": "10:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.15925, 11.50518],
+      "address": "Schloss Nymphenburg, Eingang 19, 80638 Munich, Germany"
+    },
+    "organizer": "61442d6adc0450d0ce264f09"
+  },
+  {
+    "title": "BMW Driving Experience",
+    "type": "sports",
+    "description": "Get behind the wheel of some of BMW's most iconic cars.",
+    "information": "Experience the thrill of driving on our private track and learn from our expert instructors.",
+    "startDate": "2023-05-01",
+    "endDate": "2023-05-01",
+    "startTime": "9:00 AM",
+    "endTime": "1:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [48.17702, 11.55163],
+      "address": "BMW Welt, Am Olympiapark 1, 80809 Munich, Germany"
+    },
+    "organizer": "61442db5dc0450d0ce264f0a"
+  },
+  {
+    "title": "Brandenburg Gate Night Tour",
+    "type": "sightseeing",
+    "description": "Experience the beauty of Brandenburg Gate at night with our guided tour",
+    "information": "The tour starts at 7pm and lasts for two hours. Please arrive 15 minutes before the start of the tour. Comfortable shoes are recommended.",
+    "startDate": "2023-06-01",
+    "endDate": "2023-06-01",
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.377704, 52.516275],
+      "address": "Pariser Platz 1, 10117 Berlin, Germany"
+    },
+    "organizer": "62427e1dbfbaa6d9b6fb58a1"
+  },
+  {
+    "title": "Berlin Wall Memorial Walking Tour",
+    "type": "sightseeing",
+    "description": "Join our expert guide on a walking tour of the Berlin Wall Memorial",
+    "information": "The tour starts at 10am and lasts for three hours. Please arrive 15 minutes before the start of the tour. Comfortable shoes are recommended.",
+    "startDate": "2023-07-01",
+    "endDate": "2023-07-01",
+    "startTime": "10:00",
+    "endTime": "13:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.394168, 52.532632],
+      "address": "Bernauer Str. 119, 13355 Berlin, Germany"
+    },
+    "organizer": "62427e79bfbaa6d9b6fb58a2"
+  },
+  {
+    "title": "Beethoven's Symphony No. 9",
+    "type": "concert",
+    "description": "Join the Berlin Philharmonic Orchestra for a performance of Beethoven's Symphony No. 9",
+    "information": "The performance starts at 7:30pm and lasts for two hours. Please arrive 30 minutes before the start of the performance. Formal attire is recommended.",
+    "startDate": "2023-08-01",
+    "endDate": "2023-08-01",
+    "startTime": "19:30",
+    "endTime": "21:30",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.380235, 52.510751],
+      "address": "Herbert-von-Karajan-Straße 1, 10785 Berlin, Germany"
+    },
+    "organizer": "62427ed0bfbaa6d9b6fb58a3"
+  },
+  {
+    "title": "Berlin Street Art Tour",
+    "type": "sightseeing",
+    "description": "Discover Berlin's vibrant street art scene with our guided tour",
+    "information": "The tour starts at 2pm and lasts for two hours. Please arrive 15 minutes before the start of the tour. Comfortable shoes are recommended.",
+    "startDate": "2023-09-01",
+    "endDate": "2023-09-01",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.42416, 52.50103],
+      "address": "Kreuzberg, 10997 Berlin, Germany"
+    },
+    "organizer": "62427e1dbfbaa6d9b6fb58a1"
+  },
+  {
+    "title": "Berlin Beer Festival",
+    "type": "festival",
+    "description": "Sample a wide variety of beers from Berlin and beyond at our annual beer festival",
+    "information": "The festival starts at 12pm and lasts for six hours. Please arrive 30 minutes before the start of the festival. Admission includes a souvenir beer mug.",
+    "startDate": "2023-10-01",
+    "endDate": "2023-10-01",
+    "startTime": "12:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.442518, 52.520861],
+      "address": "Karl-Marx-Allee 93, 10243 Berlin, Germany"
+    },
+    "organizer": "62427e79bfbaa6d9b6fb58a2"
+  },
+  {
+    "title": "Berlin International Film Festival",
+    "type": "festival",
+    "description": "Experience the best in international cinema at our annual film festival",
+    "information": "The festival runs for ten days and includes screenings, Q&A sessions with filmmakers, and special events. Please check the schedule for details.",
+    "startDate": "2023-11-01",
+    "endDate": "2023-11-10",
+    "startTime": "Varies",
+    "endTime": "Varies",
+    "location": {
+      "type": "Point",
+      "coordinates": [13.388778, 52.516646],
+      "address": "Potsdamer Platz 10, 10785 Berlin, Germany"
+    },
+    "organizer": "62427ed0bfbaa6d9b6fb58a3"
+  },
+  {
+    "title": "Miniature Train Show",
+    "type": "exhibit",
+    "description": "Come and see our amazing miniature train exhibit!",
+    "information": "Tickets are €10 per person.",
+    "startDate": "2023-05-01",
+    "endDate": "2023-05-15",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5439, 9.9884],
+      "address": "Kehrwieder 2-4/Block D 20457 Hamburg Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4910"
+  },
+  {
+    "title": "Classical Music Concert",
+    "type": "concert",
+    "description": "Enjoy an evening of beautiful classical music!",
+    "information": "Tickets are €50 per person.",
+    "startDate": "2023-06-01",
+    "endDate": "2023-06-01",
+    "startTime": "19:30",
+    "endTime": "21:30",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5413, 9.9842],
+      "address": "Platz der Deutschen Einheit 1, 20457 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4911"
+  },
+  {
+    "title": "Concert at St. Michaelis Church",
+    "type": "concert",
+    "description": "Listen to beautiful music in the stunning setting of St. Michaelis Church!",
+    "information": "Tickets are €20 per person.",
+    "startDate": "2023-07-01",
+    "endDate": "2023-07-01",
+    "startTime": "20:00",
+    "endTime": "22:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5497, 9.9773],
+      "address": "Englische Planke 1 20459 Hamburg Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4912"
+  },
+  {
+    "title": "City Hall Tour",
+    "type": "sightseeing",
+    "description": "Take a guided tour of Hamburg's beautiful City Hall building!",
+    "information": "Tickets are €5 per person.",
+    "startDate": "2023-08-01",
+    "endDate": "2023-08-01",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5505, 9.9937],
+      "address": "Rathausmarkt 1, 20095 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4913"
+  },
+  {
+    "title": "Christmas Wonderland",
+    "type": "festival",
+    "description": "Experience the magic of Christmas at Miniatur Wunderland",
+    "information": "Join us for a festive day filled with Christmas lights, decorations and much more!",
+    "startDate": "2023-12-01",
+    "endDate": "2023-12-31",
+    "startTime": "10:00 AM",
+    "endTime": "7:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5438, 9.9884],
+      "address": "Kehrwieder 2-4/Block D, 20457 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4910"
+  },
+  {
+    "title": "Classical Music Concert",
+    "type": "concert",
+    "description": "Experience the beauty of classical music in the iconic Elbphilharmonie building",
+    "information": "Join us for an evening of beautiful music performed by the Hamburg Philharmonic Orchestra",
+    "startDate": "2023-07-15",
+    "endDate": "2023-07-15",
+    "startTime": "8:00 PM",
+    "endTime": "10:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5414, 9.9844],
+      "address": "Platz der Deutschen Einheit 1, 20457 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4911"
+  },
+  {
+    "title": "Church Service",
+    "type": "conference",
+    "description": "Join us for a traditional church service at St. Michaelis Church",
+    "information": "Experience the beauty of this historic church and take part in a traditional church service",
+    "startDate": "2023-04-16",
+    "endDate": "2023-04-16",
+    "startTime": "11:00 AM",
+    "endTime": "12:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5489, 9.9792],
+      "address": "Englische Planke 1, 20459 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4912"
+  },
+  {
+    "title": "City Hall Tour",
+    "type": "sightseeing",
+    "description": "Take a tour of the historic Hamburg City Hall",
+    "information": "Join us for a guided tour of the city hall and learn about its history and architecture",
+    "startDate": "2023-06-10",
+    "endDate": "2023-06-10",
+    "startTime": "2:00 PM",
+    "endTime": "3:30 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5506, 9.9921],
+      "address": "Rathausmarkt 1, 20095 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4913"
+  },
+  {
+    "title": "Hamburg Marathon",
+    "type": "sports",
+    "description": "Join thousands of runners and take on the Hamburg Marathon!",
+    "information": "Registration fee is €80 per person.",
+    "startDate": "2023-05-12",
+    "endDate": "2023-05-12",
+    "startTime": "09:00",
+    "endTime": "15:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.563, 9.9572],
+      "address": "Jungfernstieg, 20354 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4910"
+  },
+  {
+    "title": "Open Air Movie Night",
+    "type": "cinema",
+    "description": "Watch a classic movie under the stars!",
+    "information": "Tickets are €15 per person.",
+    "startDate": "2023-07-15",
+    "endDate": "2023-07-15",
+    "startTime": "20:30",
+    "endTime": "23:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5525, 9.9697],
+      "address": "Sternschanze, 20357 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4911"
+  },
+  {
+    "title": "Hamburg Fish Market",
+    "type": "culinary",
+    "description": "Experience the hustle and bustle of Hamburg's famous Fish Market",
+    "information": "Admission is free!",
+    "startDate": "2023-06-05",
+    "endDate": "2023-06-05",
+    "startTime": "05:00",
+    "endTime": "09:30",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5449, 9.9506],
+      "address": "Große Elbstraße 9, 22767 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4912"
+  },
+  {
+    "title": "City Bike Tour",
+    "type": "sports",
+    "description": "Explore Hamburg's famous landmarks on a guided bike tour",
+    "information": "Bikes will be provided. Tickets are €25 per person.",
+    "startDate": "2023-08-01",
+    "endDate": "2023-08-01",
+    "startTime": "10:00",
+    "endTime": "13:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [53.5511, 9.9937],
+      "address": "Rathausmarkt, 20095 Hamburg, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4913"
+  },
+  {
+    "title": "Cathedral Tour",
+    "type": "sightseeing",
+    "description": "Experience the beauty and history of the Cologne Cathedral with a guided tour.",
+    "information": "The tour will cover the highlights of the cathedral and its history.",
+    "startDate": "2023-05-01",
+    "endDate": "2023-05-01",
+    "startTime": "10:00 AM",
+    "endTime": "11:30 AM",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.941278, 6.958281],
+      "address": "Domkloster 3, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4919"
+  },
+  {
+    "title": "Museum Exhibit Opening",
+    "type": "exhibit",
+    "description": "Join us for the opening of the new exhibit at the Museum Ludwig.",
+    "information": "The exhibit will feature works from contemporary artists from around the world.",
+    "startDate": "2023-06-01",
+    "endDate": "2023-06-01",
+    "startTime": "7:00 PM",
+    "endTime": "9:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.940321, 6.960449],
+      "address": "Bischofsgartenstraße 1, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4920"
+  },
+  {
+    "title": "Chocolate Tasting",
+    "type": "culinary",
+    "description": "Sample some of the finest chocolates from around the world at the Chocolate Museum.",
+    "information": "The tasting will be led by a master chocolatier and will cover the history of chocolate and its production.",
+    "startDate": "2023-07-01",
+    "endDate": "2023-07-01",
+    "startTime": "2:00 PM",
+    "endTime": "4:00 PM",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.938944, 6.968676],
+      "address": "Am Schokoladenmuseum 1a, 50678 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4921"
+  },
+  {
+    "title": "Easter Mass",
+    "type": "conference",
+    "description": "Join us for a special Easter Mass at the Cologne Cathedral",
+    "information": "Please arrive early as seats are limited",
+    "startDate": "2023-04-09",
+    "endDate": "2023-04-09",
+    "startTime": "09:00",
+    "endTime": "11:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.9412787, 6.9582811],
+      "address": "Domkloster 4, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4919"
+  },
+  {
+    "title": "Andy Warhol Exhibition",
+    "type": "exhibition",
+    "description": "A special exhibition featuring works by Andy Warhol",
+    "information": "Tickets can be purchased in advance online or at the museum",
+    "startDate": "2023-05-15",
+    "endDate": "2023-08-15",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.9402695, 6.9659261],
+      "address": "Heinrich-Böll-Platz, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4920"
+  },
+  {
+    "title": "Chocolate Tasting",
+    "type": "culinary",
+    "description": "Join us for a fun and informative chocolate tasting event",
+    "information": "Tickets can be purchased in advance online or at the museum",
+    "startDate": "2023-06-20",
+    "endDate": "2023-06-20",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.9333978, 6.9667548],
+      "address": "Am Schokoladenmuseum 1a, 50678 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4921"
+  },
+  {
+    "title": "Picasso Exhibition",
+    "type": "exhibition",
+    "description": "A special exhibition featuring works by Picasso",
+    "information": "Tickets can be purchased in advance online or at the museum",
+    "startDate": "2023-07-10",
+    "endDate": "2023-10-10",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.9363544, 6.9603091],
+      "address": "Obenmarspforten, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4922"
+  },
+  {
+    "title": "Night Tour of Cologne Cathedral",
+    "type": "sightseeing",
+    "description": "Experience the beauty of Cologne Cathedral at night with our exclusive guided tour.",
+    "information": "Please arrive 15 minutes before the start time. No flash photography allowed.",
+    "startDate": "2023-05-01T19:30:00.000Z",
+    "endDate": "2023-05-01T21:00:00.000Z",
+    "startTime": "19:30",
+    "endTime": "21:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [6.960279, 50.941278],
+      "address": "Domkloster 4, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4919"
+  },
+  {
+    "title": "Modern Art Exhibition",
+    "type": "exhibition",
+    "description": "Discover the latest contemporary art exhibitions at the Museum Ludwig.",
+    "information": "Admission is free on every first Thursday of the month.",
+    "startDate": "2023-06-05T10:00:00.000Z",
+    "endDate": "2023-06-05T18:00:00.000Z",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [6.960424, 50.941185],
+      "address": "Heinrich-Böll-Platz, 50667 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4920"
+  },
+  {
+    "title": "Chocolate Tasting Workshop",
+    "type": "culinary",
+    "description": "Indulge in a unique chocolate tasting experience and learn the secrets of the chocolate-making process.",
+    "information": "All materials will be provided, and participants are advised to wear comfortable clothing.",
+    "startDate": "2023-07-10T14:00:00.000Z",
+    "endDate": "2023-07-10T16:00:00.000Z",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [6.971858, 50.936527],
+      "address": "Am Schokoladenmuseum 1a, 50678 Köln, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4921"
+  },
+  {
+    "title": "Goethe's 271st Birthday Celebration",
+    "type": "sightseeing",
+    "description": "Join us for a day full of celebrations to honor Johann Wolfgang von Goethe on his 271st birthday.",
+    "information": "The event will include poetry readings, musical performances, and a screening of the film 'Young Goethe in Love.'",
+    "startDate": "2023-08-28",
+    "endDate": "2023-08-28",
+    "startTime": "14:00",
+    "endTime": "19:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.114988, 8.682171],
+      "address": "Großer Hirschgraben 23-25, 60311 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4930"
+  },
+  {
+    "title": "Guided Tour of the Städel Museum's Collection",
+    "type": "sightseeing",
+    "description": "Take a guided tour of the Städel Museum's world-renowned collection of European art from the Middle Ages to the present day.",
+    "information": "The tour will be led by one of the museum's expert art historians and will cover highlights from the collection, including works by Rembrandt, Vermeer, and Monet.",
+    "startDate": "2023-07-15",
+    "endDate": "2023-07-15",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.104719, 8.684342],
+      "address": "Schaumainkai 63, 60596 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4931"
+  },
+  {
+    "title": "Organ Recital in Frankfurt Cathedral",
+    "type": "concert",
+    "description": "Enjoy an evening of beautiful music in the stunning setting of Frankfurt Cathedral, featuring the cathedral's magnificent organ.",
+    "information": "The program will include works by Bach, Vierne, and Widor, performed by the cathedral's organist.",
+    "startDate": "2023-09-02",
+    "endDate": "2023-09-02",
+    "startTime": "19:30",
+    "endTime": "21:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.110264, 8.68219],
+      "address": "Domplatz 1, 60311 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4932"
+  },
+  {
+    "title": "Goethe's 272nd Birthday Celebration",
+    "type": "festival",
+    "description": "Celebrate the birthday of Johann Wolfgang von Goethe, one of Germany's greatest literary figures, with a day of music, readings, and exhibitions.",
+    "information": "This event is free and open to the public.",
+    "startDate": "2023-08-28",
+    "endDate": "2023-08-28",
+    "startTime": "14:00",
+    "endTime": "20:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.114556, 8.682632],
+      "address": "Großer Hirschgraben 23-25, 60311 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4930"
+  },
+  {
+    "title": "Picasso Exhibition",
+    "type": "exhibition",
+    "description": "Explore the works of one of the most important artists of the 20th century in this comprehensive exhibition of Picasso's art.",
+    "information": "Tickets can be purchased online or at the museum. Discounts available for students and seniors.",
+    "startDate": "2023-05-01",
+    "endDate": "2023-09-01",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.103478, 8.677114],
+      "address": "Schaumainkai 63, 60596 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4931"
+  },
+  {
+    "title": "Cathedral Organ Concert",
+    "type": "concert",
+    "description": "Experience the beauty of the Frankfurt Cathedral's pipe organ in this special concert featuring renowned organist Johann Sebastian Bach.",
+    "information": "Tickets can be purchased online or at the cathedral. Proceeds will support the preservation of the cathedral.",
+    "startDate": "2023-06-15",
+    "endDate": "2023-06-15",
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [50.110352, 8.682357],
+      "address": "Domplatz 1, 60311 Frankfurt am Main, Germany"
+    },
+    "organizer": "624ed4f4c4b2f15b1cfe4932"
+  }
+]
