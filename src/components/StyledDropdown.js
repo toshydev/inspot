@@ -12,7 +12,7 @@ const StyledDropdown = styled.div`
   text-align: center;
   hidden: ${(props) => (props.isOpen ? true : false)};
   border-radius: 8px;
-  gap: 0.5rem;
+  gap: 0.2rem;
 `;
 
 export default StyledDropdown;

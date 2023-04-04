@@ -2,6 +2,8 @@ import styled from "styled-components";
 import StyledMenu from "../StyledMenu";
 import StyledDropdown from "../StyledDropdown";
 import StyledTag from "../StyledTag";
+import { useState } from "react";
+import { useFilterStore } from "~/store";
 
 const StyledSearchBar = styled.input`
   width: 6rem;
@@ -20,13 +22,15 @@ const StyledSearchBar = styled.input`
   }
 `;
 
-export default function SearchInput({
-  tags = ["film", "classical", "beethoven"],
-  onSearchInput,
-  onRemoveTag,
-  onActivateDropdown,
-  activeDropdown,
-}) {
+export default function SearchInput({ onActivateDropdown, activeDropdown }) {
+  //state for controlled input
+  const [searchInput, setSearchInput] = useState([]);
+
+  //store for tags list
+  const tags = useFilterStore((state) => state.tags);
+  const addTags = useFilterStore((state) => state.addTags);
+  const deleteTag = useFilterStore((state) => state.deleteTag);
+
   const isOpen = activeDropdown.search;
 
   return (
@@ -34,7 +38,10 @@ export default function SearchInput({
       <StyledSearchBar
         type="search"
         placeholder="Search"
-        onChange={onSearchInput}
+        onChange={(event) => {
+          setSearchInput(event.target.value);
+          addTags(searchInput);
+        }}
         aria-label="tag search bar"
         onClick={() => onActivateDropdown("search")}
       />
@@ -43,7 +50,7 @@ export default function SearchInput({
           {tags.map((tag) => (
             <StyledTag key={tag}>
               {tag}
-              <button type="button" onClick={onRemoveTag}>
+              <button type="button" onClick={() => deleteTag(tag)}>
                 x
               </button>
             </StyledTag>

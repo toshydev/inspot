@@ -4,13 +4,15 @@ import StyledDropdown from "../StyledDropdown";
 import StyledButton from "../StyledButton";
 
 const StyledLabel = styled.label`
-  width: 100%;
-
-  &:hover {
-    background: #be4bdb;
-    border: none;
-    color: white;
-  }
+  width: 90%;
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 0.1rem;
+  filter: drop-shadow(0 0 1px black);
+  ${(props) =>
+    props?.isActive
+      ? "background: #A962BB; color: white; font-weight: bold"
+      : null};
 `;
 
 export default function Menu({
@@ -27,7 +29,6 @@ export default function Menu({
       <StyledButton
         type="button"
         onClick={() => onActivateDropdown("menu")}
-        disabled={options ? false : true}
         aria-label={`${label} menu`}
       >
         {label}
@@ -36,14 +37,21 @@ export default function Menu({
         <StyledDropdown>
           {options.map((option) => {
             return (
-              <StyledLabel key={option} htmlFor={option}>
-                {option}
+              <StyledLabel
+                key={option.genre}
+                htmlFor={option.genre}
+                isActive={option.isActive}
+              >
+                {option.genre}
                 <input
-                  id={option}
+                  id={option.genre}
                   type="checkbox"
                   hidden={true}
-                  name={option}
-                  onChange={onChange}
+                  name={option.genre}
+                  onChange={() => {
+                    onChange(option.genre);
+                  }}
+                  checked={option.isActive}
                 />
               </StyledLabel>
             );
