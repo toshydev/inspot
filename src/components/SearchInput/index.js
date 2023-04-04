@@ -5,12 +5,14 @@ import StyledTag from "../StyledTag";
 
 const StyledSearchBar = styled.input`
   width: 6rem;
+  height: 2rem;
   border-radius: 5px;
 
   &:focus {
     background: #be4bdb;
     color: white;
     font-weight: bold;
+    outline: none;
 
     &::placeholder {
       color: white;

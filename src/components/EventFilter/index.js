@@ -2,6 +2,7 @@ import { useState } from "react";
 import Menu from "../Menu.js";
 import SearchInput from "../SearchInput/index.js";
 import styled from "styled-components";
+import StyledButton from "../StyledButton.js";
 
 const StyledFilterSection = styled.section`
   display: flex;
@@ -14,12 +15,6 @@ const StyledFilterSection = styled.section`
   border: 2px solid black;
   background: white;
   ${(props) => (props.isOpen ? "height: 50vh" : null)}
-`;
-
-const StyledResetButton = styled.button`
-  border-radius: 5px;
-  width: 6rem;
-  height: 2rem;
 `;
 
 export default function EventFilter({
@@ -59,9 +54,9 @@ export default function EventFilter({
         onActivateDropdown={handleActivateDropdown}
         activeDropdown={activeDropdown}
       />
-      <StyledResetButton onClick={onResetFilter}>
+      <StyledButton onClick={onResetFilter}>
         Clear <span>X</span>
-      </StyledResetButton>
+      </StyledButton>
     </StyledFilterSection>
   );
 }

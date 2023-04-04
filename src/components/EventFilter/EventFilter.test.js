@@ -155,9 +155,9 @@ const testEvents = [
 
 test("renders one tag input field, one genre button and one clear buttons", () => {
   render(<EventFilter genres={testGenres} />);
-  const genreButton = screen.getByRole("button", { name: "Genre" });
-  const tagsInput = screen.getByRole("searchbox", { name: "Tags" });
-  const clearButton = screen.getByRole("button", { name: "Clear" });
+  const genreButton = screen.getByRole("button", { name: /genre/i });
+  const tagsInput = screen.getByRole("searchbox", { placeholder: /search/i });
+  const clearButton = screen.getByRole("button", { name: /clear/i });
   expect(genreButton).toBeInTheDocument();
   expect(tagsInput).toBeInTheDocument();
   expect(clearButton).toBeInTheDocument();

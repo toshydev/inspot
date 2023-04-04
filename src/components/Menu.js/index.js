@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import StyledMenu from "../StyledMenu";
 import StyledDropdown from "../StyledDropdown";
-
-const StyledMenuButton = styled.button`
-  border-radius: 5px;
-  width: 6rem;
-`;
+import StyledButton from "../StyledButton";
 
 const StyledLabel = styled.label`
   width: 100%;
@@ -28,14 +24,14 @@ export default function Menu({
 
   return (
     <StyledMenu>
-      <StyledMenuButton
+      <StyledButton
         type="button"
         onClick={() => onActivateDropdown("menu")}
         disabled={options ? false : true}
         aria-label={`${label} menu`}
       >
         {label}
-      </StyledMenuButton>
+      </StyledButton>
       {isOpen && (
         <StyledDropdown>
           {options.map((option) => {

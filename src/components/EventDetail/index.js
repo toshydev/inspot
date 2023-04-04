@@ -74,23 +74,19 @@ export default function EventDetail({ event }) {
         <StyledTypeHeadline>#{event.type}</StyledTypeHeadline>
         <StyledDateSection>
           Date:
-          <time aria-label="start date" datetime={formattedStartDate}>
+          <time aria-label="start date" dateTime={formattedStartDate}>
             <strong>{formattedStartDate}</strong>
           </time>
           -
-          <time aria-label="end date" datetime={formattedEndDate}>
+          <time aria-label="end date" dateTime={formattedEndDate}>
             <strong>{formattedEndDate}</strong>
           </time>
         </StyledDateSection>
         <StyledTimeSection>
           <p>Start:</p>
-          <time aria-label="start time" datetime={event.startTime}>
-            {event.startTime}
-          </time>
+          <p aria-label="start time">{event.startTime}</p>
           <p>End:</p>
-          <time aria-label="end time" datetime={event.endTime}>
-            {event.endTime}
-          </time>
+          <p aria-label="end time">{event.endTime}</p>
         </StyledTimeSection>
         <StyledAddressSection>
           <p>Address:</p>
