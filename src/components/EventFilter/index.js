@@ -54,7 +54,6 @@ export default function EventFilter() {
       <StyledButton
         onClick={() => {
           resetFilter();
-          console.log(genres);
         }}
       >
         Clear <span>X</span>

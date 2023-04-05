@@ -1,16 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
-
-const StyledHeader = styled.header`
-  width: 98%;
-  text-align: left;
-  font-size: 0.7rem;
-  padding: 0.5rem;
-  margin: 0.1rem;
-  position: sticky;
-  border: 2px solid black;
-  background: white;
-`;
+import ArrowBack from "../../../icons/arrow_back_ios_new_black_36dp.svg";
+import Location from "../../../icons/place_black_36dp.svg";
+import StyledHeader from "../StyledHeader";
+import StyledHeadline from "../StyledHeadline";
+import StyledIconLink from "../StyledIconLink";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -68,7 +62,13 @@ export default function EventDetail({ event }) {
   return (
     <>
       <StyledHeader>
-        <h1 aria-label={event.title}>{event.title}</h1>
+        <StyledIconLink href="/events/">
+          <ArrowBack />
+        </StyledIconLink>
+        <StyledHeadline aria-label={event.title}>{event.title}</StyledHeadline>
+        <StyledIconLink href="/location">
+          <Location />
+        </StyledIconLink>
       </StyledHeader>
       <StyledSection>
         <StyledTypeHeadline>#{event.type}</StyledTypeHeadline>

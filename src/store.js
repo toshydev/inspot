@@ -12,6 +12,10 @@ export const useFilterStore = create((set) => {
       set(() => {
         return { city: name };
       }),
+    resetCity: () =>
+      set(() => {
+        return { city: "" };
+      }),
     toggleGenre: (genreToActivate) =>
       set((state) => {
         return {
