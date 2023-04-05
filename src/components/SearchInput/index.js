@@ -44,6 +44,10 @@ export default function SearchInput({ onActivateDropdown, activeDropdown }) {
       />
       {isOpen && (
         <StyledDropdown>
+          <p>
+            Separate with <em>comma</em> or <em>space</em> or press
+            <em>Enter</em>
+          </p>
           {tags.map((tag) => (
             <StyledTag key={nanoid()}>
               {tag}
