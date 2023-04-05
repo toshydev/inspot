@@ -1,4 +1,4 @@
-import { events } from "~/lib/data";
+import { events } from "../lib/data";
 
 const cities = events.map((event) => {
   const addressArray = event.location.address.split(",");
@@ -6,6 +6,8 @@ const cities = events.map((event) => {
   return postalCity?.replace(/\d+/, "").trim();
 });
 
-export const uniqueCities = cities.filter((city, index, array) => {
+const uniqueCities = cities.filter((city, index, array) => {
   return index === array.indexOf(city);
 });
+
+export default uniqueCities;

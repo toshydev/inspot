@@ -1,5 +1,4 @@
 import StyledListContainer from "../StyledListContainer";
-import StyledDivider from "../StyledDivider";
 
 export default function LocationList({ cities }) {
   const sortedCities = cities.slice().sort((a, b) => {
@@ -15,14 +14,11 @@ export default function LocationList({ cities }) {
     <StyledListContainer>
       {sortedCities.map((city) => {
         return (
-          <>
             <li key={city}>
               <h4 aria-label={city} style={{ textAlign: "center" }}>
                 {city}
               </h4>
             </li>
-            <StyledDivider />
-          </>
         );
       })}
     </StyledListContainer>

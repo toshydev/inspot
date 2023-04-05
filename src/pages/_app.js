@@ -1,7 +1,7 @@
-import Layout from "~/components/Layout";
+import Layout from "../components/Layout";
 import GlobalStyle from "../styles";
-import { events } from "~/lib/data";
-import { uniqueCities } from "~/utils/getCities";
+import { events } from "../lib/data";
+import uniqueCities from "../utils/getCities";
 
 export default function App({ Component, pageProps }) {
   return (
