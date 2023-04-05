@@ -1,4 +1,4 @@
-import { events } from "~/lib/data";
+import { events } from "../lib/data";
 
 const genres = events.map((event) => event.type);
 

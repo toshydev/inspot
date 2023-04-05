@@ -1,6 +1,6 @@
-import StyledListItem from "../StyledListItem";
-import shortenText from "../../utils/shortenText";
 import styled from "styled-components";
+import shortenText from "../../utils/shortenText";
+import StyledListItem from "../StyledListItem";
 
 const StyledEventPreviewDate = styled.time`
   width: 35%;

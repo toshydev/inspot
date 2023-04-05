@@ -25,7 +25,7 @@ export const useFilterStore = create((set) => {
         };
       }),
     addTags: (string) =>
-      set((state) => {
+      set(() => {
         return { tags: string.includes(",") ? string.split(",") : [string] };
       }),
     deleteTag: (tagToDelete) =>

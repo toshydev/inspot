@@ -1,24 +1,25 @@
-import { render, screen } from "@testing-library/react";
+import { render, renderHook, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useFilterStore } from "../../store";
 import SearchInput from ".";
 
-const activeDropdownState = { menu: false, search: false };
+const activeDropdown = { menu: false, search: false };
 
 test("renders an input element", () => {
-  render(<SearchInput activeDropdown={activeDropdownState} />);
+  render(<SearchInput activeDropdown={activeDropdown} />);
   const input = screen.getByRole("searchbox", { placeholder: /search/i });
   expect(input).toBeInTheDocument();
 });
 
 test("expects to trigger callback function on each input", async () => {
-  const handleSearchInput = jest.fn();
+  const store = renderHook(() => useFilterStore());
+  const { tags, addTags, deleteTag } = store.result.current;
   const handleActivateDropdown = jest.fn();
   const user = userEvent.setup();
 
   render(
     <SearchInput
-      onSearchInput={handleSearchInput}
-      activeDropdown={activeDropdownState}
+      activeDropdown={activeDropdown}
       onActivateDropdown={handleActivateDropdown}
     />
   );
@@ -26,5 +27,5 @@ test("expects to trigger callback function on each input", async () => {
 
   await user.type(input, "Hello World!");
 
-  expect(handleSearchInput).toHaveBeenCalledTimes(12);
+  expect(addTags).toHaveBeenCalledTimes(13);
 });

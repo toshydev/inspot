@@ -1,10 +1,9 @@
 import Link from "next/link";
-import EventListPreview from "../EventListPreview";
-import StyledListContainer from "../StyledListContainer";
-import { useFilterStore } from "~/store";
-
 import styled from "styled-components";
+import { useFilterStore } from "../../store";
+import EventListPreview from "../EventListPreview";
 import StyledDivider from "../StyledDivider";
+import StyledListContainer from "../StyledListContainer";
 
 const StyledEventPreviewLink = styled(Link)`
   color: unset;
@@ -49,7 +48,7 @@ export default function EventList({ events }) {
   return (
     <StyledListContainer>
       {filteredEvents.length === 0 ? (
-        <p>Select genres or remove tags</p>
+        <p>Adjust genres and/or tags</p>
       ) : (
         filteredEvents.map((event) => (
           <StyledEventPreviewLink key={event.id} href={`/events/${event.id}`}>

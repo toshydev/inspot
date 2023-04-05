@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import StyledMenu from "../StyledMenu";
+import { useFilterStore } from "../../store";
 import StyledDropdown from "../StyledDropdown";
+import StyledMenu from "../StyledMenu";
 import StyledTag from "../StyledTag";
-import { useState } from "react";
-import { useFilterStore } from "~/store";
 
 const StyledSearchBar = styled.input`
   width: 6rem;
@@ -33,6 +33,10 @@ export default function SearchInput({ onActivateDropdown, activeDropdown }) {
 
   const isOpen = activeDropdown.search;
 
+  useEffect(() => {
+    addTags(searchInput);
+  }, [addTags, searchInput]);
+
   return (
     <StyledMenu>
       <StyledSearchBar
@@ -40,7 +44,6 @@ export default function SearchInput({ onActivateDropdown, activeDropdown }) {
         placeholder="Search"
         onChange={(event) => {
           setSearchInput(event.target.value);
-          addTags(searchInput);
         }}
         aria-label="tag search bar"
         onClick={() => onActivateDropdown("search")}

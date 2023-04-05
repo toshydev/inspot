@@ -1,24 +1,24 @@
-import { render, screen } from "@testing-library/react";
+import { render, renderHook, screen } from "@testing-library/react";
 import EventList from ".";
+import { useFilterStore } from "../../store";
 
 const testEvents = [
   {
-    title: "Chocolate Tasting Workshop",
-    type: "culinary",
-    description:
-      "Indulge in a unique chocolate tasting experience and learn the secrets of the chocolate-making process.",
-    information:
-      "All materials will be provided, and participants are advised to wear comfortable clothing.",
-    startDate: "2023-07-10T14:00:00.000Z",
-    endDate: "2023-07-10T16:00:00.000Z",
-    startTime: "14:00",
-    endTime: "16:00",
+    title: "Miniature Train Show",
+    type: "exhibit",
+    description: "Come and see our amazing miniature train exhibit!",
+    information: "Tickets are €10 per person.",
+    startDate: "2023-05-01",
+    endDate: "2023-05-15",
+    startTime: "10:00",
+    endTime: "18:00",
     location: {
       type: "Point",
-      coordinates: [6.971858, 50.936527],
-      address: "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+      coordinates: [53.5439, 9.9884],
+      address: "Kehrwieder 2-4/Block D, 20457 Hamburg, Germany",
     },
-    organizer: "624ed4f4c4b2f15b1cfe4921",
+    organizer: "624ed4f4c4b2f15b1cfe4910",
+    id: "9sJPAvUpFtCfEGmjZrAMx",
   },
   {
     title: "Goethe's 271st Birthday Celebration",
@@ -37,24 +37,6 @@ const testEvents = [
       address: "Großer Hirschgraben 23-25, 60311 Frankfurt am Main, Germany",
     },
     organizer: "624ed4f4c4b2f15b1cfe4930",
-  },
-  {
-    title: "Guided Tour of the Städel Museum's Collection",
-    type: "sightseeing",
-    description:
-      "Take a guided tour of the Städel Museum's world-renowned collection of European art from the Middle Ages to the present day.",
-    information:
-      "The tour will be led by one of the museum's expert art historians and will cover highlights from the collection, including works by Rembrandt, Vermeer, and Monet.",
-    startDate: "2023-07-15",
-    endDate: "2023-07-15",
-    startTime: "11:00",
-    endTime: "12:30",
-    location: {
-      type: "Point",
-      coordinates: [50.104719, 8.684342],
-      address: "Schaumainkai 63, 60596 Frankfurt am Main, Germany",
-    },
-    organizer: "624ed4f4c4b2f15b1cfe4931",
   },
   {
     title: "Organ Recital in Frankfurt Cathedral",
@@ -77,6 +59,10 @@ const testEvents = [
 ];
 
 test("renders all events in the EventList", () => {
+  const store = renderHook(() => useFilterStore());
+
+  const { genres, tags } = store.result.current;
+
   render(<EventList events={testEvents} />);
   const events = screen.getAllByRole("heading");
   expect(events).toHaveLength(testEvents.length);

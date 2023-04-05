@@ -1,4 +1,4 @@
-import { events } from "~/lib/data";
+import { events } from "../lib/data";
 
 const cities = events.map((event) => {
   const addressArray = event.location.address.split(",");

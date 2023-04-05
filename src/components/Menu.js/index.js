@@ -48,9 +48,7 @@ export default function Menu({
                   type="checkbox"
                   hidden={true}
                   name={option.genre}
-                  onChange={() => {
-                    onChange(option.genre);
-                  }}
+                  onChange={() => onChange(option.genre)}
                   checked={option.isActive}
                 />
               </StyledLabel>

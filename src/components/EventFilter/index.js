@@ -1,9 +1,9 @@
 import { useState } from "react";
+import styled from "styled-components";
+import { useFilterStore } from "../../store.js";
 import Menu from "../Menu.js";
 import SearchInput from "../SearchInput/index.js";
-import styled from "styled-components";
 import StyledButton from "../StyledButton.js";
-import { useFilterStore } from "~/store.js";
 
 const StyledFilterSection = styled.section`
   display: flex;
@@ -18,7 +18,7 @@ const StyledFilterSection = styled.section`
   ${(props) => (props.isOpen ? "height: 50vh" : null)}
 `;
 
-export default function EventFilter({}) {
+export default function EventFilter() {
   const [activeDropdown, setActiveDropdown] = useState({
     menu: false,
     search: false,
