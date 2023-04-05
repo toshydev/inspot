@@ -63,32 +63,3 @@ export default function SearchInput({ onActivateDropdown, activeDropdown }) {
     </StyledMenu>
   );
 }
-
-/* <StyledMenu isOpen={isOpen}>
-      <StyledMenuButton
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        disabled={options ? false : true}
-        aria-label={`${label} menu`}
-      >
-        {label}
-      </StyledMenuButton>
-      {isOpen && (
-        <StyledDropdown>
-          {options.map((option) => {
-            return (
-              <StyledLabel key={option} htmlFor={option}>
-                {option}
-                <input
-                  id={option}
-                  type="checkbox"
-                  hidden={true}
-                  name={option}
-                  onChange={onChange}
-                />
-              </StyledLabel>
-            );
-          })}
-        </StyledDropdown>
-      )}
-    </StyledMenu> */
