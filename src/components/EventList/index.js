@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import EventListPreview from "../EventListPreview";
@@ -16,34 +17,54 @@ const StyledEventPreviewLink = styled(Link)`
 `;
 
 export default function EventList({ events }) {
+  const [filteredEvents, setFilteredEvents] = useState(events);
   const genres = useFilterStore((state) => state.genres);
-  const activeGenres = genres
-    .filter((genre) => genre.isActive)
-    .map((genre) => genre.genre);
-
   const tags = useFilterStore((state) => state.tags);
 
-  const activeGenreEvents = events.filter((event) =>
-    activeGenres.includes(event.type)
-  );
+  const setGenres = genres.filter((genre) => genre.isActive).length;
 
-  // Tag filter, will need improvement
-  const filteredEvents = filterWithTags();
-
-  function filterWithTags() {
-    const filteredEvents = [];
-    for (const event of activeGenreEvents) {
-      for (const tag of tags) {
-        if (
-          event.title.toLowerCase().includes(tag) ||
-          event.description.toLowerCase().includes(tag)
-        ) {
-          filteredEvents.push(event);
-        }
-      }
+  useEffect(() => {
+    if (setGenres === 0 && tags.length > 0) {
+      setFilteredEvents(
+        events.filter((event) => {
+          return tags.some((tag) => {
+            return (
+              event.title.toLowerCase().includes(tag) ||
+              event.description.toLowerCase().includes(tag)
+            );
+          });
+        })
+      );
     }
-    return filteredEvents;
-  }
+    if (tags.length === 0 && setGenres > 0) {
+      setFilteredEvents(
+        events.filter((event) => {
+          return genres.some((genre) => {
+            return event.type === genre.genre && genre.isActive;
+          });
+        })
+      );
+    }
+    if (tags.length > 0 && setGenres > 0) {
+      setFilteredEvents(
+        events.filter((event) => {
+          return genres.some((genre) => {
+            return tags.every((tag) => {
+              return (
+                event.type === genre.genre &&
+                genre.isActive &&
+                (event.title.toLowerCase().includes(tag) ||
+                  event.description.toLowerCase().includes(tag))
+              );
+            });
+          });
+        })
+      );
+    }
+    if (tags.length === 0 && setGenres === 0) {
+      setFilteredEvents(events);
+    }
+  }, [events, genres, tags, setGenres]);
 
   return (
     <StyledListContainer>

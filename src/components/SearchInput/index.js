@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import StyledDropdown from "../StyledDropdown";
 import StyledMenu from "../StyledMenu";
 import StyledTag from "../StyledTag";
+import { nanoid } from "nanoid";
 
 const StyledSearchBar = styled.input`
   width: 6rem;
@@ -23,27 +23,21 @@ const StyledSearchBar = styled.input`
 `;
 
 export default function SearchInput({ onActivateDropdown, activeDropdown }) {
-  //state for controlled input
-  const [searchInput, setSearchInput] = useState([]);
-
-  //store for tags list
   const tags = useFilterStore((state) => state.tags);
   const addTags = useFilterStore((state) => state.addTags);
   const deleteTag = useFilterStore((state) => state.deleteTag);
 
   const isOpen = activeDropdown.search;
 
-  useEffect(() => {
-    addTags(searchInput);
-  }, [addTags, searchInput]);
-
   return (
     <StyledMenu>
       <StyledSearchBar
         type="search"
         placeholder="Search"
-        onChange={(event) => {
-          setSearchInput(event.target.value);
+        onKeyDown={(event) => {
+          if (event.key === "," || event.key === " " || event.key === "Enter") {
+            addTags(event.target.value);
+          }
         }}
         aria-label="tag search bar"
         onClick={() => onActivateDropdown("search")}
@@ -51,7 +45,7 @@ export default function SearchInput({ onActivateDropdown, activeDropdown }) {
       {isOpen && (
         <StyledDropdown>
           {tags.map((tag) => (
-            <StyledTag key={tag}>
+            <StyledTag key={nanoid()}>
               {tag}
               <button type="button" onClick={() => deleteTag(tag)}>
                 x

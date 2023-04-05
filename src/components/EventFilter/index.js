@@ -24,11 +24,8 @@ export default function EventFilter() {
     search: false,
   });
 
-  // store for genre menu
   const genres = useFilterStore((state) => state.genres);
   const toggleGenre = useFilterStore((state) => state.toggleGenre);
-
-  // store for reset button
   const resetFilter = useFilterStore((state) => state.resetFilter);
 
   const isOpen = activeDropdown.menu || activeDropdown.search;
@@ -54,7 +51,12 @@ export default function EventFilter() {
         onActivateDropdown={handleActivateDropdown}
         activeDropdown={activeDropdown}
       />
-      <StyledButton onClick={() => resetFilter()}>
+      <StyledButton
+        onClick={() => {
+          resetFilter();
+          console.log(genres);
+        }}
+      >
         Clear <span>X</span>
       </StyledButton>
     </StyledFilterSection>
