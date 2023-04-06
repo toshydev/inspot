@@ -1,8 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useFilterStore } from "../../store";
+import getFilteredEvents from "../../utils/getFilteredEvents";
 import EventListPreview from "../EventListPreview";
 import StyledListContainer from "../StyledListContainer";
-import useFilter from "../../hooks/useFilter";
 
 const StyledEventPreviewLink = styled(Link)`
   color: unset;
@@ -16,7 +17,9 @@ const StyledEventPreviewLink = styled(Link)`
 `;
 
 export default function EventList({ events }) {
-  const filteredEvents = useFilter(events);
+  const { genres, tags } = useFilterStore((state) => state);
+  const setGenres = genres.filter((genre) => genre.isActive).length;
+  const filteredEvents = getFilteredEvents(events, setGenres, genres, tags);
 
   return (
     <StyledListContainer>
