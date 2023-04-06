@@ -1,61 +1,20 @@
-import styled from "styled-components";
-import StyledMenu from "../StyledMenu";
-import StyledDropdown from "../StyledDropdown";
+import { useFilterStore } from "../../store";
+import { ExpandBig } from "../../utils/icons";
 import StyledButton from "../StyledButton";
+import StyledMenu from "../StyledMenu";
 
-const StyledLabel = styled.label`
-  width: 90%;
-  background: #f0f0f0;
-  border-radius: 5px;
-  padding: 0.1rem;
-  filter: drop-shadow(0 0 1px black);
-  ${(props) =>
-    props?.isActive
-      ? "background: #A962BB; color: white; font-weight: bold"
-      : null};
-`;
-
-export default function Menu({
-  label,
-  options,
-  onChange,
-  onActivateDropdown,
-  activeDropdown,
-}) {
-  const isOpen = activeDropdown.menu;
-
+export default function Menu({ label }) {
+  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
   return (
     <StyledMenu>
       <StyledButton
         type="button"
-        onClick={() => onActivateDropdown("menu")}
+        onClick={() => setFilterMenu("genre")}
         aria-label={`${label} menu`}
       >
         {label}
+        <ExpandBig />
       </StyledButton>
-      {isOpen && (
-        <StyledDropdown>
-          {options.map((option) => {
-            return (
-              <StyledLabel
-                key={option.genre}
-                htmlFor={option.genre}
-                isActive={option.isActive}
-              >
-                {option.genre}
-                <input
-                  id={option.genre}
-                  type="checkbox"
-                  hidden={true}
-                  name={option.genre}
-                  onChange={() => onChange(option.genre)}
-                  checked={option.isActive}
-                />
-              </StyledLabel>
-            );
-          })}
-        </StyledDropdown>
-      )}
     </StyledMenu>
   );
 }

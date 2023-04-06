@@ -18,7 +18,7 @@ const testEvent = {
     address: "Pariser Platz 1, 10117 Berlin, Germany",
   },
   organizer: "62427e1dbfbaa6d9b6fb58a1",
-  id: "15024b8c085",
+  id: "Bqs4zTSDp4spa0wP0l416",
 };
 
 test("renders a title, startDate, endDate, startTime, endTime, address", () => {
@@ -29,6 +29,7 @@ test("renders a title, startDate, endDate, startTime, endTime, address", () => {
   const startTime = screen.getByLabelText(/start time/i);
   const endTime = screen.getByLabelText(/end time/i);
   const address = screen.getByLabelText(/address/i);
+
   expect(title).toBeInTheDocument();
   expect(startDate).toBeInTheDocument();
   expect(endDate).toBeInTheDocument();
@@ -41,6 +42,7 @@ test("renders a description and information if available", () => {
   render(<EventDetail event={testEvent} />);
   const description = screen.getByRole("heading", { name: /description/i });
   const information = screen.getByRole("link", { name: /more/i });
+
   expect(description).toBeInTheDocument();
   expect(information).toBeInTheDocument();
 });
