@@ -1,6 +1,5 @@
-import { render, renderHook, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import EventList from ".";
-import { useFilterStore } from "../../store";
 
 const testEvents = [
   {
@@ -59,10 +58,7 @@ const testEvents = [
 ];
 
 test("renders all events in the EventList", async () => {
-  const store = renderHook(() => useFilterStore());
-  const { genres, tags } = store.result.current;
-
   render(<EventList events={testEvents} />);
-  const events = screen.getAllByRole("heading");
+  const events = screen.getAllByRole("heading", { level: 3 });
   expect(events).toHaveLength(testEvents.length);
 });

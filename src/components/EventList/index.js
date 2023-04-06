@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useFilterStore } from "../../store";
 import EventListPreview from "../EventListPreview";
-import StyledDivider from "../StyledDivider";
 import StyledListContainer from "../StyledListContainer";
 import useFilter from "../../hooks/useFilter";
 
 const StyledEventPreviewLink = styled(Link)`
   color: unset;
-  width: 100%;
+  width: 90%;
   height: 3rem;
   text-decoration: none;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,9 +24,12 @@ export default function EventList({ events }) {
         <p>Adjust genres and/or tags</p>
       ) : (
         filteredEvents.map((event) => (
-          <StyledEventPreviewLink key={event.id} href={`/events/${event.id}`}>
+          <StyledEventPreviewLink
+            key={event.id}
+            href={`/events/${event.id}`}
+            aria-label={`go to details page of ${event.title}`}
+          >
             <EventListPreview event={event} />
-            <StyledDivider />
           </StyledEventPreviewLink>
         ))
       )}

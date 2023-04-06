@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { useFilterStore } from "../../store.js";
 import { ClearBig } from "../../utils/icons.js";
@@ -23,13 +23,15 @@ const StyledFilterSection = styled.section`
 `;
 
 export default function EventFilter() {
-  const genres = useFilterStore((state) => state.genres);
-  const tags = useFilterStore((state) => state.tags);
-  const toggleGenre = useFilterStore((state) => state.toggleGenre);
-  const deleteTag = useFilterStore((state) => state.deleteTag);
-  const resetFilter = useFilterStore((state) => state.resetFilter);
-  const filterMenu = useFilterStore((state) => state.filterMenu);
-  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
+  const {
+    genres,
+    tags,
+    toggleGenre,
+    deleteTag,
+    resetFilter,
+    filterMenu,
+    setFilterMenu,
+  } = useFilterStore((state) => state);
 
   return (
     <>
@@ -69,7 +71,7 @@ export default function EventFilter() {
       </StyledDropdown>
       <StyledDropdown isActive={filterMenu.search}>
         {tags.map((tag) => (
-          <StyledTag key={nanoid()}>
+          <StyledTag key={uuidv4()}>
             {tag}
             <StyledIconButton
               type="button"

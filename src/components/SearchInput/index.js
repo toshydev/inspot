@@ -21,8 +21,7 @@ const StyledSearchBar = styled.input`
 `;
 
 export default function SearchInput() {
-  const addTags = useFilterStore((state) => state.addTags);
-  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
+  const { addTags, setFilterMenu } = useFilterStore((state) => state);
 
   return (
     <StyledMenu>

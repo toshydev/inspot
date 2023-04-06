@@ -22,7 +22,6 @@ const testEvent = {
 };
 
 test("renders a title, startDate, endDate, startTime, endTime, address", () => {
-  console.log(testEvent);
   render(<EventDetail event={testEvent} />);
   const title = screen.getByRole("heading", { name: testEvent.title });
   const startDate = screen.getByLabelText(/start date/i);
@@ -30,6 +29,7 @@ test("renders a title, startDate, endDate, startTime, endTime, address", () => {
   const startTime = screen.getByLabelText(/start time/i);
   const endTime = screen.getByLabelText(/end time/i);
   const address = screen.getByLabelText(/address/i);
+
   expect(title).toBeInTheDocument();
   expect(startDate).toBeInTheDocument();
   expect(endDate).toBeInTheDocument();
@@ -42,6 +42,7 @@ test("renders a description and information if available", () => {
   render(<EventDetail event={testEvent} />);
   const description = screen.getByRole("heading", { name: /description/i });
   const information = screen.getByRole("link", { name: /more/i });
+
   expect(description).toBeInTheDocument();
   expect(information).toBeInTheDocument();
 });

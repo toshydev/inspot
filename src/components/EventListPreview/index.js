@@ -3,8 +3,12 @@ import shortenText from "../../utils/shortenText";
 import StyledListItem from "../StyledListItem";
 
 const StyledEventPreviewDate = styled.time`
-  width: 35%;
-  text-align: center;
+  width: 25%;
+  margin: auto;
+`;
+
+const StyledEventHeadline = styled.h3`
+  width: 50%;
 `;
 
 export default function EventListPreview({ event }) {
@@ -16,7 +20,9 @@ export default function EventListPreview({ event }) {
         <StyledEventPreviewDate dateTime={event.startDate} aria-label="date">
           {formattedDate}
         </StyledEventPreviewDate>
-        <h4 aria-label={event.title}>{shortenText(event.title)}</h4>
+        <StyledEventHeadline aria-label={event.title}>
+          {shortenText(event.title)}
+        </StyledEventHeadline>
       </StyledListItem>
     </>
   );

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import StyledListContainer from "../StyledListContainer";
@@ -31,19 +30,10 @@ const StyledLocationButton = styled.button`
 `;
 
 export default function LocationList({ cities }) {
-  const city = useFilterStore((state) => state.city);
-  const setCity = useFilterStore((state) => state.setCity);
-  const sortedCities = cities.slice().sort((a, b) => {
-    if (a < b) {
-      return -1;
-    }
-    if (a > b) {
-      return 1;
-    }
-    return 0;
-  });
-
-  useEffect(() => {}, [city]);
+  const { city, setCity } = useFilterStore((state) => state);
+  const sortedCities = cities
+    .slice()
+    .sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
 
   return (
     <StyledListContainer>
