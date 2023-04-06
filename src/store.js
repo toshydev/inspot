@@ -8,6 +8,7 @@ export const useFilterStore = create((set) => {
       return { genre: genre, isActive: false };
     }),
     tags: [],
+    filterMenu: { genre: false, search: false },
     setCity: (name) =>
       set(() => {
         return { city: name };
@@ -44,6 +45,12 @@ export const useFilterStore = create((set) => {
           }),
           tags: [],
         };
+      }),
+    setFilterMenu: (menu) =>
+      set((state) => {
+        return menu === "genre"
+          ? { filterMenu: { genre: !state.filterMenu.genre, search: false } }
+          : { filterMenu: { genre: false, search: !state.filterMenu.search } };
       }),
   };
 });

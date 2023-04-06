@@ -1,17 +1,27 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  border-radius: 5px;
-  width: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 15px;
+  border: none;
   height: 2rem;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075);
   transition: 0.15s;
+  font-weight: bold;
 
   &:hover {
     background: #be4bdb;
     color: white;
-    font-weight: bold;
+    filter: drop-shadow(0 2px 2px #d6a6e2);
+  }
+
+  &:first-child {
+    transition: 0.15s;
+
+    &:hover {
+      fill: white;
+    }
   }
 `;
 

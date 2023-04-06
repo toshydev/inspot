@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-const StyledDropdown = styled.div`
+const StyledDropdown = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ flex }) => flex};
   align-items: center;
-  position: absolute;
   top: 3rem;
   left: 0;
-  width: 100%;
+  width: 98%;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: 2px solid #f0f0f0;
   background: white;
   text-align: center;
-  hidden: ${(props) => (props.isOpen ? true : false)};
-  border-radius: 8px;
+  display: ${({ isActive }) => (isActive ? "visible" : "none")};
   gap: 0.2rem;
 `;
 
