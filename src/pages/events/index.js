@@ -1,8 +1,8 @@
-import Location from "../../../icons/place_black_36dp.svg";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
+import { PlaceBig } from "../../utils/icons";
 
 export default function EventListPage({ events }) {
   return (
@@ -10,7 +10,7 @@ export default function EventListPage({ events }) {
       <StyledHeader>
         <h1>Explore</h1>
         <StyledIconLink href="/location">
-          <Location />
+          <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
       <EventFilter />

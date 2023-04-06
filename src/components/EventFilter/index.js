@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import styled from "styled-components";
-import Clear from "../../../icons/clear_black_36dp.svg";
 import { useFilterStore } from "../../store.js";
+import { ClearBig } from "../../utils/icons.js";
 import Menu from "../Menu.js";
 import SearchInput from "../SearchInput/index.js";
 import StyledDropdown from "../StyledDropdown.js";
@@ -43,7 +43,7 @@ export default function EventFilter() {
           }}
           aria-label="Clear filter"
         >
-          <Clear />
+          <ClearBig />
         </StyledIconButton>
       </StyledFilterSection>
       <StyledDropdown isActive={filterMenu.genre} flex="column">

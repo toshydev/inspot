@@ -58,9 +58,8 @@ const testEvents = [
   },
 ];
 
-test("renders all events in the EventList", () => {
+test("renders all events in the EventList", async () => {
   const store = renderHook(() => useFilterStore());
-
   const { genres, tags } = store.result.current;
 
   render(<EventList events={testEvents} />);

@@ -10,6 +10,7 @@ const initialGenres = [
   { genre: "sports", isActive: false },
 ];
 const initialTags = ["music", "train", "goethe"];
+const initialFilterMenu = { genre: false, search: false };
 
 const storeResetFns = new Set();
 
@@ -20,11 +21,13 @@ export const create = (createState) => {
   initialState.city = initialCity;
   initialState.genres = initialGenres;
   initialState.tags = initialTags;
+  initialState.filterMenu = initialFilterMenu;
   initialState.setCity = jest.fn();
   initialState.toggleGenre = jest.fn();
   initialState.addTags = jest.fn();
   initialState.deleteTag = jest.fn();
   initialState.resetFilter = jest.fn();
+  initialState.setFilterMenu = jest.fn();
 
   storeResetFns.add(() => store.setState(initialState, true));
   return store;

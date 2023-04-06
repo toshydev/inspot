@@ -1,11 +1,10 @@
-import ArrowBack from "../../../icons/arrow_back_ios_new_black_36dp.svg";
-import LocationReset from "../../../icons/wrong_location_black_36dp.svg";
 import LocationList from "../../components/LocationList";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
+import StyledIconButton from "../../components/StyledIconButton";
 import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
-import StyledIconButton from "../../components/StyledIconButton";
+import { ArrowBackBig, WrongLocationBig } from "../../utils/icons";
 
 export default function LocationPage({ cities }) {
   const resetCity = useFilterStore((state) => state.resetCity);
@@ -14,11 +13,11 @@ export default function LocationPage({ cities }) {
     <>
       <StyledHeader>
         <StyledIconLink href="/events/">
-          <ArrowBack />
+          <ArrowBackBig />
         </StyledIconLink>
         <StyledHeadline>Set your location</StyledHeadline>
         <StyledIconButton type="button" onClick={() => resetCity()}>
-          <LocationReset />
+          <WrongLocationBig />
         </StyledIconButton>
       </StyledHeader>
       <LocationList cities={cities} />

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import ArrowBack from "../../../icons/arrow_back_ios_new_black_36dp.svg";
-import Location from "../../../icons/place_black_36dp.svg";
+import { ArrowBackBig, PlaceBig } from "../../utils/icons";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
@@ -62,12 +61,12 @@ export default function EventDetail({ event }) {
   return (
     <>
       <StyledHeader>
-        <StyledIconLink href="/events/">
-          <ArrowBack />
+        <StyledIconLink href="/events/" aria-label="go to events list">
+          <ArrowBackBig />
         </StyledIconLink>
         <StyledHeadline aria-label={event.title}>{event.title}</StyledHeadline>
-        <StyledIconLink href="/location">
-          <Location />
+        <StyledIconLink href="/location" aria-label="go to locations list">
+          <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
       <StyledSection>

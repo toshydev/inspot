@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import StyledMenu from "../StyledMenu";
 import StyledInputContainer from "../StyledInputContainer";
-import Search from "../../../icons/search_black_24dp.svg";
+import { SearchMed } from "../../utils/icons";
 
 const StyledSearchBar = styled.input`
   width: 80%;
@@ -27,7 +27,7 @@ export default function SearchInput() {
   return (
     <StyledMenu>
       <StyledInputContainer>
-        <Search />
+        <SearchMed />
         <StyledSearchBar
           type="search"
           placeholder="Search"

@@ -6,6 +6,12 @@ const StyledListItem = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-radius: 50px;
+  transition: 0.15s;
+
+  &:hover {
+    background: #e2b8ec;
+  }
 `;
 
 export default StyledListItem;

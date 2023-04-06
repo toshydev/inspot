@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 const StyledIconButton = styled.button`
   background: transparent;
-  border-radius: 12px;
   border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  transition: 0.15s;
 
-  &:last-child {
-    transition: 0.15s;
-
-    &:hover {
-      fill: #be4bdb;
-      filter: drop-shadow(0 2px 2px #d6a6e2);
-    }
+  &:hover {
+    border-radius: 50px;
+    background: #e2b8ec;
   }
 `;
 

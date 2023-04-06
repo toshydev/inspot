@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Menu from ".";
+import { useFilterStore } from "../../store";
 
 const activeDropdownState = { menu: true, search: false };
 
@@ -7,6 +8,8 @@ const label = "colors";
 const testOptions = ["red", "green", "blue", "yellow", "white", "black"];
 
 test("renders a menu element with a label button and all options", () => {
+  const store = renderHook(() => useFilterStore());
+  const { setFilterMenu } = store.result.current;
   render(
     <Menu
       label={label}

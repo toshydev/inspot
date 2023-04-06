@@ -1,5 +1,5 @@
-import Expand from "../../../icons/expand_more_black_36dp.svg";
 import { useFilterStore } from "../../store";
+import { ExpandBig } from "../../utils/icons";
 import StyledButton from "../StyledButton";
 import StyledMenu from "../StyledMenu";
 
@@ -13,7 +13,7 @@ export default function Menu({ label }) {
         aria-label={`${label} menu`}
       >
         {label}
-        <Expand />
+        <ExpandBig />
       </StyledButton>
     </StyledMenu>
   );

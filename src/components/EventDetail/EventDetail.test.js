@@ -18,10 +18,11 @@ const testEvent = {
     address: "Pariser Platz 1, 10117 Berlin, Germany",
   },
   organizer: "62427e1dbfbaa6d9b6fb58a1",
-  id: "15024b8c085",
+  id: "Bqs4zTSDp4spa0wP0l416",
 };
 
 test("renders a title, startDate, endDate, startTime, endTime, address", () => {
+  console.log(testEvent);
   render(<EventDetail event={testEvent} />);
   const title = screen.getByRole("heading", { name: testEvent.title });
   const startDate = screen.getByLabelText(/start date/i);
