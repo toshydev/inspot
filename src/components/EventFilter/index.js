@@ -29,6 +29,7 @@ export default function EventFilter() {
   const deleteTag = useFilterStore((state) => state.deleteTag);
   const resetFilter = useFilterStore((state) => state.resetFilter);
   const filterMenu = useFilterStore((state) => state.filterMenu);
+  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
 
   return (
     <>
@@ -38,6 +39,7 @@ export default function EventFilter() {
         <StyledIconButton
           onClick={() => {
             resetFilter();
+            setFilterMenu("");
           }}
           aria-label="Clear filter"
         >

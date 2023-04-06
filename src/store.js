@@ -50,7 +50,9 @@ export const useFilterStore = create((set) => {
       set((state) => {
         return menu === "genre"
           ? { filterMenu: { genre: !state.filterMenu.genre, search: false } }
-          : { filterMenu: { genre: false, search: !state.filterMenu.search } };
+          : menu === "search"
+          ? { filterMenu: { genre: false, search: !state.filterMenu.search } }
+          : { filterMenu: { genre: false, search: false } };
       }),
   };
 });
