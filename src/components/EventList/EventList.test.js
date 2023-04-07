@@ -59,6 +59,6 @@ const testEvents = [
 
 test("renders all events in the EventList", async () => {
   render(<EventList events={testEvents} />);
-  const events = screen.getAllByRole("heading", { level: 3 });
+  const events = screen.getAllByRole("heading", { level: 4 });
   expect(events).toHaveLength(testEvents.length);
 });
