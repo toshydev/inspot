@@ -7,7 +7,8 @@ import { useFilterStore } from "../store";
 import { useEffect, useState } from "react";
 import useSWR, { SWRConfig } from "swr";
 
-const BASE_URL = "https://nominatim.openstreetmap.org/reverse?format=jsonv2";
+const BASE_URL =
+  "https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=en";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
