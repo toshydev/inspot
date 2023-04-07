@@ -1,14 +1,19 @@
 import { create } from "zustand";
 import uniqueGenres from "./utils/getGenres";
 
-export const useFilterStore = create((set) => {
+const useFilterStore = create((set) => {
   return {
+    currentLocation: false,
     city: "",
     genres: uniqueGenres.map((genre) => {
       return { genre: genre, isActive: false };
     }),
     tags: [],
     filterMenu: { genre: false, search: false },
+    toggleCurrentLocation: () =>
+      set((state) => {
+        return { currentLocation: !state.currentLocation };
+      }),
     setCity: (name) =>
       set(() => {
         return { city: name };
@@ -56,3 +61,5 @@ export const useFilterStore = create((set) => {
       }),
   };
 });
+
+export { useFilterStore };
