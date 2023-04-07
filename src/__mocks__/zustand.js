@@ -1,6 +1,7 @@
 import { act } from "react-dom/test-utils";
 const { create: actualCreate } = jest.requireActual("zustand");
 
+const initialCurrentLocation = true;
 const initialCity = "Berlin";
 const initialGenres = [
   { genre: "festival", isActive: false },
@@ -18,6 +19,7 @@ export const create = (createState) => {
   const store = actualCreate(createState);
   const initialState = store.getState();
 
+  initialState.currentLocation = initialCurrentLocation;
   initialState.city = initialCity;
   initialState.genres = initialGenres;
   initialState.tags = initialTags;
@@ -28,6 +30,8 @@ export const create = (createState) => {
   initialState.deleteTag = jest.fn();
   initialState.resetFilter = jest.fn();
   initialState.setFilterMenu = jest.fn();
+  initialState.toggleCurrentLocation = jest.fn();
+  initialState.unsetCurrentLocation = jest.fn();
 
   storeResetFns.add(() => store.setState(initialState, true));
   return store;
