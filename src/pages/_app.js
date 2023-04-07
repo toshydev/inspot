@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [userLocation, setUserLocation] = useState([]);
-  const { city } = useFilterStore((state) => state);
+  const { city, currentLocation } = useFilterStore((state) => state);
   const sortedEventsOfCity = getEventsOfCity(city, getSortedEvents(events));
 
   useEffect(() => {
@@ -21,18 +21,16 @@ export default function App({ Component, pageProps }) {
     const errorCallback = (error) => {
       console.log(error);
     };
-    if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(
-        successCallback,
-        errorCallback,
-        options
-      );
+    if (currentLocation) {
+      if (window.navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition(
+          successCallback,
+          errorCallback,
+          options
+        );
+      }
     }
-  }, [userLocation]);
-
-  function handleLocationChange() {
-    setUserLocation([55.555555, 99.999999]);
-  }
+  }, [userLocation, currentLocation]);
 
   return (
     <>

@@ -7,7 +7,7 @@ import { useFilterStore } from "../../store";
 import { ArrowBackBig, WrongLocationBig } from "../../utils/icons";
 
 export default function LocationPage({ cities }) {
-  const resetCity = useFilterStore((state) => state.resetCity);
+  const { resetCity, unsetCurrentLocation } = useFilterStore((state) => state);
 
   return (
     <>
@@ -16,7 +16,13 @@ export default function LocationPage({ cities }) {
           <ArrowBackBig />
         </StyledIconLink>
         <StyledHeadline>Set your location</StyledHeadline>
-        <StyledIconButton type="button" onClick={() => resetCity()}>
+        <StyledIconButton
+          type="button"
+          onClick={() => {
+            resetCity();
+            unsetCurrentLocation();
+          }}
+        >
           <WrongLocationBig />
         </StyledIconButton>
       </StyledHeader>
