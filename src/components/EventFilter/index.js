@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 import { useFilterStore } from "../../store.js";
 import { ClearBig } from "../../utils/icons.js";
 import Menu from "../Menu.js";

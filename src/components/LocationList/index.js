@@ -30,20 +30,45 @@ const StyledLocationButton = styled.button`
 `;
 
 export default function LocationList({ cities }) {
-  const { city, setCity } = useFilterStore((state) => state);
+  const {
+    city,
+    setCity,
+    currentLocation,
+    toggleCurrentLocation,
+    unsetCurrentLocation,
+  } = useFilterStore((state) => state);
+
+  if (city && cities.indexOf(city) < 0) {
+    cities.push(city);
+  }
   const sortedCities = cities
     .slice()
     .sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
 
   return (
     <StyledListContainer>
+      <StyledLocationItem>
+        <StyledLocationButton
+          type="button"
+          current={currentLocation}
+          onClick={toggleCurrentLocation}
+          aria-label={`user current location`}
+        >
+          <h4 aria-label="current location" style={{ textAlign: "center" }}>
+            Current Location
+          </h4>
+        </StyledLocationButton>
+      </StyledLocationItem>
       {sortedCities.map((cityItem) => {
         return (
           <StyledLocationItem key={cityItem}>
             <StyledLocationButton
               type="button"
               current={cityItem === city}
-              onClick={() => setCity(cityItem)}
+              onClick={() => {
+                setCity(cityItem);
+                unsetCurrentLocation();
+              }}
               aria-label={`select city: ${cityItem}`}
             >
               <h4 aria-label={cityItem} style={{ textAlign: "center" }}>

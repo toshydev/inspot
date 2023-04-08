@@ -7,7 +7,7 @@ const StyledEventPreviewDate = styled.time`
   margin: auto;
 `;
 
-const StyledEventHeadline = styled.h3`
+const StyledEventHeadline = styled.h4`
   width: 50%;
 `;
 

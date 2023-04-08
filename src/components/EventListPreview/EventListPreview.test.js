@@ -23,7 +23,7 @@ const testEvent = {
 test("renders the start date and title of the event", () => {
   render(<EventListPreview event={testEvent} />);
   const date = screen.getByText(/\d+.\d+.\d+/i);
-  const title = screen.getByRole("heading", { level: 3 });
+  const title = screen.getByRole("heading", { level: 4 });
 
   expect(date).toBeInTheDocument();
   expect(title).toBeInTheDocument();
