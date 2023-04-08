@@ -3,6 +3,8 @@ import uniqueGenres from "./utils/getGenres";
 
 const useFilterStore = create((set) => {
   return {
+    range: 50000,
+    userLocation: [],
     currentLocation: false,
     city: "",
     genres: uniqueGenres.map((genre) => {
@@ -10,6 +12,14 @@ const useFilterStore = create((set) => {
     }),
     tags: [],
     filterMenu: { genre: false, search: false },
+    setUserLocation: (coords) =>
+      set(() => {
+        return { userLocation: coords };
+      }),
+    setRange: (newRange) =>
+      set(() => {
+        return { range: newRange };
+      }),
     toggleCurrentLocation: () =>
       set((state) => {
         return { currentLocation: !state.currentLocation };

@@ -8,7 +8,7 @@ import {
 } from "../utils/getEvents";
 import { events } from "../lib/data";
 import { useFilterStore } from "../store";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useSWR, { SWRConfig } from "swr";
 
 const BASE_URL =
@@ -28,8 +28,7 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
-  const [userLocation, setUserLocation] = useState([]);
-  const { city, setCity, currentLocation, unsetCurrentLocation } =
+  const { city, setCity, currentLocation, userLocation, setUserLocation } =
     useFilterStore((state) => state);
 
   const sortedEventsOfCity = getEventsOfCity(city, getSortedEvents(events));
@@ -72,7 +71,7 @@ export default function App({ Component, pageProps }) {
         );
       }
     }
-  }, [currentLocation, unsetCurrentLocation]);
+  }, [currentLocation, setUserLocation]);
 
   useEffect(() => {
     if (currentLocation && data) {

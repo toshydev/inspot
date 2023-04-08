@@ -4,6 +4,8 @@ import { ArrowBackBig, PlaceBig } from "../../utils/icons";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
+import DistanceWidget from "../DistanceWidget";
+import StyledWidgetContainer from "../StyledWidgetContainer";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -12,7 +14,7 @@ const StyledSection = styled.section`
   width: 98%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 0.5rem;
 `;
 
@@ -53,7 +55,7 @@ const StyledDescription = styled.section`
   width: 98%;
 `;
 
-export default function EventDetail({ event }) {
+export default function EventDetail({ event, range, distance }) {
   const date = new Date(event.startDate);
   const endDate = new Date(event.endDate);
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
@@ -69,7 +71,7 @@ export default function EventDetail({ event }) {
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
-      <StyledSection>
+      <StyledSection style={{ background: "#f0f0f0" }}>
         <StyledTypeHeadline>#{event.type}</StyledTypeHeadline>
         <StyledDateSection>
           Date:
@@ -91,6 +93,15 @@ export default function EventDetail({ event }) {
           <p>Address:</p>
           <address aria-label="address">{event.location.address}</address>
         </StyledAddressSection>
+        <StyledWidgetContainer
+          style={{
+            gridColumn: "span 4",
+            gridRow: 4,
+            marginTop: "1rem",
+          }}
+        >
+          <DistanceWidget distance={distance} range={range} />
+        </StyledWidgetContainer>
       </StyledSection>
       <StyledDescription>
         <h3>Description:</h3>
