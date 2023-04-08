@@ -55,7 +55,12 @@ const StyledDescription = styled.section`
   width: 98%;
 `;
 
-export default function EventDetail({ event, range, distance }) {
+export default function EventDetail({
+  event,
+  range,
+  distance,
+  currentLocation,
+}) {
   const date = new Date(event.startDate);
   const endDate = new Date(event.endDate);
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
@@ -100,7 +105,9 @@ export default function EventDetail({ event, range, distance }) {
             marginTop: "1rem",
           }}
         >
-          <DistanceWidget distance={distance} range={range} />
+          {currentLocation && (
+            <DistanceWidget distance={distance} range={range} />
+          )}
         </StyledWidgetContainer>
       </StyledSection>
       <StyledDescription>
