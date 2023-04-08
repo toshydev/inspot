@@ -1,3 +1,5 @@
+import { getDistance } from "geolib";
+
 export function getSortedEvents(events) {
   return events.slice().sort((a, b) => {
     const dateA = new Date(a.startDate);
@@ -15,4 +17,18 @@ export function getEventsOfCity(city, events) {
         return cityString === city;
       })
     : events;
+}
+
+export function getEventsInRange(userCoords, range, events) {
+  return events.filter((event) => {
+    return (
+      getDistance(
+        { latitude: userCoords[0], longitude: userCoords[1] },
+        {
+          latitude: event.location.coordinates[0],
+          longitude: event.location.coordinates[1],
+        }
+      ) <= range
+    );
+  });
 }

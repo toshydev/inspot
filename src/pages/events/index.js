@@ -11,6 +11,8 @@ export default function EventListPage({ events }) {
   const setGenres = genres.filter((genre) => genre.isActive).length;
   const filteredEvents = getFilteredEvents(events, setGenres, genres, tags);
 
+  if (!events) return <>Loading Events...</>;
+
   return (
     <>
       <StyledHeader>
