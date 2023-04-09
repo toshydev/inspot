@@ -1,10 +1,14 @@
 import Layout from "../components/Layout";
 import GlobalStyle from "../styles";
 import uniqueCities from "../utils/getCities";
-import { getSortedEvents, getEventsOfCity } from "../utils/getEvents";
+import {
+  getSortedEvents,
+  getEventsOfCity,
+  getEventsInRange,
+} from "../utils/getEvents";
 import { events } from "../lib/data";
 import { useFilterStore } from "../store";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useSWR, { SWRConfig } from "swr";
 
 const BASE_URL =
@@ -24,13 +28,17 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
-  const [userLocation, setUserLocation] = useState([]);
-  const { city, setCity, currentLocation } = useFilterStore((state) => state);
+  const { city, setCity, currentLocation, userLocation, setUserLocation } =
+    useFilterStore((state) => state);
 
   const sortedEventsOfCity = getEventsOfCity(city, getSortedEvents(events));
+  const eventsInRange =
+    userLocation.length > 0 && currentLocation
+      ? getEventsInRange(userLocation, 200000, events)
+      : null;
 
   const { data } = useSWR(
-    userLocation && currentLocation
+    userLocation.length > 0 && currentLocation
       ? `${BASE_URL}&lat=${userLocation[0]}&lon=${userLocation[1]}&zoom=10`
       : null,
     fetcher,
@@ -43,6 +51,7 @@ export default function App({ Component, pageProps }) {
     const options = {
       enableHighAccuracy: true,
       timeout: 10000,
+      maximumAge: 0,
     };
     const successCallback = ({ coords }) => {
       const [latitude, longitude] = [coords.latitude, coords.longitude];
@@ -50,7 +59,9 @@ export default function App({ Component, pageProps }) {
     };
     const errorCallback = (error) => {
       console.log(error);
+      alert("Position could not be determined.");
     };
+
     if (currentLocation) {
       if (window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
@@ -60,11 +71,11 @@ export default function App({ Component, pageProps }) {
         );
       }
     }
-  }, [userLocation, currentLocation]);
+  }, [currentLocation, setUserLocation]);
 
   useEffect(() => {
-    if (currentLocation) {
-      data ? setCity(data.address.city) : null;
+    if (currentLocation && data) {
+      setCity(data.address.city);
     }
   }, [currentLocation, data, setCity]);
 
@@ -75,7 +86,11 @@ export default function App({ Component, pageProps }) {
         <Layout>
           <Component
             {...pageProps}
-            events={sortedEventsOfCity}
+            events={
+              currentLocation && eventsInRange
+                ? eventsInRange
+                : sortedEventsOfCity
+            }
             cities={uniqueCities}
           />
         </Layout>

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import styled from "styled-components";
-
 import EventListPreview from "../EventListPreview";
 import StyledListContainer from "../StyledListContainer";
 
 const StyledEventPreviewLink = styled(Link)`
   color: unset;
   width: 90%;
-  height: 3rem;
+  height: 5rem;
   text-decoration: none;
   justify-content: center;
   display: flex;
