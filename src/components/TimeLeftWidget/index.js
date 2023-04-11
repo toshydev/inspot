@@ -32,7 +32,7 @@ export default function TimeLeftWidget({ startDate, startTime }) {
 
   return (
     <StyledWidget>
-      <StyledProgressLabel>
+      <StyledProgressLabel aria-label="time left until event start">
         Starts in {getTimeString(timeLeft)}
       </StyledProgressLabel>
       <StyledProgressContainer>

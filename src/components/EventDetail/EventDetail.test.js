@@ -46,3 +46,11 @@ test("renders a description and information if available", () => {
   expect(description).toBeInTheDocument();
   expect(information).toBeInTheDocument();
 });
+
+test("renders the days, hours or minutes left until event start", () => {
+  render(<EventDetail event={testEvent} />);
+
+  const timeLeft = screen.getByLabelText(/time left/i);
+
+  expect(timeLeft).toBeInTheDocument();
+});
