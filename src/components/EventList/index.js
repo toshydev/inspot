@@ -5,8 +5,8 @@ import StyledListContainer from "../StyledListContainer";
 
 const StyledEventPreviewLink = styled(Link)`
   color: unset;
-  width: 90%;
-  height: 5rem;
+  width: 98%;
+  height: 10rem;
   text-decoration: none;
   justify-content: center;
   display: flex;

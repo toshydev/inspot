@@ -1,15 +1,15 @@
+import { useEffect } from "react";
+import useSWR, { SWRConfig } from "swr";
 import Layout from "../components/Layout";
+import { events } from "../lib/data";
+import { useFilterStore } from "../store";
 import GlobalStyle from "../styles";
 import uniqueCities from "../utils/getCities";
 import {
-  getSortedEvents,
-  getEventsOfCity,
   getEventsInRange,
+  getEventsOfCity,
+  getSortedEvents,
 } from "../utils/getEvents";
-import { events } from "../lib/data";
-import { useFilterStore } from "../store";
-import { useEffect } from "react";
-import useSWR, { SWRConfig } from "swr";
 
 const BASE_URL =
   "https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=en";
