@@ -10,7 +10,6 @@ const StyledListItem = styled.li`
   border-radius: 50px;
   transition: 0.15s;
   justify-content: space-around;
-  gap: 1rem;
 
   &:hover {
     background: #e2b8ec;

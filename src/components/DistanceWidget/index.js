@@ -1,16 +1,7 @@
 import styled from "styled-components";
-
-const StyledWidget = styled.div`
-  background: white;
-  width: 100%;
-  height: 0.5rem;
-  border-radius: 50px;
-`;
-
-const StyledDistanceContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+import StyledProgressContainer from "../StyledProgressContainer";
+import StyledProgressLabel from "../StyledProgressLabel";
+import StyledWidget from "../StyledWidget";
 
 const StyledDistance = styled.div`
   background: #be4bdb;
@@ -19,20 +10,13 @@ const StyledDistance = styled.div`
   border-radius: 50px;
 `;
 
-const StyledDistanceLabel = styled.small`
-  position: absolute;
-  transform: translateY(-100%);
-`;
-
 export default function DistanceWidget({ range, distance }) {
   return (
     <StyledWidget>
-      <StyledDistanceLabel>
-        {(distance / 1000).toFixed(1)} km
-      </StyledDistanceLabel>
-      <StyledDistanceContainer>
+      <StyledProgressLabel>{distance} m</StyledProgressLabel>
+      <StyledProgressContainer>
         <StyledDistance percent={range / distance}></StyledDistance>
-      </StyledDistanceContainer>
+      </StyledProgressContainer>
     </StyledWidget>
   );
 }

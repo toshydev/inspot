@@ -6,6 +6,7 @@ import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
 import DistanceWidget from "../DistanceWidget";
 import StyledWidgetContainer from "../StyledWidgetContainer";
+import TimeLeftWidget from "../TimeLeftWidget";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -14,7 +15,7 @@ const StyledSection = styled.section`
   width: 98%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 0.5rem;
 `;
 
@@ -65,6 +66,7 @@ export default function EventDetail({
   const endDate = new Date(event.endDate);
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
   const formattedEndDate = new Intl.DateTimeFormat("de-DE").format(endDate);
+
   return (
     <>
       <StyledHeader>
@@ -107,6 +109,12 @@ export default function EventDetail({
         >
           {currentLocation && (
             <DistanceWidget distance={distance} range={range} />
+          )}
+          {date.getTime() > Date.now() && (
+            <TimeLeftWidget
+              startDate={event.startDate}
+              startTime={event.startTime}
+            />
           )}
         </StyledWidgetContainer>
       </StyledSection>

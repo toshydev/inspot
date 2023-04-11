@@ -9,7 +9,7 @@ const StyledListContainer = styled.ul`
   align-items: center;
   width: 98%;
   border: 2px solid black;
-  gap: 0.5rem;
+  gap: 1rem;
 `;
 
 export default StyledListContainer;

@@ -4,8 +4,8 @@ export const events = [
     type: "festival",
     description:
       "The world-famous Munich Oktoberfest takes place every year in September/October.",
-    startDate: "2023-09-16T00:00:00.000Z",
-    endDate: "2023-10-03T00:00:00.000Z",
+    startDate: "2023-09-16",
+    endDate: "2023-10-03",
     startTime: "10:00",
     endTime: "23:00",
     location: {
@@ -14,8 +14,8 @@ export const events = [
       address: "Theresienwiese, 80336 Munich, Germany",
     },
     organizer: "614429dbdc0450d0ce264f07",
-    created_at: "2023-04-01T00:00:00.000Z",
-    updated_at: "2023-04-01T00:00:00.000Z",
+    created_at: "2023-04-01",
+    updated_at: "2023-04-01",
     id: "-XVR6wEtI2oOlAvF_Leea",
   },
   {
@@ -27,8 +27,8 @@ export const events = [
       "This tour will take approximately 2 hours and cover the key sights of Munich. Wear comfortable shoes and dress for the weather.",
     startDate: "2023-06-01",
     endDate: "2023-06-01",
-    startTime: "10:00 AM",
-    endTime: "12:00 PM",
+    startTime: "10:00",
+    endTime: "12:00",
     location: {
       type: "Point",
       coordinates: [48.13641, 11.57756],
@@ -46,8 +46,8 @@ export const events = [
       "Performed by the Munich Philharmonic Orchestra and Choir, this concert is not to be missed.",
     startDate: "2023-07-15",
     endDate: "2023-07-15",
-    startTime: "8:00 PM",
-    endTime: "10:00 PM",
+    startTime: "20:00",
+    endTime: "22:00",
     location: {
       type: "Point",
       coordinates: [48.13719, 11.57821],
@@ -64,8 +64,8 @@ export const events = [
       "Join us for the annual Munich Spring Festival, a smaller version of the Oktoberfest.",
     startDate: "2023-04-20",
     endDate: "2023-05-06",
-    startTime: "12:00 PM",
-    endTime: "11:00 PM",
+    startTime: "12:00",
+    endTime: "23:00",
     location: {
       type: "Point",
       coordinates: [48.12422, 11.55292],
@@ -98,8 +98,8 @@ export const events = [
       "This event is limited to 20 participants, so book early to secure your spot.",
     startDate: "2023-08-10",
     endDate: "2023-08-10",
-    startTime: "7:00 PM",
-    endTime: "9:00 PM",
+    startTime: "19:00",
+    endTime: "21:00",
     location: {
       type: "Point",
       coordinates: [48.12864, 11.57274],
@@ -116,8 +116,8 @@ export const events = [
       "Enjoy an evening of classical music in the stunning setting of Nymphenburg Palace.",
     startDate: "2023-09-01",
     endDate: "2023-09-01",
-    startTime: "8:00 PM",
-    endTime: "10:00 PM",
+    startTime: "20:00",
+    endTime: "22:00",
     location: {
       type: "Point",
       coordinates: [48.15925, 11.50518],
@@ -134,8 +134,8 @@ export const events = [
       "Experience the thrill of driving on our private track and learn from our expert instructors.",
     startDate: "2023-05-01",
     endDate: "2023-05-01",
-    startTime: "9:00 AM",
-    endTime: "1:00 PM",
+    startTime: "09:00",
+    endTime: "13:00",
     location: {
       type: "Point",
       coordinates: [48.17702, 11.55163],
@@ -248,8 +248,6 @@ export const events = [
       "The festival runs for ten days and includes screenings, Q&A sessions with filmmakers, and special events. Please check the schedule for details.",
     startDate: "2023-11-01",
     endDate: "2023-11-10",
-    startTime: "Varies",
-    endTime: "Varies",
     location: {
       type: "Point",
       coordinates: [13.388778, 52.516646],
@@ -336,8 +334,8 @@ export const events = [
       "Join us for a festive day filled with Christmas lights, decorations and much more!",
     startDate: "2023-12-01",
     endDate: "2023-12-31",
-    startTime: "10:00 AM",
-    endTime: "7:00 PM",
+    startTime: "10:00",
+    endTime: "19:00",
     location: {
       type: "Point",
       coordinates: [53.5438, 9.9884],
@@ -355,8 +353,8 @@ export const events = [
       "Join us for an evening of beautiful music performed by the Hamburg Philharmonic Orchestra",
     startDate: "2023-07-15",
     endDate: "2023-07-15",
-    startTime: "8:00 PM",
-    endTime: "10:00 PM",
+    startTime: "20:00",
+    endTime: "22:00",
     location: {
       type: "Point",
       coordinates: [53.5414, 9.9844],
@@ -374,8 +372,8 @@ export const events = [
       "Experience the beauty of this historic church and take part in a traditional church service",
     startDate: "2023-04-16",
     endDate: "2023-04-16",
-    startTime: "11:00 AM",
-    endTime: "12:00 PM",
+    startTime: "11:00",
+    endTime: "12:00",
     location: {
       type: "Point",
       coordinates: [53.5489, 9.9792],
@@ -392,8 +390,8 @@ export const events = [
       "Join us for a guided tour of the city hall and learn about its history and architecture",
     startDate: "2023-06-10",
     endDate: "2023-06-10",
-    startTime: "2:00 PM",
-    endTime: "3:30 PM",
+    startTime: "14:00",
+    endTime: "15:30",
     location: {
       type: "Point",
       coordinates: [53.5506, 9.9921],
@@ -480,8 +478,8 @@ export const events = [
       "The tour will cover the highlights of the cathedral and its history.",
     startDate: "2023-05-01",
     endDate: "2023-05-01",
-    startTime: "10:00 AM",
-    endTime: "11:30 AM",
+    startTime: "10:00",
+    endTime: "11:30",
     location: {
       type: "Point",
       coordinates: [50.941278, 6.958281],
@@ -499,8 +497,8 @@ export const events = [
       "The exhibit will feature works from contemporary artists from around the world.",
     startDate: "2023-06-01",
     endDate: "2023-06-01",
-    startTime: "7:00 PM",
-    endTime: "9:00 PM",
+    startTime: "19:00",
+    endTime: "21:00",
     location: {
       type: "Point",
       coordinates: [50.940321, 6.960449],
@@ -518,8 +516,8 @@ export const events = [
       "The tasting will be led by a master chocolatier and will cover the history of chocolate and its production.",
     startDate: "2023-07-01",
     endDate: "2023-07-01",
-    startTime: "2:00 PM",
-    endTime: "4:00 PM",
+    startTime: "14:00",
+    endTime: "16:00",
     location: {
       type: "Point",
       coordinates: [50.938944, 6.968676],
@@ -603,8 +601,8 @@ export const events = [
       "Experience the beauty of Cologne Cathedral at night with our exclusive guided tour.",
     information:
       "Please arrive 15 minutes before the start time. No flash photography allowed.",
-    startDate: "2023-05-01T19:30:00.000Z",
-    endDate: "2023-05-01T21:00:00.000Z",
+    startDate: "2023-05-01",
+    endDate: "2023-05-01",
     startTime: "19:30",
     endTime: "21:00",
     location: {
@@ -621,8 +619,8 @@ export const events = [
     description:
       "Discover the latest contemporary art exhibitions at the Museum Ludwig.",
     information: "Admission is free on every first Thursday of the month.",
-    startDate: "2023-06-05T10:00:00.000Z",
-    endDate: "2023-06-05T18:00:00.000Z",
+    startDate: "2023-06-05",
+    endDate: "2023-06-05",
     startTime: "10:00",
     endTime: "18:00",
     location: {
@@ -640,8 +638,8 @@ export const events = [
       "Indulge in a unique chocolate tasting experience and learn the secrets of the chocolate-making process.",
     information:
       "All materials will be provided, and participants are advised to wear comfortable clothing.",
-    startDate: "2023-07-10T14:00:00.000Z",
-    endDate: "2023-07-10T16:00:00.000Z",
+    startDate: "2023-07-10",
+    endDate: "2023-07-10",
     startTime: "14:00",
     endTime: "16:00",
     location: {
