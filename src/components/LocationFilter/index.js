@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { useFilterStore } from "../../store";
-import StyledListContainer from "../StyledListContainer";
-import PlacesAutocomplete from "../PlacesAutocomplete";
-import { getGeocode, getLatLng } from "use-places-autocomplete";
 import Geohash from "latlon-geohash";
+import styled from "styled-components";
+import { getGeocode, getLatLng } from "use-places-autocomplete";
+import { useFilterStore } from "../../store";
+import PlacesAutocomplete from "../PlacesAutocomplete";
+import StyledListContainer from "../StyledListContainer";
 
 const StyledLocationItem = styled.li`
   width: 100%;

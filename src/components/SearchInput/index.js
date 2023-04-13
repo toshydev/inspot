@@ -1,8 +1,8 @@
 import { useFilterStore } from "../../store";
-import StyledMenu from "../StyledMenu";
-import StyledInputContainer from "../StyledInputContainer";
 import { SearchMed } from "../../utils/icons";
 import StyledIconButton from "../StyledIconButton";
+import StyledInputContainer from "../StyledInputContainer";
+import StyledMenu from "../StyledMenu";
 import StyledSearchBar from "../StyledSearchBar";
 
 export default function SearchInput() {

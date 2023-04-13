@@ -4,10 +4,10 @@ import { ClearBig } from "../../utils/icons.js";
 import Menu from "../Menu.js";
 import SearchInput from "../SearchInput/index.js";
 import StyledDropdown from "../StyledDropdown.js";
+import StyledFilterSection from "../StyledFilterSection.js";
 import StyledIconButton from "../StyledIconButton.js";
 import StyledLabel from "../StyledLabel.js";
 import StyledTag from "../StyledTag.js";
-import StyledFilterSection from "../StyledFilterSection.js";
 
 export default function EventFilter() {
   const {
