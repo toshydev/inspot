@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import { useFilterStore } from "../../store.js";
 import { ClearBig } from "../../utils/icons.js";
@@ -8,26 +7,14 @@ import StyledDropdown from "../StyledDropdown.js";
 import StyledIconButton from "../StyledIconButton.js";
 import StyledLabel from "../StyledLabel.js";
 import StyledTag from "../StyledTag.js";
-
-const StyledFilterSection = styled.section`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 98%;
-  padding: 0.5rem;
-  margin: 0.1rem;
-  position: sticky;
-  border: 2px solid black;
-  background: white;
-`;
+import StyledFilterSection from "../StyledFilterSection.js";
 
 export default function EventFilter() {
   const {
-    genres,
-    tags,
-    toggleGenre,
-    deleteTag,
+    segments,
+    keywords,
+    toggleSegment,
+    deleteKeyword,
     resetFilter,
     filterMenu,
     setFilterMenu,
@@ -36,7 +23,7 @@ export default function EventFilter() {
   return (
     <>
       <StyledFilterSection>
-        <Menu label="Genre" />
+        <Menu label="Filter" />
         <SearchInput />
         <StyledIconButton
           onClick={() => {
@@ -49,33 +36,36 @@ export default function EventFilter() {
         </StyledIconButton>
       </StyledFilterSection>
       <StyledDropdown isActive={filterMenu.genre} flex="column">
-        {genres.map((genre) => {
+        {segments.map((segment) => {
           return (
             <StyledLabel
-              key={genre.genre}
-              htmlFor={genre.genre}
-              isActive={genre.isActive}
+              key={segment.name}
+              htmlFor={segment.name}
+              isActive={segment.isActive}
             >
-              {genre.genre}
+              {segment.name}
               <input
-                id={genre.genre}
+                id={segment.name}
                 type="checkbox"
                 hidden={true}
-                name={genre.genre}
-                onChange={() => toggleGenre(genre.genre)}
-                checked={genre.isActive}
+                name={segment.name}
+                onChange={() => {
+                  toggleSegment(segment.name);
+                  console.log(segments);
+                }}
+                checked={segment.isActive}
               />
             </StyledLabel>
           );
         })}
       </StyledDropdown>
       <StyledDropdown isActive={filterMenu.search}>
-        {tags.map((tag) => (
+        {keywords.map((keyword) => (
           <StyledTag key={uuidv4()}>
-            {tag}
+            {keyword}
             <StyledIconButton
               type="button"
-              onClick={() => deleteTag(tag)}
+              onClick={() => deleteKeyword(keyword)}
             ></StyledIconButton>
           </StyledTag>
         ))}

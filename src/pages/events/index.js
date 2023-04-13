@@ -3,15 +3,23 @@ import EventList from "../../components/EventList";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
-import getFilteredEvents from "../../utils/getFilteredEvents";
 import { PlaceBig } from "../../utils/icons";
+import useSWR from "swr";
 
-export default function EventListPage({ events }) {
-  const { genres, tags } = useFilterStore((state) => state);
-  const setGenres = genres.filter((genre) => genre.isActive).length;
-  const filteredEvents = getFilteredEvents(events, setGenres, genres, tags);
+export default function EventListPage() {
+  const { page, sorting, resource, keywords, segments, location, range } =
+    useFilterStore((state) => state);
+  const { data } = useSWR(
+    `/api/events/${resource}?sort=${sorting}&geoPoint=${location}&radius=${
+      range / 1000
+    }&unit=km&classificationName=${segments
+      .filter((segment) => segment.isActive)
+      .map(
+        (segment) => segment.name
+      )}&keyword=${keywords}&locale=*&countryCode=DE&page=${page}`
+  );
 
-  if (!events) return <>Loading Events...</>;
+  console.log(data);
 
   return (
     <>
@@ -22,7 +30,11 @@ export default function EventListPage({ events }) {
         </StyledIconLink>
       </StyledHeader>
       <EventFilter />
-      <EventList events={filteredEvents} />
+      {data?._embedded ? (
+        <EventList events={data._embedded.events} />
+      ) : (
+        <p>No events found. Adjust filter.</p>
+      )}
     </>
   );
 }

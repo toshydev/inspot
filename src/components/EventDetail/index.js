@@ -1,10 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { ArrowBackBig, PlaceBig } from "../../utils/icons";
+import DistanceWidget from "../DistanceWidget";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
-import DistanceWidget from "../DistanceWidget";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
 
@@ -62,10 +62,8 @@ export default function EventDetail({
   distance,
   currentLocation,
 }) {
-  const date = new Date(event.startDate);
-  const endDate = new Date(event.endDate);
+  const date = new Date(event.dates.start.dateTime);
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
-  const formattedEndDate = new Intl.DateTimeFormat("de-DE").format(endDate);
 
   return (
     <>
@@ -73,32 +71,31 @@ export default function EventDetail({
         <StyledIconLink href="/events/" aria-label="go to events list">
           <ArrowBackBig />
         </StyledIconLink>
-        <StyledHeadline aria-label={event.title}>{event.title}</StyledHeadline>
+        <StyledHeadline aria-label={event.name}>{event.name}</StyledHeadline>
         <StyledIconLink href="/location" aria-label="go to locations list">
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
-        <StyledTypeHeadline>#{event.type}</StyledTypeHeadline>
+        <StyledTypeHeadline>
+          {event.classifications[0].segment.name}
+        </StyledTypeHeadline>
         <StyledDateSection>
           Date:
           <time aria-label="start date" dateTime={formattedStartDate}>
             <strong>{formattedStartDate}</strong>
           </time>
-          -
-          <time aria-label="end date" dateTime={formattedEndDate}>
-            <strong>{formattedEndDate}</strong>
-          </time>
         </StyledDateSection>
         <StyledTimeSection>
           <p>Start:</p>
-          <p aria-label="start time">{event.startTime}</p>
-          <p>End:</p>
-          <p aria-label="end time">{event.endTime}</p>
+          <p aria-label="start time">{event.dates.start.dateTime}</p>
         </StyledTimeSection>
         <StyledAddressSection>
           <p>Address:</p>
-          <address aria-label="address">{event.location.address}</address>
+          <address aria-label="address">
+            {event._embedded.venues[0].address.line1},
+            {event._embedded.venues[0].address.city}
+          </address>
         </StyledAddressSection>
         <StyledWidgetContainer
           style={{
@@ -112,8 +109,8 @@ export default function EventDetail({
           )}
           {date.getTime() > Date.now() && (
             <TimeLeftWidget
-              startDate={event.startDate}
-              startTime={event.startTime}
+              startDate={event.dates.start.localDate}
+              startTime={event.dates.start.localTime}
             />
           )}
         </StyledWidgetContainer>
@@ -123,7 +120,7 @@ export default function EventDetail({
         <p aria-label="description">{event.description}</p>
         <h3>Information:</h3>
         <p aria-label="information">{event.information}</p>
-        <Link href="/events">More</Link>
+        <Link href={event.url}>More</Link>
       </StyledDescription>
     </>
   );

@@ -8,7 +8,7 @@ import StyledWidget from "../StyledWidget";
 const StyledTimeBar = styled.div`
   background: #be4bdb;
   width: ${({ progress }) =>
-    progress > 86400 ? "1%" : `${progress / 86400}%`};
+    progress > 86400 ? "1%" : `${(progress / 86400) * 100}%`};
   height: 100%;
   border-radius: 50px;
 `;
@@ -19,9 +19,7 @@ export default function TimeLeftWidget({ startDate, startTime }) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentDate = new Date();
-      const finalDate = startTime
-        ? new Date(startDate + "T" + startTime)
-        : new Date(startDate + "T" + "00:00");
+      const finalDate = new Date(startDate + "T" + startTime);
       const timeDifference =
         Math.abs(currentDate.getTime() - finalDate.getTime()) / 1000;
       setTimeLeft(timeDifference);
