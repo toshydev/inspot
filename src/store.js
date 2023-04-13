@@ -11,11 +11,9 @@ const useFilterStore = create((set) => {
   return {
     page: 0,
     resource: "events",
-    segment: "",
     sorting: "date,asc",
     keywords: [],
     range: 50000,
-    userLocation: [],
     currentLocation: false,
     location: "",
     segments: segments
@@ -32,10 +30,6 @@ const useFilterStore = create((set) => {
         }
       }),
     filterMenu: { genre: false, search: false },
-    setUserLocation: (coords) =>
-      set(() => {
-        return { userLocation: coords };
-      }),
     setRange: (newRange) =>
       set(() => {
         return { range: newRange };

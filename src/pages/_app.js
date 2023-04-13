@@ -1,9 +1,9 @@
+import Geohash from "latlon-geohash";
 import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import Layout from "../components/Layout";
 import { useFilterStore } from "../store";
 import GlobalStyle from "../styles";
-import Geohash from "latlon-geohash";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
