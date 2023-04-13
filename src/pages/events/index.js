@@ -1,10 +1,10 @@
+import useSWR from "swr";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
 import { PlaceBig } from "../../utils/icons";
-import useSWR from "swr";
 
 export default function EventListPage() {
   const { page, sorting, resource, keywords, segments, location, range } =
@@ -18,8 +18,6 @@ export default function EventListPage() {
         (segment) => segment.name
       )}&keyword=${keywords}&locale=*&countryCode=DE&page=${page}`
   );
-
-  console.log(data);
 
   return (
     <>

@@ -43,6 +43,7 @@ export default function PlacesAutocomplete({ onAddressSelect }) {
 
       return (
         <StyledListItem
+          aria-label={`select location: ${main_text}`}
           key={place_id}
           onClick={() => {
             setValue(description, false);
@@ -62,6 +63,7 @@ export default function PlacesAutocomplete({ onAddressSelect }) {
       <StyledFilterSection>
         <StyledInputContainer>
           <StyledSearchBar
+            aria-label="location search"
             type="search"
             value={value}
             disabled={!ready}

@@ -62,7 +62,7 @@ export default function EventDetail({
   distance,
   currentLocation,
 }) {
-  const date = new Date(event.dates.start.dateTime);
+  const date = new Date(event.dates.start.localDate);
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
 
   return (
@@ -78,7 +78,10 @@ export default function EventDetail({
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
         <StyledTypeHeadline>
-          {event.classifications[0].segment.name}
+          {
+            event.classifications.find((segment) => segment.primary === true)
+              .genre.name
+          }
         </StyledTypeHeadline>
         <StyledDateSection>
           Date:
@@ -88,7 +91,7 @@ export default function EventDetail({
         </StyledDateSection>
         <StyledTimeSection>
           <p>Start:</p>
-          <p aria-label="start time">{event.dates.start.dateTime}</p>
+          <p aria-label="start time">{event.dates.start.localTime}</p>
         </StyledTimeSection>
         <StyledAddressSection>
           <p>Address:</p>

@@ -21,7 +21,7 @@ export default function SearchInput() {
 
   return (
     <StyledMenu>
-      <form onSubmit={handleSubmit}>
+      <form aria-label="search for keywords" onSubmit={handleSubmit}>
         <StyledInputContainer>
           <StyledSearchBar
             name="keywords"
