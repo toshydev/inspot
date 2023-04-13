@@ -2,7 +2,6 @@ export default async function handler(request, response) {
   try {
     const baseURL = "https://app.ticketmaster.com/discovery/v2/";
     const { slug, ...query } = request.query;
-    console.log("slug: ", slug, "query: ", query);
     const url =
       baseURL +
       slug +
@@ -11,8 +10,6 @@ export default async function handler(request, response) {
         apikey: process.env.API_KEY,
         ...query,
       }).toString();
-
-    console.log("URL: ", url);
 
     const fetchData = await fetch(url);
     if (!fetchData.ok) {
