@@ -16,7 +16,7 @@ export default function EventDetailPage() {
     id ? `/api/events/${resource}?id=${id}&locale=*&countryCode=DE` : null
   );
   const distance =
-    location.length > 0
+    location.length > 0 && data?._embedded
       ? getDistance(
           {
             latitude: Geohash.decode(location).lat,

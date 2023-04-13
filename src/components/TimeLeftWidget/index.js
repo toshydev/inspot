@@ -5,10 +5,14 @@ import StyledProgressContainer from "../StyledProgressContainer";
 import StyledProgressLabel from "../StyledProgressLabel";
 import StyledWidget from "../StyledWidget";
 
-const StyledTimeBar = styled.div`
+const StyledTimeBar = styled.div.attrs((props) => ({
+  style: {
+    width: `${props.progress > 86400} ? "1%" : ${
+      (props.progress / 86400) * 100
+    }%`,
+  },
+}))`
   background: #be4bdb;
-  width: ${({ progress }) =>
-    progress > 86400 ? "1%" : `${(progress / 86400) * 100}%`};
   height: 100%;
   border-radius: 50px;
 `;
