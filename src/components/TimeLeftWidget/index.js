@@ -7,9 +7,7 @@ import StyledWidget from "../StyledWidget";
 
 const StyledTimeBar = styled.div.attrs((props) => ({
   style: {
-    width: `${props.progress > 86400} ? "1%" : ${
-      (props.progress / 86400) * 100
-    }%`,
+    width: `${props.progress > 86400 ? "1%" : (props.progress / 86400) * 100}%`,
   },
 }))`
   background: #be4bdb;
@@ -18,7 +16,7 @@ const StyledTimeBar = styled.div.attrs((props) => ({
 `;
 
 export default function TimeLeftWidget({ startDate, startTime }) {
-  const [timeLeft, setTimeLeft] = useState("");
+  const [timeLeft, setTimeLeft] = useState();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
