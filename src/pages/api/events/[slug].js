@@ -20,7 +20,6 @@ export default async function handler(request, response) {
       throw error;
     } else {
       const data = await fetchData.json();
-      console.log("fetched data: ", data);
       return response.status(200).json(data);
     }
   } catch (error) {
