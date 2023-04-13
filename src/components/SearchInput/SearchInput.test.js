@@ -3,10 +3,14 @@ import userEvent from "@testing-library/user-event";
 import SearchInput from ".";
 import { useFilterStore } from "../../store";
 
-test("renders an input element", () => {
+test("renders a form with an input element and a button", () => {
   render(<SearchInput />);
+  const form = screen.getByRole("form", { name: /search/i });
   const input = screen.getByRole("searchbox", { placeholder: /search/i });
+  const submitButton = screen.getByRole("button", { name: /search/i });
+  expect(form).toBeInTheDocument();
   expect(input).toBeInTheDocument();
+  expect(submitButton).toBeInTheDocument();
 });
 
 test("triggers a callback function when clicking the input element", async () => {
@@ -23,9 +27,9 @@ test("triggers a callback function when clicking the input element", async () =>
   expect(setFilterMenu).toHaveBeenCalledTimes(2);
 });
 
-test("triggers a callback function on each comma, space and enter typed", async () => {
+test("triggers a callback function on submit with non-empty data", async () => {
   const store = renderHook(() => useFilterStore());
-  const { addTags } = store.result.current;
+  const { addKeywords } = store.result.current;
   const user = userEvent.setup();
 
   render(<SearchInput />);
@@ -35,5 +39,5 @@ test("triggers a callback function on each comma, space and enter typed", async 
   await user.type(input, "Hello,World !");
   await user.keyboard("{Enter}");
 
-  expect(addTags).toHaveBeenCalledTimes(3);
+  expect(addKeywords).toHaveBeenCalledTimes(1);
 });

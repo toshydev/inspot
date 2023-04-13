@@ -1,35 +1,50 @@
+import { getDistance } from "geolib";
+import Geohash from "latlon-geohash";
 import { useRouter } from "next/router";
+import useSWR from "swr";
 import EventDetail from "../../components/EventDetail";
 import { useFilterStore } from "../../store";
-import { getDistance } from "geolib";
 
-export default function EventDetailPage({ events }) {
-  const { currentLocation, userLocation, range } = useFilterStore(
+export default function EventDetailPage() {
+  const { currentLocation, location, range, resource } = useFilterStore(
     (state) => state
   );
+
   const router = useRouter();
   const { id } = router.query;
-  const currentEvent = events.find((event) => event.id === id);
+  const { data } = useSWR(
+    id ? `/api/events/${resource}?id=${id}&locale=*&countryCode=DE` : null
+  );
   const distance =
-    userLocation.length > 0
+    location.length > 0 && data?._embedded
       ? getDistance(
-          { latitude: userLocation[0], longitude: userLocation[1] },
           {
-            latitude: currentEvent.location.coordinates[0],
-            longitude: currentEvent.location.coordinates[1],
+            latitude: Geohash.decode(location).lat,
+            longitude: Geohash.decode(location).lon,
+          },
+          {
+            latitude:
+              data._embedded.events[0]._embedded.venues[0].location.latitude,
+            longitude:
+              data._embedded.events[0]._embedded.venues[0].location.longitude,
           }
         )
       : null;
 
-  if (currentEvent) {
-    return (
-      <EventDetail
-        event={currentEvent}
-        currentLocation={currentLocation}
-        range={range}
-        distance={distance}
-      />
-    );
-  }
-  return <>Loading...</>;
+  console.log(data);
+
+  return (
+    <>
+      {data?._embedded.events ? (
+        <EventDetail
+          event={data._embedded.events[0]}
+          currentLocation={currentLocation}
+          range={range}
+          distance={distance}
+        />
+      ) : (
+        <p>No events found. Adjust filter.</p>
+      )}
+    </>
+  );
 }

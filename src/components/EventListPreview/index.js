@@ -6,6 +6,7 @@ import shortenText from "../../utils/shortenText";
 import DistanceWidget from "../DistanceWidget";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
+import Geohash from "latlon-geohash";
 
 const StyledPreviewCard = styled.li`
   background: #f0f0f0;
@@ -38,44 +39,53 @@ const StyledEventHeadline = styled.h4`
 
 export default function EventListPreview({ event }) {
   const [distance, setDistance] = useState(0);
-  const { range, currentLocation, userLocation } = useFilterStore(
-    (state) => state
-  );
+  const { range, currentLocation, location } = useFilterStore((state) => state);
 
-  const date = new Date(event.startDate);
+  const date = new Date(
+    event.dates.start.dateTime
+      ? event.dates.start.dateTime
+      : event.dates.start.localDate
+  );
   const formattedDate = new Intl.DateTimeFormat("de-DE").format(date);
 
   useEffect(() => {
-    userLocation.length > 0
-      ? setDistance(
+    const id = setInterval(() => {
+      if (location) {
+        const latLon = Geohash.decode(location);
+        setDistance(
           getDistance(
-            { latitude: userLocation[0], longitude: userLocation[1] },
+            { latitude: latLon.lat, longitude: latLon.lon },
             {
-              latitude: event.location.coordinates[0],
-              longitude: event.location.coordinates[1],
+              latitude: event._embedded.venues[0].location.latitude,
+              longitude: event._embedded.venues[0].location.longitude,
             }
           )
-        )
-      : setDistance(null);
-  }, [userLocation, event]);
+        );
+      }
+    }, 5000);
+    return () => clearInterval(id);
+  }, [location, event]);
 
   return (
     <>
       <StyledPreviewCard>
-        <StyledEventPreviewDate dateTime={event.startDate} aria-label="date">
+        <StyledEventPreviewDate
+          dateTime={event.dates.start.dateTime}
+          aria-label="date"
+        >
           {formattedDate}
         </StyledEventPreviewDate>
-        <StyledEventHeadline aria-label={event.title}>
-          {shortenText(event.title)}
+        <StyledEventHeadline aria-label={event.name}>
+          {event.name}
         </StyledEventHeadline>
-        <StyledWidgetContainer style={{ gridRow: "span 5" }}>
+        <StyledWidgetContainer style={{ gridRow: "span 6" }}>
           {currentLocation && (
             <DistanceWidget range={range} distance={distance} />
           )}
           {date.getTime() > Date.now() && (
             <TimeLeftWidget
-              startDate={event.startDate}
-              startTime={event.startTime}
+              startDate={date}
+              startTime={event.dates.start.localTime}
             />
           )}
         </StyledWidgetContainer>

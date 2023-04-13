@@ -1,18 +1,9 @@
+import Geohash from "latlon-geohash";
 import { useEffect } from "react";
-import useSWR, { SWRConfig } from "swr";
+import { SWRConfig } from "swr";
 import Layout from "../components/Layout";
-import { events } from "../lib/data";
 import { useFilterStore } from "../store";
 import GlobalStyle from "../styles";
-import uniqueCities from "../utils/getCities";
-import {
-  getEventsInRange,
-  getEventsOfCity,
-  getSortedEvents,
-} from "../utils/getEvents";
-
-const BASE_URL =
-  "https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=en";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -28,34 +19,18 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
-  const { city, setCity, currentLocation, userLocation, setUserLocation } =
-    useFilterStore((state) => state);
-
-  const sortedEventsOfCity = getEventsOfCity(city, getSortedEvents(events));
-  const eventsInRange =
-    userLocation.length > 0 && currentLocation
-      ? getEventsInRange(userLocation, 200000, events)
-      : null;
-
-  const { data } = useSWR(
-    userLocation.length > 0 && currentLocation
-      ? `${BASE_URL}&lat=${userLocation[0]}&lon=${userLocation[1]}&zoom=10`
-      : null,
-    fetcher,
-    {
-      refreshInterval: 600000,
-    }
-  );
+  const { setLocation, currentLocation } = useFilterStore((state) => state);
 
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
-      timeout: 10000,
+      timeout: 50000,
       maximumAge: 0,
     };
     const successCallback = ({ coords }) => {
       const [latitude, longitude] = [coords.latitude, coords.longitude];
-      setUserLocation([latitude, longitude]);
+      const hash = Geohash.encode(latitude, longitude, 9);
+      setLocation(hash);
     };
     const errorCallback = (error) => {
       console.log(error);
@@ -71,28 +46,14 @@ export default function App({ Component, pageProps }) {
         );
       }
     }
-  }, [currentLocation, setUserLocation]);
-
-  useEffect(() => {
-    if (currentLocation && data) {
-      setCity(data.address.city);
-    }
-  }, [currentLocation, data, setCity]);
+  }, [currentLocation, setLocation]);
 
   return (
     <>
       <SWRConfig value={{ fetcher }}>
         <GlobalStyle />
         <Layout>
-          <Component
-            {...pageProps}
-            events={
-              currentLocation && eventsInRange
-                ? eventsInRange
-                : sortedEventsOfCity
-            }
-            cities={uniqueCities}
-          />
+          <Component {...pageProps} />
         </Layout>
       </SWRConfig>
     </>

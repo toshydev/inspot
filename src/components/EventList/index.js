@@ -24,7 +24,7 @@ export default function EventList({ events }) {
           <StyledEventPreviewLink
             key={event.id}
             href={`/events/${event.id}`}
-            aria-label={`go to details page of ${event.title}`}
+            aria-label={`go to details page of ${event.name}`}
           >
             <EventListPreview event={event} />
           </StyledEventPreviewLink>

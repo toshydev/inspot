@@ -3,9 +3,12 @@ import StyledProgressContainer from "../StyledProgressContainer";
 import StyledProgressLabel from "../StyledProgressLabel";
 import StyledWidget from "../StyledWidget";
 
-const StyledDistance = styled.div`
+const StyledDistance = styled.div.attrs((props) => ({
+  style: {
+    width: `min(${props.percent}%, 100%)`,
+  },
+}))`
   background: #be4bdb;
-  width: ${({ percent }) => `min(${percent}%, 100%)`};
   height: 100%;
   border-radius: 50px;
 `;
@@ -13,7 +16,9 @@ const StyledDistance = styled.div`
 export default function DistanceWidget({ range, distance }) {
   return (
     <StyledWidget>
-      <StyledProgressLabel>{distance} m</StyledProgressLabel>
+      <StyledProgressLabel>
+        {Math.floor(distance / 1000)} km
+      </StyledProgressLabel>
       <StyledProgressContainer>
         <StyledDistance percent={range / distance}></StyledDistance>
       </StyledProgressContainer>

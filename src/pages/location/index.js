@@ -1,4 +1,4 @@
-import LocationList from "../../components/LocationList";
+import LocationList from "../../components/LocationFilter";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledIconButton from "../../components/StyledIconButton";
@@ -6,8 +6,10 @@ import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
 import { ArrowBackBig, WrongLocationBig } from "../../utils/icons";
 
-export default function LocationPage({ cities }) {
-  const { resetCity, unsetCurrentLocation } = useFilterStore((state) => state);
+export default function LocationPage() {
+  const { resetLocation, unsetCurrentLocation } = useFilterStore(
+    (state) => state
+  );
 
   return (
     <>
@@ -19,14 +21,14 @@ export default function LocationPage({ cities }) {
         <StyledIconButton
           type="button"
           onClick={() => {
-            resetCity();
+            resetLocation();
             unsetCurrentLocation();
           }}
         >
           <WrongLocationBig />
         </StyledIconButton>
       </StyledHeader>
-      <LocationList cities={cities} />
+      <LocationList />
     </>
   );
 }

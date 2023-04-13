@@ -1,21 +1,35 @@
 import { create } from "zustand";
-import uniqueGenres from "./utils/getGenres";
+import segments from "./lib/segments";
+
+const useMapStore = create(() => {
+  return {
+    isMapScriptLoaded: false,
+  };
+});
 
 const useFilterStore = create((set) => {
   return {
+    page: 0,
+    resource: "events",
+    sorting: "date,asc",
+    keywords: [],
     range: 50000,
-    userLocation: [],
     currentLocation: false,
-    city: "",
-    genres: uniqueGenres.map((genre) => {
-      return { genre: genre, isActive: false };
-    }),
-    tags: [],
-    filterMenu: { genre: false, search: false },
-    setUserLocation: (coords) =>
-      set(() => {
-        return { userLocation: coords };
+    location: "",
+    segments: segments
+      .map((segment) => {
+        return { name: segment.segment.name, isActive: false };
+      })
+      .sort((a, b) => {
+        if (a.name > b.name) {
+          return 1;
+        } else if (a.name < b.name) {
+          return -1;
+        } else {
+          return 0;
+        }
       }),
+    filterMenu: { genre: false, search: false },
     setRange: (newRange) =>
       set(() => {
         return { range: newRange };
@@ -28,52 +42,66 @@ const useFilterStore = create((set) => {
       set(() => {
         return { currentLocation: false };
       }),
-    setCity: (name) =>
+    setLocation: (geohash) =>
       set(() => {
-        return { city: name };
+        return { location: geohash };
       }),
-    resetCity: () =>
+    resetLocation: () =>
       set(() => {
         return { city: "" };
       }),
-    toggleGenre: (genreToActivate) =>
+    toggleSegment: (segmentToActivate) =>
       set((state) => {
         return {
-          genres: state.genres.map((genre) => {
-            if (genre.genre === genreToActivate) {
-              genre.isActive = !genre.isActive;
-              return genre;
+          segments: state.segments.map((segment) => {
+            if (segment.name === segmentToActivate) {
+              segment.isActive = !segment.isActive;
+              return segment;
             }
-            return genre;
+            return segment;
           }),
         };
       }),
-    addTags: (string) =>
-      set(() => {
-        return { tags: string.includes(",") ? string.split(",") : [string] };
-      }),
-    deleteTag: (tagToDelete) =>
+    addKeywords: (string) =>
       set((state) => {
-        return { tags: state.tags.filter((tag) => tag !== tagToDelete) };
+        return {
+          keywords: string.includes(",")
+            ? string.split(",")
+            : [...state.keywords, string],
+        };
+      }),
+    deleteKeyword: (keywordToDelete) =>
+      set((state) => {
+        return {
+          keywords: state.keywords.filter(
+            (keyword) => keyword !== keywordToDelete
+          ),
+        };
       }),
     resetFilter: () =>
       set((state) => {
         return {
-          genres: state.genres.map((genre) => {
-            return { ...genre, isActive: false };
+          segments: state.segments.map((segment) => {
+            return { ...segment, isActive: false };
           }),
-          tags: [],
+          keywords: [],
         };
       }),
     setFilterMenu: (menu) =>
       set((state) => {
-        return menu === "genre"
-          ? { filterMenu: { genre: !state.filterMenu.genre, search: false } }
-          : menu === "search"
-          ? { filterMenu: { genre: false, search: !state.filterMenu.search } }
-          : { filterMenu: { genre: false, search: false } };
+        if (menu === "genre") {
+          return {
+            filterMenu: { genre: !state.filterMenu.genre, search: false },
+          };
+        } else if (menu === "search") {
+          return {
+            filterMenu: { genre: false, search: !state.filterMenu.search },
+          };
+        } else {
+          return { filterMenu: { genre: false, search: false } };
+        }
       }),
   };
 });
 
-export { useFilterStore };
+export { useFilterStore, useMapStore };

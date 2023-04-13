@@ -3,44 +3,44 @@ import userEvent from "@testing-library/user-event";
 import EventFilter from ".";
 import { useFilterStore } from "../../store";
 
-test("renders one tag input field, one genre button and one clear button", () => {
+test("renders one tag input field, one filter button and one clear button", () => {
   render(<EventFilter />);
-  const genreButton = screen.getByRole("button", { name: /genre/i });
+  const filterButton = screen.getByRole("button", { name: /filter menu/i });
   const tagsInput = screen.getByRole("searchbox", { placeholder: /search/i });
   const clearButton = screen.getByRole("button", { name: /clear/i });
-  expect(genreButton).toBeInTheDocument();
+  expect(filterButton).toBeInTheDocument();
   expect(tagsInput).toBeInTheDocument();
   expect(clearButton).toBeInTheDocument();
 });
 
 test("clicking the genre menu toggles the genre list", async () => {
   const store = renderHook(() => useFilterStore());
-  const { genres } = store.result.current;
+  const { segments } = store.result.current;
   const user = userEvent.setup();
 
   render(<EventFilter />);
-  const genreButton = screen.getByRole("button", { name: /genre/i });
+  const filterButton = screen.getByRole("button", { name: /filter menu/i });
 
-  await user.click(genreButton);
-  const genreOptions = screen.getAllByRole("checkbox", { hidden: true });
+  await user.click(filterButton);
+  const categories = screen.getAllByRole("checkbox", { hidden: true });
 
-  expect(genreOptions).toHaveLength(genres.length);
+  expect(categories).toHaveLength(segments.length);
 });
 
 test("clicking the clear button resets active tags and genres", async () => {
   const store = renderHook(() => useFilterStore());
-  const { genres, tags } = store.result.current;
+  const { segments, keywords } = store.result.current;
   const user = userEvent.setup();
 
   render(<EventFilter />);
   const clearButton = screen.getByRole("button", { name: /clear/i });
 
   await user.click(clearButton);
-  const activeGenres = () => genres.filter((genre) => genre.isActive);
-  const tagLength = () => tags.length;
-  const { rerender } = renderHook(activeGenres, tagLength);
-  rerender(genres, tagLength);
+  const activeSegments = () => segments.filter((segment) => segment.isActive);
+  const keywordsLength = () => keywords.length;
+  const { rerender } = renderHook(activeSegments, keywordsLength);
+  rerender(segments, keywordsLength);
 
-  expect(activeGenres).toHaveLength(0);
-  expect(tagLength).toHaveLength(0);
+  expect(activeSegments).toHaveLength(0);
+  expect(keywordsLength).toHaveLength(0);
 });

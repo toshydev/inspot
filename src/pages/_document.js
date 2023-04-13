@@ -1,5 +1,7 @@
-import Document from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 import { ServerStyleSheet } from "styled-components";
+import { useMapStore } from "../store";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -21,5 +23,23 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+          <Script
+            id="googlemaps"
+            type="text/javascript"
+            strategy="beforeInteractive"
+            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.PLACES_API_KEY}&libraries=places`}
+            onLoad={() => useMapStore.setState({ isMapScriptLoaded: true })}
+          />
+        </body>
+      </Html>
+    );
   }
 }
