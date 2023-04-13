@@ -78,13 +78,13 @@ export default function EventListPreview({ event }) {
         <StyledEventHeadline aria-label={event.name}>
           {event.name}
         </StyledEventHeadline>
-        <StyledWidgetContainer style={{ gridRow: "span 5" }}>
+        <StyledWidgetContainer style={{ gridRow: "span 6" }}>
           {currentLocation && (
             <DistanceWidget range={range} distance={distance} />
           )}
           {date.getTime() > Date.now() && (
             <TimeLeftWidget
-              startDate={event.dates.start.localDate}
+              startDate={date}
               startTime={event.dates.start.localTime}
             />
           )}

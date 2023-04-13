@@ -23,11 +23,15 @@ export default function EventDetailPage() {
             longitude: Geohash.decode(location).lon,
           },
           {
-            latitude: data._embedded.venues[0].location.latitude,
-            longitude: data._embedded.venues[0].location.longitude,
+            latitude:
+              data._embedded.events[0]._embedded.venues[0].location.latitude,
+            longitude:
+              data._embedded.events[0]._embedded.venues[0].location.longitude,
           }
         )
       : null;
+
+  console.log(data);
 
   return (
     <>

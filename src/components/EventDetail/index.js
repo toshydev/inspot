@@ -62,7 +62,11 @@ export default function EventDetail({
   distance,
   currentLocation,
 }) {
-  const date = new Date(event.dates.start.localDate);
+  const date = new Date(
+    event.dates.start.dateTime
+      ? event.dates.start.dateTime
+      : event.dates.start.localDate
+  );
   const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
 
   return (
@@ -112,7 +116,7 @@ export default function EventDetail({
           )}
           {date.getTime() > Date.now() && (
             <TimeLeftWidget
-              startDate={event.dates.start.localDate}
+              startDate={date}
               startTime={event.dates.start.localTime}
             />
           )}
