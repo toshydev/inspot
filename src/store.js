@@ -9,10 +9,12 @@ const useMapStore = create(() => {
 
 const useFilterStore = create((set) => {
   return {
-    page: 0,
-    resource: "events",
-    sorting: "date,asc",
-    keywords: [],
+    venuesPage: 0,
+    eventsPage: 0,
+    venueSort: "relevance,desc",
+    eventSort: "date,asc",
+    venueKeywords: [],
+    eventKeywords: [],
     range: 50000,
     currentLocation: false,
     location: "",
@@ -30,6 +32,38 @@ const useFilterStore = create((set) => {
         }
       }),
     filterMenu: { genre: false, search: false },
+    setVenuesPage: (num) =>
+      set(() => {
+        return { venuesPage: num };
+      }),
+    increaseVenuesPage: () =>
+      set((state) => {
+        return { venuesPage: state.venuesPage + 1 };
+      }),
+    decreaseVenuesPage: () =>
+      set((state) => {
+        return { venuesPage: state.venuesPage - 1 };
+      }),
+    setEventsPage: (num) =>
+      set(() => {
+        return { eventsPage: num };
+      }),
+    increaseEventsPage: () =>
+      set((state) => {
+        return { eventsPage: state.eventsPage + 1 };
+      }),
+    decreaseEventsPage: () =>
+      set((state) => {
+        return { eventsPage: state.eventsPage - 1 };
+      }),
+    setVenueSort: (string) =>
+      set(() => {
+        return { venueSort: string };
+      }),
+    setEventSort: (string) =>
+      set(() => {
+        return { eventSort: string };
+      }),
     setRange: (newRange) =>
       set(() => {
         return { range: newRange };
@@ -62,29 +96,50 @@ const useFilterStore = create((set) => {
           }),
         };
       }),
-    addKeywords: (string) =>
+    addVenueKeywords: (string) =>
       set((state) => {
         return {
-          keywords: string.includes(",")
+          venueKeywords: string.includes(",")
             ? string.split(",")
-            : [...state.keywords, string],
+            : [...state.venueKeywords, string],
         };
       }),
-    deleteKeyword: (keywordToDelete) =>
+    deleteVenueKeyword: (keywordToDelete) =>
       set((state) => {
         return {
-          keywords: state.keywords.filter(
+          venueKeywords: state.venueKeywords.filter(
             (keyword) => keyword !== keywordToDelete
           ),
         };
       }),
-    resetFilter: () =>
+    addEventKeywords: (string) =>
+      set((state) => {
+        return {
+          eventKeywords: string.includes(",")
+            ? string.split(",")
+            : [...state.eventKeywords, string],
+        };
+      }),
+    deleteEventKeyword: (keywordToDelete) =>
+      set((state) => {
+        return {
+          eventKeywords: state.eventKeywords.filter(
+            (keyword) => keyword !== keywordToDelete
+          ),
+        };
+      }),
+    resetVenuesFilter: () =>
+      set(() => {
+        return { venueKeywords: [] };
+      }),
+    resetEventsFilter: () =>
       set((state) => {
         return {
           segments: state.segments.map((segment) => {
             return { ...segment, isActive: false };
           }),
-          keywords: [],
+          eventKeywords: [],
+          venueKeywords: [],
         };
       }),
     setFilterMenu: (menu) =>

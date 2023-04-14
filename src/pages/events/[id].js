@@ -6,14 +6,14 @@ import EventDetail from "../../components/EventDetail";
 import { useFilterStore } from "../../store";
 
 export default function EventDetailPage() {
-  const { currentLocation, location, range, resource } = useFilterStore(
-    (state) => state
-  );
+  const currentLocation = useFilterStore((state) => state.currentLocation);
+  const location = useFilterStore((state) => state.location);
+  const range = useFilterStore((state) => state.range);
 
   const router = useRouter();
   const { id } = router.query;
   const { data } = useSWR(
-    id ? `/api/events/${resource}?id=${id}&locale=*&countryCode=DE` : null
+    id ? `/api/events/events?id=${id}&locale=*&countryCode=DE` : null
   );
   const distance =
     location.length > 0 && data?._embedded

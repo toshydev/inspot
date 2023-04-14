@@ -28,16 +28,15 @@ test("triggers a callback function when clicking the input element", async () =>
 });
 
 test("triggers a callback function on submit with non-empty data", async () => {
-  const store = renderHook(() => useFilterStore());
-  const { addKeywords } = store.result.current;
+  const onAddKeywords = jest.fn();
   const user = userEvent.setup();
 
-  render(<SearchInput />);
+  render(<SearchInput onAddKeywords={onAddKeywords} />);
   const input = screen.getByRole("searchbox", { placeholder: /search/i });
 
   await user.click(input);
   await user.type(input, "Hello,World !");
   await user.keyboard("{Enter}");
 
-  expect(addKeywords).toHaveBeenCalledTimes(1);
+  expect(onAddKeywords).toHaveBeenCalledTimes(1);
 });

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { ArrowBackBig, PlaceBig } from "../../utils/icons";
+import { PlaceBig } from "../../utils/icons";
+import BackLink from "../BackLink";
 import DistanceWidget from "../DistanceWidget";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
@@ -72,9 +73,7 @@ export default function EventDetail({
   return (
     <>
       <StyledHeader>
-        <StyledIconLink href="/events/" aria-label="go to events list">
-          <ArrowBackBig />
-        </StyledIconLink>
+        <BackLink />
         <StyledHeadline aria-label={event.name}>{event.name}</StyledHeadline>
         <StyledIconLink href="/location" aria-label="go to locations list">
           <PlaceBig />

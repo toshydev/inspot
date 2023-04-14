@@ -1,6 +1,16 @@
 import { createGlobalStyle } from "styled-components";
+import localFont from "next/font/local";
+
+const mPlus1Code = localFont({
+  src: "../public/fonts/MPLUS1Code-VariableFont_wght.ttf",
+});
 
 export default createGlobalStyle`
+:root {
+  --logoFont: ${mPlus1Code.style.fontFamily}, sans-serif;
+  --accent: #be4bdb;
+}
+
   *, *::before, *::after {
   box-sizing: border-box;
 }

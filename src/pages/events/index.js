@@ -7,16 +7,21 @@ import { useFilterStore } from "../../store";
 import { PlaceBig } from "../../utils/icons";
 
 export default function EventListPage() {
-  const { page, sorting, resource, keywords, segments, location, range } =
-    useFilterStore((state) => state);
+  const eventsPage = useFilterStore((state) => state.eventsPage);
+  const eventSort = useFilterStore((state) => state.eventSort);
+  const eventKeywords = useFilterStore((state) => state.eventKeywords);
+  const segments = useFilterStore((state) => state.segments);
+  const location = useFilterStore((state) => state.location);
+  const range = useFilterStore((state) => state.range);
+
   const { data } = useSWR(
-    `/api/events/${resource}?sort=${sorting}&geoPoint=${location}&radius=${
+    `/api/events/events?sort=${eventSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&classificationName=${segments
       .filter((segment) => segment.isActive)
       .map(
         (segment) => segment.name
-      )}&keyword=${keywords}&locale=*&countryCode=DE&page=${page}`
+      )}&keyword=${eventKeywords}&locale=*&countryCode=DE&page=${eventsPage}`
   );
 
   return (

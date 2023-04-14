@@ -33,13 +33,10 @@ export default function TimeLeftWidget({ startDate, startTime }) {
       const timeDifference =
         Math.abs(finalDate.getTime() - currentDate.getTime()) / 1000;
       setTimeLeft(timeDifference);
-      //console.log(Math.abs(finalDate.getTime() - currentDate.getTime()) / 1000);
     }, 1000);
 
     return () => clearInterval(intervalId);
   }, [startDate, startTime]);
-
-  //console.log(timeLeft > 86400 ? "1%" : ((timeLeft / 86400) * 100), "%");
 
   return (
     <StyledWidget>

@@ -334,6 +334,14 @@ const testEvent = {
   },
 };
 
+jest.mock("next/router", () => ({
+  useRouter() {
+    return {
+      back: jest.fn(),
+    };
+  },
+}));
+
 const { range, currentLocation } = renderHook(() => useFilterStore);
 
 test("renders a title, startDate, startTime, address", () => {
