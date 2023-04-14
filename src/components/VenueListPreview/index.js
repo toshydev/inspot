@@ -1,18 +1,12 @@
 import { getDistance } from "geolib";
 import Geohash from "latlon-geohash";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import DistanceWidget from "../DistanceWidget";
 import StyledCardHeadline from "../StyledCardHeadline";
 import StyledPreviewCard from "../StyledPreviewCard";
 import StyledWidgetContainer from "../StyledWidgetContainer";
-
-const StyledSubtitle = styled.aside`
-  grid-column: 1;
-  grid-row: 1;
-  margin-left: 1rem;
-`;
+import StyledSubtitle from "../StyledSubtitle";
 
 export default function VenueListPreview({ venue }) {
   const [distance, setDistance] = useState(0);
