@@ -16,7 +16,7 @@ const StyledDistance = styled.div.attrs((props) => ({
 export default function DistanceWidget({ range, distance }) {
   return (
     <StyledWidget>
-      <StyledProgressLabel>
+      <StyledProgressLabel aria-label={`${distance} meters away`}>
         {Math.floor(distance / 1000)} km
       </StyledProgressLabel>
       <StyledProgressContainer>

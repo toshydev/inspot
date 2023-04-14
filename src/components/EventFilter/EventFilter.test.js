@@ -29,7 +29,7 @@ test("clicking the genre menu toggles the genre list", async () => {
 
 test("clicking the clear button resets active tags and genres", async () => {
   const store = renderHook(() => useFilterStore());
-  const { segments, keywords } = store.result.current;
+  const { segments, eventKeywords } = store.result.current;
   const user = userEvent.setup();
 
   render(<EventFilter />);
@@ -37,7 +37,7 @@ test("clicking the clear button resets active tags and genres", async () => {
 
   await user.click(clearButton);
   const activeSegments = () => segments.filter((segment) => segment.isActive);
-  const keywordsLength = () => keywords.length;
+  const keywordsLength = () => eventKeywords.length;
   const { rerender } = renderHook(activeSegments, keywordsLength);
   rerender(segments, keywordsLength);
 

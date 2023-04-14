@@ -33,12 +33,14 @@ const StyledLocationButton = styled.button`
 `;
 
 export default function LocationFilter() {
-  const {
-    setLocation,
-    currentLocation,
-    toggleCurrentLocation,
-    unsetCurrentLocation,
-  } = useFilterStore((state) => state);
+  const setLocation = useFilterStore((state) => state.setLocation);
+  const currentLocation = useFilterStore((state) => state.currentLocation);
+  const toggleCurrentLocation = useFilterStore(
+    (state) => state.toggleCurrentLocation
+  );
+  const unsetCurrentLocation = useFilterStore(
+    (state) => state.unsetCurrentLocation
+  );
 
   return (
     <>

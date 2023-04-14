@@ -10,24 +10,25 @@ import StyledLabel from "../StyledLabel.js";
 import StyledTag from "../StyledTag.js";
 
 export default function EventFilter() {
-  const {
-    segments,
-    keywords,
-    toggleSegment,
-    deleteKeyword,
-    resetFilter,
-    filterMenu,
-    setFilterMenu,
-  } = useFilterStore((state) => state);
+  const segments = useFilterStore((state) => state.segments);
+  const addEventKeywords = useFilterStore((state) => state.addEventKeywords);
+  const eventKeywords = useFilterStore((state) => state.eventKeywords);
+  const toggleSegment = useFilterStore((state) => state.toggleSegment);
+  const deleteEventKeyword = useFilterStore(
+    (state) => state.deleteEventKeyword
+  );
+  const resetEventsFilter = useFilterStore((state) => state.resetEventsFilter);
+  const filterMenu = useFilterStore((state) => state.filterMenu);
+  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
 
   return (
     <>
       <StyledFilterSection>
         <Menu label="Filter" />
-        <SearchInput />
+        <SearchInput onAddKeywords={addEventKeywords} />
         <StyledIconButton
           onClick={() => {
-            resetFilter();
+            resetEventsFilter();
             setFilterMenu("");
           }}
           aria-label="Clear filter"
@@ -49,10 +50,7 @@ export default function EventFilter() {
                 type="checkbox"
                 hidden={true}
                 name={segment.name}
-                onChange={() => {
-                  toggleSegment(segment.name);
-                  console.log(segments);
-                }}
+                onChange={() => toggleSegment(segment.name)}
                 checked={segment.isActive}
               />
             </StyledLabel>
@@ -60,12 +58,12 @@ export default function EventFilter() {
         })}
       </StyledDropdown>
       <StyledDropdown isActive={filterMenu.search}>
-        {keywords.map((keyword) => (
+        {eventKeywords.map((keyword) => (
           <StyledTag key={uuidv4()}>
             {keyword}
             <StyledIconButton
               type="button"
-              onClick={() => deleteKeyword(keyword)}
+              onClick={() => deleteEventKeyword(keyword)}
             ></StyledIconButton>
           </StyledTag>
         ))}

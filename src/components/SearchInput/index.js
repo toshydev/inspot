@@ -5,8 +5,8 @@ import StyledInputContainer from "../StyledInputContainer";
 import StyledMenu from "../StyledMenu";
 import StyledSearchBar from "../StyledSearchBar";
 
-export default function SearchInput() {
-  const { addKeywords, setFilterMenu } = useFilterStore((state) => state);
+export default function SearchInput({ onAddKeywords }) {
+  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,7 +15,7 @@ export default function SearchInput() {
     const data = Object.fromEntries(formData);
 
     if (data.keywords) {
-      addKeywords(data.keywords);
+      onAddKeywords(data.keywords);
     }
   }
 

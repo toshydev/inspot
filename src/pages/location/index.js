@@ -2,9 +2,9 @@ import LocationList from "../../components/LocationFilter";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledIconButton from "../../components/StyledIconButton";
-import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
-import { ArrowBackBig, WrongLocationBig } from "../../utils/icons";
+import { WrongLocationBig } from "../../utils/icons";
+import BackLink from "../../components/BackLink";
 
 export default function LocationPage() {
   const { resetLocation, unsetCurrentLocation } = useFilterStore(
@@ -14,9 +14,7 @@ export default function LocationPage() {
   return (
     <>
       <StyledHeader>
-        <StyledIconLink href="/events/">
-          <ArrowBackBig />
-        </StyledIconLink>
+        <BackLink />
         <StyledHeadline>Set your location</StyledHeadline>
         <StyledIconButton
           type="button"
