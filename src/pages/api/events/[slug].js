@@ -11,15 +11,15 @@ export default async function handler(request, response) {
         ...query,
       }).toString();
 
-    const fetchData = await fetch(url);
-    if (!fetchData.ok) {
+    const fetchedData = await fetch(url);
+    if (!fetchedData.ok) {
       const error = new Error("An error occurred while fetching the data.");
 
-      error.info = await fetchData.json();
-      error.status = fetchData.status;
+      error.info = await fetchedData.json();
+      error.status = fetchedData.status;
       throw error;
     } else {
-      const data = await fetchData.json();
+      const data = await fetchedData.json();
       return response.status(200).json(data);
     }
   } catch (error) {

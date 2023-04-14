@@ -23,7 +23,7 @@ export default function VenueListPage() {
     <>
       <StyledHeader>
         <h1>Venues</h1>
-        <StyledIconLink href="/location">
+        <StyledIconLink href="/location" aria-label="go to location page">
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
