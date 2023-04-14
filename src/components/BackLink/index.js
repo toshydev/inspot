@@ -9,7 +9,7 @@ export default function BackLink() {
     <StyledIconButton
       type="button"
       onClick={() => router.back()}
-      aria-label="go back"
+      aria-label="go back to previous page"
     >
       <ArrowBackBig />
     </StyledIconButton>

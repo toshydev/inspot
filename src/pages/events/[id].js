@@ -13,7 +13,7 @@ export default function EventDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data } = useSWR(
-    id ? `/api/events/events?id=${id}&locale=*&countryCode=DE` : null
+    id && `/api/events/events?id=${id}&locale=*&countryCode=DE`
   );
   const distance =
     location.length > 0 && data?._embedded

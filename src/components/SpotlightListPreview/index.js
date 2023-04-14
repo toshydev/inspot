@@ -86,7 +86,10 @@ export default function SpotlightListPreview({ event }) {
   return (
     <>
       <StyledSpotlightCard>
-        <StyledSubtitle style={{ gridColumn: "3 / 6", gridRow: "1" }}>
+        <StyledSubtitle
+          style={{ gridColumn: "3 / 6", gridRow: "1" }}
+          aria-label={event._embedded.venues[0].name}
+        >
           {event._embedded.venues[0].name}
         </StyledSubtitle>
         <StyledCardHeadline
@@ -100,7 +103,7 @@ export default function SpotlightListPreview({ event }) {
         >
           {event.name}
         </StyledCardHeadline>
-        <StyledFrame>
+        <StyledFrame aria-label="event picture">
           <StyledThumbnail
             src={imageURL}
             alt={event.name}
