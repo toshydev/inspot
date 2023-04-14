@@ -9,8 +9,8 @@ const StyledTimeBar = styled.div.attrs((props) => ({
   style: {
     width: `${
       props.progress > 86400
-        ? props.progress / 684800
-        : ((86400 - props.progress) / 86400) * 100
+        ? 1
+        : Math.min(((86400 - props.progress) / 86400) * 100, 100)
     }%`,
   },
 }))`

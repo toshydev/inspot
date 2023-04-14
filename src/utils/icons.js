@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledSvg = styled.svg``;
 
-export const ArrowBackBig = ({ color = "#000000", hoverColor }) => (
+export const ArrowBackBig = ({ color = "#000000", hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     enable-background="new 0 0 20 20"
@@ -10,82 +10,82 @@ export const ArrowBackBig = ({ color = "#000000", hoverColor }) => (
     viewBox="0 0 20 20"
     width="36px"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <rect fill="none" height="20" width="20" />
     <polygon points="14.41,3.41 13,2 5,10 13,18 14.41,16.59 7.83,10" />
   </StyledSvg>
 );
 
-export const ClearSmall = ({ color = "#000000", hoverColor }) => (
+export const ClearSmall = ({ color = "#000000", hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="18px"
     viewBox="0 0 24 24"
     width="18px"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
   </StyledSvg>
 );
 
-export const ClearBig = ({ color, hoverColor }) => (
+export const ClearBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="36px"
     viewBox="0 0 24 24"
     width="36px"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
   </StyledSvg>
 );
 
-export const ExpandBig = ({ color, hoverColor }) => (
+export const ExpandBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="36px"
     viewBox="0 0 24 24"
     width="36px"
     color={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
   </StyledSvg>
 );
 
-export const PlaceBig = ({ color, hoverColor }) => (
+export const PlaceBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    height="36px"
-    viewBox="0 0 24 24"
-    width="36px"
+    height="40"
+    viewBox="0 96 960 960"
+    width="40"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+    <path d="M480.059 569.333q30.274 0 51.774-21.559t21.5-51.833q0-30.274-21.559-51.774t-51.833-21.5q-30.274 0-51.774 21.559t-21.5 51.833q0 30.274 21.559 51.774t51.833 21.5ZM480 976Q319 839 239.5 721.5T160 504q0-150 96.5-239T480 176q127 0 223.5 89T800 504q0 100-79.5 217.5T480 976Z" />
   </StyledSvg>
 );
-export const SearchMed = ({ color, hoverColor }) => (
+
+export const SearchMed = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="24px"
     viewBox="0 0 24 24"
     width="24px"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
   </StyledSvg>
 );
-export const WrongLocationBig = ({ color, hoverColor }) => (
+export const WrongLocationBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     enable-background="new 0 0 20 20"
@@ -93,7 +93,7 @@ export const WrongLocationBig = ({ color, hoverColor }) => (
     viewBox="0 0 20 20"
     width="36px"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <g>
       <rect fill="none" height="20" width="20" />
@@ -107,7 +107,7 @@ export const WrongLocationBig = ({ color, hoverColor }) => (
   </StyledSvg>
 );
 
-export const ClockSmall = ({ color, hoverColor }) => (
+export const ClockSmall = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     enable-background="new 0 0 20 20"
@@ -115,6 +115,7 @@ export const ClockSmall = ({ color, hoverColor }) => (
     viewBox="0 96 960 960"
     width="20px"
     fill={color}
+    hovercolor={hovercolor}
   >
     <g>
       <rect fill="none" height="20" width="20" />
@@ -127,28 +128,41 @@ export const ClockSmall = ({ color, hoverColor }) => (
   </StyledSvg>
 );
 
-export const NearMeSmall = ({ color, hoverColor }) => (
-  <svg
+export const NearMeSmall = ({ color, hovercolor }) => (
+  <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="20"
     viewBox="0 96 960 960"
     width="20"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M517 912 416 640 144 539v-35l672-264-264 672h-35Z" />
-  </svg>
+  </StyledSvg>
 );
 
-export const TheaterSmall = ({ color, hoverColor }) => (
-  <svg
+export const TheaterSmall = ({ color, hovercolor }) => (
+  <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="20"
     viewBox="0 96 960 960"
     width="20"
     fill={color}
-    hoverColor={hoverColor}
+    hovercolor={hovercolor}
   >
     <path d="M288 960q-100 0-170-70T48 720V432h480v288q0 100-70 170t-170 70Zm-72.211-324Q231 636 241.5 625.711q10.5-10.29 10.5-25.5Q252 585 241.711 574.5q-10.29-10.5-25.5-10.5Q201 564 190.5 574.289q-10.5 10.29-10.5 25.5Q180 615 190.289 625.5q10.29 10.5 25.5 10.5ZM288 792q37.44 0 66.72-19T384 720H192q0 34 29.28 53T288 792Zm71.789-156Q375 636 385.5 625.711q10.5-10.29 10.5-25.5Q396 585 385.711 574.5q-10.29-10.5-25.5-10.5Q345 564 334.5 574.289q-10.5 10.29-10.5 25.5Q324 615 334.289 625.5q10.29 10.5 25.5 10.5ZM672 720q-24.649 0-48.825-5Q599 710 576 699V387l-1.5-1.5-1.5-1.5H432V192h480v288q0 100-70 170t-170 70Zm-72.211-324Q615 396 625.5 385.711q10.5-10.29 10.5-25.5Q636 345 625.711 334.5q-10.29-10.5-25.5-10.5Q585 324 574.5 334.289q-10.5 10.29-10.5 25.5Q564 375 574.289 385.5q10.29 10.5 25.5 10.5ZM576 552h192q0-34-29.28-53T672 480q-37 0-66.5 19T576 552Zm167.789-156Q759 396 769.5 385.711q10.5-10.29 10.5-25.5Q780 345 769.711 334.5q-10.29-10.5-25.5-10.5Q729 324 718.5 334.289q-10.5 10.29-10.5 25.5Q708 375 718.289 385.5q10.29 10.5 25.5 10.5Z" />
-  </svg>
+  </StyledSvg>
+);
+
+export const PlayArrowSmall = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="25"
+    viewBox="0 96 960 960"
+    width="25"
+    fill={color}
+    hovercolor={hovercolor}
+  >
+    <path d="M336 840V312l408 264-408 264Z" />
+  </StyledSvg>
 );

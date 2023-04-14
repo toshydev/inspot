@@ -31,8 +31,6 @@ export default function EventDetailPage() {
         )
       : null;
 
-  console.log(data);
-
   return (
     <>
       {data?._embedded.events ? (

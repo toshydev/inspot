@@ -1,7 +1,7 @@
+import Link from "next/link";
+import styled from "styled-components";
 import SpotlightListPreview from "../SpotlightListPreview";
 import StyledListContainer from "../StyledListContainer";
-import styled from "styled-components";
-import Link from "next/link";
 
 const StyledSpotlightLink = styled(Link)`
   color: unset;

@@ -1,10 +1,10 @@
+import BackLink from "../../components/BackLink";
 import LocationList from "../../components/LocationFilter";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledIconButton from "../../components/StyledIconButton";
 import { useFilterStore } from "../../store";
 import { WrongLocationBig } from "../../utils/icons";
-import BackLink from "../../components/BackLink";
 
 export default function LocationPage() {
   const { resetLocation, unsetCurrentLocation } = useFilterStore(

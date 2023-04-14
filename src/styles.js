@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 
 const mPlus1Code = localFont({
   src: "../public/fonts/MPLUS1Code-VariableFont_wght.ttf",

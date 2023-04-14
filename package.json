@@ -1,6 +1,6 @@
 {
   "name": "inSpot",
-  "version": "0.0.0-unreleased",
+  "version": "0.1.0-unreleased",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,6 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
-    "@next/font": "^13.0.6",
     "@react-google-maps/api": "^2.18.1",
     "eslint": "8.29.0",
     "eslint-config-next": "^13.3.0",
