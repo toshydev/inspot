@@ -11,8 +11,6 @@ export default async function handler(request, response) {
         ...query,
       }).toString();
 
-    console.log(url);
-
     const fetchData = await fetch(url);
     if (!fetchData.ok) {
       const error = new Error("An error occurred while fetching the data.");

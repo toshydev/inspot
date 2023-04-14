@@ -19,8 +19,6 @@ export default function VenueListPage() {
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
   );
 
-  console.log(data?._embedded);
-
   return (
     <>
       <StyledHeader>
