@@ -9,7 +9,7 @@ const StyledBody = styled.div`
   width: 100%;
 `;
 
-const StyledContent = styled.div`
+const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ const StyledContent = styled.div`
 export default function Layout({ children }) {
   return (
     <StyledBody>
-      <StyledContent>{children}</StyledContent>
+      <StyledMain>{children}</StyledMain>
       <NavigationBar />
     </StyledBody>
   );
