@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import EventDetail from "../../components/EventDetail";
 import { useFilterStore } from "../../store";
+import StyledContent from "../../components/StyledContent";
 
 export default function EventDetailPage() {
   const currentLocation = useFilterStore((state) => state.currentLocation);
@@ -32,7 +33,7 @@ export default function EventDetailPage() {
       : null;
 
   return (
-    <>
+    <StyledContent>
       {data?._embedded.events ? (
         <EventDetail
           event={data._embedded.events[0]}
@@ -43,6 +44,6 @@ export default function EventDetailPage() {
       ) : (
         <p>No events found. Adjust filter.</p>
       )}
-    </>
+    </StyledContent>
   );
 }

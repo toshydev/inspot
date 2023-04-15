@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import SpotlightList from "../components/SpotlightList";
+import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledIconLink from "../components/StyledIconLink";
 import { useFilterStore } from "../store";
@@ -28,11 +29,13 @@ export default function HomePage() {
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
-      {data?._embedded ? (
-        <SpotlightList events={data._embedded.events} />
-      ) : (
-        <p>No events found. Adjust filter.</p>
-      )}
+      <StyledContent>
+        {data?._embedded ? (
+          <SpotlightList events={data._embedded.events} />
+        ) : (
+          <p>No events found. Adjust filter.</p>
+        )}
+      </StyledContent>
     </>
   );
 }
