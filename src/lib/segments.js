@@ -1,3 +1,5 @@
+// mock data for testing purpose, do not review.
+
 const segments = [
   {
     family: false,

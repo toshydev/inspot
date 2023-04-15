@@ -1,10 +1,10 @@
 import useSWR from "swr";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
+import VenueFilter from "../../components/VenueFilter";
 import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
 import { PlaceBig } from "../../utils/icons";
-import VenueFilter from "../../components/VenueFilter";
 
 export default function VenueListPage() {
   const venuesPage = useFilterStore((state) => state.venuesPage);
