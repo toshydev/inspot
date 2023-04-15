@@ -18,7 +18,11 @@ test("clicking the clear button resets active tags", async () => {
 
   render(<VenueFilter />);
   const clearButton = screen.getByRole("button", { name: /clear/i });
+  const searchBar = screen.getByRole("searchbox");
 
+  await user.click(searchBar);
+  await user.type(searchBar, "Hello, world");
+  await user.keyboard("{Enter}");
   await user.click(clearButton);
   const keywordsLength = () => venueKeywords.length;
   const { rerender } = renderHook(keywordsLength);

@@ -10,12 +10,10 @@ const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);
   color: var(--accent);
 `;
-
 export default function HomePage() {
   const eventsPage = useFilterStore((state) => state.eventsPage);
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
-
   const { data } = useSWR(
     `/api/events/events?sort=random&geoPoint=${location}&radius=${
       range / 1000
