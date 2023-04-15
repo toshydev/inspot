@@ -1,6 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import TimeLeftWidget from ".";
 
+jest.mock("latlon-geohash", () => ({
+  Geohash() {
+    return {
+      getDistance: jest.fn(),
+    };
+  },
+}));
+
 test("renders the days, hours or minutes left until event start", () => {
   render(<TimeLeftWidget startDate="2023-05-04" startTime="09:00:00" />);
 

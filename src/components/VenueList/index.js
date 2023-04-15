@@ -11,7 +11,7 @@ export default function VenueList({ venues }) {
         venues.map((venue) => (
           <StyledPreviewLink
             key={venue.id}
-            href={`/venues/`}
+            href={`/venues/${venue.id}`}
             aria-label={`go to details page of ${venue.name}`}
             style={{ height: "6rem" }}
           >

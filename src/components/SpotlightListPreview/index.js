@@ -103,7 +103,7 @@ export default function SpotlightListPreview({ event }) {
         >
           {event.name}
         </StyledCardHeadline>
-        <StyledFrame aria-label="event picture">
+        <StyledFrame>
           <StyledThumbnail
             src={imageURL}
             alt={event.name}

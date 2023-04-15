@@ -30,7 +30,7 @@ export default function EventListPreview({ event }) {
 
   useEffect(() => {
     const id = setInterval(() => {
-      if (location) {
+      if (location && event._embedded.venues[0].location) {
         const latLon = Geohash.decode(location);
         setDistance(
           getDistance(

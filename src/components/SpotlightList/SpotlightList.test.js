@@ -1,6 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import SpotlightList from ".";
-import testEvents from "../../lib/testEvents";
+import { testEvents } from "../../lib/mockData";
+
+jest.mock("latlon-geohash", () => ({
+  Geohash() {
+    return {
+      getDistance: jest.fn(),
+    };
+  },
+}));
 
 test("renders all events in the SpotlightList", async () => {
   render(<SpotlightList events={testEvents} />);
