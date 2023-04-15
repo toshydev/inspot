@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
+import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
@@ -32,12 +33,14 @@ export default function EventListPage() {
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
-      <EventFilter />
-      {data?._embedded ? (
-        <EventList events={data._embedded.events} />
-      ) : (
-        <p>No events found. Adjust filter.</p>
-      )}
+      <StyledContent>
+        <EventFilter />
+        {data?._embedded ? (
+          <EventList events={data._embedded.events} />
+        ) : (
+          <p>No events found. Adjust filter.</p>
+        )}
+      </StyledContent>
     </>
   );
 }

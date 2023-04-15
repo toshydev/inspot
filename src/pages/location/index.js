@@ -1,5 +1,6 @@
 import BackLink from "../../components/BackLink";
-import LocationList from "../../components/LocationFilter";
+import LocationFilter from "../../components/LocationFilter";
+import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledIconButton from "../../components/StyledIconButton";
@@ -26,7 +27,9 @@ export default function LocationPage() {
           <WrongLocationBig />
         </StyledIconButton>
       </StyledHeader>
-      <LocationList />
+      <StyledContent>
+        <LocationFilter />
+      </StyledContent>
     </>
   );
 }

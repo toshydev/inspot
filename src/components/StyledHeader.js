@@ -8,12 +8,14 @@ const StyledHeader = styled.header`
   width: 98%;
   padding: 0.5rem;
   margin: 0.1rem;
-  position: sticky;
+  position: fixed;
+  top: 0;
   border: 2px solid black;
   background: white;
   gap: 1rem;
   height: min(15vw, 100px);
   text-overflow: ellipsis;
+  z-index: 5;
 `;
 
 export default StyledHeader;

@@ -6,8 +6,9 @@ const StyledIconLink = styled(Link)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: auto;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
   transition: 0.15s;
 
   &:hover {

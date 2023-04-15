@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
 import VenueFilter from "../../components/VenueFilter";
@@ -27,12 +28,14 @@ export default function VenueListPage() {
           <PlaceBig />
         </StyledIconLink>
       </StyledHeader>
-      <VenueFilter />
-      {data?._embedded ? (
-        <VenueList venues={data._embedded.venues} />
-      ) : (
-        <p>No venues found. Adjust filter.</p>
-      )}
+      <StyledContent>
+        <VenueFilter />
+        {data?._embedded ? (
+          <VenueList venues={data._embedded.venues} />
+        ) : (
+          <p>No venues found. Adjust filter.</p>
+        )}
+      </StyledContent>
     </>
   );
 }
