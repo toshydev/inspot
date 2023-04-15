@@ -14,7 +14,6 @@ const StyledHeader = styled.header`
   background: white;
   gap: 1rem;
   height: min(15vw, 100px);
-  text-overflow: ellipsis;
   z-index: 5;
 `;
 

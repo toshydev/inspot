@@ -6,7 +6,6 @@ const StyledButton = styled.button`
   align-items: center;
   border-radius: 15px;
   border: none;
-  height: 2rem;
   transition: 0.15s;
   font-weight: bold;
 
