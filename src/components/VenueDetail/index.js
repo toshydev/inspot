@@ -62,7 +62,6 @@ export default function VenueDetail({
   const { data, isLoading, error } = useSWR(
     `/api/events/events?venueId=${venue.id}&sort=${eventSort}&locale=*&countryCode=DE`
   );
-  console.log(data);
   const venueImage = venue.images
     ? venue.images.find((image) => image.ratio === "16_9")
     : null;
