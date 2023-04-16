@@ -8,6 +8,7 @@ import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
+import SaveButton from "../SaveButton";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -16,7 +17,7 @@ const StyledSection = styled.section`
   width: 98%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 0.5rem;
 `;
 
@@ -86,6 +87,7 @@ export default function EventDetail({
               .genre.name
           }
         </StyledTypeHeadline>
+        <SaveButton id={event.id} variant="detail" />
         <StyledDateSection>
           Date:
           <time aria-label="start date" dateTime={formattedStartDate}>
