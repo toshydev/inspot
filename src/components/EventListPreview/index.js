@@ -16,7 +16,7 @@ const StyledEventPreviewDate = styled.time`
 `;
 
 export default function EventListPreview({ event }) {
-  const [distance, setDistance] = useState(0);
+  const [distance, setDistance] = useState();
   const range = useFilterStore((state) => state.range);
   const currentLocation = useFilterStore((state) => state.currentLocation);
   const location = useFilterStore((state) => state.location);

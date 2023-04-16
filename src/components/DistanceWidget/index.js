@@ -11,19 +11,20 @@ const StyledDistance = styled.div.attrs((props) => ({
   background: var(--accent);
   height: 100%;
   border-radius: 50px;
+  transition: 1s;
 `;
 
 export default function DistanceWidget({ range, distance }) {
   return (
     <StyledWidget>
       <StyledProgressLabel aria-label={`${distance} meters away`}>
-        {Math.floor(distance / 1000)} km
+        {distance ? `${Math.floor(distance / 1000)} km` : "calculating..."}
       </StyledProgressLabel>
       <StyledProgressContainer>
-        <StyledDistance percent={range / distance}></StyledDistance>
+        <StyledDistance
+          percent={distance ? range / distance : 0}
+        ></StyledDistance>
       </StyledProgressContainer>
     </StyledWidget>
   );
 }
-
-/* <StyledArrow percent={range / distance} /> */

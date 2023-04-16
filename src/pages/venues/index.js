@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
@@ -14,7 +15,7 @@ export default function VenueListPage() {
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
 
-  const { data } = useSWR(
+  const { data, isLoading, error } = useSWR(
     `/api/venues/venues?sort=${venueSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
@@ -30,10 +31,12 @@ export default function VenueListPage() {
       </StyledHeader>
       <StyledContent>
         <VenueFilter />
-        {data?._embedded ? (
-          <VenueList venues={data._embedded.venues} />
+        {isLoading ? (
+          <Spinner />
+        ) : error ? (
+          <p>No events found. Please adjust filter.</p>
         ) : (
-          <p>No venues found. Adjust filter.</p>
+          <VenueList venues={data._embedded.venues} />
         )}
       </StyledContent>
     </>

@@ -17,6 +17,7 @@ const StyledTimeBar = styled.div.attrs((props) => ({
   background: #be4bdb;
   height: 100%;
   border-radius: 50px;
+  transition: 1s;
 `;
 
 /*     width: `${props.progress > 86400 ? "1%" : (props.progress / 8640) * 100}%`, */
@@ -41,10 +42,10 @@ export default function TimeLeftWidget({ startDate, startTime }) {
   return (
     <StyledWidget>
       <StyledProgressLabel aria-label="time left until event start">
-        Starts in {getTimeString(timeLeft)}
+        {timeLeft ? `Starts in ${getTimeString(timeLeft)}` : "calculating..."}
       </StyledProgressLabel>
       <StyledProgressContainer>
-        <StyledTimeBar progress={timeLeft} />
+        <StyledTimeBar progress={timeLeft ? timeLeft : 86400} />
       </StyledProgressContainer>
     </StyledWidget>
   );

@@ -7,6 +7,7 @@ import { PlaceBig, TheaterBig } from "../../utils/icons";
 import BackLink from "../BackLink";
 import DistanceWidget from "../DistanceWidget";
 import EventList from "../EventList";
+import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledIconLink from "../StyledIconLink";
@@ -58,10 +59,10 @@ export default function VenueDetail({
   currentLocation,
 }) {
   const eventSort = useFilterStore((state) => state.eventSort);
-  const { data } = useSWR(
+  const { data, isLoading, error } = useSWR(
     `/api/events/events?venueId=${venue.id}&sort=${eventSort}&locale=*&countryCode=DE`
   );
-  const events = data?._embedded.events;
+  console.log(data);
   const venueImage = venue.images
     ? venue.images.find((image) => image.ratio === "16_9")
     : null;
@@ -123,10 +124,12 @@ export default function VenueDetail({
       <StyledDescription>
         <h3>Upcoming Events</h3>
       </StyledDescription>
-      {venue.upcomingEvents._total > 0 && events ? (
-        <EventList events={events} />
+      {isLoading ? (
+        <Spinner />
+      ) : error || !data._embedded ? (
+        <p>No upcoming events.</p>
       ) : (
-        <p>No events planned</p>
+        <EventList events={data._embedded.events} />
       )}
     </>
   );
