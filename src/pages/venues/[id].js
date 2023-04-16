@@ -17,6 +17,7 @@ export default function VenueDetailPage() {
   const { data, isLoading, error } = useSWR(
     id && `/api/venues/venues?id=${id}&locale=*&countryCode=DE`
   );
+  const venue = data?._embedded.venues[0];
   const distance =
     location.length > 0 && venue?.location
       ? getDistance(
@@ -35,7 +36,7 @@ export default function VenueDetailPage() {
     <StyledContent>
       {isLoading ? (
         <Spinner />
-      ) : error || !data._embedded ? (
+      ) : error || !data?._embedded ? (
         <p>No events found. Adjust filter.</p>
       ) : (
         <VenueDetail

@@ -17,6 +17,7 @@ export default function EventDetailPage() {
   const { data, isLoading, error } = useSWR(
     id && `/api/events/events?id=${id}&locale=*&countryCode=DE`
   );
+  const event = data?._embedded.events[0];
   const distance =
     location.length > 0 && data?._embedded
       ? getDistance(
@@ -25,10 +26,8 @@ export default function EventDetailPage() {
             longitude: Geohash.decode(location).lon,
           },
           {
-            latitude:
-              data._embedded.events[0]._embedded.venues[0].location.latitude,
-            longitude:
-              data._embedded.events[0]._embedded.venues[0].location.longitude,
+            latitude: event._embedded.venues[0].location.latitude,
+            longitude: event._embedded.venues[0].location.longitude,
           }
         )
       : null;
@@ -37,7 +36,7 @@ export default function EventDetailPage() {
     <StyledContent>
       {isLoading ? (
         <Spinner />
-      ) : error || !data._embedded ? (
+      ) : error || !data?._embedded ? (
         <p>No events found. Adjust filter.</p>
       ) : (
         <EventDetail
