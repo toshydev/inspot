@@ -1,12 +1,12 @@
 import useSWR from "swr";
+import BookmarkButton from "../../components/BookmarkButton";
+import LocationButton from "../../components/LocationButton";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import StyledIconLink from "../../components/StyledIconLink";
 import VenueFilter from "../../components/VenueFilter";
 import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
-import { PlaceBig } from "../../utils/icons";
 
 export default function VenueListPage() {
   const venuesPage = useFilterStore((state) => state.venuesPage);
@@ -25,9 +25,8 @@ export default function VenueListPage() {
     <>
       <StyledHeader>
         <h1>Venues</h1>
-        <StyledIconLink href="/location" aria-label="go to location page">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledContent>
         <VenueFilter />

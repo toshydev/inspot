@@ -1,12 +1,12 @@
 import useSWR from "swr";
+import BookmarkButton from "../../components/BookmarkButton";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
+import LocationButton from "../../components/LocationButton";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import StyledIconLink from "../../components/StyledIconLink";
 import { useFilterStore } from "../../store";
-import { PlaceBig } from "../../utils/icons";
 
 export default function EventListPage() {
   const eventsPage = useFilterStore((state) => state.eventsPage);
@@ -30,9 +30,8 @@ export default function EventListPage() {
     <>
       <StyledHeader>
         <h1>Explore</h1>
-        <StyledIconLink href="/location">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledContent>
         <EventFilter />
@@ -47,9 +46,3 @@ export default function EventListPage() {
     </>
   );
 }
-
-/* {data?._embedded ? (
-          <EventList events={data._embedded.events} />
-        ) : (
-          <p>No events found. Adjust filter.</p>
-        )} */

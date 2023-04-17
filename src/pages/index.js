@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import useSWR from "swr";
+import BookmarkButton from "../components/BookmarkButton";
+import LocationButton from "../components/LocationButton";
 import Spinner from "../components/Spinner";
 import SpotlightList from "../components/SpotlightList";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
-import StyledIconLink from "../components/StyledIconLink";
 import { useFilterStore } from "../store";
-import { PlaceBig } from "../utils/icons";
 
 const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);
@@ -26,9 +26,8 @@ export default function HomePage() {
     <>
       <StyledHeader>
         <StyledLogoHeadline>inSpot</StyledLogoHeadline>
-        <StyledIconLink href="/location">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledContent>
         {isLoading ? (

@@ -81,16 +81,16 @@ export const ExpandBig = ({ color, hovercolor }) => (
 export const PlaceBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    height="40"
+    height="48"
     viewBox="0 96 960 960"
-    width="40"
+    width="48"
     fill={color}
     hovercolor={hovercolor}
   >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M480.059 569.333q30.274 0 51.774-21.559t21.5-51.833q0-30.274-21.559-51.774t-51.833-21.5q-30.274 0-51.774 21.559t-21.5 51.833q0 30.274 21.559 51.774t51.833 21.5ZM480 976Q319 839 239.5 721.5T160 504q0-150 96.5-239T480 176q127 0 223.5 89T800 504q0 100-79.5 217.5T480 976Z"
+      d="M480.089 566Q509 566 529.5 545.411q20.5-20.588 20.5-49.5Q550 467 529.411 446.5q-20.588-20.5-49.5-20.5Q451 426 430.5 446.589q-20.5 20.588-20.5 49.5Q410 525 430.589 545.5q20.588 20.5 49.5 20.5ZM480 897q133-121 196.5-219.5T740 504q0-117.79-75.292-192.895Q589.417 236 480 236t-184.708 75.105Q220 386.21 220 504q0 75 65 173.5T480 897Zm0 79Q319 839 239.5 721.5T160 504q0-150 96.5-239T480 176q127 0 223.5 89T800 504q0 100-79.5 217.5T480 976Zm0-472Z"
     />
   </StyledSvg>
 );
@@ -114,29 +114,20 @@ export const SearchMed = ({ color, hovercolor }) => (
   </StyledSvg>
 );
 export const WrongLocationBig = ({ color, hovercolor }) => (
-  <StyledSvg
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
-    height="36px"
-    viewBox="0 0 20 20"
-    width="36px"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
     fill={color}
     hovercolor={hovercolor}
   >
-    <g>
-      <rect fill="none" height="20" width="20" />
-    </g>
-    <g>
-      <g>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12,8V4.37C11.37,4.13,10.69,4,10,4C7.06,4,4.4,6.25,4.4,9.74c0,2.32,1.87,5.08,5.6,8.26c3.73-3.18,5.6-5.94,5.6-8.26 c0-0.62-0.09-1.2-0.24-1.74H12z M10,11c-0.83,0-1.5-0.67-1.5-1.5S9.17,8,10,8s1.5,0.67,1.5,1.5S10.83,11,10,11z"
-        />
-        <polygon points="17.47,3.23 16.77,2.53 15,4.29 13.23,2.53 12.53,3.23 14.29,5 12.53,6.77 13.23,7.47 15,5.71 16.77,7.47 17.47,6.77 15.71,5" />
-      </g>
-    </g>
-  </StyledSvg>
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m675 404 84-84 84 84 42-42-84-84 84-84-42-42-84 84-84-84-42 42 84 84-84 84 42 42ZM480.089 566Q509 566 529.5 545.411q20.5-20.588 20.5-49.5Q550 467 529.411 446.5q-20.588-20.5-49.5-20.5Q451 426 430.5 446.589q-20.5 20.588-20.5 49.5Q410 525 430.589 545.5q20.588 20.5 49.5 20.5ZM480 976Q319 839 239.5 721.5T160 504q0-150 96.5-239T480 176q17 0 32.667 1.5Q528.333 179 544 182v62q-15-4-31-6t-33-2q-109.417 0-184.708 75.105Q220 386.21 220 504q0 75 65 173.5T480 897q133-121 196.5-219.5T740 504q0-8-.5-16t-1.5-16h61q1 8 1 16v16q0 100-79.5 217.5T480 976Zm0-494Z"
+    />
+  </svg>
 );
 
 export const ClockSmall = ({ color, hovercolor }) => (
@@ -296,6 +287,23 @@ export const TicketFilledBig = ({ color, hovercolor }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm340-123q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Z"
+    />
+  </StyledSvg>
+);
+
+export const BookmarkBig = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill={color}
+    hovercolor={hovercolor}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M200 936V271q0-24 18-42t42-18h440q24 0 42 18t18 42v665L480 816 200 936Zm60-91 220-93 220 93V271H260v574Zm0-574h440-440Z"
     />
   </StyledSvg>
 );

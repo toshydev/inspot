@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { PlaceBig } from "../../utils/icons";
 import BackLink from "../BackLink";
+import BookmarkButton from "../BookmarkButton";
 import DistanceWidget from "../DistanceWidget";
+import LocationButton from "../LocationButton";
+import SaveButton from "../SaveButton";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
-import StyledIconLink from "../StyledIconLink";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
-import SaveButton from "../SaveButton";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -76,9 +76,8 @@ export default function EventDetail({
       <StyledHeader>
         <BackLink />
         <StyledHeadline aria-label={event.name}>{event.name}</StyledHeadline>
-        <StyledIconLink href="/location" aria-label="go to locations list">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
         <StyledTypeHeadline>

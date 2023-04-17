@@ -1,41 +1,38 @@
 import useSWR from "swr";
-import EventFilter from "../../components/EventFilter";
+import BookmarkButton from "../../components/BookmarkButton";
 import EventList from "../../components/EventList";
+import LocationButton from "../../components/LocationButton";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import StyledIconLink from "../../components/StyledIconLink";
+import StyledMenu from "../../components/StyledMenu";
 import { useFilterStore } from "../../store";
-import { PlaceBig } from "../../utils/icons";
 
-export default function EventListPage() {
-  const eventsPage = useFilterStore((state) => state.eventsPage);
+export default function FavoriteListPage() {
+  const venueSort = useFilterStore((state) => state.venueSort);
   const eventSort = useFilterStore((state) => state.eventSort);
-  const eventKeywords = useFilterStore((state) => state.eventKeywords);
-  const segments = useFilterStore((state) => state.segments);
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
+  const resource = useFilterStore((state) => state.resource);
 
   const { data, isLoading, error } = useSWR(
-    `/api/events?sort=${eventSort}&geoPoint=${location}&radius=${
+    `/api/${resource}?sort=${
+      resource === "events" ? eventSort : venueSort
+    }&geoPoint=${location}&radius=${
       range / 1000
-    }&unit=km&classificationName=${segments
-      .filter((segment) => segment.isActive)
-      .map(
-        (segment) => segment.name
-      )}&keyword=${eventKeywords}&locale=*&countryCode=DE&page=${eventsPage}`
+    }&unit=km&locale=*&countryCode=DE`
   );
 
   return (
     <>
       <StyledHeader>
-        <h1>Saved Events</h1>
-        <StyledIconLink href="/location">
-          <PlaceBig />
-        </StyledIconLink>
+        <StyledMenu>
+          <h1>Saved Events</h1>
+        </StyledMenu>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledContent>
-        <EventFilter />
         {isLoading ? (
           <Spinner />
         ) : error ? (
@@ -47,9 +44,3 @@ export default function EventListPage() {
     </>
   );
 }
-
-/* {data?._embedded ? (
-          <EventList events={data._embedded.events} />
-        ) : (
-          <p>No events found. Adjust filter.</p>
-        )} */
