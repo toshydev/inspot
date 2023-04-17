@@ -31,7 +31,7 @@ export default function FavoriteListPage() {
   return (
     <>
       <StyledHeader>
-        <h1>Saved {resource}</h1>
+        <h1 style={{ fontSize: "min(6vw, 6rem)" }}>Saved {resource}</h1>
         <LocationButton />
         <BookmarkButton />
       </StyledHeader>
