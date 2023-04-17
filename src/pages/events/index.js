@@ -17,7 +17,7 @@ export default function EventListPage() {
   const range = useFilterStore((state) => state.range);
 
   const { data, isLoading, error } = useSWR(
-    `/api/events/events?sort=${eventSort}&geoPoint=${location}&radius=${
+    `/api/events?sort=${eventSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&classificationName=${segments
       .filter((segment) => segment.isActive)

@@ -17,7 +17,7 @@ export default function HomePage() {
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
   const { data, isLoading, error } = useSWR(
-    `/api/events/events?sort=random&geoPoint=${location}&radius=${
+    `/api/events?sort=random&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&classificationName=arts&locale=*&countryCode=DE&page=${eventsPage}`
   );

@@ -16,7 +16,7 @@ export default function VenueListPage() {
   const range = useFilterStore((state) => state.range);
 
   const { data, isLoading, error } = useSWR(
-    `/api/venues/venues?sort=${venueSort}&geoPoint=${location}&radius=${
+    `/api/venues?sort=${venueSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
   );

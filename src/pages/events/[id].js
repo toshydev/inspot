@@ -15,7 +15,7 @@ export default function EventDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data, isLoading, error } = useSWR(
-    id && `/api/events/events?id=${id}&locale=*&countryCode=DE`
+    id && `/api/events?id=${id}&locale=*&countryCode=DE`
   );
   const event = data?._embedded.events[0];
   const distance =

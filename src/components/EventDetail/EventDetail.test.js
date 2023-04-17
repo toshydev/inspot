@@ -1,7 +1,7 @@
 import { render, renderHook, screen } from "@testing-library/react";
 import EventDetail from ".";
-import { useFilterStore } from "../../store";
 import { testEvents } from "../../lib/mockData";
+import { useFilterStore } from "../../store";
 
 jest.mock("next/router", () => ({
   useRouter() {

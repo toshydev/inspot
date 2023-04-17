@@ -15,7 +15,7 @@ export default function VenueDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data, isLoading, error } = useSWR(
-    id && `/api/venues/venues?id=${id}&locale=*&countryCode=DE`
+    id && `/api/venues?id=${id}&locale=*&countryCode=DE`
   );
   const venue = data?._embedded.venues[0];
   const distance =
