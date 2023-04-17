@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
+import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledIconLink from "../../components/StyledIconLink";
@@ -15,7 +16,7 @@ export default function EventListPage() {
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
 
-  const { data } = useSWR(
+  const { data, isLoading, error } = useSWR(
     `/api/events/events?sort=${eventSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&classificationName=${segments
@@ -35,12 +36,20 @@ export default function EventListPage() {
       </StyledHeader>
       <StyledContent>
         <EventFilter />
-        {data?._embedded ? (
-          <EventList events={data._embedded.events} />
+        {isLoading ? (
+          <Spinner />
+        ) : error ? (
+          <p>No events found. Please adjust filter.</p>
         ) : (
-          <p>No events found. Adjust filter.</p>
+          <EventList events={data._embedded.events} />
         )}
       </StyledContent>
     </>
   );
 }
+
+/* {data?._embedded ? (
+          <EventList events={data._embedded.events} />
+        ) : (
+          <p>No events found. Adjust filter.</p>
+        )} */

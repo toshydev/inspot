@@ -4,7 +4,6 @@ import { SWRConfig } from "swr";
 import Layout from "../components/Layout";
 import { useFilterStore } from "../store";
 import GlobalStyle from "../styles";
-import Head from "next/head";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -51,13 +50,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <title>inSpot</title>
-        <meta
-          name="viewport"
-          content="with=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-      </Head>
       <SWRConfig value={{ fetcher }}>
         <GlobalStyle />
         <Layout>

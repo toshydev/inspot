@@ -5,8 +5,8 @@ import { useFilterStore } from "../../store";
 import DistanceWidget from "../DistanceWidget";
 import StyledCardHeadline from "../StyledCardHeadline";
 import StyledPreviewCard from "../StyledPreviewCard";
-import StyledWidgetContainer from "../StyledWidgetContainer";
 import StyledSubtitle from "../StyledSubtitle";
+import StyledWidgetContainer from "../StyledWidgetContainer";
 
 export default function VenueListPreview({ venue }) {
   const [distance, setDistance] = useState(0);

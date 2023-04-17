@@ -2,12 +2,12 @@ import { getDistance } from "geolib";
 import Geohash from "latlon-geohash";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import EventDetail from "../../components/EventDetail";
-import { useFilterStore } from "../../store";
 import StyledContent from "../../components/StyledContent";
+import VenueDetail from "../../components/VenueDetail";
+import { useFilterStore } from "../../store";
 import Spinner from "../../components/Spinner";
 
-export default function EventDetailPage() {
+export default function VenueDetailPage() {
   const currentLocation = useFilterStore((state) => state.currentLocation);
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
@@ -15,19 +15,19 @@ export default function EventDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data, isLoading, error } = useSWR(
-    id && `/api/events/events?id=${id}&locale=*&countryCode=DE`
+    id && `/api/venues/venues?id=${id}&locale=*&countryCode=DE`
   );
-  const event = data?._embedded.events[0];
+  const venue = data?._embedded.venues[0];
   const distance =
-    location.length > 0 && data?._embedded
+    location.length > 0 && venue?.location
       ? getDistance(
           {
             latitude: Geohash.decode(location).lat,
             longitude: Geohash.decode(location).lon,
           },
           {
-            latitude: event._embedded.venues[0].location.latitude,
-            longitude: event._embedded.venues[0].location.longitude,
+            latitude: venue.location.latitude,
+            longitude: venue.location.longitude,
           }
         )
       : null;
@@ -39,8 +39,8 @@ export default function EventDetailPage() {
       ) : error || !data?._embedded ? (
         <p>No events found. Adjust filter.</p>
       ) : (
-        <EventDetail
-          event={data._embedded.events[0]}
+        <VenueDetail
+          venue={data._embedded.venues[0]}
           currentLocation={currentLocation}
           range={range}
           distance={distance}
