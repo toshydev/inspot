@@ -10,9 +10,7 @@ export default function LikeButton({ id, variant }) {
       variant={variant}
       type="button"
       aria-label="save venue"
-      onClick={() => {
-        toggleSaveVenue(id);
-      }}
+      onClick={() => toggleSaveVenue(id)}
       style={{ transform: "translate(80vw, -2.6rem) rotate(0deg)" }}
     >
       {savedVenues.includes(id) ? (
