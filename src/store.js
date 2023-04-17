@@ -9,6 +9,7 @@ const useMapStore = create(() => {
 
 const useFilterStore = create((set) => {
   return {
+    resource: "events",
     savedEvents: [],
     venuesPage: 0,
     eventsPage: 0,
@@ -33,6 +34,10 @@ const useFilterStore = create((set) => {
         }
       }),
     filterMenu: { genre: false, search: false },
+    setResource: (name) =>
+      set(() => {
+        return { resource: name };
+      }),
     toggleSaveEvent: (id) =>
       set((state) => {
         if (state.savedEvents.includes(id)) {
