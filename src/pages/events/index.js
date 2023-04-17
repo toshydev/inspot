@@ -37,7 +37,7 @@ export default function EventListPage() {
         <EventFilter />
         {isLoading ? (
           <Spinner />
-        ) : error ? (
+        ) : error || !data._embedded ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
           <EventList events={data._embedded.events} />

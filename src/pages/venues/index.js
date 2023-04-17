@@ -32,7 +32,7 @@ export default function VenueListPage() {
         <VenueFilter />
         {isLoading ? (
           <Spinner />
-        ) : error ? (
+        ) : error || !data._embedded ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
           <VenueList venues={data._embedded.venues} />

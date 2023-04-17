@@ -62,19 +62,34 @@ export const ClearBig = ({ color, hovercolor }) => (
 export const ExpandBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    height="36px"
-    viewBox="0 0 24 24"
-    width="36px"
-    color={color}
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill={color}
     hovercolor={hovercolor}
   >
     <path
-      d="M0 0h24v24H0z"
-      fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
+      d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z"
     />
-    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+  </StyledSvg>
+);
+
+export const ExpandLessBig = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill={color}
+    hovercolor={hovercolor}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m283 711-43-43 240-240 240 239-43 43-197-197-197 198Z"
+    />
   </StyledSvg>
 );
 
@@ -304,6 +319,23 @@ export const BookmarkBig = ({ color, hovercolor }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M200 936V271q0-24 18-42t42-18h440q24 0 42 18t18 42v665L480 816 200 936Zm60-91 220-93 220 93V271H260v574Zm0-574h440-440Z"
+    />
+  </StyledSvg>
+);
+
+export const BookmarkFilledBig = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 96 960 960"
+    width="48"
+    fill={color}
+    hovercolor={hovercolor}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M200 936V271q0-24 18-42t42-18h440q24 0 42 18t18 42v665L480 816 200 936Z"
     />
   </StyledSvg>
 );

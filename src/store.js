@@ -9,11 +9,12 @@ const useMapStore = create(() => {
 
 const useFilterStore = create((set) => {
   return {
-    resource: "events",
+    resource: "Events",
+    savedVenues: [],
     savedEvents: [],
     venuesPage: 0,
     eventsPage: 0,
-    venueSort: "relevance,desc",
+    venueSort: "name,asc",
     eventSort: "date,asc",
     venueKeywords: [],
     eventKeywords: [],
@@ -36,7 +37,16 @@ const useFilterStore = create((set) => {
     filterMenu: { genre: false, search: false },
     setResource: (name) =>
       set(() => {
-        return { resource: name };
+        return { resource: `${name[0].toUpperCase()}${name.slice(1)}` };
+      }),
+    toggleSaveVenue: (id) =>
+      set((state) => {
+        if (state.savedVenues.includes(id)) {
+          return {
+            savedVenues: state.savedVenues.filter((venue) => venue !== id),
+          };
+        }
+        return { savedVenues: [...state.savedVenues, id] };
       }),
     toggleSaveEvent: (id) =>
       set((state) => {
