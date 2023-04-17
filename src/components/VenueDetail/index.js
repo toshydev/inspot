@@ -13,6 +13,7 @@ import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledWidgetContainer from "../StyledWidgetContainer";
+import LikeButton from "../LikeButton";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -90,6 +91,7 @@ export default function VenueDetail({
           <TheaterBig />
         )}
         <StyledAddressSection>
+          <LikeButton id={venue.id} variant="detail" />
           <address aria-label="address">
             {venue.address.line1}, {venue.city.name}
           </address>
