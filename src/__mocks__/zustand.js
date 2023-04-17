@@ -1,6 +1,11 @@
 import { act } from "react-dom/test-utils";
 const { create: actualCreate } = jest.requireActual("zustand");
 
+const initialSavedEvents = [
+  "Z698xZC2Z173apK",
+  "Z698xZC2Z17fAo_",
+  "Z698xZC2Z17fd7s",
+];
 const initialVenuesPage = 0;
 const initialEventsPage = 0;
 const initialVenueSort = "distance,asc";
@@ -25,6 +30,7 @@ export const create = (createState) => {
   const store = actualCreate(createState);
   const initialState = store.getState();
 
+  initialState.savedEvents = initialSavedEvents;
   initialState.venuesPage = initialVenuesPage;
   initialState.eventsPage = initialEventsPage;
   initialState.venueSort = initialVenueSort;
@@ -36,6 +42,7 @@ export const create = (createState) => {
   initialState.venueKeywords = initialVenueKeywords;
   initialState.eventKeywords = initialEventKeywords;
   initialState.filterMenu = initialFilterMenu;
+  initialState.toggleSaveEvent = jest.fn();
   initialState.setVenueSort = jest.fn();
   initialState.setEventSort = jest.fn();
   initialState.setVenuesPage = jest.fn();

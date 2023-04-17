@@ -11,8 +11,8 @@ jest.mock("latlon-geohash", () => ({
 
 test("renders a button for current location and a search bar for location lookup", () => {
   render(<LocationFilter />);
-  const button = screen.getAllByRole("button", { name: /current location/i });
-  const searchBar = screen.getAllByRole("searchbox", {
+  const button = screen.getByRole("button", { name: /current location/i });
+  const searchBar = screen.getByRole("searchbox", {
     name: /search/i,
   });
   expect(button).toBeInTheDocument();

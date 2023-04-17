@@ -9,6 +9,7 @@ const useMapStore = create(() => {
 
 const useFilterStore = create((set) => {
   return {
+    savedEvents: [],
     venuesPage: 0,
     eventsPage: 0,
     venueSort: "relevance,desc",
@@ -32,6 +33,15 @@ const useFilterStore = create((set) => {
         }
       }),
     filterMenu: { genre: false, search: false },
+    toggleSaveEvent: (id) =>
+      set((state) => {
+        if (state.savedEvents.includes(id)) {
+          return {
+            savedEvents: state.savedEvents.filter((event) => event !== id),
+          };
+        }
+        return { savedEvents: [...state.savedEvents, id] };
+      }),
     setVenuesPage: (num) =>
       set(() => {
         return { venuesPage: num };

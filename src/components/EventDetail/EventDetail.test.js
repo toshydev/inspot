@@ -35,6 +35,12 @@ test("renders a description and information if available", () => {
   expect(information).toBeInTheDocument();
 });
 
+test("renders a save button", () => {
+  render(<EventDetail event={testEvents[0]} />);
+  const saveButton = screen.getByRole("button", { name: /save event/i });
+  expect(saveButton).toBeInTheDocument();
+});
+
 test("renders the days, hours or minutes left until event start", () => {
   render(
     <EventDetail
