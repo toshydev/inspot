@@ -20,16 +20,10 @@ const StyledContainer = styled.div`
 
 export default function VenueData({ id }) {
   const { data, isLoading, error } = useSWR(id && `/api/venues/${id}`);
-  const rating = data && getRating(data);
+  const rating = data ? getRating(data) : 0;
 
   if (isLoading) return <Spinner />;
-  if (error || !data)
-    return (
-      <StyledContainer>
-        <p>Rating:</p>
-        <p>0</p>
-      </StyledContainer>
-    );
+  if (error || !data) return <>{error.status}</>;
   return (
     <StyledContainer>
       <p>Rating:</p>

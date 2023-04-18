@@ -11,7 +11,6 @@ export default function ReviewForm({ id }) {
     reviewData.date = new Date();
     reviewData.parent = id;
     reviewData.attended = event.target.elements.attended.checked;
-    console.log("Form data: ", reviewData);
 
     const response = await fetch(id && `/api/venues/${id}`, {
       method: "POST",

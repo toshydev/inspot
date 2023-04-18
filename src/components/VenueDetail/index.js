@@ -10,12 +10,12 @@ import DistanceWidget from "../DistanceWidget";
 import EventList from "../EventList";
 import LikeButton from "../LikeButton";
 import LocationButton from "../LocationButton";
+import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import VenueData from "../VenueData";
-import ReviewSection from "../ReviewSection";
 
 const StyledSection = styled.section`
   padding: 0.5rem;

@@ -1,6 +1,10 @@
 export default function getRating(data) {
   const dataWithRating = data.filter((entry) => entry.rating);
-  const sumOfRatings = dataWithRating.reduce((a, b) => a.rating + b.rating);
-  const averageRating = sumOfRatings / dataWithRating.length;
+  const ratings = dataWithRating.map((entry) => entry.rating);
+  const sumOfRatings = ratings.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const averageRating = (sumOfRatings / dataWithRating.length).toFixed(1);
   return averageRating;
 }
