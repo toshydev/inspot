@@ -9,7 +9,7 @@ const reviewSchema = new Schema({
   text: { type: String, required: true },
   rating: { type: Number, required: true },
   attended: { type: Boolean, required: true },
-  timestamp: { type: Date, required: true },
+  date: { type: Date, required: true },
 });
 
 const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);

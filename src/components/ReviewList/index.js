@@ -15,6 +15,9 @@ const StyledReviewCard = styled.li`
 `;
 
 export default function ReviewList({ reviews }) {
+  console.log(
+    new Intl.DateTimeFormat("de-DE").format(new Date(reviews[0].date))
+  );
   return (
     <StyledListContainer>
       {reviews.length > 0 ? (
@@ -34,13 +37,16 @@ export default function ReviewList({ reviews }) {
                   Attended: <span>✅</span>
                 </p>
               )}
-              {review.timestamp && (
-                <small>
-                  Posted:{" "}
+              {review.date && (
+                <time
+                  dateTime={`${new Intl.DateTimeFormat("de-DE").format(
+                    new Date(review.date)
+                  )}`}
+                >
                   {new Intl.DateTimeFormat("de-DE").format(
-                    new Date(review.timestamp)
+                    new Date(review.date)
                   )}
-                </small>
+                </time>
               )}
             </StyledReviewCard>
           );
