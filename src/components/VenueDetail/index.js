@@ -10,10 +10,12 @@ import DistanceWidget from "../DistanceWidget";
 import EventList from "../EventList";
 import LikeButton from "../LikeButton";
 import LocationButton from "../LocationButton";
+import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledWidgetContainer from "../StyledWidgetContainer";
+import VenueData from "../VenueData";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -90,6 +92,7 @@ export default function VenueDetail({
         ) : (
           <TheaterBig />
         )}
+        <VenueData venueId={venue.id} />
         <StyledAddressSection>
           <LikeButton id={venue.id} variant="detail" />
           <address aria-label="address">
@@ -132,6 +135,10 @@ export default function VenueDetail({
       ) : (
         <EventList events={data._embedded.events} />
       )}
+      <StyledDescription>
+        <h3>Reviews</h3>
+        <ReviewSection venueId={venue.id} />
+      </StyledDescription>
     </>
   );
 }
