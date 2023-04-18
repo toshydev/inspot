@@ -15,6 +15,7 @@ import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import VenueData from "../VenueData";
+import ReviewSection from "../ReviewSection";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -134,6 +135,10 @@ export default function VenueDetail({
       ) : (
         <EventList events={data._embedded.events} />
       )}
+      <StyledDescription>
+        <h3>Reviews</h3>
+        <ReviewSection id={venue.id} />
+      </StyledDescription>
     </>
   );
 }

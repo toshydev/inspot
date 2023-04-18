@@ -17,7 +17,7 @@ const StyledReviewCard = styled.li`
 export default function ReviewList(reviews) {
   return (
     <StyledListContainer>
-      {reviews ? (
+      {reviews.length > 0 ? (
         reviews.map((review) => {
           return (
             <StyledReviewCard key={review._id}>

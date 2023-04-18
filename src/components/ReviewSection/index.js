@@ -1,10 +1,18 @@
+import useSWR from "swr";
 import ReviewList from "../ReviewList";
-import StyledContent from "../StyledContent";
+import Spinner from "../Spinner";
 
-export default function ReviewSection(data) {
+export default function ReviewSection(id) {
+  const { data, isLoading, error } = useSWR(`/api/venues/${id}`);
   return (
-    <StyledContent>
-      <ReviewList reviews={data} />
-    </StyledContent>
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : error | !data ? (
+        <>{error.status}</>
+      ) : (
+        <ReviewList reviews={data} />
+      )}
+    </>
   );
 }
