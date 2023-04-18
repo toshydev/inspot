@@ -20,6 +20,16 @@ const StyledToggleButton = styled(StyledIconButton)`
       `;
     }
   }}
+
+${({ variant }) => {
+    if (variant === "spotlight") {
+      return css`
+        grid-column: 3;
+        grid-row: 5;
+        transform: translate(77vw, -3.5rem) rotate(-45deg);
+      `;
+    }
+  }}
 `;
 
 export default StyledToggleButton;
