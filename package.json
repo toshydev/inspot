@@ -16,6 +16,7 @@
     "eslint-config-next": "^13.3.0",
     "geolib": "^3.3.3",
     "latlon-geohash": "^2.0.0",
+    "mongoose": "^7.0.4",
     "next": "^13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
