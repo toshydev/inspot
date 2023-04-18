@@ -15,9 +15,6 @@ const StyledReviewCard = styled.li`
 `;
 
 export default function ReviewList({ reviews }) {
-  console.log(
-    new Intl.DateTimeFormat("de-DE").format(new Date(reviews[0].date))
-  );
   return (
     <StyledListContainer>
       {reviews.length > 0 ? (
