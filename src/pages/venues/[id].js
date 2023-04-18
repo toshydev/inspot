@@ -2,10 +2,10 @@ import { getDistance } from "geolib";
 import Geohash from "latlon-geohash";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import VenueDetail from "../../components/VenueDetail";
 import { useFilterStore } from "../../store";
-import Spinner from "../../components/Spinner";
 
 export default function VenueDetailPage() {
   const currentLocation = useFilterStore((state) => state.currentLocation);
@@ -15,7 +15,7 @@ export default function VenueDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data, isLoading, error } = useSWR(
-    id && `/api/venues/venues?id=${id}&locale=*&countryCode=DE`
+    id && `/api/venues?id=${id}&locale=*&countryCode=DE`
   );
   const venue = data?._embedded.venues[0];
   const distance =
@@ -32,20 +32,17 @@ export default function VenueDetailPage() {
         )
       : null;
 
+  if (isLoading) return <Spinner />;
+  if (error || !data?._embedded) return <p>No venues found. Adjust filter.</p>;
+
   return (
     <StyledContent>
-      {isLoading ? (
-        <Spinner />
-      ) : error || !data?._embedded ? (
-        <p>No events found. Adjust filter.</p>
-      ) : (
-        <VenueDetail
-          venue={data._embedded.venues[0]}
-          currentLocation={currentLocation}
-          range={range}
-          distance={distance}
-        />
-      )}
+      <VenueDetail
+        venue={data._embedded.venues[0]}
+        currentLocation={currentLocation}
+        range={range}
+        distance={distance}
+      />
     </StyledContent>
   );
 }

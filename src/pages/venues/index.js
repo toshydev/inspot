@@ -1,12 +1,12 @@
 import useSWR from "swr";
+import BookmarkButton from "../../components/BookmarkButton";
+import LocationButton from "../../components/LocationButton";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import StyledIconLink from "../../components/StyledIconLink";
 import VenueFilter from "../../components/VenueFilter";
 import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
-import { PlaceBig } from "../../utils/icons";
 
 export default function VenueListPage() {
   const venuesPage = useFilterStore((state) => state.venuesPage);
@@ -16,7 +16,7 @@ export default function VenueListPage() {
   const range = useFilterStore((state) => state.range);
 
   const { data, isLoading, error } = useSWR(
-    `/api/venues/venues?sort=${venueSort}&geoPoint=${location}&radius=${
+    `/api/venues?sort=${venueSort}&geoPoint=${location}&radius=${
       range / 1000
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
   );
@@ -25,15 +25,14 @@ export default function VenueListPage() {
     <>
       <StyledHeader>
         <h1>Venues</h1>
-        <StyledIconLink href="/location" aria-label="go to location page">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledContent>
         <VenueFilter />
         {isLoading ? (
           <Spinner />
-        ) : error ? (
+        ) : error || !data._embedded ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
           <VenueList venues={data._embedded.venues} />

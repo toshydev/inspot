@@ -3,15 +3,17 @@ import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
-import { PlaceBig, TheaterBig } from "../../utils/icons";
+import { TheaterBig } from "../../utils/icons";
 import BackLink from "../BackLink";
+import BookmarkButton from "../BookmarkButton";
 import DistanceWidget from "../DistanceWidget";
 import EventList from "../EventList";
+import LocationButton from "../LocationButton";
 import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
-import StyledIconLink from "../StyledIconLink";
 import StyledWidgetContainer from "../StyledWidgetContainer";
+import LikeButton from "../LikeButton";
 
 const StyledSection = styled.section`
   padding: 0.5rem;
@@ -72,9 +74,8 @@ export default function VenueDetail({
       <StyledHeader>
         <BackLink />
         <StyledHeadline aria-label={venue.name}>{venue.name}</StyledHeadline>
-        <StyledIconLink href="/location" aria-label="go to locations list">
-          <PlaceBig />
-        </StyledIconLink>
+        <LocationButton />
+        <BookmarkButton />
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
         {venueImage ? (
@@ -90,6 +91,7 @@ export default function VenueDetail({
           <TheaterBig />
         )}
         <StyledAddressSection>
+          <LikeButton id={venue.id} variant="detail" />
           <address aria-label="address">
             {venue.address.line1}, {venue.city.name}
           </address>
