@@ -7,7 +7,7 @@ const reviewSchema = new Schema({
   user: { type: String, required: true },
   title: { type: String, required: true },
   text: { type: String, required: true },
-  rating: { type: Float32Array, required: true },
+  rating: { type: Number, required: true },
   attended: { type: Boolean, required: true },
   timestamp: { type: Date, required: true },
 });

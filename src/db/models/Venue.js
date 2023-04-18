@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const venueSchema = new Schema({
   id: { type: String, required: true },
-  rating: { type: Float32Array, required: true },
+  rating: { type: Number, required: true },
   reviews: { type: Array, required: true },
 });
 
