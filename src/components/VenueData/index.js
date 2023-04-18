@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import Spinner from "../Spinner";
 import styled from "styled-components";
+import getRating from "../../utils/getRating";
 
 const StyledContainer = styled.div`
   background: hotpink;
@@ -19,21 +20,22 @@ const StyledContainer = styled.div`
 
 export default function VenueData({ id }) {
   const { data, isLoading, error } = useSWR(id && `/api/venues/${id}`);
-
+  const rating = data && getRating(data);
   console.log(data);
+  console.log(rating);
 
   if (isLoading) return <Spinner />;
   if (error || !data)
     return (
       <StyledContainer>
         <p>Rating:</p>
-        <p>{0}</p>
+        <p>0</p>
       </StyledContainer>
     );
   return (
     <StyledContainer>
       <p>Rating:</p>
-      <p>{data.rating ? data.rating : 0}</p>
+      <p>{rating}</p>
     </StyledContainer>
   );
 }
