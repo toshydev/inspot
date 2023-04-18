@@ -21,8 +21,6 @@ const StyledContainer = styled.div`
 export default function VenueData({ id }) {
   const { data, isLoading, error } = useSWR(id && `/api/venues/${id}`);
   const rating = data && getRating(data);
-  console.log(data);
-  console.log(rating);
 
   if (isLoading) return <Spinner />;
   if (error || !data)
