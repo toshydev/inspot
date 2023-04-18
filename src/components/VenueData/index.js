@@ -1,7 +1,7 @@
-import useSWR from "swr";
-import Spinner from "../Spinner";
 import styled from "styled-components";
+import useSWR from "swr";
 import getRating from "../../utils/getRating";
+import Spinner from "../Spinner";
 
 const StyledContainer = styled.div`
   background: hotpink;

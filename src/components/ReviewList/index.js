@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import StyledListContainer from "../StyledListContainer";
-import Spinner from "../Spinner";
 import ReviewCard from "../ReviewCard";
+import Spinner from "../Spinner";
+import StyledListContainer from "../StyledListContainer";
 
 export default function ReviewList({ id }) {
   const reviews = useSWR(`/api/venues/${id}`);
@@ -20,15 +20,23 @@ export default function ReviewList({ id }) {
   return (
     <StyledListContainer>
       {data && data.length > 0 ? (
-        data.map((review) => {
-          return (
-            <ReviewCard
-              key={review._id}
-              review={review}
-              onDeleteReview={handleDeleteReview}
-            />
-          );
-        })
+        data
+          .slice()
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
+          .map((review) => {
+            return (
+              <ReviewCard
+                key={review._id}
+                review={review}
+                onDeleteReview={handleDeleteReview}
+              />
+            );
+          })
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
       ) : (
         <p>No reviews yet. Be the first to post.</p>
       )}
