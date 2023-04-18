@@ -3,8 +3,8 @@ import ReviewCard from "../ReviewCard";
 import Spinner from "../Spinner";
 import StyledListContainer from "../StyledListContainer";
 
-export default function ReviewList({ id }) {
-  const reviews = useSWR(`/api/venues/${id}`);
+export default function ReviewList({ venueId }) {
+  const reviews = useSWR(`/api/venues/${venueId}`);
   const { data, isLoading, error } = reviews;
 
   async function handleDeleteReview(id) {

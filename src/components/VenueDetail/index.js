@@ -92,7 +92,7 @@ export default function VenueDetail({
         ) : (
           <TheaterBig />
         )}
-        <VenueData id={venue.id} />
+        <VenueData venueId={venue.id} />
         <StyledAddressSection>
           <LikeButton id={venue.id} variant="detail" />
           <address aria-label="address">
@@ -137,7 +137,7 @@ export default function VenueDetail({
       )}
       <StyledDescription>
         <h3>Reviews</h3>
-        <ReviewSection id={venue.id} />
+        <ReviewSection venueId={venue.id} />
       </StyledDescription>
     </>
   );

@@ -1,11 +1,11 @@
 import ReviewList from "../ReviewList";
 import ReviewForm from "../ReviewForm";
 
-export default function ReviewSection({ id }) {
+export default function ReviewSection({ venueId }) {
   return (
     <>
-      <ReviewForm id={id} />
-      <ReviewList id={id} />
+      <ReviewForm venueId={venueId} />
+      <ReviewList venueId={venueId} />
     </>
   );
 }

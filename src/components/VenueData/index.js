@@ -33,8 +33,10 @@ const StyledBox = styled.div`
   text-align: center;
 `;
 
-export default function VenueData({ id }) {
-  const { data, isLoading, error } = useSWR(id && `/api/venues/${id}`);
+export default function VenueData({ venueId }) {
+  const { data, isLoading, error } = useSWR(
+    venueId && `/api/venues/${venueId}`
+  );
   const rating = data && data.length > 0 ? getRating(data) : 0;
 
   if (isLoading) return <Spinner />;
