@@ -14,7 +14,7 @@ const StyledReviewCard = styled.li`
   transition: 0.15s;
 `;
 
-export default function ReviewList(reviews) {
+export default function ReviewList({ reviews }) {
   return (
     <StyledListContainer>
       {reviews.length > 0 ? (
