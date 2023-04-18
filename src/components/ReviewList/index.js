@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DeleteButton from "../DeleteButton";
 import StyledListContainer from "../StyledListContainer";
 
 const StyledReviewCard = styled.li`
@@ -15,12 +16,19 @@ const StyledReviewCard = styled.li`
 `;
 
 export default function ReviewList({ reviews }) {
+  async function handleDeleteReview(id) {
+    await fetch(id && `/api/venues/${id}`, {
+      method: "DELETE",
+    });
+  }
+
   return (
     <StyledListContainer>
       {reviews.length > 0 ? (
         reviews.map((review) => {
           return (
             <StyledReviewCard key={review._id}>
+              <DeleteButton id={review._id} onDelete={handleDeleteReview} />
               {review.user && <address>{review.user}</address>}
               {review.title && <h4>Title: {review.title}</h4>}
               {review.rating && (
