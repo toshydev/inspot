@@ -20,7 +20,7 @@ export default function FavoriteListPage() {
 
   const { data, isLoading, error } = useSWR(
     ((resource === "Events" && savedEvents.length > 0) ||
-      (resource === "Venues" && savedVenues.lenght > 0)) &&
+      (resource === "Venues" && savedVenues.length > 0)) &&
       `/api/${resource.toLowerCase()}?id=${
         resource === "Events" ? savedEvents : savedVenues
       }&sort=${

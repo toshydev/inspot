@@ -9,7 +9,7 @@ export default function LikeButton({ id, variant }) {
     <StyledToggleButton
       variant={variant}
       type="button"
-      aria-label="save event"
+      aria-label="save venue"
       onClick={() => toggleSaveVenue(id)}
       style={{ transform: "translate(80vw, -2.6rem) rotate(0deg)" }}
     >
