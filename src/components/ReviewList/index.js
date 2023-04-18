@@ -1,59 +1,32 @@
-import styled from "styled-components";
-import DeleteButton from "../DeleteButton";
+import useSWR from "swr";
 import StyledListContainer from "../StyledListContainer";
+import Spinner from "../Spinner";
+import ReviewCard from "../ReviewCard";
 
-const StyledReviewCard = styled.li`
-  background: #f0f0f0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 2fr;
-  justify-content: space-around;
-  border-radius: 12px;
-  transition: 0.15s;
-`;
+export default function ReviewList({ id }) {
+  const reviews = useSWR(`/api/venues/${id}`);
+  const { data, isLoading, error } = reviews;
 
-export default function ReviewList({ reviews }) {
   async function handleDeleteReview(id) {
     await fetch(id && `/api/venues/${id}`, {
       method: "DELETE",
     });
+    reviews.mutate();
   }
+
+  if (isLoading) return <Spinner />;
+  if (error) return <>{error.status}</>;
 
   return (
     <StyledListContainer>
-      {reviews.length > 0 ? (
-        reviews.map((review) => {
+      {data && data.length > 0 ? (
+        data.map((review) => {
           return (
-            <StyledReviewCard key={review._id}>
-              <DeleteButton id={review._id} onDelete={handleDeleteReview} />
-              {review.user && <address>{review.user}</address>}
-              {review.title && <h4>Title: {review.title}</h4>}
-              {review.rating && (
-                <p>
-                  Rating: <strong>{review.rating}</strong>
-                </p>
-              )}
-              {review.text && <p>{review.text}</p>}
-              {review.attended && (
-                <p>
-                  Attended: <span>✅</span>
-                </p>
-              )}
-              {review.date && (
-                <time
-                  dateTime={`${new Intl.DateTimeFormat("de-DE").format(
-                    new Date(review.date)
-                  )}`}
-                >
-                  {new Intl.DateTimeFormat("de-DE").format(
-                    new Date(review.date)
-                  )}
-                </time>
-              )}
-            </StyledReviewCard>
+            <ReviewCard
+              key={review._id}
+              review={review}
+              onDeleteReview={handleDeleteReview}
+            />
           );
         })
       ) : (

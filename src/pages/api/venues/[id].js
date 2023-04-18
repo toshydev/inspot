@@ -25,6 +25,12 @@ export default async function handler(request, response) {
       response.status(400).json({ error: error.message });
     }
   }
+  if (request.method === "PUT") {
+    const reviewToUpdate = await Review.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    response.status(200).json(reviewToUpdate);
+  }
   if (request.method === "DELETE") {
     const reviewToDelete = await Review.findByIdAndDelete(id);
     response.status(200).json(reviewToDelete);

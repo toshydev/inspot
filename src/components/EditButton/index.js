@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ClearBig } from "../../utils/icons";
+import { EditBig } from "../../utils/icons";
 
-const StyledDeleteButton = styled.button`
+const StyledEditButton = styled.button`
   background: transparent;
   border: 2px solid black;
   border-radius: 8px;
@@ -16,20 +16,20 @@ const StyledDeleteButton = styled.button`
   padding: 0;
 
   &:hover {
-    background: red;
+    background: deepskyblue;
     border-color: white;
     color: white;
   }
 `;
 
-export default function DeleteButton({ id, onDelete }) {
+export default function EditButton({ onEdit }) {
   return (
-    <StyledDeleteButton
+    <StyledEditButton
       type="button"
-      onClick={() => onDelete(id)}
-      aria-label="delete review"
+      onClick={() => onEdit()}
+      aria-label="edit review"
     >
-      <ClearBig />
-    </StyledDeleteButton>
+      <EditBig />
+    </StyledEditButton>
   );
 }

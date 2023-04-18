@@ -36,15 +36,15 @@ export default function ReviewForm({ id }) {
         <input id="user" name="user"></input>
         <fieldset>
           <input type="radio" id="one" value={1} name="rating" />
-          <label for="one">1</label>
+          <label htmlFor="one">1</label>
           <input id="two" type="radio" value={2} name="rating" />
-          <label for="two">2</label>
+          <label htmlFor="two">2</label>
           <input id="three" type="radio" value={3} name="rating" />
-          <label for="three">3</label>
+          <label htmlFor="three">3</label>
           <input id="four" type="radio" value={4} name="rating" />
-          <label for="four">4</label>
+          <label htmlFor="four">4</label>
           <input id="five" type="radio" value={5} name="rating" />
-          <label for="five">5</label>
+          <label htmlFor="five">5</label>
         </fieldset>
         <label htmlFor="attended">Attended? </label>
         <input type="checkbox" id="attended" name="attended" />
