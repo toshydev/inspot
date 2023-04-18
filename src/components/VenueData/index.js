@@ -18,6 +18,21 @@ const StyledContainer = styled.div`
   text-align: center;
 `;
 
+const StyledBox = styled.div`
+  background: deepskyblue;
+  border-radius: 50px;
+  width: 6rem;
+  height: 3rem;
+  position: absolute;
+  top: 5rem;
+  right: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
 export default function VenueData({ id }) {
   const { data, isLoading, error } = useSWR(id && `/api/venues/${id}`);
   const rating = data && data.length > 0 ? getRating(data) : 0;
@@ -25,9 +40,19 @@ export default function VenueData({ id }) {
   if (isLoading) return <Spinner />;
   if (error || !data) return <>{error.status}</>;
   return (
-    <StyledContainer>
-      <p>Rating:</p>
-      <p>{rating ? rating : 0}</p>
-    </StyledContainer>
+    <>
+      <StyledBox>
+        <p>Reviews:</p>
+        <p>
+          <strong>{data.length}</strong>
+        </p>
+      </StyledBox>
+      <StyledContainer>
+        <p>Rating:</p>
+        <p>
+          <strong>{rating ? rating : 0}</strong>
+        </p>
+      </StyledContainer>
+    </>
   );
 }
