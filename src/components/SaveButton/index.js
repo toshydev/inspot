@@ -1,13 +1,14 @@
 import { useFilterStore } from "../../store";
 import { TicketEmptyBig, TicketFilledBig } from "../../utils/icons";
-import StyledToggleButton from "../StyledToggleButton";
+import StyledButton from "../StyledButton";
 
-export default function SaveButton({ id, variant }) {
+export default function SaveButton({ id, position }) {
   const savedEvents = useFilterStore((state) => state.savedEvents);
   const toggleSaveEvent = useFilterStore((state) => state.toggleSaveEvent);
   return (
-    <StyledToggleButton
-      variant={variant}
+    <StyledButton
+      position={position}
+      variant="icon"
       type="button"
       aria-label="save event"
       onClick={() => toggleSaveEvent(id)}
@@ -17,6 +18,6 @@ export default function SaveButton({ id, variant }) {
       ) : (
         <TicketEmptyBig />
       )}
-    </StyledToggleButton>
+    </StyledButton>
   );
 }

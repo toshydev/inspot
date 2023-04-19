@@ -33,7 +33,7 @@ export default function SpotlightList({ events }) {
             >
               <SpotlightListPreview event={event} />
             </StyledSpotlightLink>
-            <SaveButton id={event.id} variant="spotlight" />
+            <SaveButton id={event.id} position="spotlight" />
           </StyledContainer>
         ))
       )}

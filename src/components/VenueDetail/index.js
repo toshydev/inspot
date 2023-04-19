@@ -94,7 +94,7 @@ export default function VenueDetail({
         )}
         <VenueData venueId={venue.id} />
         <StyledAddressSection>
-          <LikeButton id={venue.id} variant="detail" />
+          <LikeButton id={venue.id} position="detail" />
           <address aria-label="address">
             {venue.address.line1}, {venue.city.name}
           </address>

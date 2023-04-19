@@ -22,7 +22,7 @@ export default function EventList({ events }) {
             >
               <EventListPreview event={event} />
             </StyledPreviewLink>
-            <SaveButton id={event.id} variant="preview" />
+            <SaveButton id={event.id} position="preview" />
           </StyledContainer>
         ))
       )}

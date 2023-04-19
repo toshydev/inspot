@@ -1,13 +1,14 @@
 import { useFilterStore } from "../../store";
 import { FavoriteEmpty, FavoriteFilled } from "../../utils/icons";
-import StyledToggleButton from "../StyledToggleButton";
+import StyledButton from "../StyledButton";
 
-export default function LikeButton({ id, variant }) {
+export default function LikeButton({ id, position }) {
   const savedVenues = useFilterStore((state) => state.savedVenues);
   const toggleSaveVenue = useFilterStore((state) => state.toggleSaveVenue);
   return (
-    <StyledToggleButton
-      variant={variant}
+    <StyledButton
+      position={position}
+      variant="icon"
       type="button"
       aria-label="save venue"
       onClick={() => toggleSaveVenue(id)}
@@ -18,6 +19,6 @@ export default function LikeButton({ id, variant }) {
       ) : (
         <FavoriteEmpty />
       )}
-    </StyledToggleButton>
+    </StyledButton>
   );
 }

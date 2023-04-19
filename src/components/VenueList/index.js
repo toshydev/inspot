@@ -23,7 +23,7 @@ export default function VenueList({ venues }) {
             >
               <VenueListPreview venue={venue} />
             </StyledPreviewLink>
-            <LikeButton id={venue.id} variant="preview" />
+            <LikeButton id={venue.id} position="preview" />
           </StyledContainer>
         ))
       )}

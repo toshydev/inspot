@@ -10,6 +10,35 @@ const StyledButton = styled.button`
   padding: 0;
   background: transparent;
 
+  ${({ position }) => {
+    if (position === "preview") {
+      return css`
+        position: absolute;
+        transform: translate(80vw, -9rem) rotate(-45deg);
+      `;
+    }
+  }}
+
+  ${({ position }) => {
+    if (position === "detail") {
+      return css`
+        grid-column: 3;
+        grid-row: 5;
+        transform: rotate(-45deg);
+      `;
+    }
+  }}
+
+${({ position }) => {
+    if (position === "spotlight") {
+      return css`
+        grid-column: 3;
+        grid-row: 5;
+        transform: translate(77vw, -3.5rem) rotate(-45deg);
+      `;
+    }
+  }}
+
   ${({ variant }) => {
     if (variant === "icon") {
       return css`

@@ -86,7 +86,7 @@ export default function EventDetail({
               .genre.name
           }
         </StyledTypeHeadline>
-        <SaveButton id={event.id} variant="detail" />
+        <SaveButton id={event.id} position="detail" />
         <StyledDateSection>
           Date:
           <time aria-label="start date" dateTime={formattedStartDate}>
