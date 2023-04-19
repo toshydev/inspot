@@ -1,12 +1,8 @@
-import styled from "styled-components";
 import LikeButton from "../LikeButton";
-import StyledList from "../StyledList";
 import StyledLink from "../StyledLink";
+import StyledList from "../StyledList";
+import StyledListItem from "../StyledListItem";
 import VenueListPreview from "../VenueListPreview";
-
-const StyledContainer = styled.div`
-  width: 100%;
-`;
 
 export default function VenueList({ venues }) {
   return (
@@ -15,7 +11,7 @@ export default function VenueList({ venues }) {
         <p>Adjust genres and/or tags</p>
       ) : (
         venues.map((venue) => (
-          <StyledContainer key={venue.id}>
+          <StyledListItem key={venue.id}>
             <StyledLink
               href={`/venues/${venue.id}`}
               aria-label={`go to details page of ${venue.name}`}
@@ -24,7 +20,7 @@ export default function VenueList({ venues }) {
               <VenueListPreview venue={venue} />
             </StyledLink>
             <LikeButton id={venue.id} position="preview" />
-          </StyledContainer>
+          </StyledListItem>
         ))
       )}
     </StyledList>

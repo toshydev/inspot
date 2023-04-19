@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import DistanceWidget from "../DistanceWidget";
+import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
-import StyledPreviewCard from "../StyledPreviewCard";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
 
@@ -48,7 +48,7 @@ export default function EventListPreview({ event }) {
 
   return (
     <>
-      <StyledPreviewCard>
+      <StyledCard variant="preview">
         <StyledEventPreviewDate
           dateTime={event.dates.start.dateTime}
           aria-label="date"
@@ -69,7 +69,7 @@ export default function EventListPreview({ event }) {
             />
           )}
         </StyledWidgetContainer>
-      </StyledPreviewCard>
+      </StyledCard>
     </>
   );
 }

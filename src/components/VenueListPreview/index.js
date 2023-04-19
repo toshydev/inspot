@@ -3,8 +3,8 @@ import Geohash from "latlon-geohash";
 import { useEffect, useState } from "react";
 import { useFilterStore } from "../../store";
 import DistanceWidget from "../DistanceWidget";
+import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
-import StyledPreviewCard from "../StyledPreviewCard";
 import StyledSubtitle from "../StyledSubtitle";
 import StyledWidgetContainer from "../StyledWidgetContainer";
 
@@ -33,7 +33,7 @@ export default function VenueListPreview({ venue }) {
   }, [location, venue]);
 
   return (
-    <StyledPreviewCard>
+    <StyledCard variant="preview">
       <StyledCardHeadline aria-label={venue.name}>
         {venue.name}
       </StyledCardHeadline>
@@ -48,6 +48,6 @@ export default function VenueListPreview({ venue }) {
           <DistanceWidget range={range} distance={distance} />
         )}
       </StyledWidgetContainer>
-    </StyledPreviewCard>
+    </StyledCard>
   );
 }

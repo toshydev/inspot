@@ -1,23 +1,8 @@
-import Link from "next/link";
-import styled from "styled-components";
-import SpotlightListPreview from "../SpotlightListPreview";
-import StyledList from "../StyledList";
 import SaveButton from "../SaveButton";
-
-const StyledSpotlightLink = styled(Link)`
-  color: unset;
-  width: 98%;
-  height: 200px;
-  text-decoration: none;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledContainer = styled.div`
-  width: 100%;
-`;
+import SpotlightListPreview from "../SpotlightListPreview";
+import StyledLink from "../StyledLink";
+import StyledList from "../StyledList";
+import StyledListItem from "../StyledListItem";
 
 export default function SpotlightList({ events }) {
   return (
@@ -26,15 +11,15 @@ export default function SpotlightList({ events }) {
         <p>Adjust genres and/or tags</p>
       ) : (
         events.map((event) => (
-          <StyledContainer key={event.id}>
-            <StyledSpotlightLink
+          <StyledListItem key={event.id}>
+            <StyledLink
               href={`/events/${event.id}`}
               aria-label={`go to details page of ${event.name}`}
             >
               <SpotlightListPreview event={event} />
-            </StyledSpotlightLink>
+            </StyledLink>
             <SaveButton id={event.id} position="spotlight" />
-          </StyledContainer>
+          </StyledListItem>
         ))
       )}
     </StyledList>

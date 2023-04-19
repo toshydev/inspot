@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 import DistanceWidget from "../DistanceWidget";
+import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
 import StyledSubtitle from "../StyledSubtitle";
 import StyledWidgetContainer from "../StyledWidgetContainer";
@@ -85,7 +86,7 @@ export default function SpotlightListPreview({ event }) {
 
   return (
     <>
-      <StyledSpotlightCard>
+      <StyledCard variant="preview">
         <StyledSubtitle
           style={{ gridColumn: "3 / 6", gridRow: "1" }}
           aria-label={event._embedded.venues[0].name}
@@ -124,7 +125,7 @@ export default function SpotlightListPreview({ event }) {
             )}
           </StyledWidgetContainer>
         </StyledCardSection>
-      </StyledSpotlightCard>
+      </StyledCard>
     </>
   );
 }

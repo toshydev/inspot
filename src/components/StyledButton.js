@@ -25,16 +25,6 @@ const StyledButton = styled.button`
   }}
 
   ${({ position }) => {
-    if (position === "detail") {
-      return css`
-        grid-column: 3;
-        grid-row: 5;
-        transform: rotate(-45deg);
-      `;
-    }
-  }}
-
-  ${({ position }) => {
     if (position === "spotlight") {
       return css`
         grid-column: 3;
