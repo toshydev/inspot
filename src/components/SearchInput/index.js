@@ -32,6 +32,8 @@ export default function SearchInput({ onAddKeywords }) {
           />
           <StyledButton
             variant="icon"
+            width="3rem"
+            height="100%"
             type="submit"
             aria-label="search by keywords"
           >

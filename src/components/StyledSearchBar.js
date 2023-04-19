@@ -7,9 +7,9 @@ const StyledSearchBar = styled.input`
   background: transparent;
   border-radius: 15px;
   padding-left: 1rem;
+  font-weight: bold;
 
   &:focus {
-    font-weight: bold;
     outline: none;
 
     &::placeholder {

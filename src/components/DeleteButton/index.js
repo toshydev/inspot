@@ -9,6 +9,7 @@ export default function DeleteButton({ id, onDelete }) {
       width="1.5rem"
       height="1.5rem"
       danger
+      radius="5px"
       type="button"
       onClick={() => onDelete(id)}
       aria-label="delete review"

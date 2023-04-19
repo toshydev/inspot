@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
-import BookmarkButton from "../components/BookmarkButton";
-import LocationButton from "../components/LocationButton";
+import BookmarkLink from "../components/BookmarkLink";
+import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
 import SpotlightList from "../components/SpotlightList";
 import StyledContent from "../components/StyledContent";
@@ -26,8 +26,8 @@ export default function HomePage() {
     <>
       <StyledHeader>
         <StyledLogoHeadline>inSpot</StyledLogoHeadline>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledContent>
         {isLoading ? (

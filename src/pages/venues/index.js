@@ -1,6 +1,6 @@
 import useSWR from "swr";
-import BookmarkButton from "../../components/BookmarkButton";
-import LocationButton from "../../components/LocationButton";
+import BookmarkLink from "../../components/BookmarkLink";
+import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
@@ -20,13 +20,13 @@ export default function VenueListPage() {
       range / 1000
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
   );
-    
+
   return (
     <>
       <StyledHeader>
         <h1>Venues</h1>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledContent>
         <VenueFilter />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import { useFilterStore } from "../../store";
 import PlacesAutocomplete from "../PlacesAutocomplete";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 
 const StyledLocationItem = styled.li`
   width: 100%;
@@ -44,7 +44,7 @@ export default function LocationFilter() {
 
   return (
     <>
-      <StyledListContainer>
+      <StyledList>
         <StyledLocationItem>
           <StyledLocationButton
             type="button"
@@ -57,7 +57,7 @@ export default function LocationFilter() {
             </h4>
           </StyledLocationButton>
         </StyledLocationItem>
-      </StyledListContainer>
+      </StyledList>
       <PlacesAutocomplete
         onAddressSelect={(address) => {
           getGeocode({ address: address }).then((results) => {

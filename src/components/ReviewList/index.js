@@ -1,9 +1,9 @@
 import ReviewCard from "../ReviewCard";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 
 export default function ReviewList({ reviews, onDeleteReview, onEditSuccess }) {
   return (
-    <StyledListContainer>
+    <StyledList>
       {reviews
         .slice()
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -20,6 +20,6 @@ export default function ReviewList({ reviews, onDeleteReview, onEditSuccess }) {
         .sort(
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         )}
-    </StyledListContainer>
+    </StyledList>
   );
 }

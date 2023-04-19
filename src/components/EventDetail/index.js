@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
-import BackLink from "../BackLink";
-import BookmarkButton from "../BookmarkButton";
+import BackButton from "../BackButton";
+import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
-import LocationButton from "../LocationButton";
+import LocationLink from "../LocationLink";
 import SaveButton from "../SaveButton";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
@@ -74,10 +74,10 @@ export default function EventDetail({
   return (
     <>
       <StyledHeader>
-        <BackLink />
+        <BackButton />
         <StyledHeadline aria-label={event.name}>{event.name}</StyledHeadline>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
         <StyledTypeHeadline>

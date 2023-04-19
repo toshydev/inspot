@@ -4,12 +4,12 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
 import { TheaterBig } from "../../utils/icons";
-import BackLink from "../BackLink";
-import BookmarkButton from "../BookmarkButton";
+import BackButton from "../BackButton";
+import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
 import EventList from "../EventList";
 import LikeButton from "../LikeButton";
-import LocationButton from "../LocationButton";
+import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
 import StyledHeader from "../StyledHeader";
@@ -74,10 +74,10 @@ export default function VenueDetail({
   return (
     <>
       <StyledHeader>
-        <BackLink />
+        <BackButton />
         <StyledHeadline aria-label={venue.name}>{venue.name}</StyledHeadline>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledSection style={{ background: "#f0f0f0" }}>
         {venueImage ? (

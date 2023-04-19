@@ -1,7 +1,8 @@
 import useSWR from "swr";
-import BookmarkButton from "../../components/BookmarkButton";
+import BackButton from "../../components/BackButton";
+import BookmarkLink from "../../components/BookmarkLink";
 import EventList from "../../components/EventList";
-import LocationButton from "../../components/LocationButton";
+import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledFilterSection from "../../components/StyledFilterSection";
@@ -31,9 +32,10 @@ export default function FavoriteListPage() {
   return (
     <>
       <StyledHeader>
+        <BackButton />
         <h1 style={{ fontSize: "min(6vw, 6rem)" }}>Saved {resource}</h1>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledContent>
         <StyledFilterSection>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import SpotlightListPreview from "../SpotlightListPreview";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 import SaveButton from "../SaveButton";
 
 const StyledSpotlightLink = styled(Link)`
@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 
 export default function SpotlightList({ events }) {
   return (
-    <StyledListContainer>
+    <StyledList>
       {events.length === 0 ? (
         <p>Adjust genres and/or tags</p>
       ) : (
@@ -37,6 +37,6 @@ export default function SpotlightList({ events }) {
           </StyledContainer>
         ))
       )}
-    </StyledListContainer>
+    </StyledList>
   );
 }

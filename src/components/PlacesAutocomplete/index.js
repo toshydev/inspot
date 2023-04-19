@@ -3,7 +3,7 @@ import usePlacesAutocomplete from "use-places-autocomplete";
 import { useMapStore } from "../../store";
 import StyledFilterSection from "../StyledFilterSection";
 import StyledInputContainer from "../StyledInputContainer";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 import StyledListItem from "../StyledListItem";
 import StyledSearchBar from "../StyledSearchBar";
 
@@ -72,9 +72,7 @@ export default function PlacesAutocomplete({ onAddressSelect }) {
           />
         </StyledInputContainer>
       </StyledFilterSection>
-      {status === "OK" && (
-        <StyledListContainer>{renderSuggestions()}</StyledListContainer>
-      )}
+      {status === "OK" && <StyledList>{renderSuggestions()}</StyledList>}
     </>
   );
 }

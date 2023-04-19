@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   border: 2px solid black;
   background: white;
   gap: 1rem;
-  height: min(15vw, 100px);
+  height: 3.5rem;
   z-index: 5;
 `;
 

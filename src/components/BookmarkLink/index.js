@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { BookmarkBig, BookmarkFilledBig } from "../../utils/icons";
-import StyledIconLink from "../StyledIconLink";
+import StyledLink from "../StyledLink";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
 
@@ -21,13 +21,13 @@ const StyledBadge = styled.div`
   text-align: center;
 `;
 
-export default function BookmarkButton() {
+export default function BookmarkLink() {
   const savedEvents = useFilterStore((state) => state.savedEvents);
   const savedVenues = useFilterStore((state) => state.savedVenues);
 
   const router = useRouter();
   return (
-    <StyledIconLink href="/favorites">
+    <StyledLink variant="icon" href="/favorites">
       {savedEvents.length + savedVenues.length > 0 && (
         <StyledBadge>
           <p>{savedEvents.length + savedVenues.length}</p>
@@ -38,6 +38,6 @@ export default function BookmarkButton() {
       ) : (
         <BookmarkBig color={"#000000"} />
       )}
-    </StyledIconLink>
+    </StyledLink>
   );
 }

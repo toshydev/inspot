@@ -8,6 +8,7 @@ export default function EditButton({ onEdit }) {
       border
       width="1.5rem"
       height="1.5rem"
+      radius="5px"
       warning
       type="button"
       onClick={() => onEdit()}

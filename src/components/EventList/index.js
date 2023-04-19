@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import EventListPreview from "../EventListPreview";
 import SaveButton from "../SaveButton";
-import StyledListContainer from "../StyledListContainer";
-import StyledPreviewLink from "../StyledPreviewLink";
+import StyledList from "../StyledList";
+import StyledLink from "../StyledLink";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -10,22 +10,22 @@ const StyledContainer = styled.div`
 
 export default function EventList({ events }) {
   return (
-    <StyledListContainer>
+    <StyledList>
       {events.length === 0 ? (
         <p>Adjust genres and/or tags</p>
       ) : (
         events.map((event) => (
           <StyledContainer key={event.id}>
-            <StyledPreviewLink
+            <StyledLink
               href={`/events/${event.id}`}
               aria-label={`go to details page of ${event.name}`}
             >
               <EventListPreview event={event} />
-            </StyledPreviewLink>
+            </StyledLink>
             <SaveButton id={event.id} position="preview" />
           </StyledContainer>
         ))
       )}
-    </StyledListContainer>
+    </StyledList>
   );
 }

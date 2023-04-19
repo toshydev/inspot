@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { ArrowBackBig } from "../../utils/icons";
 import StyledButton from "../StyledButton";
 
-export default function BackLink() {
+export default function BackButton() {
   const router = useRouter();
 
   return (

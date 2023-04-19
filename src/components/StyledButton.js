@@ -7,8 +7,13 @@ const StyledButton = styled.button`
   justify-content: center;
   transition: 0.15s;
   font-weight: bold;
-  padding: 0;
+  padding: 0.5rem;
   background: transparent;
+
+  &:hover {
+    border-radius: 50px;
+    background: #e2b8ec;
+  }
 
   ${({ position }) => {
     if (position === "preview") {
@@ -29,7 +34,7 @@ const StyledButton = styled.button`
     }
   }}
 
-${({ position }) => {
+  ${({ position }) => {
     if (position === "spotlight") {
       return css`
         grid-column: 3;
@@ -49,6 +54,19 @@ ${({ position }) => {
       `;
     }
   }}
+  
+  ${({ col }) => {
+    return css`
+      grid-column: ${col};
+    `;
+  }}
+
+  ${({ row }) => {
+    return css`
+      grid-row: ${row};
+    `;
+  }}
+
 
   ${({ width }) => {
     return css`

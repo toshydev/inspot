@@ -1,4 +1,4 @@
-import BackLink from "../../components/BackLink";
+import BackButton from "../../components/BackButton";
 import LocationFilter from "../../components/LocationFilter";
 import StyledButton from "../../components/StyledButton";
 import StyledContent from "../../components/StyledContent";
@@ -15,7 +15,7 @@ export default function LocationPage() {
   return (
     <>
       <StyledHeader>
-        <BackLink />
+        <BackButton />
         <StyledHeadline>Set your location</StyledHeadline>
         <StyledButton
           variant="icon"

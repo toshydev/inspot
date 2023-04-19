@@ -1,8 +1,8 @@
 import useSWR from "swr";
-import BookmarkButton from "../../components/BookmarkButton";
+import BookmarkLink from "../../components/BookmarkLink";
 import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
-import LocationButton from "../../components/LocationButton";
+import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
@@ -30,8 +30,8 @@ export default function EventListPage() {
     <>
       <StyledHeader>
         <h1>Explore</h1>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
       <StyledContent>
         <EventFilter />
