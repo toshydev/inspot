@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import useSWRMutation from "swr/mutation";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import Spinner from "../Spinner";
+import StyledListItem from "../StyledListItem";
 
 const StyledReviewCard = styled.li`
   background: #f0f0f0;
@@ -92,7 +93,12 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
           <button type="submit">Done</button>
         </form>
       ) : (
-        <StyledReviewCard>
+        <StyledListItem
+          variant={"grid"}
+          cols={6}
+          rows={6}
+          justify={"space-evenly"}
+        >
           <DeleteButton id={review._id} onDelete={onDeleteReview} />
           <EditButton onEdit={() => setIsEdit(!isEdit)} />
           {review.user && <address>{review.user}</address>}
@@ -117,7 +123,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
               {new Intl.DateTimeFormat("de-DE").format(new Date(review.date))}
             </time>
           )}
-        </StyledReviewCard>
+        </StyledListItem>
       )}
     </>
   );

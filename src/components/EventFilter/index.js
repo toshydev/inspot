@@ -3,9 +3,9 @@ import { useFilterStore } from "../../store.js";
 import { ClearBig } from "../../utils/icons.js";
 import Menu from "../Menu.js";
 import SearchInput from "../SearchInput/index.js";
+import StyledButton from "../StyledButton.js";
 import StyledDropdown from "../StyledDropdown.js";
 import StyledFilterSection from "../StyledFilterSection.js";
-import StyledIconButton from "../StyledIconButton.js";
 import StyledLabel from "../StyledLabel.js";
 import StyledTag from "../StyledTag.js";
 
@@ -26,7 +26,8 @@ export default function EventFilter() {
       <StyledFilterSection>
         <Menu label="Filter" />
         <SearchInput onAddKeywords={addEventKeywords} />
-        <StyledIconButton
+        <StyledButton
+          variant="icon"
           onClick={() => {
             resetEventsFilter();
             setFilterMenu("");
@@ -34,7 +35,7 @@ export default function EventFilter() {
           aria-label="Clear filter"
         >
           <ClearBig />
-        </StyledIconButton>
+        </StyledButton>
       </StyledFilterSection>
       <StyledDropdown isActive={filterMenu.genre} flex="column">
         {segments.map((segment) => {
@@ -61,10 +62,10 @@ export default function EventFilter() {
         {eventKeywords.map((keyword) => (
           <StyledTag key={uuidv4()}>
             {keyword}
-            <StyledIconButton
+            <StyledButton
               type="button"
               onClick={() => deleteEventKeyword(keyword)}
-            ></StyledIconButton>
+            ></StyledButton>
           </StyledTag>
         ))}
       </StyledDropdown>

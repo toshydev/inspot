@@ -1,9 +1,9 @@
 import BackLink from "../../components/BackLink";
 import LocationFilter from "../../components/LocationFilter";
+import StyledButton from "../../components/StyledButton";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
-import StyledIconButton from "../../components/StyledIconButton";
 import { useFilterStore } from "../../store";
 import { WrongLocationBig } from "../../utils/icons";
 
@@ -17,7 +17,8 @@ export default function LocationPage() {
       <StyledHeader>
         <BackLink />
         <StyledHeadline>Set your location</StyledHeadline>
-        <StyledIconButton
+        <StyledButton
+          variant="icon"
           type="button"
           onClick={() => {
             resetLocation();
@@ -25,7 +26,7 @@ export default function LocationPage() {
           }}
         >
           <WrongLocationBig />
-        </StyledIconButton>
+        </StyledButton>
       </StyledHeader>
       <StyledContent>
         <LocationFilter />

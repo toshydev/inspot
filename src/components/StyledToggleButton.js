@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
-import StyledIconButton from "./StyledIconButton";
+import StyledButton from "./StyledButton";
 
-const StyledToggleButton = styled(StyledIconButton)`
+const StyledToggleButton = styled(StyledButton)`
+  border: none;
   ${({ variant }) => {
     if (variant === "preview") {
       return css`

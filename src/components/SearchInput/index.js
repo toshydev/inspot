@@ -1,6 +1,6 @@
 import { useFilterStore } from "../../store";
 import { SearchMed } from "../../utils/icons";
-import StyledIconButton from "../StyledIconButton";
+import StyledButton from "../StyledButton";
 import StyledInputContainer from "../StyledInputContainer";
 import StyledMenu from "../StyledMenu";
 import StyledSearchBar from "../StyledSearchBar";
@@ -30,9 +30,13 @@ export default function SearchInput({ onAddKeywords }) {
             aria-label="tag search bar"
             onClick={() => setFilterMenu("search")}
           />
-          <StyledIconButton type="submit" aria-label="search by keywords">
+          <StyledButton
+            variant="icon"
+            type="submit"
+            aria-label="search by keywords"
+          >
             <SearchMed />
-          </StyledIconButton>
+          </StyledButton>
         </StyledInputContainer>
       </form>
     </StyledMenu>

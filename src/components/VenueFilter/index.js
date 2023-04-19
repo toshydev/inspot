@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 import { useFilterStore } from "../../store.js";
 import { ClearBig } from "../../utils/icons.js";
 import SearchInput from "../SearchInput/index.js";
+import StyledButton from "../StyledButton.js";
 import StyledDropdown from "../StyledDropdown.js";
 import StyledFilterSection from "../StyledFilterSection.js";
-import StyledIconButton from "../StyledIconButton.js";
 import StyledTag from "../StyledTag.js";
 
 export default function VenueFilter() {
@@ -21,7 +21,8 @@ export default function VenueFilter() {
     <>
       <StyledFilterSection>
         <SearchInput onAddKeywords={addVenueKeywords} />
-        <StyledIconButton
+        <StyledButton
+          variant="icon"
           onClick={() => {
             resetVenuesFilter();
             setFilterMenu("");
@@ -29,16 +30,16 @@ export default function VenueFilter() {
           aria-label="Clear filter"
         >
           <ClearBig />
-        </StyledIconButton>
+        </StyledButton>
       </StyledFilterSection>
       <StyledDropdown isActive={filterMenu.search}>
         {venueKeywords.map((keyword) => (
           <StyledTag key={uuidv4()}>
             {keyword}
-            <StyledIconButton
+            <StyledButton
               type="button"
               onClick={() => deleteVenueKeyword(keyword)}
-            ></StyledIconButton>
+            ></StyledButton>
           </StyledTag>
         ))}
       </StyledDropdown>

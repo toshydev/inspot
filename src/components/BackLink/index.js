@@ -1,17 +1,18 @@
 import { useRouter } from "next/router";
 import { ArrowBackBig } from "../../utils/icons";
-import StyledIconButton from "../StyledIconButton";
+import StyledButton from "../StyledButton";
 
 export default function BackLink() {
   const router = useRouter();
 
   return (
-    <StyledIconButton
+    <StyledButton
+      variant="icon"
       type="button"
       onClick={() => router.back()}
       aria-label="go back to previous page"
     >
       <ArrowBackBig />
-    </StyledIconButton>
+    </StyledButton>
   );
 }

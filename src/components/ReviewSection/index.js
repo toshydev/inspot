@@ -1,7 +1,7 @@
-import ReviewList from "../ReviewList";
-import ReviewForm from "../ReviewForm";
-import Spinner from "../Spinner";
 import useSWR from "swr";
+import ReviewForm from "../ReviewForm";
+import ReviewList from "../ReviewList";
+import Spinner from "../Spinner";
 
 export default function ReviewSection({ venueId }) {
   const reviews = useSWR(`/api/venues/${venueId}`);
