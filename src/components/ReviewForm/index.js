@@ -1,31 +1,16 @@
-import useSWR from "swr";
-
-export default function ReviewForm({ id }) {
-  const reviews = useSWR(id && `/api/venues/${id}`);
-
+export default function ReviewForm({ venueId, onCreateReview }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
     reviewData.date = new Date();
-    reviewData.parent = id;
+    reviewData.parent = venueId;
     reviewData.attended = event.target.elements.attended.checked;
 
-    const response = await fetch(id && `/api/venues/${id}`, {
-      method: "POST",
-      body: JSON.stringify(reviewData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.ok) {
-      await response.json();
-      reviews.mutate();
-      event.target.reset();
-    } else {
-      console.error(`Error: ${response.status}`);
-    }
+    onCreateReview(venueId, reviewData);
+
+    event.target.reset();
   }
 
   return (

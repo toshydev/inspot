@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
@@ -19,7 +18,7 @@ const StyledReviewCard = styled.li`
   transition: 0.15s;
 `;
 
-export default function ReviewCard({ review, onDeleteReview }) {
+export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
   const [isEdit, setIsEdit] = useState(false);
 
   const { trigger, isMutating } = useSWRMutation(
@@ -50,7 +49,9 @@ export default function ReviewCard({ review, onDeleteReview }) {
     reviewData.date = new Date();
     reviewData.attended = event.target.elements.attended.checked;
     setIsEdit(false);
+
     await trigger(reviewData);
+    onEdit();
   }
 
   if (isMutating) return <Spinner />;
