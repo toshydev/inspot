@@ -1,10 +1,6 @@
 import styled, { css } from "styled-components";
 
 const StyledListItem = styled.li`
-  &:hover {
-    background: #e2b8ec;
-  }
-
   ${({ variant, cols, rows }) => {
     if (variant === "grid") {
       return css`

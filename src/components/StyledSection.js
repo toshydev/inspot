@@ -67,6 +67,16 @@ ${({ variant }) => {
     }
   }}
 
+${({ variant }) => {
+    if (variant === "heading preview") {
+      return css`
+        grid-row: 4;
+        grid-column: 1 / 7;
+        margin: auto;
+      `;
+    }
+  }}
+
   ${({ variant }) => {
     if (variant === "picture") {
       return css`
@@ -77,11 +87,34 @@ ${({ variant }) => {
     }
   }}
 
+${({ variant }) => {
+    if (variant === "picture preview") {
+      return css`
+        grid-row: 1 / 3;
+        grid-column: 1 / 7;
+        padding: 0;
+      `;
+    }
+  }}
+
   ${({ variant }) => {
     if (variant === "rating") {
       return css`
         grid-row: 1 / 3;
         grid-column: 3 / 6;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "datetime preview") {
+      return css`
+        grid-row: 1;
+        grid-column: 1 / 3;
+        z-index: 4;
+        background: white;
+        border-radius: 50px;
+        margin: auto;
       `;
     }
   }}
@@ -118,6 +151,24 @@ ${({ variant }) => {
   }}
 
 ${({ variant }) => {
+    if (variant === "favorite preview") {
+      return css`
+        position: absolute;
+        transform: translate(calc(100vw - 4.7rem), calc(-192vw)) rotate(-45deg);
+        background: white;
+        margin: 0;
+        padding: 0.25rem;
+        border-radius: 50%;
+
+        button {
+          margin: 0;
+          padding: 0;
+        }
+      `;
+    }
+  }}
+
+${({ variant }) => {
     if (variant === "widget") {
       return css`
         grid-row: 6 / 8;
@@ -126,6 +177,18 @@ ${({ variant }) => {
         width: 90%;
         height: 3rem;
         padding: 0.5rem;
+        background: #f0f0f0;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "widget preview") {
+      return css`
+        grid-row: 3 ;
+        grid-column: 1 / 7;
+        margin: auto
+        width: 90%;
         background: #f0f0f0;
       `;
     }

@@ -4,6 +4,7 @@ import SaveButton from "../SaveButton";
 import StyledLink from "../StyledLink";
 import StyledList from "../StyledList";
 import StyledListItem from "../StyledListItem";
+import StyledSection from "../StyledSection";
 import VenueListPreview from "../VenueListPreview";
 
 export default function ListView({ type, data }) {
@@ -24,11 +25,13 @@ export default function ListView({ type, data }) {
                 <EventListPreview event={object} />
               )}
             </StyledLink>
-            {type === "venues" ? (
-              <LikeButton id={object.id} position="preview" />
-            ) : (
-              <SaveButton id={object.id} position="preview" />
-            )}
+            <StyledSection variant="favorite preview">
+              {type === "venues" ? (
+                <LikeButton id={object.id} />
+              ) : (
+                <SaveButton id={object.id} />
+              )}
+            </StyledSection>
           </StyledListItem>
         ))
       )}
