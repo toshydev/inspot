@@ -7,6 +7,7 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     const reviews = await Review.find({ parent: id });
+    console.log(reviews)
 
     if (!reviews) {
       return response.status(404).json({ status: "Not Found" });

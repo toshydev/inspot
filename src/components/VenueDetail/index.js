@@ -6,8 +6,8 @@ import { TheaterBig } from "../../utils/icons";
 import BackButton from "../BackButton";
 import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
-import EventList from "../EventList";
 import LikeButton from "../LikeButton";
+import ListView from "../ListView";
 import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
@@ -132,7 +132,7 @@ export default function VenueDetail({
       ) : error || !data._embedded ? (
         <p>No upcoming events.</p>
       ) : (
-        <EventList events={data._embedded.events} />
+        <ListView type="events" data={data._embedded.events} />
       )}
       <StyledDescription>
         <h3 id="reviews">Reviews</h3>

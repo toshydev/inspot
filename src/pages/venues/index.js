@@ -7,8 +7,8 @@ import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledSection from "../../components/StyledSection";
-import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
+import ListView from "../../components/ListView";
 
 export default function VenueListPage() {
   const venuesPage = useFilterStore((state) => state.venuesPage);
@@ -39,7 +39,7 @@ export default function VenueListPage() {
         ) : error || !data._embedded ? (
           <p>No venues found. Please adjust filter.</p>
         ) : (
-          <VenueList venues={data._embedded.venues} />
+          <ListView type="venues" data={data._embedded.venues} />
         )}
       </StyledContent>
     </>

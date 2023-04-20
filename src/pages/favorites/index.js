@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import BackButton from "../../components/BackButton";
 import BookmarkLink from "../../components/BookmarkLink";
-import EventList from "../../components/EventList";
+import ListView from "../../components/ListView";
 import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
@@ -10,7 +10,6 @@ import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledSection from "../../components/StyledSection";
 import TabSelect from "../../components/TabSelect";
-import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
 
 export default function FavoriteListPage() {
@@ -64,10 +63,11 @@ export default function FavoriteListPage() {
           <Spinner />
         ) : error || !data ? (
           <p>No {resource} found. Please adjust filter.</p>
-        ) : resource === "Events" ? (
-          <EventList events={data._embedded.events} />
         ) : (
-          <VenueList venues={data._embedded.venues} />
+          <ListView
+            type={resource.toLowerCase()}
+            data={data._embedded[resource.toLowerCase()]}
+          />
         )}
       </StyledContent>
     </>

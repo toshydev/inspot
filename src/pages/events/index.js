@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import BookmarkLink from "../../components/BookmarkLink";
-import EventList from "../../components/EventList";
 import Filter from "../../components/Filter";
+import ListView from "../../components/ListView";
 import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
@@ -44,7 +44,7 @@ export default function EventListPage() {
         ) : error || !data._embedded ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
-          <EventList events={data._embedded.events} />
+          <ListView type="events" data={data._embedded.events} />
         )}
       </StyledContent>
     </>
