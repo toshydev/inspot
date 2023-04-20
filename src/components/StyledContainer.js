@@ -1,6 +1,14 @@
 import styled, { css } from "styled-components";
 
 const StyledContainer = styled.div`
+  ${({ variant }) => {
+    if (variant === "sticky") {
+      return css`
+        width: 100%;
+      `;
+    }
+  }}
+
   ${({ margin }) => {
     return css`
       margin: ${margin};

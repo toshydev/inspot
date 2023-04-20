@@ -1,10 +1,12 @@
 import useSWR from "swr";
 import BookmarkLink from "../../components/BookmarkLink";
+import Filter from "../../components/Filter";
 import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import VenueFilter from "../../components/VenueFilter";
+import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
 
@@ -24,16 +26,18 @@ export default function VenueListPage() {
   return (
     <>
       <StyledHeader>
-        <h1>Venues</h1>
-        <LocationLink />
-        <BookmarkLink />
+        <StyledHeadline variant="header">Venues</StyledHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <VenueFilter />
+        <Filter type="venue" />
         {isLoading ? (
           <Spinner />
         ) : error || !data._embedded ? (
-          <p>No events found. Please adjust filter.</p>
+          <p>No venues found. Please adjust filter.</p>
         ) : (
           <VenueList venues={data._embedded.venues} />
         )}

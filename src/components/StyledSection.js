@@ -2,10 +2,67 @@ import styled, { css } from "styled-components";
 
 const StyledSection = styled.section`
   padding: 1rem;
+
+  ${({ variant }) => {
+    if (variant === "links") {
+      return css`
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0;
+        width: 5rem;
+        gap: 0.3rem;
+      `;
+    }
+  }}
+
   ${({ variant }) => {
     if (variant === "detail") {
       return css`
         grid-template: repeat(7, 1fr) / repeat(4, 1fr);
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "search") {
+      return css`
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        padding-bottom: 0.5rem;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "filter") {
+      return css`
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0 1rem;
+        padding-bottom: 1rem;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "tags") {
+      return css`
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1rem;
       `;
     }
   }}
@@ -88,6 +145,14 @@ ${({ gap }) => {
     return css`
       gap: ${gap};
     `;
+  }}
+
+${({ divider }) => {
+    if (divider) {
+      return css`
+        border-bottom: 1px solid #c0c0c0;
+      `;
+    }
   }}
 `;
 

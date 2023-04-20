@@ -7,6 +7,8 @@ import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledFilterSection from "../../components/StyledFilterSection";
 import StyledHeader from "../../components/StyledHeader";
+import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import TabSelect from "../../components/TabSelect";
 import VenueList from "../../components/VenueList";
 import { useFilterStore } from "../../store";
@@ -33,9 +35,11 @@ export default function FavoriteListPage() {
     <>
       <StyledHeader>
         <BackButton />
-        <h1 style={{ fontSize: "min(6vw, 6rem)" }}>Saved {resource}</h1>
-        <LocationLink />
-        <BookmarkLink />
+        <StyledHeadline variant="settings">Saved {resource}</StyledHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
         <StyledFilterSection>

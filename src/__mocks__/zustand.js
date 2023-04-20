@@ -22,7 +22,6 @@ const initialSegments = [
   { genre: "Music", isActive: true },
   { genre: "Sports", isActive: false },
 ];
-const initialFilterMenu = { genre: false, search: false };
 
 const storeResetFns = new Set();
 
@@ -41,7 +40,6 @@ export const create = (createState) => {
   initialState.segments = initialSegments;
   initialState.venueKeywords = initialVenueKeywords;
   initialState.eventKeywords = initialEventKeywords;
-  initialState.filterMenu = initialFilterMenu;
   initialState.toggleSaveEvent = jest.fn();
   initialState.setVenueSort = jest.fn();
   initialState.setEventSort = jest.fn();
@@ -63,7 +61,6 @@ export const create = (createState) => {
   initialState.deleteEventKeyword = jest.fn();
   initialState.resetVenuesFilter = jest.fn();
   initialState.resetEventsFilter = jest.fn();
-  initialState.setFilterMenu = jest.fn();
 
   storeResetFns.add(() => store.setState(initialState, true));
   return store;

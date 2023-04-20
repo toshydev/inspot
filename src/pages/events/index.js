@@ -1,11 +1,13 @@
 import useSWR from "swr";
 import BookmarkLink from "../../components/BookmarkLink";
-import EventFilter from "../../components/EventFilter";
 import EventList from "../../components/EventList";
+import Filter from "../../components/Filter";
 import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
+import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import { useFilterStore } from "../../store";
 
 export default function EventListPage() {
@@ -29,12 +31,14 @@ export default function EventListPage() {
   return (
     <>
       <StyledHeader>
-        <h1>Explore</h1>
-        <LocationLink />
-        <BookmarkLink />
+        <StyledHeadline variant="header">Explore</StyledHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <EventFilter />
+        <Filter type="event" />
         {isLoading ? (
           <Spinner />
         ) : error || !data._embedded ? (

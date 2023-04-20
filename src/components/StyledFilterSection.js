@@ -5,11 +5,7 @@ const StyledFilterSection = styled.section`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 98%;
-  padding: 0.5rem;
-  margin: 0.1rem;
-  position: sticky;
-  border: 2px solid black;
+  width: 100%;
   background: white;
 `;
 

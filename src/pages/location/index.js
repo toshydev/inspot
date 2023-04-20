@@ -4,6 +4,7 @@ import StyledButton from "../../components/StyledButton";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import { useFilterStore } from "../../store";
 import { WrongLocationBig } from "../../utils/icons";
 
@@ -16,17 +17,20 @@ export default function LocationPage() {
     <>
       <StyledHeader>
         <BackButton />
-        <StyledHeadline>Set your location</StyledHeadline>
-        <StyledButton
-          variant="icon"
-          type="button"
-          onClick={() => {
-            resetLocation();
-            unsetCurrentLocation();
-          }}
-        >
-          <WrongLocationBig />
-        </StyledButton>
+        <StyledHeadline variant="settings">Set your location</StyledHeadline>
+        <StyledSection variant="links">
+          <StyledButton
+            variant="icon"
+            type="button"
+            header
+            onClick={() => {
+              resetLocation();
+              unsetCurrentLocation();
+            }}
+          >
+            <WrongLocationBig />
+          </StyledButton>
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
         <LocationFilter />

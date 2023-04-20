@@ -13,8 +13,6 @@ const StyledLink = styled(Link)`
         justify-content: center;
         align-items: center;
         transition: 0.15s;
-        width: 3rem;
-        height: 3rem;
         padding: 5px;
 
         &:hover {
@@ -23,6 +21,38 @@ const StyledLink = styled(Link)`
         }
       `;
     }
+  }}
+
+  ${({ header }) => {
+    if (header) {
+      return css`
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.2rem;
+      `;
+    }
+  }}
+
+${({ nav }) => {
+    if (nav) {
+      return css`
+        width: 3rem;
+        height: 3rem;
+      `;
+    }
+  }}
+  
+  ${({ width, height }) => {
+    return css`
+      width: ${width};
+      height: ${height};
+    `;
+  }}
+
+${({ margin }) => {
+    return css`
+      ${margin};
+    `;
   }}
 `;
 

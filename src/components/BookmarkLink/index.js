@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { BookmarkBig, BookmarkFilledBig } from "../../utils/icons";
-import StyledLink from "../StyledLink";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
+import { BookmarkBig, BookmarkFilledBig } from "../../utils/icons";
+import StyledLink from "../StyledLink";
 
 const StyledBadge = styled.div`
   position: absolute;
@@ -27,7 +27,7 @@ export default function BookmarkLink() {
 
   const router = useRouter();
   return (
-    <StyledLink variant="icon" href="/favorites">
+    <StyledLink variant="icon" header="true" href="/favorites">
       {savedEvents.length + savedVenues.length > 0 && (
         <StyledBadge>
           <p>{savedEvents.length + savedVenues.length}</p>

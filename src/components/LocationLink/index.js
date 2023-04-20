@@ -8,9 +8,10 @@ export default function LocationLink() {
   return (
     <StyledLink
       variant="icon"
+      header="true"
       href="/location"
       aria-label="go to location settings"
-      style={{ marginLeft: "auto" }}
+      margin="margin-left: auto"
     >
       <PlaceBig color={currentLocation ? "var(--accent)" : null} />
     </StyledLink>

@@ -6,6 +6,7 @@ import Spinner from "../components/Spinner";
 import SpotlightList from "../components/SpotlightList";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
+import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
 
 const StyledLogoHeadline = styled.h1`
@@ -25,9 +26,11 @@ export default function HomePage() {
   return (
     <>
       <StyledHeader>
-        <StyledLogoHeadline>inSpot</StyledLogoHeadline>
-        <LocationLink />
-        <BookmarkLink />
+        <StyledLogoHeadline variant="header">inSpot</StyledLogoHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
         {isLoading ? (

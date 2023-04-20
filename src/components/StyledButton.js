@@ -19,7 +19,9 @@ const StyledButton = styled.button`
     if (position === "preview") {
       return css`
         position: absolute;
-        transform: translate(80vw, -9rem) rotate(-45deg);
+        transform: translate(75vw, -6rem) rotate(-45deg);
+        width: 3rem;
+        height: 3rem;
       `;
     }
   }}
@@ -44,29 +46,25 @@ const StyledButton = styled.button`
       `;
     }
   }}
-  
-  ${({ col }) => {
-    return css`
-      grid-column: ${col};
-    `;
+
+${({ header }) => {
+    if (header) {
+      return css`
+        width: 3rem;
+      `;
+    }
   }}
 
-  ${({ row }) => {
-    return css`
-      grid-row: ${row};
-    `;
-  }}
-
-
-  ${({ width }) => {
+  ${({ width, height, col, row, color, radius, padding }) => {
     return css`
       width: ${width};
-    `;
-  }}
-
-  ${({ height }) => {
-    return css`
       height: ${height};
+      grid-column: ${col};
+      grid-row: ${row};
+      color: ${color};
+      border-color: ${color};
+      border-radius: ${radius};
+      padding: ${padding};
     `;
   }}
 
@@ -74,23 +72,6 @@ const StyledButton = styled.button`
     if (border) {
       return css`
         border: 2px solid;
-      `;
-    }
-  }}
-
-  ${({ color }) => {
-    if (color) {
-      return css`
-        color: ${color};
-        border-color: ${color};
-      `;
-    }
-  }}
-
-  ${({ radius }) => {
-    if (radius) {
-      return css`
-        border-radius: ${radius};
       `;
     }
   }}

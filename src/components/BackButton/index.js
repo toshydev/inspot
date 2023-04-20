@@ -8,6 +8,7 @@ export default function BackButton() {
   return (
     <StyledButton
       variant="icon"
+      header
       type="button"
       onClick={() => router.back()}
       aria-label="go back to previous page"

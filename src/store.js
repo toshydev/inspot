@@ -34,7 +34,6 @@ const useFilterStore = create((set) => {
           return 0;
         }
       }),
-    filterMenu: { genre: false, search: false },
     setResource: (name) =>
       set(() => {
         return { resource: `${name[0].toUpperCase()}${name.slice(1)}` };
@@ -166,20 +165,6 @@ const useFilterStore = create((set) => {
           eventKeywords: [],
           venueKeywords: [],
         };
-      }),
-    setFilterMenu: (menu) =>
-      set((state) => {
-        if (menu === "genre") {
-          return {
-            filterMenu: { genre: !state.filterMenu.genre, search: false },
-          };
-        } else if (menu === "search") {
-          return {
-            filterMenu: { genre: false, search: !state.filterMenu.search },
-          };
-        } else {
-          return { filterMenu: { genre: false, search: false } };
-        }
       }),
   };
 });

@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const StyledInputContainer = styled.div`
   background: #f0f0f0;
-  height: 2rem;
-  width: max(40vw, 80%);
+  height: 2.5rem;
+  width: min(20rem, 70vw);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   border-radius: 50px;
-  margin-left: 1rem;
+  margin-left: auto;
 
   &:hover {
     outline: 3px solid #be4bdb;

@@ -1,13 +1,9 @@
-import { useFilterStore } from "../../store";
 import { SearchMed } from "../../utils/icons";
 import StyledButton from "../StyledButton";
 import StyledInputContainer from "../StyledInputContainer";
-import StyledMenu from "../StyledMenu";
 import StyledSearchBar from "../StyledSearchBar";
 
-export default function SearchInput({ onAddKeywords }) {
-  const setFilterMenu = useFilterStore((state) => state.setFilterMenu);
-
+export default function SearchInput({ onAddTags }) {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -15,12 +11,12 @@ export default function SearchInput({ onAddKeywords }) {
     const data = Object.fromEntries(formData);
 
     if (data.keywords) {
-      onAddKeywords(data.keywords);
+      onAddTags(data.keywords);
     }
   }
 
   return (
-    <StyledMenu>
+    <>
       <form aria-label="search for keywords" onSubmit={handleSubmit}>
         <StyledInputContainer>
           <StyledSearchBar
@@ -28,7 +24,6 @@ export default function SearchInput({ onAddKeywords }) {
             type="search"
             placeholder="Search"
             aria-label="tag search bar"
-            onClick={() => setFilterMenu("search")}
           />
           <StyledButton
             variant="icon"
@@ -41,6 +36,6 @@ export default function SearchInput({ onAddKeywords }) {
           </StyledButton>
         </StyledInputContainer>
       </form>
-    </StyledMenu>
+    </>
   );
 }
