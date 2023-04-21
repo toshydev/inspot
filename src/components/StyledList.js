@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -9,6 +9,14 @@ const StyledList = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  ${({ variant }) => {
+    if (variant === "events") {
+      return css`
+        background: #f5f5f5;
+      `;
+    }
+  }}
 `;
 
 export default StyledList;

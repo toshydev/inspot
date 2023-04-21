@@ -9,20 +9,19 @@ import DistanceWidget from "../DistanceWidget";
 import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
 import StyledSection from "../StyledSection";
-import StyledWidgetContainer from "../StyledWidgetContainer";
 import TimeLeftWidget from "../TimeLeftWidget";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export default function EventListPreview({ event }) {
   const [distance, setDistance] = useState();
   const range = useFilterStore((state) => state.range);
-  const currentLocation = useFilterStore((state) => state.currentLocation);
   const location = useFilterStore((state) => state.location);
 
   const { date, formattedDate } = getDatetime(event);
   const image = getImage(event.images);
 
-  const windowWidth = window.innerWidth;
-
+  const imageWidth = window.innerWidth;
+  const imageHeight = imageWidth / (16 / 9);
   useDistance(location, event, setDistance);
 
   return (
@@ -39,8 +38,8 @@ export default function EventListPreview({ event }) {
           {image ? (
             <Image
               src={image.url}
-              width={windowWidth}
-              height={windowWidth / (16 / 9)}
+              width={imageWidth}
+              height={imageHeight}
               alt={event.name}
             />
           ) : (
@@ -53,17 +52,11 @@ export default function EventListPreview({ event }) {
           </StyledCardHeadline>
         </StyledSection>
         <StyledSection variant="widget preview">
-          <StyledWidgetContainer>
-            {currentLocation && (
-              <DistanceWidget range={range} distance={distance} />
-            )}
-            {date.getTime() > Date.now() && (
-              <TimeLeftWidget
-                startDate={date}
-                startTime={event.dates.start.localTime}
-              />
-            )}
-          </StyledWidgetContainer>
+          <DistanceWidget range={range} distance={distance} />
+          <TimeLeftWidget
+            startDate={date}
+            startTime={event.dates.start.localTime}
+          />
         </StyledSection>
       </StyledCard>
     </>

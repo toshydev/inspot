@@ -14,6 +14,7 @@ const StyledNavBar = styled.nav`
   bottom: 0;
   border-top: 1px solid #c0c0c0;
   background: white;
+  z-index: 5;
 `;
 
 export default function NavigationBar() {

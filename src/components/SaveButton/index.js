@@ -1,5 +1,5 @@
 import { useFilterStore } from "../../store";
-import { TicketEmptyBig, TicketFilledBig } from "../../utils/icons";
+import { TicketFilledBig } from "../../utils/icons";
 import StyledButton from "../StyledButton";
 
 export default function SaveButton({ id }) {
@@ -7,15 +7,15 @@ export default function SaveButton({ id }) {
   const toggleSaveEvent = useFilterStore((state) => state.toggleSaveEvent);
   return (
     <StyledButton
-      variant="icon"
+      variant="icon favorite"
       type="button"
       aria-label="save event"
       onClick={() => toggleSaveEvent(id)}
     >
       {savedEvents.includes(id) ? (
-        <TicketFilledBig color="#be4bdb" />
+        <TicketFilledBig color="#fab005" stroke="#000000" />
       ) : (
-        <TicketEmptyBig color="#000000" />
+        <TicketFilledBig color="#ffffff" stroke="#000000" />
       )}
     </StyledButton>
   );

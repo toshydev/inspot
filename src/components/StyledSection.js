@@ -70,7 +70,7 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "heading preview") {
       return css`
-        grid-row: 4;
+        grid-row: 5;
         grid-column: 1 / 7;
         margin: auto;
       `;
@@ -90,7 +90,7 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "picture preview") {
       return css`
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
         grid-column: 1 / 7;
         padding: 0;
       `;
@@ -110,11 +110,15 @@ ${({ variant }) => {
     if (variant === "datetime preview") {
       return css`
         grid-row: 1;
-        grid-column: 1 / 3;
-        z-index: 4;
+        grid-column: 1;
+        z-index: 1;
         background: white;
-        border-radius: 50px;
-        margin: auto;
+        border-radius: 0 0 50px 0;
+        height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       `;
     }
   }}
@@ -153,17 +157,12 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "favorite preview") {
       return css`
-        position: absolute;
-        transform: translate(calc(100vw - 4.7rem), calc(-192vw)) rotate(-45deg);
-        background: white;
-        margin: 0;
-        padding: 0.25rem;
-        border-radius: 50%;
-
-        button {
-          margin: 0;
-          padding: 0;
-        }
+        grid-row: 2;
+        grid-column: 5;
+        position: relative;
+        top: 3rem;
+        padding: 0;
+        margin: auto;
       `;
     }
   }}
@@ -185,11 +184,15 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "widget preview") {
       return css`
-        grid-row: 3 ;
+        padding: 0;
+        grid-row: 4;
         grid-column: 1 / 7;
-        margin: auto
-        width: 90%;
+        width: 100%;
         background: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
       `;
     }
   }}

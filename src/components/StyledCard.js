@@ -7,15 +7,8 @@ const StyledCard = styled.div`
   ${({ variant }) => {
     if (variant === "preview") {
       return css`
-        grid-template: repeat(2, 1fr) 3rem 6rem / repeat(6, 1fr);
-        transition: 0.25s ease-in-out;
-        border-top: 1px solid #c0c0c0;
-        border-bottom: 1px solid #c0c0c0;
-
-        &:hover {
-          box-shadow: 8px 16px 16px hsl(0deg 0% 0% / 0.25);
-          transform: scale(1.025);
-        }
+        grid-template: repeat(2, 1fr) 5rem 1fr / repeat(6, 1fr);
+        box-shadow: 0px 0px 8px hsl(0deg 0% 0% / 0.25);
       `;
     }
   }}

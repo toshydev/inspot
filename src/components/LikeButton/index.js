@@ -7,15 +7,15 @@ export default function LikeButton({ id }) {
   const toggleSaveVenue = useFilterStore((state) => state.toggleSaveVenue);
   return (
     <StyledButton
-      variant="icon"
+      variant="icon favorite"
       type="button"
       aria-label="save venue"
       onClick={() => toggleSaveVenue(id)}
     >
       {savedVenues.includes(id) ? (
-        <FavoriteFilled color="#be4bdb" />
+        <FavoriteFilled color="#fab005" />
       ) : (
-        <FavoriteEmpty color="#000000" />
+        <FavoriteEmpty color="#000000" stroke="#000000" />
       )}
     </StyledButton>
   );

@@ -47,6 +47,20 @@ const StyledButton = styled.button`
     }
   }}
 
+${({ variant }) => {
+    if (variant === "icon favorite") {
+      return css`
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        &:hover {
+          background: none;
+        }
+      `;
+    }
+  }}
+
 ${({ header }) => {
     if (header) {
       return css`

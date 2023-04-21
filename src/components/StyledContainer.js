@@ -9,6 +9,16 @@ const StyledContainer = styled.div`
     }
   }}
 
+  ${({ variant }) => {
+    if (variant === "widget") {
+      return css`
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+      `;
+    }
+  }}
+
   ${({ margin }) => {
     return css`
       margin: ${margin};

@@ -1,6 +1,17 @@
 import styled, { css } from "styled-components";
 
 const StyledListItem = styled.li`
+  ${({ variant }) => {
+    if (variant === "listview") {
+      return css`
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        background: white;
+      `;
+    }
+  }}
+
   ${({ variant, cols, rows }) => {
     if (variant === "grid") {
       return css`

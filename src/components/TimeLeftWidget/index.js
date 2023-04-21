@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import getTimeString from "../../utils/getTimeString";
+import { Clock, Play } from "../../utils/icons";
+import StyledContainer from "../StyledContainer";
 import StyledProgressContainer from "../StyledProgressContainer";
-import StyledProgressLabel from "../StyledProgressLabel";
 import StyledWidget from "../StyledWidget";
 
-const StyledTimeBar = styled.div.attrs((props) => ({
+const StyledTimeBar = styled.div.attrs(({ progress }) => ({
   style: {
     width: `${
-      props.progress > 86400
-        ? 1
-        : Math.min(((86400 - props.progress) / 86400) * 100, 100)
+      progress > 86400 ? 1 : Math.min(((86400 - progress) / 86400) * 100, 100)
     }%`,
   },
 }))`
@@ -41,12 +40,20 @@ export default function TimeLeftWidget({ startDate, startTime }) {
 
   return (
     <StyledWidget>
-      <StyledProgressLabel aria-label="time left until event start">
-        {timeLeft ? `Starts in ${getTimeString(timeLeft)}` : "calculating..."}
-      </StyledProgressLabel>
-      <StyledProgressContainer>
-        <StyledTimeBar progress={timeLeft ? timeLeft : 86400} />
-      </StyledProgressContainer>
+      <Clock color="#be4bdb" />
+      <StyledContainer variant="widget">
+        <StyledProgressContainer>
+          <StyledTimeBar progress={timeLeft ? timeLeft : 86400} />
+        </StyledProgressContainer>
+        <small aria-label="time left until event start">
+          {timeLeft
+            ? `Starts in ${
+                getTimeString(timeLeft) ? getTimeString(timeLeft) : "N/A"
+              }`
+            : "calculating..."}
+        </small>
+      </StyledContainer>
+      <Play color="#be4bdb" />
     </StyledWidget>
   );
 }

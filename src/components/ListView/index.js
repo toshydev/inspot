@@ -9,13 +9,14 @@ import VenueListPreview from "../VenueListPreview";
 
 export default function ListView({ type, data }) {
   return (
-    <StyledList>
+    <StyledList variant="events">
       {data.length === 0 ? (
         <p>Adjust genres and/or tags</p>
       ) : (
         data.map((object) => (
-          <StyledListItem key={object.id}>
+          <StyledListItem key={object.id} variant="listview">
             <StyledLink
+              variant="card preview"
               href={`/${type}/${object.id}`}
               aria-label={`go to details page of ${object.name}`}
             >

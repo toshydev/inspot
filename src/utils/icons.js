@@ -145,28 +145,20 @@ export const WrongLocationBig = ({ color, hovercolor }) => (
   </svg>
 );
 
-export const ClockSmall = ({ color, hovercolor }) => (
+export const Clock = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
-    height="20px"
+    height="20"
     viewBox="0 96 960 960"
-    width="20px"
+    width="20"
     fill={color}
     hovercolor={hovercolor}
   >
-    <g>
-      <rect fill="none" height="20" width="20" />
-    </g>
-    <g>
-      <g>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="m614 746 51-51-149-149V336h-72v240l170 170ZM480 960q-79.376 0-149.188-30Q261 900 208.5 847.5T126 725.042q-30-69.959-30-149.5Q96 496 126 426t82.5-122q52.5-52 122.458-82 69.959-30 149.5-30 79.542 0 149.548 30.24 70.007 30.24 121.792 82.08 51.786 51.84 81.994 121.92T864 576q0 79.376-30 149.188Q804 795 752 847.5T629.869 930Q559.738 960 480 960Zm0-384Zm.477 312q129.477 0 220.5-91.5T792 575.523q0-129.477-91.023-220.5T480.477 264Q351 264 259.5 355.023t-91.5 220.5Q168 705 259.5 796.5T480.477 888Z"
-        />
-      </g>
-    </g>
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m614 746 51-51-149-149V336h-72v240l170 170ZM480 960q-79.376 0-149.188-30Q261 900 208.5 847.5T126 725.042q-30-69.959-30-149.5Q96 496 126 426t82.5-122q52.5-52 122.458-82 69.959-30 149.5-30 79.542 0 149.548 30.24 70.007 30.24 121.792 82.08 51.786 51.84 81.994 121.92T864 576q0 79.376-30 149.188Q804 795 752 847.5T629.869 930Q559.738 960 480 960Z"
+    />
   </StyledSvg>
 );
 
@@ -207,16 +199,16 @@ export const TheaterSmall = ({ color, hovercolor }) => (
 export const PlayArrowSmall = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    height="25"
+    height="20"
     viewBox="0 96 960 960"
-    width="25"
+    width="20"
     fill={color}
     hovercolor={hovercolor}
   >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M336 840V312l408 264-408 264Z"
+      d="m384 744 264-168-264-168v336Zm96.276 216Q401 960 331 930q-70-30-122.5-82.5T126 725.042q-30-69.959-30-149.5Q96 496 126 426.5t82.5-122Q261 252 330.958 222q69.959-30 149.5-30Q560 192 629.5 222t122 82.5Q804 357 834 426.724q30 69.725 30 149Q864 655 834 725q-30 70-82.5 122.5T629.276 930q-69.725 30-149 30Z"
     />
   </StyledSvg>
 );
@@ -272,12 +264,13 @@ export const HomeBig = ({ color, hovercolor }) => (
   </StyledSvg>
 );
 
-export const TicketEmptyBig = ({ color, hovercolor }) => (
+export const TicketEmptyBig = ({ color, hovercolor, stroke }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="48"
     viewBox="0 96 960 960"
     width="48"
+    stroke={stroke}
     fill={color}
     hovercolor={hovercolor}
   >
@@ -289,18 +282,19 @@ export const TicketEmptyBig = ({ color, hovercolor }) => (
   </StyledSvg>
 );
 
-export const TicketFilledBig = ({ color, hovercolor }) => (
+export const TicketFilledBig = ({ color, hovercolor, stroke }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="48"
     viewBox="0 96 960 960"
     width="48"
+    strokeWidth="2px"
+    stroke={stroke}
     fill={color}
     hovercolor={hovercolor}
   >
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="butt"
       d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm340-123q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Z"
     />
   </StyledSvg>
@@ -340,12 +334,13 @@ export const BookmarkFilledBig = ({ color, hovercolor }) => (
   </StyledSvg>
 );
 
-export const FavoriteEmpty = ({ color, hovercolor }) => (
+export const FavoriteEmpty = ({ color, hovercolor, stroke }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="48"
     viewBox="0 96 960 960"
     width="48"
+    stroke={stroke}
     fill={color}
     hovercolor={hovercolor}
   >
@@ -357,12 +352,13 @@ export const FavoriteEmpty = ({ color, hovercolor }) => (
   </StyledSvg>
 );
 
-export const FavoriteFilled = ({ color, hovercolor }) => (
+export const FavoriteFilled = ({ color, hovercolor, stroke }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
     height="48"
     viewBox="0 96 960 960"
     width="48"
+    stroke={stroke}
     fill={color}
     hovercolor={hovercolor}
   >
@@ -404,6 +400,41 @@ export const Picture = ({ color, hovercolor }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M180 936q-24 0-42-18t-18-42V276q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600V276H180v600Zm56-97h489L578 583 446 754l-93-127-117 152Zm-56 97V276v600Z"
+    />
+  </StyledSvg>
+);
+
+export const Play = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24"
+    viewBox="0 96 960 960"
+    width="24"
+    fill={color}
+    hovercolor={hovercolor}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m383 746 267-170-267-170v340Zm97 230q-82 0-155-31.5t-127.5-86Q143 804 111.5 731T80 576q0-83 31.5-156t86-127Q252 239 325 207.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 82-31.5 155T763 858.5q-54 54.5-127 86T480 976Zm0-60q142 0 241-99.5T820 576q0-142-99-241t-241-99q-141 0-240.5 99T140 576q0 141 99.5 240.5T480 916Zm0-340Z"
+    />
+  </StyledSvg>
+);
+
+export const ArrowSmall = ({ color, hovercolor }) => (
+  <StyledSvg
+    xmlns="http://www.w3.org/2000/svg"
+    height="20"
+    viewBox="0 96 960 960"
+    width="20"
+    fill={color}
+    hovercolor={hovercolor}
+    style={{ position: "relative", left: "-4%" }}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M384 768V384l192 192-192 192Z"
     />
   </StyledSvg>
 );
