@@ -84,6 +84,12 @@ ${({ weight }) => {
       font-weight: ${weight};
     `;
   }}
+
+${({ width }) => {
+    return css`
+      width: ${width};
+    `;
+  }}
 `;
 
 export default StyledContainer;

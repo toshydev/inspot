@@ -16,6 +16,17 @@ const StyledList = styled.ul`
       `;
     }
   }}
+
+  ${({ variant }) => {
+    if (variant === "reviews") {
+      return css`
+        width: 90%;
+        background: #f0f0f0;
+        margin: 1rem;
+        border-radius: 12px;
+      `;
+    }
+  }}
 `;
 
 export default StyledList;

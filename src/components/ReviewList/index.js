@@ -3,7 +3,8 @@ import StyledList from "../StyledList";
 
 export default function ReviewList({ reviews, onDeleteReview, onEditSuccess }) {
   return (
-    <StyledList>
+    <StyledList variant="reviews">
+      <h2>Reviews</h2>
       {reviews
         .slice()
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

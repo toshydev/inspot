@@ -4,12 +4,8 @@ import StyledButton from "../StyledButton";
 export default function DeleteButton({ id, onDelete }) {
   return (
     <StyledButton
-      variant="icon"
-      border
-      width="1.5rem"
-      height="1.5rem"
+      variant="icon review"
       danger
-      radius="5px"
       type="button"
       onClick={() => onDelete(id)}
       aria-label="delete review"

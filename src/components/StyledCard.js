@@ -16,6 +16,21 @@ const StyledCard = styled.div`
   }}
 
   ${({ variant }) => {
+    if (variant === "review") {
+      return css`
+        width: 90%;
+        grid-template: 2rem repeat(2, 1fr) 2rem / repeat(4, 1fr) 2rem 2rem;
+        background: white;
+        margin: auto;
+        border-radius: 12px;
+        box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.5);
+        padding: 0.5rem;
+        gap: 0.5rem;
+      `;
+    }
+  }}
+
+  ${({ variant }) => {
     if (variant === "detail") {
       return css`
         height: 16rem;

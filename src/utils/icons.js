@@ -43,9 +43,9 @@ export const ClearSmall = ({ color = "#000000", hovercolor }) => (
 export const ClearBig = ({ color, hovercolor }) => (
   <StyledSvg
     xmlns="http://www.w3.org/2000/svg"
-    height="36px"
+    height="48px"
     viewBox="0 0 24 24"
-    width="36px"
+    width="48px"
     fill={color}
     hovercolor={hovercolor}
   >

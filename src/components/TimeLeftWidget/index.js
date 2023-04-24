@@ -19,7 +19,6 @@ const StyledTimeBar = styled.div.attrs(({ progress }) => ({
   transition: 1s;
 `;
 
-/*     width: `${props.progress > 86400 ? "1%" : (props.progress / 8640) * 100}%`, */
 export default function TimeLeftWidget({ startDate, startTime }) {
   const [timeLeft, setTimeLeft] = useState();
 

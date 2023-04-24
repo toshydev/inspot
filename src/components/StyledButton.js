@@ -61,6 +61,22 @@ ${({ variant }) => {
     }
   }}
 
+${({ variant }) => {
+    if (variant === "icon review") {
+      return css`
+        width: 2rem;
+        height: 2rem;
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        &:hover {
+          border-radius: 8px;
+        }
+      `;
+    }
+  }}
+
 ${({ header }) => {
     if (header) {
       return css`

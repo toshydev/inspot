@@ -117,10 +117,9 @@ export default function VenueDetail({ venue, range, distance }) {
       ) : (
         <ListView type="events" data={data._embedded.events} />
       )}
-      <StyledDescription>
-        <h3 id="reviews">Reviews</h3>
+      <StyledContainer variant="flex" flex="column" align="center" width="100%">
         <ReviewSection venueId={venue.id} />
-      </StyledDescription>
+      </StyledContainer>
     </>
   );
 }

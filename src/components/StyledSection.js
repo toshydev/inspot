@@ -46,7 +46,7 @@ ${({ variant }) => {
         grid-template: repeat(2, 1fr) / repeat(3, 1fr);
         gap: 0.5rem;
         width: 100%;
-        padding: 0;
+        padding: 0.5rem;
         padding-bottom: 0.5rem;
       `;
     }
@@ -214,11 +214,13 @@ ${({ variant }) => {
       return css`
         grid-row: 6 / 8;
         grid-column: 1 / 7;
-        margin: auto
-        width: 90%;
+        width: 100%;
         height: 3rem;
         padding: 0.5rem;
         background: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       `;
     }
   }}
@@ -267,6 +269,99 @@ ${({ variant }) => {
         border-radius: 50px;
         padding: 0.1rem;
         margin: auto;
+      `;
+    }
+  }}
+
+  ${({ variant }) => {
+    if (variant === "review buttons") {
+      return css`
+        grid-row: 1;
+        grid-column: 5 / 7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        background: #f0f0f0;
+        border-radius: 5px;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "review rating") {
+      return css`
+        grid-row: 1;
+        grid-column: 3 / 5;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.2rem;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "review title") {
+      return css`
+        grid-row: 2;
+        grid-column: 1 / 7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "review user") {
+      return css`
+        grid-row: 1;
+        grid-column: 1 / 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.2rem;
+      `;
+    }
+  }}
+
+  ${({ variant }) => {
+    if (variant === "review text") {
+      return css`
+        grid-row: 3;
+        grid-column: 1 / 7;
+        padding: 0;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "review attended") {
+      return css`
+        grid-row: 4;
+        grid-column: 1 / 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "review date") {
+      return css`
+        grid-row: 4;
+        grid-column: 4 / 7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        margin-left: auto;
+        background: #f0f0f0;
+        border-radius: 5px;
       `;
     }
   }}

@@ -4,11 +4,7 @@ import StyledButton from "../StyledButton";
 export default function EditButton({ onEdit }) {
   return (
     <StyledButton
-      variant="icon"
-      border
-      width="1.5rem"
-      height="1.5rem"
-      radius="5px"
+      variant="icon review"
       warning
       type="button"
       onClick={() => onEdit()}
