@@ -3,26 +3,20 @@ import styled from "styled-components";
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import { useFilterStore } from "../../store";
 import PlacesAutocomplete from "../PlacesAutocomplete";
-import StyledList from "../StyledList";
-
-const StyledLocationItem = styled.li`
-  width: 100%;
-`;
 
 const StyledLocationButton = styled.button`
-  width: 100%;
+  width: 75%;
   text-align: center;
   ${({ current }) =>
     current
       ? "background: #be4bdb; color: white"
       : "background: white; color: 343434"};
-  border-radius: 8px;
-  border: 2px solid #343434;
+  border-radius: 50px;
   padding: 0.5rem;
-  margin-bottom: 0.25rem;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075);
+  border: none;
   transition: 0.15s;
+  box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.5);
+  filter: drop-shadow(0 2px 2px currentColor);
 
   &:hover {
     ${({ current }) =>
@@ -44,20 +38,16 @@ export default function LocationFilter() {
 
   return (
     <>
-      <StyledList>
-        <StyledLocationItem>
-          <StyledLocationButton
-            type="button"
-            current={currentLocation}
-            onClick={toggleCurrentLocation}
-            aria-label={`user current location`}
-          >
-            <h4 aria-label="current location" style={{ textAlign: "center" }}>
-              Current Location
-            </h4>
-          </StyledLocationButton>
-        </StyledLocationItem>
-      </StyledList>
+      <StyledLocationButton
+        type="button"
+        current={currentLocation}
+        onClick={toggleCurrentLocation}
+        aria-label={`user current location`}
+      >
+        <h4 aria-label="current location" style={{ textAlign: "center" }}>
+          Current Location
+        </h4>
+      </StyledLocationButton>
       <PlacesAutocomplete
         onAddressSelect={(address) => {
           getGeocode({ address: address }).then((results) => {

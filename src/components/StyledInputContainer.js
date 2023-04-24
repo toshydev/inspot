@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledInputContainer = styled.div`
   background: #f0f0f0;
@@ -10,6 +10,15 @@ const StyledInputContainer = styled.div`
   justify-content: space-around;
   border-radius: 50px;
   margin-left: auto;
+
+  ${({ variant }) => {
+    if (variant === "places") {
+      return css`
+        margin: 1rem;
+        width: 75vw;
+      `;
+    }
+  }}
 
   &:hover {
     outline: 3px solid #be4bdb;
