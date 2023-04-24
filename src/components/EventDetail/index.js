@@ -1,55 +1,20 @@
 import Link from "next/link";
 import styled from "styled-components";
+import getDatetime from "../../utils/getDatetime";
+import { Picture } from "../../utils/icons";
 import BackButton from "../BackButton";
 import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
-import LocationLink from "../LocationLink";
 import FavoriteButton from "../FavoriteButton";
+import LocationLink from "../LocationLink";
+import StyledCard from "../StyledCard";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
-import StyledWidgetContainer from "../StyledWidgetContainer";
+import StyledImage from "../StyledImage";
+import StyledSection from "../StyledSection";
 import TimeLeftWidget from "../TimeLeftWidget";
-
-const StyledSection = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 0.5rem;
-`;
-
-const StyledTypeHeadline = styled.h4`
-  grid-column: 1;
-  grid-row: 1;
-`;
-
-const StyledDateSection = styled.div`
-  grid-column: 2 / 4;
-  grid-row: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-
-const StyledTimeSection = styled.div`
-  grid-column: 1 / 4;
-  grid-row: 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const StyledAddressSection = styled.div`
-  grid-column: 1 / 4;
-  grid-row: 3;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
+import StyledContainer from "../StyledContainer";
+import StyledLink from "../StyledLink";
 
 const StyledDescription = styled.section`
   padding: 0.5rem;
@@ -58,18 +23,12 @@ const StyledDescription = styled.section`
   width: 98%;
 `;
 
-export default function EventDetail({
-  event,
-  range,
-  distance,
-  currentLocation,
-}) {
-  const date = new Date(
-    event.dates.start.dateTime
-      ? event.dates.start.dateTime
-      : event.dates.start.localDate
-  );
-  const formattedStartDate = new Intl.DateTimeFormat("de-DE").format(date);
+export default function EventDetail({ event, range, distance }) {
+  const { date, formattedDate } = getDatetime(event);
+  const eventImage = event.images
+    ? event.images.find((image) => image.ratio === "16_9")
+    : null;
+  const eventImageUrl = eventImage ? eventImage.url : null;
 
   return (
     <>
@@ -79,56 +38,57 @@ export default function EventDetail({
         <LocationLink />
         <BookmarkLink />
       </StyledHeader>
-      <StyledSection style={{ background: "#f0f0f0" }}>
-        <StyledTypeHeadline>
-          {
-            event.classifications.find((segment) => segment.primary === true)
-              .genre.name
-          }
-        </StyledTypeHeadline>
-        <FavoriteButton id={event.id} position="detail" />
-        <StyledDateSection>
-          Date:
-          <time aria-label="start date" dateTime={formattedStartDate}>
-            <strong>{formattedStartDate}</strong>
-          </time>
-        </StyledDateSection>
-        <StyledTimeSection>
-          <p>Start:</p>
-          <p aria-label="start time">{event.dates.start.localTime}</p>
-        </StyledTimeSection>
-        <StyledAddressSection>
-          <p>Address:</p>
+      <StyledCard variant="detail">
+        <StyledSection variant="picture">
+          {eventImage ? (
+            <StyledImage
+              src={eventImageUrl}
+              alt={event.name}
+              width={150}
+              height={150 / (16 / 9)}
+            />
+          ) : (
+            <Picture />
+          )}
+        </StyledSection>
+        <StyledSection variant="favorite">
+          <FavoriteButton id={event.id} />
+        </StyledSection>
+        <StyledSection variant="address">
           <address aria-label="address">
-            {event._embedded.venues[0].address.line1},
+            {event._embedded.venues[0].address.line1},{" "}
             {event._embedded.venues[0].address.city}
           </address>
-        </StyledAddressSection>
-        <StyledWidgetContainer
-          style={{
-            gridColumn: "span 4",
-            gridRow: 4,
-            marginTop: "1rem",
-          }}
-        >
-          {currentLocation && (
-            <DistanceWidget distance={distance} range={range} />
-          )}
+        </StyledSection>
+        <StyledSection variant="widget">
+          <DistanceWidget distance={distance} range={range} />
           {date.getTime() > Date.now() && (
             <TimeLeftWidget
               startDate={date}
               startTime={event.dates.start.localTime}
             />
           )}
-        </StyledWidgetContainer>
-      </StyledSection>
-      <StyledDescription>
-        <h3>Description:</h3>
-        <p aria-label="description">{event.description}</p>
-        <h3>Information:</h3>
-        <p aria-label="information">{event.information}</p>
-        <Link href={event.url}>More</Link>
-      </StyledDescription>
+        </StyledSection>
+        <StyledSection variant="rating">
+          <h4>
+            {
+              event.classifications.find((segment) => segment.primary === true)
+                .genre.name
+            }
+          </h4>
+        </StyledSection>
+        <StyledSection variant="numbers">
+          <time aria-label="start date" dateTime={formattedDate}>
+            <strong>{formattedDate}</strong>
+          </time>
+          <p aria-label="start time">{event.dates.start.localTime}</p>
+        </StyledSection>
+        <StyledSection variant="more">
+          <StyledContainer variant="flex" flex="row" justify="center">
+            <StyledLink href={event.url}>More</StyledLink>
+          </StyledContainer>
+        </StyledSection>
+      </StyledCard>
     </>
   );
 }

@@ -93,9 +93,10 @@ ${({ variant }) => {
   ${({ variant }) => {
     if (variant === "picture") {
       return css`
-        grid-row: 1 / 4;
-        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+        grid-column: 1 / 4;
         margin: auto;
+        padding: 0.5rem;
       `;
     }
   }}
@@ -115,7 +116,7 @@ ${({ variant }) => {
     if (variant === "rating") {
       return css`
         grid-row: 1 / 3;
-        grid-column: 3 / 6;
+        grid-column: 4 / 6;
       `;
     }
   }}
@@ -129,6 +130,19 @@ ${({ variant }) => {
         background: white;
         border-radius: 0 0 50px 0;
         height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "datetime") {
+      return css`
+        grid-row: 1;
+        grid-column: 1 / 3;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -246,9 +260,13 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "more") {
       return css`
-        grid-row: 5 / 6;
-        grid-column: 1 / 5;
+        grid-row: 5;
+        grid-column: 2 / 4;
         width: 100%;
+        background: #f0f0f0;
+        border-radius: 50px;
+        padding: 0.1rem;
+        margin: auto;
       `;
     }
   }}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
@@ -16,9 +15,9 @@ import StyledContainer from "../StyledContainer";
 import StyledDivider from "../StyledDivider";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
+import StyledImage from "../StyledImage";
 import StyledLink from "../StyledLink";
 import StyledSection from "../StyledSection";
-import StyledWidgetContainer from "../StyledWidgetContainer";
 import VenueData from "../VenueData";
 
 const StyledDescription = styled.section`
@@ -28,19 +27,7 @@ const StyledDescription = styled.section`
   width: 98%;
 `;
 
-const StyledImage = styled(Image)`
-  border-radius: 12px;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
-`;
-
-export default function VenueDetail({
-  venue,
-  range,
-  distance,
-  currentLocation,
-}) {
+export default function VenueDetail({ venue, range, distance }) {
   const eventSort = useFilterStore((state) => state.eventSort);
   const { data, isLoading, error } = useSWR(
     `/api/events/events?venueId=${venue.id}&sort=${eventSort}&locale=*&countryCode=DE`
@@ -99,11 +86,7 @@ export default function VenueDetail({
           <FavoriteButton id={venue.id} />
         </StyledSection>
         <StyledSection variant="widget">
-          <StyledWidgetContainer>
-            {currentLocation && (
-              <DistanceWidget distance={distance} range={range} />
-            )}
-          </StyledWidgetContainer>
+          <DistanceWidget distance={distance} range={range} />
         </StyledSection>
         <StyledSection variant="more">
           <StyledContainer variant="flex" flex="row" justify="center">
