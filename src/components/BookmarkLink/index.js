@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useFilterStore } from "../../store";
-import { BookmarkBig, BookmarkFilledBig } from "../../utils/icons";
+import { FavoriteEmpty, FavoriteFilled } from "../../utils/icons";
 import StyledLink from "../StyledLink";
 
 const StyledBadge = styled.div`
@@ -34,9 +34,9 @@ export default function BookmarkLink() {
         </StyledBadge>
       )}
       {router.pathname === "/favorites" ? (
-        <BookmarkFilledBig color={"#be4bdb"} />
+        <FavoriteFilled color={"#be4bdb"} />
       ) : (
-        <BookmarkBig color={"#000000"} />
+        <FavoriteEmpty color={"#000000"} />
       )}
     </StyledLink>
   );

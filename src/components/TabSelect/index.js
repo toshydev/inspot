@@ -58,6 +58,24 @@ ${({ variant }) => {
       `;
     }
   }}
+
+${({ variant }) => {
+    if (variant === "Events") {
+      return css`
+        grid-column: 1;
+        grid-row: 1;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "Venues") {
+      return css`
+        grid-column: 2;
+        grid-row: 1;
+      `;
+    }
+  }}
 `;
 
 export default function TabSelect({

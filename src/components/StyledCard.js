@@ -4,10 +4,12 @@ const StyledCard = styled.div`
   display: grid;
   grid-template: repeat(6, 1fr) / repeat(6, 1fr);
 
-  ${({ variant }) => {
+  ${({ variant, imageHeight }) => {
     if (variant === "preview") {
       return css`
-        grid-template: repeat(2, 1fr) 5rem 1fr / repeat(6, 1fr);
+        width: 100%;
+        height: 100%;
+        grid-template: repeat(3, ${imageHeight / 3}px) 1fr 1fr / repeat(6, 1fr);
         box-shadow: 0px 0px 8px hsl(0deg 0% 0% / 0.25);
       `;
     }

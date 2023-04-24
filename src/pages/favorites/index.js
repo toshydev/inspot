@@ -5,7 +5,6 @@ import ListView from "../../components/ListView";
 import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
-import StyledFilterSection from "../../components/StyledFilterSection";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledSection from "../../components/StyledSection";
@@ -41,7 +40,7 @@ export default function FavoriteListPage() {
         </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <StyledFilterSection>
+        <StyledSection variant="filter favorite">
           <TabSelect
             label="Events"
             id={"events"}
@@ -58,7 +57,7 @@ export default function FavoriteListPage() {
             disabled={resource === "Venues"}
             isActive={resource === "Venues"}
           />
-        </StyledFilterSection>
+        </StyledSection>
         {isLoading ? (
           <Spinner />
         ) : error || !data ? (
@@ -73,5 +72,3 @@ export default function FavoriteListPage() {
     </>
   );
 }
-
-/*  */

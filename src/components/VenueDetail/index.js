@@ -6,7 +6,7 @@ import { TheaterBig } from "../../utils/icons";
 import BackButton from "../BackButton";
 import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
-import LikeButton from "../LikeButton";
+import FavoriteButton from "../FavoriteButton";
 import ListView from "../ListView";
 import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
@@ -96,7 +96,7 @@ export default function VenueDetail({
           </address>
         </StyledSection>
         <StyledSection variant="favorite">
-          <LikeButton id={venue.id} />
+          <FavoriteButton id={venue.id} />
         </StyledSection>
         <StyledSection variant="widget">
           <StyledWidgetContainer>

@@ -4,7 +4,7 @@ import BackButton from "../BackButton";
 import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
 import LocationLink from "../LocationLink";
-import SaveButton from "../SaveButton";
+import FavoriteButton from "../FavoriteButton";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledWidgetContainer from "../StyledWidgetContainer";
@@ -86,7 +86,7 @@ export default function EventDetail({
               .genre.name
           }
         </StyledTypeHeadline>
-        <SaveButton id={event.id} position="detail" />
+        <FavoriteButton id={event.id} position="detail" />
         <StyledDateSection>
           Date:
           <time aria-label="start date" dateTime={formattedStartDate}>

@@ -1,8 +1,8 @@
-import SaveButton from "../SaveButton";
 import SpotlightListPreview from "../SpotlightListPreview";
 import StyledLink from "../StyledLink";
 import StyledList from "../StyledList";
 import StyledListItem from "../StyledListItem";
+import FavoriteButton from "../FavoriteButton";
 
 export default function SpotlightList({ events }) {
   return (
@@ -18,7 +18,7 @@ export default function SpotlightList({ events }) {
             >
               <SpotlightListPreview event={event} />
             </StyledLink>
-            <SaveButton id={event.id} position="spotlight" />
+            <FavoriteButton id={event.id} />
           </StyledListItem>
         ))
       )}

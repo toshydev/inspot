@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import useDistance from "../../hooks/useDistance";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { useFilterStore } from "../../store";
 import getDatetime from "../../utils/getDatetime";
 import getImage from "../../utils/getImage";
@@ -10,7 +11,6 @@ import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
 import StyledSection from "../StyledSection";
 import TimeLeftWidget from "../TimeLeftWidget";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export default function EventListPreview({ event }) {
   const [distance, setDistance] = useState();
@@ -19,14 +19,17 @@ export default function EventListPreview({ event }) {
 
   const { date, formattedDate } = getDatetime(event);
   const image = getImage(event.images);
+  const { width } = useWindowDimensions();
+  const imageHeight = parseInt(width / (16 / 9));
 
-  const imageWidth = window.innerWidth;
-  const imageHeight = imageWidth / (16 / 9);
-  useDistance(location, event, setDistance);
+  useDistance(location, event, setDistance, "event");
 
   return (
     <>
-      <StyledCard variant="preview">
+      <StyledCard
+        variant="preview"
+        imageHeight={width && imageHeight ? imageHeight : 108}
+      >
         <StyledSection variant="datetime preview">
           <strong>
             <time dateTime={date} aria-label="date">
@@ -35,12 +38,12 @@ export default function EventListPreview({ event }) {
           </strong>
         </StyledSection>
         <StyledSection variant="picture preview">
-          {image ? (
+          {image && width ? (
             <Image
               src={image.url}
-              width={imageWidth}
-              height={imageHeight}
               alt={event.name}
+              width={width}
+              height={imageHeight}
             />
           ) : (
             <Picture />

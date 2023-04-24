@@ -46,8 +46,21 @@ ${({ variant }) => {
         grid-template: repeat(2, 1fr) / repeat(3, 1fr);
         gap: 0.5rem;
         width: 100%;
-        padding: 0 1rem;
-        padding-bottom: 1rem;
+        padding: 0;
+        padding-bottom: 0.5rem;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "filter favorite") {
+      return css`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 90%;
+        padding: 0;
+        padding-bottom: 0.5rem;
       `;
     }
   }}
@@ -93,6 +106,7 @@ ${({ variant }) => {
         grid-row: 1 / 4;
         grid-column: 1 / 7;
         padding: 0;
+        margin: auto;
       `;
     }
   }}
@@ -110,7 +124,7 @@ ${({ variant }) => {
     if (variant === "datetime preview") {
       return css`
         grid-row: 1;
-        grid-column: 1;
+        grid-column: 1 / 3;
         z-index: 1;
         background: white;
         border-radius: 0 0 50px 0;
@@ -118,6 +132,22 @@ ${({ variant }) => {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "city preview") {
+      return css`
+        grid-row: 1;
+        grid-column: 1 / 4;
+        z-index: 1;
+        background: white;
+        border-radius: 0 0 50px 0;
+        height: 1.5rem;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
       `;
     }
@@ -157,10 +187,8 @@ ${({ variant }) => {
 ${({ variant }) => {
     if (variant === "favorite preview") {
       return css`
-        grid-row: 2;
+        grid-row: 3;
         grid-column: 5;
-        position: relative;
-        top: 3rem;
         padding: 0;
         margin: auto;
       `;
@@ -189,10 +217,28 @@ ${({ variant }) => {
         grid-column: 1 / 7;
         width: 100%;
         background: #f0f0f0;
+        gap: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+      `;
+    }
+  }}
+
+${({ variant }) => {
+    if (variant === "widget preview venue") {
+      return css`
+        padding: 0.5rem;
+        grid-row: 4;
+        grid-column: 1 / 7;
+        width: 100%;
+        background: #f0f0f0;
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       `;
     }
   }}

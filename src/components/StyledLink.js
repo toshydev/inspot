@@ -26,10 +26,8 @@ const StyledLink = styled(Link)`
   ${({ variant }) => {
     if (variant === "card preview") {
       return css`
-        grid-row: 1 / 5;
+        grid-row: 1 / 6;
         grid-column: 1 / 6;
-        width: 100%;
-        height: 100%;
       `;
     }
   }}

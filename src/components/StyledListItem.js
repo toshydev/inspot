@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 
 const StyledListItem = styled.li`
-  ${({ variant }) => {
+  ${({ variant, imageHeight }) => {
     if (variant === "listview") {
       return css`
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template: repeat(3, ${imageHeight / 3}px) 1fr 1fr / repeat(5, 1fr);
         background: white;
+        width: 100%;
       `;
     }
   }}

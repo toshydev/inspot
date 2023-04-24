@@ -8,6 +8,7 @@ import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
+import ListView from "../components/ListView";
 
 const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);
@@ -38,7 +39,7 @@ export default function HomePage() {
         ) : error ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
-          <SpotlightList events={data._embedded.events} />
+          <ListView type="events" data={data._embedded.events} />
         )}
       </StyledContent>
     </>

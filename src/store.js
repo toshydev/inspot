@@ -1,6 +1,21 @@
 import { create } from "zustand";
 import segments from "./lib/segments";
 
+const useWindowStore = create((set) => {
+  return {
+    width: 0,
+    height: 0,
+    setWidth: (newWidth) =>
+      set(() => {
+        return { width: newWidth };
+      }),
+    setHeight: (newHeight) =>
+      set(() => {
+        return { height: newHeight };
+      }),
+  };
+});
+
 const useMapStore = create(() => {
   return {
     isMapScriptLoaded: false,
@@ -169,4 +184,4 @@ const useFilterStore = create((set) => {
   };
 });
 
-export { useFilterStore, useMapStore };
+export { useFilterStore, useMapStore, useWindowStore };

@@ -24,7 +24,9 @@ export default function DistanceWidget({ range, distance }) {
           aria-label={`${distance} meters away`}
           style={{ textAlign: "right" }}
         >
-          {distance ? `${Math.floor(distance / 1000)} km` : "calculating..."}
+          {distance
+            ? `${Math.floor(distance / 1000)} km | Range: ${range / 1000} km`
+            : "calculating..."}
         </small>
         <StyledProgressContainer>
           <StyledDistance percent={distance ? range / distance : 0} />

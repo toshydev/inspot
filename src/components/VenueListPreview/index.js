@@ -1,53 +1,58 @@
-import { getDistance } from "geolib";
-import Geohash from "latlon-geohash";
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useState } from "react";
+import useDistance from "../../hooks/useDistance";
 import { useFilterStore } from "../../store";
+import getImage from "../../utils/getImage";
+import { TheaterBig } from "../../utils/icons";
 import DistanceWidget from "../DistanceWidget";
 import StyledCard from "../StyledCard";
 import StyledCardHeadline from "../StyledCardHeadline";
-import StyledSubtitle from "../StyledSubtitle";
-import StyledWidgetContainer from "../StyledWidgetContainer";
+import StyledSection from "../StyledSection";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export default function VenueListPreview({ venue }) {
   const [distance, setDistance] = useState(0);
   const range = useFilterStore((state) => state.range);
-  const currentLocation = useFilterStore((state) => state.currentLocation);
   const location = useFilterStore((state) => state.location);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (location) {
-        const latLon = Geohash.decode(location);
-        setDistance(
-          getDistance(
-            { latitude: latLon.lat, longitude: latLon.lon },
-            {
-              latitude: venue.location.latitude,
-              longitude: venue.location.longitude,
-            }
-          )
-        );
-      }
-    }, 5000);
-    return () => clearInterval(id);
-  }, [location, venue]);
+  const image = venue.images ? getImage(venue.images) : null;
+  const { width } = useWindowDimensions();
+  const imageHeight = parseInt(width / (16 / 9));
+
+  useDistance(location, venue, setDistance);
 
   return (
-    <StyledCard variant="preview">
-      <StyledCardHeadline aria-label={venue.name}>
-        {venue.name}
-      </StyledCardHeadline>
-      <StyledSubtitle
-        aria-label={venue.city.name}
-        style={{ marginRight: "auto" }}
+    <>
+      <StyledCard
+        variant="preview"
+        imageHeight={width && imageHeight ? imageHeight : 108}
       >
-        {venue.city.name}
-      </StyledSubtitle>
-      <StyledWidgetContainer>
-        {currentLocation && (
+        <StyledSection variant="heading preview">
+          <StyledCardHeadline aria-label={venue.name}>
+            {venue.name}
+          </StyledCardHeadline>
+        </StyledSection>
+        <StyledSection variant="picture preview">
+          {image && width ? (
+            <Image
+              src={image.url}
+              alt={venue.name}
+              width={width}
+              height={imageHeight}
+            />
+          ) : (
+            <TheaterBig />
+          )}
+        </StyledSection>
+        <StyledSection variant="city preview">
+          <aside aria-label={venue.city.name}>
+            <strong>{venue.city.name}</strong>
+          </aside>
+        </StyledSection>
+        <StyledSection variant="widget preview venue">
           <DistanceWidget range={range} distance={distance} />
-        )}
-      </StyledWidgetContainer>
-    </StyledCard>
+        </StyledSection>
+      </StyledCard>
+    </>
   );
 }

@@ -288,8 +288,8 @@ export const TicketFilledBig = ({ color, hovercolor, stroke }) => (
     height="48"
     viewBox="0 96 960 960"
     width="48"
-    strokeWidth="2px"
-    stroke={stroke}
+    strokeWidth={stroke && "48"}
+    stroke="black"
     fill={color}
     hovercolor={hovercolor}
   >
@@ -358,7 +358,8 @@ export const FavoriteFilled = ({ color, hovercolor, stroke }) => (
     height="48"
     viewBox="0 96 960 960"
     width="48"
-    stroke={stroke}
+    strokeWidth={stroke && 32}
+    stroke="black"
     fill={color}
     hovercolor={hovercolor}
   >

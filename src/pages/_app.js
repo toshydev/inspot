@@ -1,10 +1,11 @@
 import Geohash from "latlon-geohash";
+import Head from "next/head";
 import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import Layout from "../components/Layout";
-import { useFilterStore } from "../store";
+import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useFilterStore, useWindowStore } from "../store";
 import GlobalStyle from "../styles";
-import Head from "next/head";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -20,7 +21,10 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
-  const { setLocation, currentLocation } = useFilterStore((state) => state);
+  const setLocation = useFilterStore((state) => state.setLocation);
+  const currentLocation = useFilterStore((state) => state.currentLocation);
+  const setWidth = useWindowStore((state) => state.setWidth);
+  const setHeight = useWindowStore((state) => state.setHeight);
 
   useEffect(() => {
     const options = {
@@ -48,6 +52,10 @@ export default function App({ Component, pageProps }) {
       }
     }
   }, [currentLocation, setLocation]);
+
+  const { width, height } = useWindowDimensions();
+  setWidth(width);
+  setHeight(height);
 
   return (
     <>
