@@ -8,17 +8,17 @@ export default function CategoriesList() {
 
   return (
     <StyledSection variant="filter">
-      {segments.map((segment) => {
+      {segments.map(({name, isActive}) => {
         return (
           <TabSelect
-            key={segment.name}
-            variant={segment.name}
-            label={segment.name}
-            id={segment.name}
-            checked={segment.isActive}
-            onChange={() => toggleSegment(segment.name)}
-            isActive={segment.isActive}
-            text={segment.name === "Miscellaneous" ? "Other" : segment.name}
+            key={name}
+            variant={name}
+            label={name}
+            id={name}
+            checked={isActive}
+            onChange={() => toggleSegment(name)}
+            isActive={isActive}
+            text={name === "Miscellaneous" ? "Other" : name}
           />
         );
       })}
