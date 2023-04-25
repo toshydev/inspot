@@ -1,5 +1,5 @@
-import { v4 } from "uuid";
 import styled from "styled-components";
+import StyledButton from "../StyledButton";
 
 const StyledStarContainer = styled.div`
   background: white;
@@ -8,20 +8,6 @@ const StyledStarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  button {
-    width: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    border-radius: 50px;
-
-    &:hover {
-      background: #f0f0f0;
-    }
-  }
 `;
 
 export default function StarRating({ onSetRating }) {
@@ -29,13 +15,16 @@ export default function StarRating({ onSetRating }) {
     <StyledStarContainer>
       {[...Array(5)].map((star, index) => {
         return (
-          <button
+          <StyledButton
+            variant="star button"
             type="button"
-            key={v4()}
+            key={index}
             onClick={() => onSetRating(index + 1)}
           >
-            <span rol="star">⭐️</span>
-          </button>
+            <span role="image" aria-label="star emoji that indicates a rating">
+              ⭐️
+            </span>
+          </StyledButton>
         );
       })}
     </StyledStarContainer>

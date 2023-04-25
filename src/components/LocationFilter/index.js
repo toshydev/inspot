@@ -44,9 +44,12 @@ export default function LocationFilter() {
         onClick={toggleCurrentLocation}
         aria-label={`user current location`}
       >
-        <h4 aria-label="current location" style={{ textAlign: "center" }}>
+        <h2
+          aria-label="current location"
+          style={{ textAlign: "center", fontSize: "1rem" }}
+        >
           Current Location
-        </h4>
+        </h2>
       </StyledLocationButton>
       <PlacesAutocomplete
         onAddressSelect={(address) => {

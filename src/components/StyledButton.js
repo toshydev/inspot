@@ -55,6 +55,24 @@ ${({ variant }) => {
     }
   }}
 
+${({ variant }) => {
+    if (variant === "star button") {
+      return css`
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        border-radius: 50px;
+
+        &:hover {
+          background: #f0f0f0;
+        }
+      `;
+    }
+  }}
+
 ${({ header }) => {
     if (header) {
       return css`

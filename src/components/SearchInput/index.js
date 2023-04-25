@@ -16,26 +16,24 @@ export default function SearchInput({ onAddTags }) {
   }
 
   return (
-    <>
-      <form aria-label="search for keywords" onSubmit={handleSubmit}>
-        <StyledInputContainer>
-          <StyledSearchBar
-            name="keywords"
-            type="search"
-            placeholder="Search"
-            aria-label="tag search bar"
-          />
-          <StyledButton
-            variant="icon"
-            width="3rem"
-            height="100%"
-            type="submit"
-            aria-label="search by keywords"
-          >
-            <SearchMed />
-          </StyledButton>
-        </StyledInputContainer>
-      </form>
-    </>
+    <form aria-label="search for keywords" onSubmit={handleSubmit}>
+      <StyledInputContainer>
+        <StyledSearchBar
+          name="keywords"
+          type="search"
+          placeholder="Search"
+          aria-label="tag search bar"
+        />
+        <StyledButton
+          variant="icon"
+          width="3rem"
+          height="100%"
+          type="submit"
+          aria-label="search by keywords"
+        >
+          <SearchMed />
+        </StyledButton>
+      </StyledInputContainer>
+    </form>
   );
 }

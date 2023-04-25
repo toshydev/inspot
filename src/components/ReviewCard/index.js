@@ -104,7 +104,13 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
             <StyledSection variant="review attended">
               {review.attended && (
                 <p>
-                  Attended: <span>✅</span>
+                  Attended:{" "}
+                  <span
+                    role="image"
+                    aria-label="checkmark emoji that indicates if the review is atteded"
+                  >
+                    ✅
+                  </span>
                 </p>
               )}
             </StyledSection>
