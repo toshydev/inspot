@@ -22,9 +22,9 @@ export default function VenueData({ venueId }) {
     >
       <StyledContainer>
         <p>
-          <span role="img" aria-label="star">
-            ⭐️
-          </span>
+         <span role="img" aria-label="emoji that indicates a rating">
+           ⭐️
+         </span>
         </p>
         <p>
           <strong>{rating ? rating : 0}</strong>
