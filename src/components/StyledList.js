@@ -14,6 +14,7 @@ const StyledList = styled.ul`
       case "events":
         return css`
           background: #f5f5f5;
+          width: 100%;
         `;
       case "reviews":
         return css`

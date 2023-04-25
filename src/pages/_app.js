@@ -54,8 +54,11 @@ export default function App({ Component, pageProps }) {
   }, [currentLocation, setLocation]);
 
   const { width, height } = useWindowDimensions();
-  setWidth(width);
-  setHeight(height);
+
+  useEffect(() => {
+    setWidth(width);
+    setHeight(height);
+  }, [width, height, setWidth, setHeight]);
 
   return (
     <>
