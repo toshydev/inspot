@@ -5,7 +5,6 @@ import StyledLink from "../StyledLink";
 
 const StyledNavBar = styled.nav`
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;

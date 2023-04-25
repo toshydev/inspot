@@ -15,10 +15,8 @@ const StyledBadge = styled.div`
   color: black;
   font-weight: bold;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  text-align: center;
 `;
 
 export default function BookmarkLink() {
@@ -30,7 +28,7 @@ export default function BookmarkLink() {
     <StyledLink variant="icon" header="true" href="/favorites">
       {savedEvents.length + savedVenues.length > 0 && (
         <StyledBadge>
-          <p>{savedEvents.length + savedVenues.length}</p>
+          <small>{savedEvents.length + savedVenues.length}</small>
         </StyledBadge>
       )}
       {router.pathname === "/favorites" ? (

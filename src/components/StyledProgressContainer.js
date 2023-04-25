@@ -6,7 +6,6 @@ const StyledProgressContainer = styled.div`
   background: white;
   border-radius: 50px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.25);
 `;

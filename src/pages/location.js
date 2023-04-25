@@ -1,12 +1,12 @@
-import BackButton from "../../components/BackButton";
-import LocationFilter from "../../components/LocationFilter";
-import StyledButton from "../../components/StyledButton";
-import StyledContent from "../../components/StyledContent";
-import StyledHeader from "../../components/StyledHeader";
-import StyledHeadline from "../../components/StyledHeadline";
-import StyledSection from "../../components/StyledSection";
-import { useFilterStore } from "../../store";
-import { WrongLocationBig } from "../../utils/icons";
+import BackButton from "../components/BackButton";
+import LocationFilter from "../components/LocationFilter";
+import StyledButton from "../components/StyledButton";
+import StyledContent from "../components/StyledContent";
+import StyledHeader from "../components/StyledHeader";
+import StyledHeadline from "../components/StyledHeadline";
+import StyledSection from "../components/StyledSection";
+import { useFilterStore } from "../store";
+import { WrongLocationBig } from "../utils/icons";
 
 export default function LocationPage() {
   const { resetLocation, unsetCurrentLocation } = useFilterStore(

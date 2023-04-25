@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import BookmarkLink from "../components/BookmarkLink";
+import ListView from "../components/ListView";
 import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
-import SpotlightList from "../components/SpotlightList";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
-import ListView from "../components/ListView";
 
 const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);

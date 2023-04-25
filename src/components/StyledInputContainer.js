@@ -5,7 +5,6 @@ const StyledInputContainer = styled.div`
   height: 2.5rem;
   width: min(20rem, 70vw);
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   border-radius: 50px;

@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   transition: 0.15s;
@@ -132,7 +131,7 @@ ${({ header }) => {
     if (warning) {
       return css`
         &:hover {
-          background: deepskyblue;
+          background: var(--secondary);
           border-color: white;
           color: white;
         }

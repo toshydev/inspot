@@ -9,7 +9,6 @@ const StyledLink = styled(Link)`
     if (variant === "icon") {
       return css`
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         transition: 0.15s;

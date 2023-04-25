@@ -73,7 +73,7 @@ export default function VenueDetail({ venue, range, distance }) {
                     : data._embedded.events.length}
                 </strong>
               </p>
-              <p>Events</p>
+              <h4>Events</h4>
             </StyledContainer>
           </StyledLink>
         </StyledSection>

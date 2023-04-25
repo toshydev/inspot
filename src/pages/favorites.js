@@ -1,15 +1,15 @@
 import useSWR from "swr";
-import BackButton from "../../components/BackButton";
-import BookmarkLink from "../../components/BookmarkLink";
-import ListView from "../../components/ListView";
-import LocationLink from "../../components/LocationLink";
-import Spinner from "../../components/Spinner";
-import StyledContent from "../../components/StyledContent";
-import StyledHeader from "../../components/StyledHeader";
-import StyledHeadline from "../../components/StyledHeadline";
-import StyledSection from "../../components/StyledSection";
-import TabSelect from "../../components/TabSelect";
-import { useFilterStore } from "../../store";
+import BackButton from "../components/BackButton";
+import BookmarkLink from "../components/BookmarkLink";
+import ListView from "../components/ListView";
+import LocationLink from "../components/LocationLink";
+import Spinner from "../components/Spinner";
+import StyledContent from "../components/StyledContent";
+import StyledHeader from "../components/StyledHeader";
+import StyledHeadline from "../components/StyledHeadline";
+import StyledSection from "../components/StyledSection";
+import TabSelect from "../components/TabSelect";
+import { useFilterStore } from "../store";
 
 export default function FavoriteListPage() {
   const venueSort = useFilterStore((state) => state.venueSort);

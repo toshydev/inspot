@@ -6,14 +6,12 @@ const StyledStarContainer = styled.div`
   height: 2rem;
   border-radius: 50px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
 
   button {
     width: 2rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     background: transparent;
