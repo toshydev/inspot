@@ -6,28 +6,25 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 
   ${({ variant }) => {
-    if (variant === "icon") {
-      return css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.15s;
-        padding: 5px;
+    switch (variant) {
+      case "icon":
+        return css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: 0.15s;
+          padding: 5px;
 
-        &:hover {
-          border-radius: 50px;
-          background: #e2b8ec;
-        }
-      `;
-    }
-  }}
-
-  ${({ variant }) => {
-    if (variant === "card preview") {
-      return css`
-        grid-row: 1 / 6;
-        grid-column: 1 / 6;
-      `;
+          &:hover {
+            border-radius: 50px;
+            background: #e2b8ec;
+          }
+        `;
+      case "card preview":
+        return css`
+          grid-row: 1 / 6;
+          grid-column: 1 / 6;
+        `;
     }
   }}
 
@@ -50,16 +47,11 @@ ${({ nav }) => {
     }
   }}
   
-  ${({ width, height }) => {
+  ${({ width, height, margin }) => {
     return css`
       width: ${width};
       height: ${height};
-    `;
-  }}
-
-${({ margin }) => {
-    return css`
-      ${margin};
+      margin: ${margin};
     `;
   }}
 `;

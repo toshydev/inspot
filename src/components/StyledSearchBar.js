@@ -11,9 +11,6 @@ const StyledSearchBar = styled.input`
 
   &:focus {
     outline: none;
-
-    &::placeholder {
-    }
   }
 `;
 

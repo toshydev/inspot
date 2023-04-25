@@ -2,64 +2,53 @@ import styled, { css } from "styled-components";
 
 const StyledContainer = styled.div`
   ${({ variant }) => {
-    if (variant === "sticky") {
-      return css`
-        width: 100%;
-      `;
+    switch (variant) {
+      case "sticky":
+        return css`
+          width: 100%;
+        `;
+      case "widget":
+        return css`
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+        `;
+      case "grid":
+        return css`
+          display: grid;
+        `;
+      case "flex":
+        return css`
+          display: flex;
+        `;
     }
   }}
 
-  ${({ variant }) => {
-    if (variant === "widget") {
-      return css`
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-      `;
-    }
-  }}
-
-  ${({ margin }) => {
-    return css`
-      margin: ${margin};
-    `;
-  }}
-
-  ${({ background }) => {
-    return css`
-      background: ${background};
-    `;
-  }}
-
-  ${({ variant, cols, rows }) => {
-    if (variant === "grid") {
-      return css`
-        display: grid;
-        grid-template-columns: ${cols};
-        grid-template-rows: ${rows};
-      `;
-    }
-  }}
-
-  ${({ variant, flex }) => {
-    if (variant === "flex") {
-      return css`
-        display: flex;
-        flex-direction: ${flex};
-      `;
-    }
-  }}
-
-${({ align, justify }) => {
+  ${({
+    align,
+    justify,
+    cols,
+    rows,
+    flex,
+    gap,
+    text,
+    weight,
+    width,
+    background,
+    margin,
+  }) => {
     return css`
       align-items: ${align};
       justify-content: ${justify};
-    `;
-  }}
-
-${({ gap }) => {
-    return css`
+      grid-template-columns: ${cols};
+      grid-template-rows: ${rows};
+      flex-direction: ${flex};
       gap: ${gap};
+      text-align: ${text};
+      font-weight: ${weight};
+      width: ${width};
+      background: ${background};
+      margin: ${margin};
     `;
   }}
 
@@ -71,24 +60,6 @@ ${({ hover }) => {
         }
       `;
     }
-  }}
-
-${({ text }) => {
-    return css`
-      text-align: ${text};
-    `;
-  }}
-
-${({ weight }) => {
-    return css`
-      font-weight: ${weight};
-    `;
-  }}
-
-${({ width }) => {
-    return css`
-      width: ${width};
-    `;
   }}
 `;
 

@@ -14,27 +14,6 @@ const StyledButton = styled.button`
     background: #e2b8ec;
   }
 
-  ${({ position }) => {
-    if (position === "preview") {
-      return css`
-        position: absolute;
-        transform: translate(75vw, -6rem) rotate(-45deg);
-        width: 3rem;
-        height: 3rem;
-      `;
-    }
-  }}
-
-  ${({ position }) => {
-    if (position === "spotlight") {
-      return css`
-        grid-column: 3;
-        grid-row: 5;
-        transform: translate(77vw, -3.5rem) rotate(-45deg);
-      `;
-    }
-  }}
-
   ${({ variant }) => {
     if (variant === "icon") {
       return css`
@@ -46,7 +25,7 @@ const StyledButton = styled.button`
     }
   }}
 
-${({ variant }) => {
+  ${({ variant }) => {
     if (variant === "icon favorite") {
       return css`
         margin: 0;

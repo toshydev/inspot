@@ -12,37 +12,30 @@ const StyledListItem = styled.li`
     }
   }}
 
-  ${({ variant, cols, rows }) => {
+  ${({ variant }) => {
     if (variant === "grid") {
       return css`
         display: grid;
-        grid-template-columns: ${cols};
-        grid-template-rows: ${rows};
       `;
     }
   }}
 
-  ${({ variant, flex, align, justify }) => {
+  ${({ variant }) => {
     if (variant === "flex") {
       return css`
         display: flex;
-        flex-direction: ${flex};
-        align-items: ${align};
-        justify-content: ${justify};
       `;
     }
   }}
 
-${({ align, justify }) => {
-    return css`
-      align-items: ${align};
-      justify-content: ${justify};
-    `;
-  }}
-
-${({ gap }) => {
+${({ gap, cols, rows, flex, align, justify }) => {
     return css`
       gap: ${gap};
+      grid-template-columns: ${cols};
+      grid-template-rows: ${rows};
+      flex-direction: ${flex};
+      align-items: ${align};
+      justify-content: ${justify};
     `;
   }}
 
