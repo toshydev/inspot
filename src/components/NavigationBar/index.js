@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { ActivityBig, HomeBig, TheaterBig } from "../../utils/icons";
+import { ActivityBig, HomeBig, Person, TheaterBig } from "../../utils/icons";
 import StyledLink from "../StyledLink";
 
 const StyledNavBar = styled.nav`
@@ -47,6 +47,16 @@ export default function NavigationBar() {
       >
         <ActivityBig
           color={router.pathname === "/events" ? "#be4bdb" : "#000000"}
+        />
+      </StyledLink>
+      <StyledLink
+        variant="icon"
+        nav="true"
+        href="/profile"
+        aria-label="go to profile page"
+      >
+        <Person
+          color={router.pathname === "/profile" ? "#be4bdb" : "#000000"}
         />
       </StyledLink>
     </StyledNavBar>

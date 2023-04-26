@@ -4,6 +4,7 @@ import BookmarkLink from "../components/BookmarkLink";
 import ListView from "../components/ListView";
 import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
+import StyledContainer from "../components/StyledContainer";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledSection from "../components/StyledSection";
@@ -14,13 +15,12 @@ const StyledLogoHeadline = styled.h1`
   color: var(--accent);
 `;
 export default function HomePage() {
-  const eventsPage = useFilterStore((state) => state.eventsPage);
   const location = useFilterStore((state) => state.location);
   const range = useFilterStore((state) => state.range);
   const { data, isLoading, error } = useSWR(
-    `/api/events?sort=random&geoPoint=${location}&radius=${
+    `/api/suggest?resource=events&geoPoint=${location}&radius=${
       range / 1000
-    }&unit=km&classificationName=arts&locale=*&countryCode=DE&page=${eventsPage}`
+    }&unit=km&locale=*&countryCode=DE`
   );
 
   return (
@@ -32,15 +32,23 @@ export default function HomePage() {
           <BookmarkLink />
         </StyledSection>
       </StyledHeader>
-      <StyledContent>
-        {isLoading ? (
-          <Spinner />
-        ) : error ? (
-          <p>No events found. Please adjust filter.</p>
-        ) : (
-          <ListView type="events" data={data._embedded.events} />
-        )}
-      </StyledContent>
+      <StyledContainer
+        variant="flex"
+        flex="column"
+        align="center"
+        margin="4rem 0 0 0"
+      >
+        <h2>Recommended</h2>
+        <StyledContent variant="spotlight">
+          {isLoading ? (
+            <Spinner />
+          ) : error ? (
+            <p>No events found. Please adjust filter.</p>
+          ) : (
+            <ListView type="events" data={data._embedded.events} />
+          )}
+        </StyledContent>
+      </StyledContainer>
     </>
   );
 }
