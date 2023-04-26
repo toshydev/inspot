@@ -19,6 +19,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.ticketm**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.**",
+      },
     ],
   },
 };

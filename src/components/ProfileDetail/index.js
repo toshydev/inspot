@@ -8,6 +8,8 @@ import StyledCard from "../StyledCard";
 import StyledContainer from "../StyledContainer";
 import StyledSection from "../StyledSection";
 import StyledCardHeadline from "../StyledCardHeadline";
+import Image from "next/image";
+import StyledImage from "../StyledImage";
 
 export default function ProfileDetail({ user }) {
   const savedEvents = useFilterStore((state) => state.savedEvents);
@@ -24,7 +26,19 @@ export default function ProfileDetail({ user }) {
     <>
       <StyledCard variant="profile">
         <StyledSection variant="picture">
-          <Person />
+          {user.image ? (
+            <StyledSection variant="avatar big">
+              <StyledImage
+                variant="avatar"
+                src={user.image}
+                width={50}
+                height={50}
+                alt="avatar"
+              />
+            </StyledSection>
+          ) : (
+            <Person />
+          )}
         </StyledSection>
         <StyledSection variant="rating">
           <p>{reviews && (reviews.data?.length ? reviews.data.length : 0)}</p>
@@ -43,10 +57,6 @@ export default function ProfileDetail({ user }) {
           </StyledContainer>
         </StyledSection>
       </StyledCard>
-      <small>
-        Created:{" "}
-        {new Intl.DateTimeFormat("de-DE").format(new Date(user.created))}
-      </small>
       <StyledContainer variant="flex" flex="column" align="center">
         <StyledCardHeadline variant="spotlight">
           Upcoming Events

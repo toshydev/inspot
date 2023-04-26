@@ -15,65 +15,63 @@ const StyledButton = styled.button`
   }
 
   ${({ variant }) => {
-    if (variant === "icon") {
-      return css`
-        border: none;
-        &:first-child {
-          fill: currentColor;
-        }
-      `;
+    switch (variant) {
+      case "icon":
+        return css`
+          border: none;
+          &:first-child {
+            fill: currentColor;
+          }
+        `;
+      case "icon favorite":
+        return css`
+          margin: 0;
+          padding: 0;
+          border: none;
+
+          &:hover {
+            background: none;
+          }
+        `;
+      case "icon review":
+        return css`
+          width: 2rem;
+          height: 2rem;
+          margin: 0;
+          padding: 0;
+          border: none;
+
+          &:hover {
+            border-radius: 8px;
+          }
+        `;
+      case "star button":
+        return css`
+          width: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: none;
+          border-radius: 50px;
+
+          &:hover {
+            background: #f0f0f0;
+          }
+        `;
+      case "login":
+        return css`
+          color: white;
+          background: var(--accent);
+          border: none;
+          border-radius: 50px;
+          padding: 0.5rem 1rem;
+          box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.5);
+        `;
     }
   }}
 
-  ${({ variant }) => {
-    if (variant === "icon favorite") {
-      return css`
-        margin: 0;
-        padding: 0;
-        border: none;
-
-        &:hover {
-          background: none;
-        }
-      `;
-    }
-  }}
-
-${({ variant }) => {
-    if (variant === "icon review") {
-      return css`
-        width: 2rem;
-        height: 2rem;
-        margin: 0;
-        padding: 0;
-        border: none;
-
-        &:hover {
-          border-radius: 8px;
-        }
-      `;
-    }
-  }}
-
-${({ variant }) => {
-    if (variant === "star button") {
-      return css`
-        width: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        border-radius: 50px;
-
-        &:hover {
-          background: #f0f0f0;
-        }
-      `;
-    }
-  }}
-
-${({ header }) => {
+  ${({ header }) => {
     if (header) {
       return css`
         width: 3rem;

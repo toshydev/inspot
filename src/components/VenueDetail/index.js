@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
 import { TheaterBig } from "../../utils/icons";
@@ -11,6 +10,7 @@ import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
 import StyledCard from "../StyledCard";
+import StyledCardHeadline from "../StyledCardHeadline";
 import StyledContainer from "../StyledContainer";
 import StyledDivider from "../StyledDivider";
 import StyledHeader from "../StyledHeader";
@@ -19,7 +19,6 @@ import StyledImage from "../StyledImage";
 import StyledLink from "../StyledLink";
 import StyledSection from "../StyledSection";
 import VenueData from "../VenueData";
-import StyledCardHeadline from "../StyledCardHeadline";
 
 export default function VenueDetail({ venue, range, distance }) {
   const eventSort = useFilterStore((state) => state.eventSort);
