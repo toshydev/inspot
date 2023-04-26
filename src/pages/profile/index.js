@@ -1,5 +1,6 @@
 import BookmarkLink from "../../components/BookmarkLink";
 import LocationLink from "../../components/LocationLink";
+import LoginButton from "../../components/LoginButton";
 import ProfileDetail from "../../components/ProfileDetail";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
@@ -20,6 +21,7 @@ export default function ProfilePage() {
         </StyledSection>
       </StyledHeader>
       <StyledContent>
+        <LoginButton />
         <ProfileDetail user={user} />
       </StyledContent>
     </>

@@ -7,6 +7,7 @@ import Spinner from "../Spinner";
 import StyledCard from "../StyledCard";
 import StyledContainer from "../StyledContainer";
 import StyledSection from "../StyledSection";
+import StyledCardHeadline from "../StyledCardHeadline";
 
 export default function ProfileDetail({ user }) {
   const savedEvents = useFilterStore((state) => state.savedEvents);
@@ -47,7 +48,9 @@ export default function ProfileDetail({ user }) {
         {new Intl.DateTimeFormat("de-DE").format(new Date(user.created))}
       </small>
       <StyledContainer variant="flex" flex="column" align="center">
-        <h3>Upcoming Events</h3>
+        <StyledCardHeadline variant="spotlight">
+          Upcoming Events
+        </StyledCardHeadline>
         {isLoading ? (
           <Spinner />
         ) : error || !data ? (

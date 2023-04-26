@@ -1,7 +1,9 @@
 import dbConnect from "../../../db/connect";
 import Review from "../../../db/models/Review";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(request, response) {
+  const session = await getServerSession(request, response, authOptions);
   await dbConnect();
   const { id } = request.query;
 

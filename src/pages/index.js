@@ -9,6 +9,7 @@ import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
+import StyledCardHeadline from "../components/StyledCardHeadline";
 
 const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);
@@ -38,7 +39,7 @@ export default function HomePage() {
         align="center"
         margin="4rem 0 0 0"
       >
-        <h2>Recommended</h2>
+        <StyledCardHeadline variant="spotlight">Recommended</StyledCardHeadline>
         <StyledContent variant="spotlight">
           {isLoading ? (
             <Spinner />

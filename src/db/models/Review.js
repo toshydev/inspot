@@ -10,6 +10,7 @@ const reviewSchema = new Schema({
   rating: { type: Number, required: true },
   attended: { type: Boolean, required: true },
   date: { type: Date, required: true },
+  user_id: { type: Schema.Types.ObjectId, required: true },
 });
 
 const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);
