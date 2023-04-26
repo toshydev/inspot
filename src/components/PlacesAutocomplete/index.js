@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 import { useMapStore } from "../../store";
-import StyledFilterSection from "../StyledFilterSection";
 import StyledInputContainer from "../StyledInputContainer";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 import StyledListItem from "../StyledListItem";
 import StyledSearchBar from "../StyledSearchBar";
 
@@ -60,21 +59,17 @@ export default function PlacesAutocomplete({ onAddressSelect }) {
 
   return (
     <>
-      <StyledFilterSection>
-        <StyledInputContainer>
-          <StyledSearchBar
-            aria-label="location search"
-            type="search"
-            value={value}
-            disabled={!ready}
-            onChange={(event) => setValue(event.target.value)}
-            placeholder="Silicon Valley"
-          />
-        </StyledInputContainer>
-      </StyledFilterSection>
-      {status === "OK" && (
-        <StyledListContainer>{renderSuggestions()}</StyledListContainer>
-      )}
+      <StyledInputContainer variant="places">
+        <StyledSearchBar
+          aria-label="location search"
+          type="search"
+          value={value}
+          disabled={!ready}
+          onChange={(event) => setValue(event.target.value)}
+          placeholder="Silicon Valley"
+        />
+      </StyledInputContainer>
+      {status === "OK" && <StyledList>{renderSuggestions()}</StyledList>}
     </>
   );
 }

@@ -9,6 +9,7 @@ export default createGlobalStyle`
 :root {
   --logoFont: ${mPlus1Code.style.fontFamily}, sans-serif;
   --accent: #be4bdb;
+  --secondary: #fab005;
 }
 
   *, *::before, *::after {

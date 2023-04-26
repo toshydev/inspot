@@ -2,18 +2,15 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: 98%;
-  padding: 0.5rem;
-  margin: 0 0.1rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
   position: fixed;
   top: 0;
-  border: 2px solid black;
+  border-bottom: 1px solid #c0c0c0;
   background: white;
-  gap: 1rem;
-  height: min(15vw, 100px);
+  height: 3.5rem;
   z-index: 5;
 `;
 

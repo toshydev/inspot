@@ -1,37 +1,8 @@
-import styled from "styled-components";
 import useSWR from "swr";
 import getRating from "../../utils/getRating";
 import Spinner from "../Spinner";
-
-const StyledContainer = styled.div`
-  background: hotpink;
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-  position: absolute;
-  top: 4rem;
-  right: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
-
-const StyledBox = styled.div`
-  background: deepskyblue;
-  border-radius: 50px;
-  width: 6rem;
-  height: 3rem;
-  position: absolute;
-  top: 5rem;
-  right: 7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
+import StyledContainer from "../StyledContainer";
+import StyledDivider from "../StyledDivider";
 
 export default function VenueData({ venueId }) {
   const { data, isLoading, error } = useSWR(
@@ -42,19 +13,30 @@ export default function VenueData({ venueId }) {
   if (isLoading) return <Spinner />;
   if (error || !data) return <>{error.status}</>;
   return (
-    <>
-      <StyledBox>
-        <p>Reviews:</p>
-        <p>
-          <strong>{data.length}</strong>
-        </p>
-      </StyledBox>
+    <StyledContainer
+      variant="flex"
+      flex="row"
+      text="center"
+      justify="center"
+      gap="1.5rem"
+    >
       <StyledContainer>
-        <p>Rating:</p>
+        <p>
+         <span role="img" aria-label="emoji that indicates a rating">
+           ⭐️
+         </span>
+        </p>
         <p>
           <strong>{rating ? rating : 0}</strong>
         </p>
       </StyledContainer>
-    </>
+      <StyledDivider variant="vertical" />
+      <StyledContainer>
+        <p>
+          <strong>{data.length}</strong>
+        </p>
+        <p>Reviews</p>
+      </StyledContainer>
+    </StyledContainer>
   );
 }

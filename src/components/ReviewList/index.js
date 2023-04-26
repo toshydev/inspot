@@ -1,45 +1,26 @@
-import useSWR from "swr";
 import ReviewCard from "../ReviewCard";
-import Spinner from "../Spinner";
-import StyledListContainer from "../StyledListContainer";
+import StyledList from "../StyledList";
 
-export default function ReviewList({ venueId }) {
-  const reviews = useSWR(`/api/venues/${venueId}`);
-  const { data, isLoading, error } = reviews;
-
-  async function handleDeleteReview(id) {
-    await fetch(id && `/api/venues/${id}`, {
-      method: "DELETE",
-    });
-    reviews.mutate();
-  }
-
-  if (isLoading) return <Spinner />;
-  if (error) return <>{error.status}</>;
-
+export default function ReviewList({ reviews, onDeleteReview, onEditSuccess }) {
   return (
-    <StyledListContainer>
-      {data && data.length > 0 ? (
-        data
-          .slice()
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          )
-          .map((review) => {
-            return (
-              <ReviewCard
-                key={review._id}
-                review={review}
-                onDeleteReview={handleDeleteReview}
-              />
-            );
-          })
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          )
-      ) : (
-        <p>No reviews yet. Be the first to post.</p>
-      )}
-    </StyledListContainer>
+    <StyledList variant="reviews">
+      <h2>Reviews</h2>
+      {reviews
+        .slice()
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map((review) => {
+          return (
+            <ReviewCard
+              key={review._id}
+              review={review}
+              onDeleteReview={onDeleteReview}
+              onEditSuccess={onEditSuccess}
+            />
+          );
+        })
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        )}
+    </StyledList>
   );
 }

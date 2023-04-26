@@ -1,26 +1,17 @@
 import { useState } from "react";
-import styled from "styled-components";
-import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import Spinner from "../Spinner";
+import StyledForm from "../StyledForm";
+import StyledListItem from "../StyledListItem";
+import StyledCard from "../StyledCard";
+import StyledSection from "../StyledSection";
+import StarRating from "../StarRating";
 
-const StyledReviewCard = styled.li`
-  background: #f0f0f0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 2fr;
-  justify-content: space-around;
-  border-radius: 12px;
-  transition: 0.15s;
-`;
-
-export default function ReviewCard({ review, onDeleteReview }) {
+export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
   const [isEdit, setIsEdit] = useState(false);
+  const [rating, setRating] = useState(0);
 
   const { trigger, isMutating } = useSWRMutation(
     review._id && `/api/venues/${review._id}`,
@@ -48,9 +39,12 @@ export default function ReviewCard({ review, onDeleteReview }) {
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
     reviewData.date = new Date();
+    reviewData.rating = rating;
     reviewData.attended = event.target.elements.attended.checked;
     setIsEdit(false);
+
     await trigger(reviewData);
+    onEditSuccess();
   }
 
   if (isMutating) return <Spinner />;
@@ -58,23 +52,17 @@ export default function ReviewCard({ review, onDeleteReview }) {
   return (
     <>
       {isEdit ? (
-        <form onSubmit={handleEditReview}>
+        <StyledForm onSubmit={handleEditReview} variant="edit">
           <EditButton onEdit={() => setIsEdit(!isEdit)} />
           <fieldset>
             <legend>Edit review</legend>
             <label htmlFor="user">Name: </label>
             <input id="user" name="user" defaultValue={review.user}></input>
             <fieldset>
-              <input type="radio" id="one" value={1} name="rating" />
-              <label htmlFor="one">1</label>
-              <input id="two" type="radio" value={2} name="rating" />
-              <label htmlFor="two">2</label>
-              <input id="three" type="radio" value={3} name="rating" />
-              <label htmlFor="three">3</label>
-              <input id="four" type="radio" value={4} name="rating" />
-              <label htmlFor="four">4</label>
-              <input id="five" type="radio" value={5} name="rating" />
-              <label htmlFor="five">5</label>
+              <fieldset>
+                <legend>Rating</legend>
+                <StarRating onSetRating={setRating} />
+              </fieldset>
             </fieldset>
             <label htmlFor="attended">Attended? </label>
             <input type="checkbox" id="attended" name="attended" />
@@ -89,34 +77,58 @@ export default function ReviewCard({ review, onDeleteReview }) {
             <textarea id="text" name="text" defaultValue={review.text} />
           </fieldset>
           <button type="submit">Done</button>
-        </form>
+        </StyledForm>
       ) : (
-        <StyledReviewCard>
-          <DeleteButton id={review._id} onDelete={onDeleteReview} />
-          <EditButton onEdit={() => setIsEdit(!isEdit)} />
-          {review.user && <address>{review.user}</address>}
-          {review.title && <h4>Title: {review.title}</h4>}
-          {review.rating && (
-            <p>
-              Rating: <strong>{review.rating}</strong>
-            </p>
-          )}
-          {review.text && <p>{review.text}</p>}
-          {review.attended && (
-            <p>
-              Attended: <span>✅</span>
-            </p>
-          )}
-          {review.date && (
-            <time
-              dateTime={`${new Intl.DateTimeFormat("de-DE").format(
-                new Date(review.date)
-              )}`}
-            >
-              {new Intl.DateTimeFormat("de-DE").format(new Date(review.date))}
-            </time>
-          )}
-        </StyledReviewCard>
+        <StyledListItem>
+          <StyledCard variant="review">
+            <StyledSection variant="review buttons">
+              <EditButton onEdit={() => setIsEdit(!isEdit)} />
+              <DeleteButton id={review._id} onDelete={onDeleteReview} />
+            </StyledSection>
+            <StyledSection variant="review user">
+              {review.user && <address>{review.user}</address>}
+            </StyledSection>
+            <StyledSection variant="review title">
+              {review.title && <h4>Title: {review.title}</h4>}
+            </StyledSection>
+            <StyledSection variant="review rating">
+              {review.rating && (
+                <p>
+                  Rating: <strong>{review.rating}</strong>
+                </p>
+              )}
+            </StyledSection>
+            <StyledSection variant="review text">
+              {review.text && <p>{review.text}</p>}
+            </StyledSection>
+            <StyledSection variant="review attended">
+              {review.attended && (
+                <p>
+                  Attended:{" "}
+                  <span
+                    role="image"
+                    aria-label="checkmark emoji that indicates if the review is atteded"
+                  >
+                    ✅
+                  </span>
+                </p>
+              )}
+            </StyledSection>
+            <StyledSection variant="review date">
+              {review.date && (
+                <time
+                  dateTime={`${new Intl.DateTimeFormat("de-DE").format(
+                    new Date(review.date)
+                  )}`}
+                >
+                  {new Intl.DateTimeFormat("de-DE").format(
+                    new Date(review.date)
+                  )}
+                </time>
+              )}
+            </StyledSection>
+          </StyledCard>
+        </StyledListItem>
       )}
     </>
   );

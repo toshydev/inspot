@@ -1,11 +1,13 @@
 import useSWR from "swr";
-import BookmarkButton from "../../components/BookmarkButton";
-import EventFilter from "../../components/EventFilter";
-import EventList from "../../components/EventList";
-import LocationButton from "../../components/LocationButton";
+import BookmarkLink from "../../components/BookmarkLink";
+import Filter from "../../components/Filter";
+import ListView from "../../components/ListView";
+import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
+import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import { useFilterStore } from "../../store";
 
 export default function EventListPage() {
@@ -29,18 +31,20 @@ export default function EventListPage() {
   return (
     <>
       <StyledHeader>
-        <h1>Explore</h1>
-        <LocationButton />
-        <BookmarkButton />
+        <StyledHeadline variant="header">Explore</StyledHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <EventFilter />
+        <Filter type="event" />
         {isLoading ? (
           <Spinner />
         ) : error || !data._embedded ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
-          <EventList events={data._embedded.events} />
+          <ListView type="events" data={data._embedded.events} />
         )}
       </StyledContent>
     </>

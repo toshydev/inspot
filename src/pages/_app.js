@@ -1,10 +1,11 @@
 import Geohash from "latlon-geohash";
+import Head from "next/head";
 import { useEffect } from "react";
 import { SWRConfig } from "swr";
 import Layout from "../components/Layout";
-import { useFilterStore } from "../store";
+import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useFilterStore, useWindowStore } from "../store";
 import GlobalStyle from "../styles";
-import Head from "next/head";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -20,7 +21,10 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
-  const { setLocation, currentLocation } = useFilterStore((state) => state);
+  const setLocation = useFilterStore((state) => state.setLocation);
+  const currentLocation = useFilterStore((state) => state.currentLocation);
+  const setWidth = useWindowStore((state) => state.setWidth);
+  const setHeight = useWindowStore((state) => state.setHeight);
 
   useEffect(() => {
     const options = {
@@ -49,14 +53,18 @@ export default function App({ Component, pageProps }) {
     }
   }, [currentLocation, setLocation]);
 
+  const { width, height } = useWindowDimensions();
+
+  useEffect(() => {
+    setWidth(width);
+    setHeight(height);
+  }, [width, height, setWidth, setHeight]);
+
   return (
     <>
       <Head>
         <title>inSpot</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <SWRConfig value={{ fetcher }}>
         <GlobalStyle />

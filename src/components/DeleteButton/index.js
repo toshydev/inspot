@@ -1,35 +1,16 @@
-import styled from "styled-components";
 import { ClearBig } from "../../utils/icons";
-
-const StyledDeleteButton = styled.button`
-  background: transparent;
-  border: 2px solid black;
-  border-radius: 8px;
-  color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: 0.15s;
-  padding: 0;
-
-  &:hover {
-    background: red;
-    border-color: white;
-    color: white;
-  }
-`;
+import StyledButton from "../StyledButton";
 
 export default function DeleteButton({ id, onDelete }) {
   return (
-    <StyledDeleteButton
+    <StyledButton
+      variant="icon review"
+      danger
       type="button"
       onClick={() => onDelete(id)}
       aria-label="delete review"
     >
       <ClearBig />
-    </StyledDeleteButton>
+    </StyledButton>
   );
 }

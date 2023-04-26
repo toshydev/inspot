@@ -1,6 +1,21 @@
 import { create } from "zustand";
 import segments from "./lib/segments";
 
+const useWindowStore = create((set) => {
+  return {
+    width: 0,
+    height: 0,
+    setWidth: (newWidth) =>
+      set(() => {
+        return { width: newWidth };
+      }),
+    setHeight: (newHeight) =>
+      set(() => {
+        return { height: newHeight };
+      }),
+  };
+});
+
 const useMapStore = create(() => {
   return {
     isMapScriptLoaded: false,
@@ -34,7 +49,6 @@ const useFilterStore = create((set) => {
           return 0;
         }
       }),
-    filterMenu: { genre: false, search: false },
     setResource: (name) =>
       set(() => {
         return { resource: `${name[0].toUpperCase()}${name.slice(1)}` };
@@ -167,21 +181,7 @@ const useFilterStore = create((set) => {
           venueKeywords: [],
         };
       }),
-    setFilterMenu: (menu) =>
-      set((state) => {
-        if (menu === "genre") {
-          return {
-            filterMenu: { genre: !state.filterMenu.genre, search: false },
-          };
-        } else if (menu === "search") {
-          return {
-            filterMenu: { genre: false, search: !state.filterMenu.search },
-          };
-        } else {
-          return { filterMenu: { genre: false, search: false } };
-        }
-      }),
   };
 });
 
-export { useFilterStore, useMapStore };
+export { useFilterStore, useMapStore, useWindowStore };

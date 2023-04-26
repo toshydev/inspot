@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import useSWR from "swr";
-import BookmarkButton from "../components/BookmarkButton";
-import LocationButton from "../components/LocationButton";
+import BookmarkLink from "../components/BookmarkLink";
+import ListView from "../components/ListView";
+import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
-import SpotlightList from "../components/SpotlightList";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
+import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
 
 const StyledLogoHeadline = styled.h1`
@@ -25,9 +26,11 @@ export default function HomePage() {
   return (
     <>
       <StyledHeader>
-        <StyledLogoHeadline>inSpot</StyledLogoHeadline>
-        <LocationButton />
-        <BookmarkButton />
+        <StyledLogoHeadline variant="header">inSpot</StyledLogoHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
         {isLoading ? (
@@ -35,7 +38,7 @@ export default function HomePage() {
         ) : error ? (
           <p>No events found. Please adjust filter.</p>
         ) : (
-          <SpotlightList events={data._embedded.events} />
+          <ListView type="events" data={data._embedded.events} />
         )}
       </StyledContent>
     </>

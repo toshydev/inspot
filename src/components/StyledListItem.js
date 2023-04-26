@@ -1,19 +1,53 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledListItem = styled.li`
-  background: #f0f0f0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 50px;
-  transition: 0.15s;
-  justify-content: space-around;
+  ${({ variant, imageHeight }) => {
+    if (variant === "listview") {
+      return css`
+        display: grid;
+        grid-template: repeat(3, ${imageHeight / 3}px) 1fr 1fr / repeat(5, 1fr);
+        background: white;
+        width: 100%;
+      `;
+    }
+  }}
 
-  &:hover {
-    background: #e2b8ec;
-  }
+  ${({ variant }) => {
+    if (variant === "grid") {
+      return css`
+        display: grid;
+      `;
+    }
+  }}
+
+  ${({ variant }) => {
+    if (variant === "flex") {
+      return css`
+        display: flex;
+      `;
+    }
+  }}
+
+${({ gap, cols, rows, flex, align, justify }) => {
+    return css`
+      gap: ${gap};
+      grid-template-columns: ${cols};
+      grid-template-rows: ${rows};
+      flex-direction: ${flex};
+      align-items: ${align};
+      justify-content: ${justify};
+    `;
+  }}
+
+${({ hover }) => {
+    if (hover) {
+      return css`
+        &:hover {
+          background: #e2b8ec;
+        }
+      `;
+    }
+  }}
 `;
 
 export default StyledListItem;

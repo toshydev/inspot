@@ -1,40 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
 import { TheaterBig } from "../../utils/icons";
-import BackLink from "../BackLink";
-import BookmarkButton from "../BookmarkButton";
+import BackButton from "../BackButton";
+import BookmarkLink from "../BookmarkLink";
 import DistanceWidget from "../DistanceWidget";
-import EventList from "../EventList";
-import LikeButton from "../LikeButton";
-import LocationButton from "../LocationButton";
+import FavoriteButton from "../FavoriteButton";
+import ListView from "../ListView";
+import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
+import StyledCard from "../StyledCard";
+import StyledContainer from "../StyledContainer";
+import StyledDivider from "../StyledDivider";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
-import StyledWidgetContainer from "../StyledWidgetContainer";
+import StyledImage from "../StyledImage";
+import StyledLink from "../StyledLink";
+import StyledSection from "../StyledSection";
 import VenueData from "../VenueData";
-
-const StyledSection = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.5rem;
-`;
-
-const StyledAddressSection = styled.div`
-  grid-column: 1 / 4;
-  grid-row: 3;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
 
 const StyledDescription = styled.section`
   padding: 0.5rem;
@@ -43,25 +27,7 @@ const StyledDescription = styled.section`
   width: 98%;
 `;
 
-const StyledFrame = styled.div`
-  grid-column: span 4;
-  grid-row: 1 / 3;
-  margin-left: 1rem;
-`;
-
-const StyledImage = styled(Image)`
-  border-radius: 12px;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
-`;
-
-export default function VenueDetail({
-  venue,
-  range,
-  distance,
-  currentLocation,
-}) {
+export default function VenueDetail({ venue, range, distance }) {
   const eventSort = useFilterStore((state) => state.eventSort);
   const { data, isLoading, error } = useSWR(
     `/api/events/events?venueId=${venue.id}&sort=${eventSort}&locale=*&countryCode=DE`
@@ -74,71 +40,86 @@ export default function VenueDetail({
   return (
     <>
       <StyledHeader>
-        <BackLink />
+        <BackButton />
         <StyledHeadline aria-label={venue.name}>{venue.name}</StyledHeadline>
-        <LocationButton />
-        <BookmarkButton />
+        <LocationLink />
+        <BookmarkLink />
       </StyledHeader>
-      <StyledSection style={{ background: "#f0f0f0" }}>
-        {venueImage ? (
-          <StyledFrame>
+      <StyledCard variant="detail">
+        <StyledSection variant="picture">
+          {venueImage ? (
             <StyledImage
               src={venueImageUrl}
               alt={venue.name}
-              width={250}
-              height={250 / (16 / 9)}
+              width={150}
+              height={150 / (16 / 9)}
             />
-          </StyledFrame>
-        ) : (
-          <TheaterBig />
-        )}
-        <VenueData venueId={venue.id} />
-        <StyledAddressSection>
-          <LikeButton id={venue.id} variant="detail" />
+          ) : (
+            <TheaterBig />
+          )}
+        </StyledSection>
+        <StyledSection variant="rating">
+          <StyledLink href="#reviews" aria-label="go to reviews">
+            <VenueData venueId={venue.id} />
+          </StyledLink>
+        </StyledSection>
+        <StyledSection variant="numbers">
+          <StyledLink href="#reviews" aria-label="go to reviews">
+            <StyledContainer variant="flex" flex="column" text="center">
+              <p>
+                <strong>
+                  {isLoading || error || !data._embedded
+                    ? 0
+                    : data._embedded.events.length}
+                </strong>
+              </p>
+              <h4>Events</h4>
+            </StyledContainer>
+          </StyledLink>
+        </StyledSection>
+        <StyledSection variant="address">
           <address aria-label="address">
             {venue.address.line1}, {venue.city.name}
           </address>
-        </StyledAddressSection>
-        <StyledWidgetContainer
-          style={{
-            gridColumn: "span 4",
-            gridRow: 4,
-          }}
-        >
-          {currentLocation && (
-            <DistanceWidget distance={distance} range={range} />
-          )}
-        </StyledWidgetContainer>
-      </StyledSection>
+        </StyledSection>
+        <StyledSection variant="favorite">
+          <FavoriteButton id={venue.id} />
+        </StyledSection>
+        <StyledSection variant="widget">
+          <DistanceWidget distance={distance} range={range} />
+        </StyledSection>
+        <StyledSection variant="more">
+          <StyledContainer variant="flex" flex="row" justify="center">
+            {venue.social && (
+              <>
+                <h3>Social:</h3>
+                <p aria-label="social">{venue.social.twitter.handle}</p>
+              </>
+            )}
+            {venue.generalInfo && (
+              <>
+                <h3>Information:</h3>
+                <p aria-label="information">{venue.generalInfo.generalRule}</p>
+              </>
+            )}
+            <StyledLink href={venue.url}>More</StyledLink>
+          </StyledContainer>
+        </StyledSection>
+      </StyledCard>
+      <StyledDivider variant="horizontal" />
       <StyledDescription>
-        {venue.social && (
-          <>
-            <h3>Social:</h3>
-            <p aria-label="social">{venue.social.twitter.handle}</p>
-          </>
-        )}
-        {venue.generalInfo && (
-          <>
-            <h3>Information:</h3>
-            <p aria-label="information">{venue.generalInfo.generalRule}</p>
-          </>
-        )}
-        <Link href={venue.url}>More</Link>
-      </StyledDescription>
-      <StyledDescription>
-        <h3>Upcoming Events</h3>
+        <h3 id="events">Upcoming Events</h3>
       </StyledDescription>
       {isLoading ? (
         <Spinner />
       ) : error || !data._embedded ? (
         <p>No upcoming events.</p>
       ) : (
-        <EventList events={data._embedded.events} />
+        <ListView type="events" data={data._embedded.events} />
       )}
-      <StyledDescription>
-        <h3>Reviews</h3>
+      <StyledContainer variant="flex" flex="column" align="center" width="100%">
         <ReviewSection venueId={venue.id} />
-      </StyledDescription>
+      </StyledContainer>
     </>
   );
 }

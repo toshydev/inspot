@@ -1,12 +1,14 @@
 import useSWR from "swr";
-import BookmarkButton from "../../components/BookmarkButton";
-import LocationButton from "../../components/LocationButton";
+import BookmarkLink from "../../components/BookmarkLink";
+import Filter from "../../components/Filter";
+import LocationLink from "../../components/LocationLink";
 import Spinner from "../../components/Spinner";
 import StyledContent from "../../components/StyledContent";
 import StyledHeader from "../../components/StyledHeader";
-import VenueFilter from "../../components/VenueFilter";
-import VenueList from "../../components/VenueList";
+import StyledHeadline from "../../components/StyledHeadline";
+import StyledSection from "../../components/StyledSection";
 import { useFilterStore } from "../../store";
+import ListView from "../../components/ListView";
 
 export default function VenueListPage() {
   const venuesPage = useFilterStore((state) => state.venuesPage);
@@ -20,22 +22,24 @@ export default function VenueListPage() {
       range / 1000
     }&unit=km&keyword=${venueKeywords}&locale=*&countryCode=DE&page=${venuesPage}`
   );
-    
+
   return (
     <>
       <StyledHeader>
-        <h1>Venues</h1>
-        <LocationButton />
-        <BookmarkButton />
+        <StyledHeadline variant="header">Venues</StyledHeadline>
+        <StyledSection variant="links">
+          <LocationLink />
+          <BookmarkLink />
+        </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <VenueFilter />
+        <Filter type="venue" />
         {isLoading ? (
           <Spinner />
         ) : error || !data._embedded ? (
-          <p>No events found. Please adjust filter.</p>
+          <p>No venues found. Please adjust filter.</p>
         ) : (
-          <VenueList venues={data._embedded.venues} />
+          <ListView type="venues" data={data._embedded.venues} />
         )}
       </StyledContent>
     </>

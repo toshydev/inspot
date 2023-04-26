@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const StyledContent = styled.section`
+const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4rem 0;
+  padding-bottom: 4rem;
+  margin-top: 4rem;
   width: 100%;
 `;
 
