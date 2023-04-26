@@ -1,6 +1,7 @@
+import { useSession } from "next-auth/react";
 import { useState } from "react";
+import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
-import { useFilterStore } from "../../store";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import Spinner from "../Spinner";
@@ -11,15 +12,21 @@ import StyledListItem from "../StyledListItem";
 import StyledSection from "../StyledSection";
 
 export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
+  const { data: session } = useSession();
   const [isEdit, setIsEdit] = useState(false);
   const [rating, setRating] = useState(0);
-
-  const user = useFilterStore((state) => state.user);
 
   const { trigger, isMutating } = useSWRMutation(
     review._id && `/api/venues/${review._id}`,
     sendRequest
   );
+
+  const {
+    data: user,
+    isLoading,
+    error,
+  } = useSWR(review.user_id && `/api/review/${review.user_id}`);
+  console.log("user: ", user);
 
   async function sendRequest(url, { arg }) {
     const response = await fetch(url, {
@@ -41,6 +48,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
 
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
+    reviewData.user_id = session.user.id;
     reviewData.user = user.username;
     reviewData.date = new Date();
     reviewData.rating = rating;
@@ -88,7 +96,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
               <DeleteButton id={review._id} onDelete={onDeleteReview} />
             </StyledSection>
             <StyledSection variant="review user">
-              {review.user && <address>{review.user}</address>}
+              {isLoading || error ? <Spinner /> : <small>{user.name}</small>}
             </StyledSection>
             <StyledSection variant="review title">
               {review.title && <h4>Title: {review.title}</h4>}

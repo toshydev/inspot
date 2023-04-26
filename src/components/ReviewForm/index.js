@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useFilterStore } from "../../store";
 import StarRating from "../StarRating";
 import StyledForm from "../StyledForm";
+import { useSession } from "next-auth/react";
 
 export default function ReviewForm({ venueId, onCreateReview }) {
+  const { data: session } = useSession();
   const [rating, setRating] = useState(0);
-  const user = useFilterStore((state) => state.user);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -13,11 +13,10 @@ export default function ReviewForm({ venueId, onCreateReview }) {
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
     reviewData.date = new Date();
-    reviewData.user = user.username;
+    reviewData.user_id = session.user.id;
     reviewData.rating = rating;
     reviewData.parent = venueId;
     reviewData.attended = event.target.elements.attended.checked;
-
     onCreateReview(venueId, reviewData);
 
     event.target.reset();
