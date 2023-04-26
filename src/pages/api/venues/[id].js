@@ -25,7 +25,6 @@ export default async function handler(request, response) {
       await review.save();
       response.status(201).json({ status: "Review created" });
     } catch (error) {
-      console.log(error);
       response.status(400).json({ error: error.message });
     }
   }

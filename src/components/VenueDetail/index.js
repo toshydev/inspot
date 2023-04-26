@@ -19,13 +19,7 @@ import StyledImage from "../StyledImage";
 import StyledLink from "../StyledLink";
 import StyledSection from "../StyledSection";
 import VenueData from "../VenueData";
-
-const StyledDescription = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-`;
+import StyledCardHeadline from "../StyledCardHeadline";
 
 export default function VenueDetail({ venue, range, distance }) {
   const eventSort = useFilterStore((state) => state.eventSort);
@@ -107,9 +101,9 @@ export default function VenueDetail({ venue, range, distance }) {
         </StyledSection>
       </StyledCard>
       <StyledDivider variant="horizontal" />
-      <StyledDescription>
-        <h3 id="events">Upcoming Events</h3>
-      </StyledDescription>
+      <StyledCardHeadline variant="spotlight" id="events">
+        Upcoming Events
+      </StyledCardHeadline>
       {isLoading ? (
         <Spinner />
       ) : error || !data._embedded ? (

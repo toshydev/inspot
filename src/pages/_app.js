@@ -39,7 +39,6 @@ export default function App({ Component, pageProps }) {
       setLocation(hash);
     };
     const errorCallback = (error) => {
-      console.log(error);
       alert("Position could not be determined.");
     };
 

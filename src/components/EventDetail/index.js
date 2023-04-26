@@ -16,13 +16,6 @@ import TimeLeftWidget from "../TimeLeftWidget";
 import StyledContainer from "../StyledContainer";
 import StyledLink from "../StyledLink";
 
-const StyledDescription = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-`;
-
 export default function EventDetail({ event, range, distance }) {
   const { date, formattedDate } = getDatetime(event);
   const eventImage = event.images

@@ -1,9 +1,11 @@
+import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import ReviewForm from "../ReviewForm";
 import ReviewList from "../ReviewList";
 import Spinner from "../Spinner";
 
 export default function ReviewSection({ venueId }) {
+  const { data: session } = useSession();
   const reviews = useSWR(`/api/venues/${venueId}`);
   const { data, isLoading, error, mutate } = reviews;
 
@@ -32,7 +34,12 @@ export default function ReviewSection({ venueId }) {
 
   return (
     <>
-      <ReviewForm venueId={venueId} onCreateReview={handleCreateReview} />
+      {session ? (
+        <ReviewForm venueId={venueId} onCreateReview={handleCreateReview} />
+      ) : (
+        <p>Please log in to write reviews.</p>
+      )}
+
       {isLoading ? (
         <Spinner />
       ) : error ? (

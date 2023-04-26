@@ -18,7 +18,7 @@ const StyledCard = styled.div`
   ${({ variant }) => {
     if (variant === "review") {
       return css`
-        width: 90%;
+        width: 100%;
         grid-template: 2rem repeat(2, 1fr) 2rem / repeat(4, 1fr) 2rem 2rem;
         background: white;
         margin: auto;

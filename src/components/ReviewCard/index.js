@@ -26,7 +26,6 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
     isLoading,
     error,
   } = useSWR(review.user_id && `/api/review/${review.user_id}`);
-  console.log("user: ", user);
 
   async function sendRequest(url, { arg }) {
     const response = await fetch(url, {
@@ -63,7 +62,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
 
   return (
     <>
-      {isEdit ? (
+      {session && session.user.id === review.user_id && isEdit ? (
         <StyledForm onSubmit={handleEditReview} variant="edit">
           <EditButton onEdit={() => setIsEdit(!isEdit)} />
           <fieldset>
@@ -89,12 +88,14 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
           <button type="submit">Done</button>
         </StyledForm>
       ) : (
-        <StyledListItem>
+        <StyledListItem width="90%" margin="1rem">
           <StyledCard variant="review">
-            <StyledSection variant="review buttons">
-              <EditButton onEdit={() => setIsEdit(!isEdit)} />
-              <DeleteButton id={review._id} onDelete={onDeleteReview} />
-            </StyledSection>
+            {session && session.user.id === review.user_id && (
+              <StyledSection variant="review buttons">
+                <EditButton onEdit={() => setIsEdit(!isEdit)} />
+                <DeleteButton id={review._id} onDelete={onDeleteReview} />
+              </StyledSection>
+            )}
             <StyledSection variant="review user">
               {isLoading || error ? <Spinner /> : <small>{user.name}</small>}
             </StyledSection>
