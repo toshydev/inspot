@@ -25,9 +25,7 @@ export default function EventDetail({ event, range, distance }) {
     <>
       <StyledHeader>
         <BackButton />
-        <StyledHeadline variant="header" aria-label={event.name}>
-          {event.name}
-        </StyledHeadline>
+        <StyledHeadline aria-label={event.name}>{event.name}</StyledHeadline>
         <LocationLink />
         <BookmarkLink />
       </StyledHeader>
