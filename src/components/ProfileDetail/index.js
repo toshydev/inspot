@@ -62,7 +62,7 @@ export default function ProfileDetail({ user }) {
         </StyledCardHeadline>
         {isLoading ? (
           <Spinner />
-        ) : error || !data ? (
+        ) : error || !data || !data._embedded ? (
           <p>You have no saved events.</p>
         ) : (
           <ListView type="events" data={data._embedded.events} />
