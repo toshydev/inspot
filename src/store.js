@@ -24,6 +24,11 @@ const useMapStore = create(() => {
 
 const useFilterStore = create((set) => {
   return {
+    user: {
+      username: "playerunknown",
+      created:
+        "Tue Apr 25 2023 15:55:54 GMT+0200 (Central European Summer Time)",
+    },
     resource: "Events",
     savedVenues: [],
     savedEvents: [],

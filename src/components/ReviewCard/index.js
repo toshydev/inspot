@@ -1,17 +1,20 @@
 import { useState } from "react";
 import useSWRMutation from "swr/mutation";
+import { useFilterStore } from "../../store";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import Spinner from "../Spinner";
+import StarRating from "../StarRating";
+import StyledCard from "../StyledCard";
 import StyledForm from "../StyledForm";
 import StyledListItem from "../StyledListItem";
-import StyledCard from "../StyledCard";
 import StyledSection from "../StyledSection";
-import StarRating from "../StarRating";
 
 export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
   const [isEdit, setIsEdit] = useState(false);
   const [rating, setRating] = useState(0);
+
+  const user = useFilterStore((state) => state.user);
 
   const { trigger, isMutating } = useSWRMutation(
     review._id && `/api/venues/${review._id}`,
@@ -38,6 +41,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
 
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
+    reviewData.user = user.username;
     reviewData.date = new Date();
     reviewData.rating = rating;
     reviewData.attended = event.target.elements.attended.checked;
@@ -56,8 +60,6 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
           <EditButton onEdit={() => setIsEdit(!isEdit)} />
           <fieldset>
             <legend>Edit review</legend>
-            <label htmlFor="user">Name: </label>
-            <input id="user" name="user" defaultValue={review.user}></input>
             <fieldset>
               <fieldset>
                 <legend>Rating</legend>

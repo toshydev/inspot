@@ -1,15 +1,19 @@
 import { useState } from "react";
+import { useFilterStore } from "../../store";
 import StarRating from "../StarRating";
 import StyledForm from "../StyledForm";
 
 export default function ReviewForm({ venueId, onCreateReview }) {
   const [rating, setRating] = useState(0);
+  const user = useFilterStore((state) => state.user);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
     reviewData.date = new Date();
+    reviewData.user = user.username;
     reviewData.rating = rating;
     reviewData.parent = venueId;
     reviewData.attended = event.target.elements.attended.checked;
@@ -23,8 +27,6 @@ export default function ReviewForm({ venueId, onCreateReview }) {
     <StyledForm onSubmit={handleSubmit}>
       <fieldset>
         <legend>Write a review</legend>
-        <label htmlFor="user">Name: </label>
-        <input id="user" name="user"></input>
         <fieldset>
           <legend>Rating</legend>
           <StarRating onSetRating={setRating} />

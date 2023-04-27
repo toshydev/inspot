@@ -38,6 +38,14 @@ const StyledCard = styled.div`
     }
   }}
 
+${({ variant }) => {
+    if (variant === "profile") {
+      return css`
+        height: 8rem;
+      `;
+    }
+  }}
+
 ${({ background }) => {
     return css`
       background-image: url(${background});
