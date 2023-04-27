@@ -76,7 +76,7 @@ export default function VenueDetail({ venue, range, distance }) {
           </address>
         </StyledSection>
         <StyledSection variant="favorite">
-          <FavoriteButton id={venue.id} />
+          <FavoriteButton id={venue.id} type="venues" />
         </StyledSection>
         <StyledSection variant="widget">
           <DistanceWidget distance={distance} range={range} />

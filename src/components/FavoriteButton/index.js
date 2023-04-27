@@ -2,7 +2,7 @@ import { useFilterStore } from "../../store";
 import { FavoriteFilled } from "../../utils/icons";
 import StyledButton from "../StyledButton";
 
-export default function LikeButton({ id, type }) {
+export default function FavoriteButton({ id, type }) {
   const savedVenues = useFilterStore((state) => state.savedVenues);
   const savedEvents = useFilterStore((state) => state.savedEvents);
   const toggleSaveVenue = useFilterStore((state) => state.toggleSaveVenue);
