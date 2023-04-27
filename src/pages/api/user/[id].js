@@ -1,5 +1,6 @@
 import dbConnect from "../../../db/connect";
 import Review from "../../../db/models/Review";
+import User from "../../../db/models/User";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -13,5 +14,10 @@ export default async function handler(request, response) {
     }
 
     return response.status(200).json(reviews);
+  }
+  if (request.method === "DELETE") {
+    const reviewsToDelete = await Review.deleteMany({ user_id: id });
+    const userToDelete = await User.findByIdAndDelete(id);
+    response.status(200).json({ Deleted: userToDelete, reviewsToDelete });
   }
 }

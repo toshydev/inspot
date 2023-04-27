@@ -65,6 +65,14 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>inSpot</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="inSpot is a nearby event finder app that can be filtered by genres and tags and lets logged in users write reviews for venues."
+        />
+        <meta
+          name="keywords"
+          content="inSpot,find,events,venues,nearby,near me,ticketmaster,api"
+        />
       </Head>
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>

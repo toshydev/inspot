@@ -25,6 +25,13 @@ const StyledLink = styled(Link)`
           grid-row: 1 / 6;
           grid-column: 1 / 6;
         `;
+      case "privacy":
+        return css`
+          background: var(--secondary);
+          padding: 0.5rem;
+          font-weight: bold;
+          border-radius: 5px;
+        `;
     }
   }}
 
