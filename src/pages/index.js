@@ -4,12 +4,12 @@ import BookmarkLink from "../components/BookmarkLink";
 import ListView from "../components/ListView";
 import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
+import StyledCardHeadline from "../components/StyledCardHeadline";
 import StyledContainer from "../components/StyledContainer";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
 import StyledSection from "../components/StyledSection";
 import { useFilterStore } from "../store";
-import StyledCardHeadline from "../components/StyledCardHeadline";
 
 const StyledLogoHeadline = styled.h1`
   font-family: var(--logoFont);

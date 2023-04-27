@@ -7,6 +7,7 @@ const userSchema = new Schema({
   name: { type: String, required: true },
   email: { type: Date, required: true },
   image: { type: Date, required: true },
+  saved: { type: Schema.Types.Mixed },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

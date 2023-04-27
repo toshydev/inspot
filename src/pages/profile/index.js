@@ -8,11 +8,9 @@ import StyledDivider from "../../components/StyledDivider";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledSection from "../../components/StyledSection";
-import { useFilterStore } from "../../store";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
-  const user = useFilterStore((state) => state.user);
 
   return (
     <>

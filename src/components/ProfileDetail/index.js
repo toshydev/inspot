@@ -5,11 +5,10 @@ import { Person } from "../../utils/icons";
 import ListView from "../ListView";
 import Spinner from "../Spinner";
 import StyledCard from "../StyledCard";
-import StyledContainer from "../StyledContainer";
-import StyledSection from "../StyledSection";
 import StyledCardHeadline from "../StyledCardHeadline";
-import Image from "next/image";
+import StyledContainer from "../StyledContainer";
 import StyledImage from "../StyledImage";
+import StyledSection from "../StyledSection";
 
 export default function ProfileDetail({ user }) {
   const savedEvents = useFilterStore((state) => state.savedEvents);
