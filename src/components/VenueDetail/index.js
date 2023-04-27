@@ -34,7 +34,9 @@ export default function VenueDetail({ venue, range, distance }) {
     <>
       <StyledHeader>
         <BackButton />
-        <StyledHeadline aria-label={venue.name}>{venue.name}</StyledHeadline>
+        <StyledHeadline variant="header" aria-label={venue.name}>
+          {venue.name}
+        </StyledHeadline>
         <LocationLink />
         <BookmarkLink />
       </StyledHeader>
