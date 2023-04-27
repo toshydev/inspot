@@ -65,6 +65,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>inSpot</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="facebook-domain-verification" content="nvo7k1rhrxrskeo7t7ghwgy30truo2" />
       </Head>
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
