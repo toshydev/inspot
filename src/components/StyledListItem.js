@@ -28,7 +28,7 @@ const StyledListItem = styled.li`
     }
   }}
 
-${({ gap, cols, rows, flex, align, justify }) => {
+${({ gap, cols, rows, flex, align, justify, width, margin }) => {
     return css`
       gap: ${gap};
       grid-template-columns: ${cols};
@@ -36,6 +36,8 @@ ${({ gap, cols, rows, flex, align, justify }) => {
       flex-direction: ${flex};
       align-items: ${align};
       justify-content: ${justify};
+      width: ${width};
+      margin: ${margin};
     `;
   }}
 

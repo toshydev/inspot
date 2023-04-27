@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { useFilterStore, useWindowStore } from "../store";
 import GlobalStyle from "../styles";
+import { SessionProvider } from "next-auth/react";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -38,7 +39,6 @@ export default function App({ Component, pageProps }) {
       setLocation(hash);
     };
     const errorCallback = (error) => {
-      console.log(error);
       alert("Position could not be determined.");
     };
 
@@ -66,12 +66,14 @@ export default function App({ Component, pageProps }) {
         <title>inSpot</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <SWRConfig value={{ fetcher }}>
-        <GlobalStyle />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SWRConfig>
+      <SessionProvider session={pageProps.session}>
+        <SWRConfig value={{ fetcher }}>
+          <GlobalStyle />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SWRConfig>
+      </SessionProvider>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import useSWR from "swr";
 import { useFilterStore } from "../../store";
 import { TheaterBig } from "../../utils/icons";
@@ -11,6 +10,7 @@ import LocationLink from "../LocationLink";
 import ReviewSection from "../ReviewSection";
 import Spinner from "../Spinner";
 import StyledCard from "../StyledCard";
+import StyledCardHeadline from "../StyledCardHeadline";
 import StyledContainer from "../StyledContainer";
 import StyledDivider from "../StyledDivider";
 import StyledHeader from "../StyledHeader";
@@ -19,13 +19,6 @@ import StyledImage from "../StyledImage";
 import StyledLink from "../StyledLink";
 import StyledSection from "../StyledSection";
 import VenueData from "../VenueData";
-
-const StyledDescription = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-`;
 
 export default function VenueDetail({ venue, range, distance }) {
   const eventSort = useFilterStore((state) => state.eventSort);
@@ -83,7 +76,7 @@ export default function VenueDetail({ venue, range, distance }) {
           </address>
         </StyledSection>
         <StyledSection variant="favorite">
-          <FavoriteButton id={venue.id} />
+          <FavoriteButton id={venue.id} type="venues" />
         </StyledSection>
         <StyledSection variant="widget">
           <DistanceWidget distance={distance} range={range} />
@@ -107,9 +100,9 @@ export default function VenueDetail({ venue, range, distance }) {
         </StyledSection>
       </StyledCard>
       <StyledDivider variant="horizontal" />
-      <StyledDescription>
-        <h3 id="events">Upcoming Events</h3>
-      </StyledDescription>
+      <StyledCardHeadline variant="spotlight" id="events">
+        Upcoming Events
+      </StyledCardHeadline>
       {isLoading ? (
         <Spinner />
       ) : error || !data._embedded ? (

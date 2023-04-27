@@ -1,26 +1,36 @@
+import { useSession } from "next-auth/react";
 import BookmarkLink from "../../components/BookmarkLink";
 import LocationLink from "../../components/LocationLink";
+import LoginButton from "../../components/LoginButton";
 import ProfileDetail from "../../components/ProfileDetail";
 import StyledContent from "../../components/StyledContent";
+import StyledDivider from "../../components/StyledDivider";
 import StyledHeader from "../../components/StyledHeader";
 import StyledHeadline from "../../components/StyledHeadline";
 import StyledSection from "../../components/StyledSection";
-import { useFilterStore } from "../../store";
 
 export default function ProfilePage() {
-  const user = useFilterStore((state) => state.user);
+  const { data: session } = useSession();
 
   return (
     <>
       <StyledHeader>
-        <StyledHeadline variant="header">@{user.username}</StyledHeadline>
+        <StyledHeadline variant="header">
+          {session ? session.user.name : "Profile"}
+        </StyledHeadline>
         <StyledSection variant="links">
           <LocationLink />
           <BookmarkLink />
         </StyledSection>
       </StyledHeader>
       <StyledContent>
-        <ProfileDetail user={user} />
+        {session ? (
+          <ProfileDetail user={session.user} />
+        ) : (
+          <p>Please sign in to view your profile.</p>
+        )}
+        <StyledDivider variant="horizontal" />
+        <LoginButton />
       </StyledContent>
     </>
   );

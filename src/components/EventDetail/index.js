@@ -1,5 +1,3 @@
-import Link from "next/link";
-import styled from "styled-components";
 import getDatetime from "../../utils/getDatetime";
 import { Picture } from "../../utils/icons";
 import BackButton from "../BackButton";
@@ -8,20 +6,13 @@ import DistanceWidget from "../DistanceWidget";
 import FavoriteButton from "../FavoriteButton";
 import LocationLink from "../LocationLink";
 import StyledCard from "../StyledCard";
+import StyledContainer from "../StyledContainer";
 import StyledHeader from "../StyledHeader";
 import StyledHeadline from "../StyledHeadline";
 import StyledImage from "../StyledImage";
+import StyledLink from "../StyledLink";
 import StyledSection from "../StyledSection";
 import TimeLeftWidget from "../TimeLeftWidget";
-import StyledContainer from "../StyledContainer";
-import StyledLink from "../StyledLink";
-
-const StyledDescription = styled.section`
-  padding: 0.5rem;
-  margin: 0.1rem;
-  border: 2px solid black;
-  width: 98%;
-`;
 
 export default function EventDetail({ event, range, distance }) {
   const { date, formattedDate } = getDatetime(event);

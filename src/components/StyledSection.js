@@ -246,6 +246,17 @@ const StyledSection = styled.div`
           background: #f0f0f0;
           border-radius: 5px;
         `;
+      case "avatar big":
+        return css`
+          width: 7rem;
+          height: 7rem;
+          border-radius: 50%;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(45deg, var(--secondary), var(--accent));
+        `;
     }
   }}
 

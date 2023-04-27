@@ -5,7 +5,9 @@ import { Person } from "../../utils/icons";
 import ListView from "../ListView";
 import Spinner from "../Spinner";
 import StyledCard from "../StyledCard";
+import StyledCardHeadline from "../StyledCardHeadline";
 import StyledContainer from "../StyledContainer";
+import StyledImage from "../StyledImage";
 import StyledSection from "../StyledSection";
 
 export default function ProfileDetail({ user }) {
@@ -23,7 +25,19 @@ export default function ProfileDetail({ user }) {
     <>
       <StyledCard variant="profile">
         <StyledSection variant="picture">
-          <Person />
+          {user.image ? (
+            <StyledSection variant="avatar big">
+              <StyledImage
+                variant="avatar"
+                src={user.image}
+                width={50}
+                height={50}
+                alt="avatar"
+              />
+            </StyledSection>
+          ) : (
+            <Person />
+          )}
         </StyledSection>
         <StyledSection variant="rating">
           <p>{reviews && (reviews.data?.length ? reviews.data.length : 0)}</p>
@@ -42,15 +56,13 @@ export default function ProfileDetail({ user }) {
           </StyledContainer>
         </StyledSection>
       </StyledCard>
-      <small>
-        Created:{" "}
-        {new Intl.DateTimeFormat("de-DE").format(new Date(user.created))}
-      </small>
       <StyledContainer variant="flex" flex="column" align="center">
-        <h3>Upcoming Events</h3>
+        <StyledCardHeadline variant="spotlight">
+          Upcoming Events
+        </StyledCardHeadline>
         {isLoading ? (
           <Spinner />
-        ) : error || !data ? (
+        ) : error || !data || !data._embedded ? (
           <p>You have no saved events.</p>
         ) : (
           <ListView type="events" data={data._embedded.events} />

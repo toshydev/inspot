@@ -1,6 +1,7 @@
+import { useSession } from "next-auth/react";
 import { useState } from "react";
+import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
-import { useFilterStore } from "../../store";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import Spinner from "../Spinner";
@@ -11,15 +12,20 @@ import StyledListItem from "../StyledListItem";
 import StyledSection from "../StyledSection";
 
 export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
+  const { data: session } = useSession();
   const [isEdit, setIsEdit] = useState(false);
   const [rating, setRating] = useState(0);
-
-  const user = useFilterStore((state) => state.user);
 
   const { trigger, isMutating } = useSWRMutation(
     review._id && `/api/venues/${review._id}`,
     sendRequest
   );
+
+  const {
+    data: user,
+    isLoading,
+    error,
+  } = useSWR(review.user_id && `/api/review/${review.user_id}`);
 
   async function sendRequest(url, { arg }) {
     const response = await fetch(url, {
@@ -41,6 +47,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
 
     const formData = new FormData(event.target);
     const reviewData = Object.fromEntries(formData);
+    reviewData.user_id = session.user.id;
     reviewData.user = user.username;
     reviewData.date = new Date();
     reviewData.rating = rating;
@@ -55,7 +62,7 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
 
   return (
     <>
-      {isEdit ? (
+      {session && session.user.id === review.user_id && isEdit ? (
         <StyledForm onSubmit={handleEditReview} variant="edit">
           <EditButton onEdit={() => setIsEdit(!isEdit)} />
           <fieldset>
@@ -81,14 +88,16 @@ export default function ReviewCard({ review, onDeleteReview, onEditSuccess }) {
           <button type="submit">Done</button>
         </StyledForm>
       ) : (
-        <StyledListItem>
+        <StyledListItem width="90%" margin="1rem">
           <StyledCard variant="review">
-            <StyledSection variant="review buttons">
-              <EditButton onEdit={() => setIsEdit(!isEdit)} />
-              <DeleteButton id={review._id} onDelete={onDeleteReview} />
-            </StyledSection>
+            {session && session.user.id === review.user_id && (
+              <StyledSection variant="review buttons">
+                <EditButton onEdit={() => setIsEdit(!isEdit)} />
+                <DeleteButton id={review._id} onDelete={onDeleteReview} />
+              </StyledSection>
+            )}
             <StyledSection variant="review user">
-              {review.user && <address>{review.user}</address>}
+              {isLoading || error ? <Spinner /> : <small>{user.name}</small>}
             </StyledSection>
             <StyledSection variant="review title">
               {review.title && <h4>Title: {review.title}</h4>}

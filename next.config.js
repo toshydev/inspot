@@ -19,6 +19,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.ticketm**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.**",
+      },
     ],
   },
 };

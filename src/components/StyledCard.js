@@ -10,7 +10,7 @@ const StyledCard = styled.div`
         width: 100%;
         height: 100%;
         grid-template: repeat(3, ${imageHeight / 3}px) 1fr 1fr / repeat(6, 1fr);
-        box-shadow: 0px 0px 8px hsl(0deg 0% 0% / 0.25);
+        box-shadow: 0px 0px 1px hsl(0deg 0% 0% / 0.25);
       `;
     }
   }}
@@ -18,7 +18,7 @@ const StyledCard = styled.div`
   ${({ variant }) => {
     if (variant === "review") {
       return css`
-        width: 90%;
+        width: 100%;
         grid-template: 2rem repeat(2, 1fr) 2rem / repeat(4, 1fr) 2rem 2rem;
         background: white;
         margin: auto;

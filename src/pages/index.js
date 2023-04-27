@@ -4,6 +4,7 @@ import BookmarkLink from "../components/BookmarkLink";
 import ListView from "../components/ListView";
 import LocationLink from "../components/LocationLink";
 import Spinner from "../components/Spinner";
+import StyledCardHeadline from "../components/StyledCardHeadline";
 import StyledContainer from "../components/StyledContainer";
 import StyledContent from "../components/StyledContent";
 import StyledHeader from "../components/StyledHeader";
@@ -38,7 +39,7 @@ export default function HomePage() {
         align="center"
         margin="4rem 0 0 0"
       >
-        <h2>Recommended</h2>
+        <StyledCardHeadline variant="spotlight">Recommended</StyledCardHeadline>
         <StyledContent variant="spotlight">
           {isLoading ? (
             <Spinner />
