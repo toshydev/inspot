@@ -8,7 +8,7 @@ export default async function handler(request, response) {
   const { id } = request.query;
 
   if (request.method === "GET") {
-    const reviews = await Review.find({ user: id });
+    const reviews = await Review.find({ user_id: id });
 
     if (!reviews) {
       return response.status(404).json({ status: "Not Found" });
