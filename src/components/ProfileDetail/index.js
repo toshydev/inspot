@@ -13,7 +13,7 @@ import StyledSection from "../StyledSection";
 export default function ProfileDetail({ user }) {
   const savedEvents = useFilterStore((state) => state.savedEvents);
   const savedVenues = useFilterStore((state) => state.savedVenues);
-  const reviews = useSWR(`/api/user/${user.username}`);
+  const reviews = useSWR(`/api/user/${user.id}`);
 
   const startDate = getPreviousDay();
   const endDate = getNextDay();
