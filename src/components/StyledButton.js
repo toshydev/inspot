@@ -68,6 +68,14 @@ const StyledButton = styled.button`
           padding: 0.5rem 1rem;
           box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.5);
         `;
+      case "data delete":
+        return css`
+          background: #a61010;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 0px 0px 2px hsl(0deg 0% 0% / 0.5);
+        `;
     }
   }}
 
