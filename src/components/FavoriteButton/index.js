@@ -13,7 +13,7 @@ export default function FavoriteButton({ id, type }) {
     <StyledButton
       variant="icon favorite"
       type="button"
-      aria-label="save venue"
+      aria-label="save"
       onClick={() => toggleSaveItem(id)}
     >
       <FavoriteFilled
