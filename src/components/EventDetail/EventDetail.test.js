@@ -1,7 +1,6 @@
-import { render, renderHook, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import EventDetail from ".";
 import { testEvents } from "../../lib/mockData";
-import { useFilterStore } from "../../store";
 
 jest.mock("next/router", () => ({
   useRouter() {
@@ -11,47 +10,27 @@ jest.mock("next/router", () => ({
   },
 }));
 
-const { range, currentLocation } = renderHook(() => useFilterStore);
-
-test("renders a title, startDate, startTime, address", () => {
-  render(<EventDetail event={testEvents[0]} />);
+test("renders a heading, back button, save button, location link, favorites link, more link, date, time, address, distance, time left", () => {
+  render(<EventDetail event={testEvents[0]} range={50000} distance={25000} />);
   const title = screen.getByRole("heading", { name: testEvents[0].name });
+  const back = screen.getByRole("button", { name: /back/i });
+  const save = screen.getByRole("button", { name: /save/i });
+  const location = screen.getByRole("link", { name: /location/i });
+  const favorites = screen.getByRole("link", { name: /favorites/i });
+  const more = screen.getByRole("link", { name: /more/i });
   const startDate = screen.getByLabelText(/start date/i);
   const startTime = screen.getByLabelText(/start time/i);
   const address = screen.getByLabelText(/address/i);
+  const distance = screen.getByLabelText(/meters away/i);
 
   expect(title).toBeInTheDocument();
+  expect(back).toBeInTheDocument();
+  expect(save).toBeInTheDocument();
+  expect(location).toBeInTheDocument();
+  expect(favorites).toBeInTheDocument();
+  expect(more).toBeInTheDocument();
   expect(startDate).toBeInTheDocument();
   expect(startTime).toBeInTheDocument();
   expect(address).toBeInTheDocument();
-});
-
-test("renders a description and information if available", () => {
-  render(<EventDetail event={testEvents[0]} />);
-  const description = screen.getByRole("heading", { name: /description/i });
-  const information = screen.getByRole("link", { name: /more/i });
-
-  expect(description).toBeInTheDocument();
-  expect(information).toBeInTheDocument();
-});
-
-test("renders a save button", () => {
-  render(<EventDetail event={testEvents[0]} />);
-  const saveButton = screen.getByRole("button", { name: /save event/i });
-  expect(saveButton).toBeInTheDocument();
-});
-
-test("renders the days, hours or minutes left until event start", () => {
-  render(
-    <EventDetail
-      event={testEvents[0]}
-      range={range}
-      currentLocation={currentLocation}
-      distance={5000}
-    />
-  );
-
-  const timeLeft = screen.getByLabelText(/time left/i);
-
-  expect(timeLeft).toBeInTheDocument();
+  expect(distance).toBeInTheDocument();
 });

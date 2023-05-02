@@ -227,7 +227,7 @@ export const testEvents = [
     },
     dates: {
       start: {
-        localDate: "2023-04-15",
+        localDate: "2023-04-30",
         dateTBD: false,
         dateTBA: false,
         timeTBA: true,

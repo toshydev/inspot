@@ -25,10 +25,17 @@ export default function BookmarkLink() {
 
   const router = useRouter();
   return (
-    <StyledLink variant="icon" header="true" href="/favorites">
+    <StyledLink
+      variant="icon"
+      header="true"
+      href="/favorites"
+      aria-label="go to favorites"
+    >
       {savedEvents.length + savedVenues.length > 0 && (
         <StyledBadge>
-          <small>{savedEvents.length + savedVenues.length}</small>
+          <small aria-label="saved events and saved venues counter">
+            {savedEvents.length + savedVenues.length}
+          </small>
         </StyledBadge>
       )}
       {router.pathname === "/favorites" ? (

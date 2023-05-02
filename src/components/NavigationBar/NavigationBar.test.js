@@ -9,12 +9,14 @@ jest.mock("next/router", () => ({
   },
 }));
 
-test("renders three links, home, venues, events", () => {
+test("renders links to home, venues, events, profile", () => {
   render(<NavigationBar />);
   const homeLink = screen.getByRole("link", { name: /home/i });
   const venuesLink = screen.getByRole("link", { name: /venues/i });
   const eventsLink = screen.getByRole("link", { name: /events/i });
+  const profileLink = screen.getByRole("link", { name: /profile/i });
   expect(homeLink).toBeInTheDocument();
   expect(venuesLink).toBeInTheDocument();
   expect(eventsLink).toBeInTheDocument();
+  expect(profileLink).toBeInTheDocument();
 });
