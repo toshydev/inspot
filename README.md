@@ -30,6 +30,7 @@ icon in the right corner of the bottom nav bar.
 **inSpot** uses the following Tech Stack:
 - React
 - Next.js
+- TypeScript
 - styled-components
 - Jest
 - React Testing Library
