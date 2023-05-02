@@ -1,4 +1,6 @@
-export default function getRating(data) {
+import { Review } from "./types";
+
+export default function getRating(data: Review[]) {
   const dataWithRating = data.filter((entry) => entry.rating);
   const ratings = dataWithRating.map((entry) => entry.rating);
   const sumOfRatings = ratings.reduce(

@@ -1,5 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 import "./User";
+
+interface IAccount {
+  _id: Types.ObjectId;
+  userId: Types.ObjectId;
+}
 
 const { Schema } = mongoose;
 

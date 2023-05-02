@@ -1,4 +1,6 @@
-export default function getImage(images) {
+import { Image } from "./types";
+
+export default function getImage(images: Image[]) {
   const imageWidths = images
     .filter((image) => image.ratio === "16_9")
     .map((filteredImage) => filteredImage.width);
