@@ -1,8 +1,18 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
+
+interface IReview {
+  parent: string;
+  title: string;
+  text: string;
+  rating: number;
+  attended: boolean;
+  date: Date;
+  user_id: Types.ObjectId;
+}
 
 const { Schema } = mongoose;
 
-const reviewSchema = new Schema({
+const reviewSchema = new Schema<IReview>({
   parent: { type: String, required: true },
   title: { type: String, required: true },
   text: { type: String, required: true },

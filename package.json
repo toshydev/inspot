@@ -36,6 +36,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6",
     "swr": "^2.1.2",
+    "touch-cli": "^0.0.1",
     "use-places-autocomplete": "^4.0.0",
     "uuid": "^9.0.0",
     "zustand": "^4.3.7"
@@ -45,9 +46,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/latlon-geohash": "^2.0.0",
+    "@types/react": "^18.2.0",
+    "@types/styled-components": "^5.1.26",
     "eslint-plugin-jest": "^27.1.6",
     "jest": "^29.3.1",
-    "jest-environment-jsdom": "^29.3.1"
+    "jest-environment-jsdom": "^29.3.1",
+    "typescript": "^5.0.4"
   },
   "description": "Event finder app developed with Next.js (incl. Styled Components and Jest, MongoDB, Google Maps API)",
   "nf": {

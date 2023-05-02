@@ -1,5 +1,6 @@
 // mock data for testing purpose, do not review.
-export const testVenues = [
+import { Venue, Event } from "../utils/types";
+export const testVenues: Venue[] = [
   {
     name: "Zentrum am Park",
     type: "venue",
@@ -137,7 +138,7 @@ export const testVenues = [
     },
   },
 ];
-export const testEvents = [
+export const testEvents: Event[] = [
   {
     name: "Jurassic World: The Exhibition",
     type: "event",

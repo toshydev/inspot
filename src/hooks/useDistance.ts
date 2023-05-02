@@ -1,10 +1,16 @@
 import { getDistance } from "geolib";
 import Geohash from "latlon-geohash";
 import { useEffect } from "react";
+import { Event, Venue } from "../utils/types";
 
-export default function useDistance(location, item, setDistance, type) {
+export default function useDistance(
+  location: string,
+  item: Event | Venue,
+  setDistance: (arg0: number) => number,
+  type: string
+) {
   useEffect(() => {
-    if (type === "event") {
+    if ("_embedded" in item) {
       const id = setInterval(() => {
         if (location && item._embedded.venues[0].location) {
           const latLon = Geohash.decode(location);
@@ -20,7 +26,8 @@ export default function useDistance(location, item, setDistance, type) {
         }
       }, 5000);
       return () => clearInterval(id);
-    } else {
+    }
+    if ("location" in item) {
       const id = setInterval(() => {
         if (location && item.location) {
           const latLon = Geohash.decode(location);

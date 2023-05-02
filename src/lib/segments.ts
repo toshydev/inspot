@@ -1,6 +1,7 @@
 // mock data for testing purpose, do not review.
+import { Classification } from "../utils/types";
 
-const segments = [
+const segments: Classification[] = [
   {
     family: false,
     _links: {

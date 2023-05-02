@@ -1,4 +1,6 @@
-export default function getDatetime(data) {
+import { Event } from "./types";
+
+export default function getDatetime(data: Event) {
   let date;
   if (data.dates.start.dateTime) {
     date = new Date(data.dates.start.dateTime);
