@@ -66,3 +66,5 @@ There are many ways to contribute to **inSpot**:
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
 Please read through the [Contribution Guide](https://github.com/toshydev/inspot/blob/main/CODE_OF_CONDUCT.md) ✨. There you'll find a write-up of our content standards and templates for creating your entries.
+
+![Visitors](https://api.visitorbadge.io/api/VisitorHit?user=toshydev&repo=inspot&countColor=%23be4bdb)
