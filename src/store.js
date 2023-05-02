@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import segments from "./lib/segments";
+import segments from "./lib/segments.ts";
 
 const useWindowStore = create((set) => {
   return {
