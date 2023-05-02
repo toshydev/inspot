@@ -40,6 +40,7 @@ icon in the right corner of the bottom nav bar.
 - SWR
 - zustand
 - Rest API
+- Ticketmaster API
 - Google Maps API
 
 ## Getting Started
@@ -58,10 +59,10 @@ icon in the right corner of the bottom nav bar.
 
 There are many ways to contribute to **inSpot**:
 
-- Share your thoughts in the [inSpot Discussions](https://codecademyready.typeform.com/to/hzVIWDgz) to share your ideas about how **inSpot** can be improved!
+- Share your thoughts in the [inSpot Discussions](https://github.com/toshydev/inspot/discussions) to share your ideas about how **inSpot** can be improved!
 - Submit a typo/bug or your feature idea in [inSpot Issues](https://github.com/toshydev/inspot/issues).
 - Submit a Pull Request for an existing Issue.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
-Please read through the [Contribution Guide](https://github.com/Codecademy/docs/blob/main/.github/CONTRIBUTING.md) ✨. There you'll find a write-up of our content standards and templates for creating your entries.
+Please read through the [Contribution Guide](https://github.com/toshydev/inspot/blob/main/CODE_OF_CONDUCT.md) ✨. There you'll find a write-up of our content standards and templates for creating your entries.
