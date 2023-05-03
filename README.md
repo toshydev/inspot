@@ -44,7 +44,7 @@ icon in the right corner of the bottom nav bar.
 - Ticketmaster API
 - Google Maps API
 
-## Getting Started
+### Getting Started
 
 - Clone this repository
 - Set up a MongoDB server
