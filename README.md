@@ -9,7 +9,7 @@
 Whether you're going to a __concert__, an __exhibition__, a __sports__ game or a __theater__ play, you need to know the venue address, when the event starts and where to get the tickets. Instead of looking for the information on the corresponding websites, check **inSpot**. It will give you the most important details to keep you posted on the event in just a few clicks.
 
 ## How to use
-**inSpot** is easy to use.
+**inSpot** is easy to use and optimized for mobile devices. 
 1. Click on the location ![location](https://user-images.githubusercontent.com/91165689/235649924-fc8648d5-4e52-432a-83b0-e9b524dbf2fb.png)
 icon in the upper right corner and set your location by entering a place or let **inSpot** use the GPS function of your device.
 2. Let **inSpot** recommend events near you on by clicking on the __home__ ![home_FILL0_wght400_GRAD0_opsz20](https://user-images.githubusercontent.com/91165689/235650073-faa9c21d-4453-43c8-a68a-b0bdce5e56f8.png)
