@@ -1,6 +1,6 @@
 # Welcome to inSpot contributing guide <!-- omit in toc -->
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [inSpot](https://github.com/inspot) :sparkles:.
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [inSpot](https://github.com/toshydev/inspot) :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -28,11 +28,11 @@ Check to see what [types of contributions](/contributing/types-of-contributions.
 
 #### Create a new issue
 
-If you spot a problem with **inSpot**, [search if an issue already exists](https://github.com/inspot/issues). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
+If you spot a problem with **inSpot**, [search if an issue already exists](https://github.com/toshydev/inspot/issues). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
 
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/inspot/issues) to find one that interests you. You can narrow down the search using `labels` as filters.
+Scan through our [existing issues](https://github.com/toshydev/inspot/issues) to find one that interests you. You can narrow down the search using `labels` as filters.
 
 ### Make Changes
 
@@ -73,7 +73,7 @@ Once you submit your PR, a Docs team member will review your proposal. We may as
 
 Congratulations :tada::tada: **inSpot** thanks you :sparkles:.
 
-Once your PR is merged, your contributions will be publicly visible on the [inSpot GitHub page](https:github.com/inspot).
+Once your PR is merged, your contributions will be publicly visible on the [inSpot GitHub page](https:github.com/toshydev/inspot).
 
 Now that you are part of the **inSpot** community.
 
